@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>正念君的博客</title>
+  
+  <subtitle>嵌入式大杂烩</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zhengnianli.github.io/"/>
+  <updated>2019-06-16T06:04:02.833Z</updated>
+  <id>https://zhengnianli.github.io/</id>
+  
+  <author>
+    <name>ZhengNian</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【RT-Thread笔记】裸机系统与多线程系统</title>
+    <link href="https://zhengnianli.github.io/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/"/>
+    <id>https://zhengnianli.github.io/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/</id>
+    <published>2019-06-16T05:59:36.000Z</published>
+    <updated>2019-06-16T06:04:02.833Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;单片机编程中有&lt;code&gt;裸机系统&lt;/code&gt;与&lt;code&gt;多线程系统&lt;/code&gt;的区别。&lt;/p&gt;
+&lt;h3 id=&quot;裸机系统&quot;&gt;&lt;a href=&quot;#裸机系统&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://zhengnianli.github.io/2019/06/16/hello-world/"/>
+    <id>https://zhengnianli.github.io/2019/06/16/hello-world/</id>
+    <published>2019-06-16T05:49:49.316Z</published>
+    <updated>2019-06-16T05:49:49.317Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
