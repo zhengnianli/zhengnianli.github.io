@@ -4,10 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【RT-Thread笔记】裸机系统与多线程系统, 正念君的博客">
-    <meta name="description" content="单片机编程中有裸机系统与多线程系统的区别。
-裸机系统裸机系统通常分成轮询系统和前后台系统。
-1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 ">
+    <meta name="keywords" content="【C语言笔记】static关键字, 正念君的博客">
+    <meta name="description" content="参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
+C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【RT-Thread笔记】裸机系统与多线程系统 | 正念君的博客</title>
+    <title>【C语言笔记】static关键字 | 正念君的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【RT-Thread笔记】裸机系统与多线程系统
+                        【C语言笔记】static关键字
                     </div>
                 </div>
             </div>
@@ -376,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/嵌入式/" target="_blank">
-                                <span class="chip bg-color">嵌入式</span>
+                            <a href="/tags/C语言/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
                             </a>
                         
                     </div>
@@ -388,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                C语言笔记
                             </a>
                         
                     </div>
@@ -400,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-16
+                    2018-10-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        4 分
                     </div>
                     
                 
@@ -430,160 +429,84 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>单片机编程中有<code>裸机系统</code>与<code>多线程系统</code>的区别。</p>
-<h3 id="裸机系统"><a href="#裸机系统" class="headerlink" title="裸机系统"></a>裸机系统</h3><p>裸机系统通常分成<code>轮询系统</code>和<code>前后台系统</code>。</p>
-<h3 id="1、轮询系统"><a href="#1、轮询系统" class="headerlink" title="1、轮询系统"></a>1、轮询系统</h3><p>轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 1-1所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+                <pre class=" language-c"><code class="language-c">参考：https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>keyeagle<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">6708077</span><span class="token operator">?</span>utm_source<span class="token operator">=</span>copy </code></pre>
+<p>C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变量）或者函数只能在一个源程序中定义一次，如果有重复定义的话编译器就会报错。</p>
+<p>伴随着不同源文件变量和函数之间的相互引用以及相互独立的关系，产生了extern和static关键字。</p>
+<p>下面，详细分析一下static关键字在编写程序时有的三大类用法：</p>
+<h3 id="static定义全局变量"><a href="#static定义全局变量" class="headerlink" title="static定义全局变量"></a>static定义全局变量</h3><p>一个进程在内存中的布局如图1所示：</p>
+<p><a href="https://imgchr.com/i/V5F0nf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5F0nf.md.png" alt="V5F0nf.md.png"></a></p>
+<p>其中<code>.text段</code>保存进程所执行的程序二进制文件，<code>.data段</code>保存进程所有的已初始化的全局变量，<code>.bss段</code>保存进程未初始化的全局变量（其他段中还有很多乱七八糟的段，暂且不表）。在进程的整个生命周期中，.data段和.bss段内的数据时跟整个进程同生共死的，也就是在进程结束之后这些数据才会寿终就寝。</p>
+<p>当一个进程的全局变量被声明为static之后，它的中文名叫<code>静态全局变量</code>。静态全局变量和其他的全局变量的存储地点并没有区别，都是在.data段（已初始化）或者.bss段（未初始化）内，但是它只在定义它的源文件内有效，其他源文件无法访问它。所以，普通全局变量穿上static外衣后，它就变成了新娘，已心有所属，只能被定义它的源文件（新郎）中的变量或函数访问。</p>
+<p>以下是示例程序：</p>
+<p>file1.h如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">void</span> <span class="token function">printStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>我们在file1.c中定义一个静态全局变量hello, 供file1.c中的函数printStr访问。</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"file1.h"</span></span>
+
+<span class="token keyword">static</span> <span class="token keyword">char</span><span class="token operator">*</span> hello <span class="token operator">=</span> <span class="token string">"hello ZhengNian!"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">printStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 硬件相关初始化 */</span>
- <span class="token function">HardWareInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token comment" spellcheck="true">/* 无限循环 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 处理事情 1 */</span>
-   <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">/* 处理事情 2 */</span>
-   <span class="token function">DoSomethingg2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">/* 处理事情 3 */</span>
-   <span class="token function">DoSomethingg3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> hello<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>轮询系统是一种非常简单的软件结构，通常只适用于那些只需要顺序执行代码且不需要外部事件来驱动的就能完成的事情。在代码清单 1-1 中，如果只是实现 LED 翻转，串口输出，液晶显示等这些操作，那么使用轮询系统将会非常完美。但是，如果加入了按键操作等需要检测外部信号的事件，用来模拟紧急报警，那么整个系统的实时响应能力就不会那么好了。</p>
-<p>假设DoSomethingg3 是按键扫描，当外部按键被按下，相当于一个警报，这个时候，需要立马响 应 ， 并 做 紧 急 处 理 ， 而 这 个 时 候 程 序 刚 好 执 行 到 DoSomethingg1 ， 要 命 的 是DoSomethingg1 需要执行的时间比较久，久到按键释放之后都没有执行完毕，那么当执行到 DoSomethingg3 的时候就会丢失掉一次事件。足见，轮询系统只适合顺序执行的功能代码，当有外部事件驱动时，实时性就会降低。</p>
-<h3 id="2、前后台系统"><a href="#2、前后台系统" class="headerlink" title="2、前后台系统"></a>2、前后台系统</h3><p>相比轮询系统，前后台系统是在轮询系统的基础上加入了中断。外部事件的响应在中断里面完成，事件的处理还是回到轮询系统中完成，中断在这里我们称为前台， main 函数里面的无限循环我们称为后台，大概的伪代码见代码清单 1-2所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> flag1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<p>main.c如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"file1.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token function">printStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> hello<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>main.c是我们的主程序所在文件，main.c中如果引用hello会编译出错，报错如下：</p>
+<p><a href="https://imgchr.com/i/V5knUg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5knUg.md.png" alt="V5knUg.md.png"></a></p>
+<p>如果我们将main.c改为下面的形式：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"file1.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token function">printStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>则会顺利编译连接。运行结果如下：</p>
+<p><a href="https://imgchr.com/i/V5ku5Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5ku5Q.md.png" alt="V5ku5Q.md.png"></a></p>
+<h3 id="static定义局部变量"><a href="#static定义局部变量" class="headerlink" title="static定义局部变量"></a>static定义局部变量</h3><p>static局部变量中文名叫静态局部变量。它与普通的局部变量比起来有如下几个区别：</p>
+<p>（1）位置：静态局部变量被编译器放在全局存储区.data（注意：不在.bss段内，原因见（3）），所以它虽然是局部的，但是在程序的整个生命周期中存在。</p>
+<p>（2）访问权限：静态局部变量只能被其作用域内的变量或函数访问。也就是说虽然它会在程序的整个生命周期中存在，由于它是static的，它不能被其他的函数和源文件访问。</p>
+<p>（3）值：静态局部变量如果没有被用户初始化，则会被编译器自动赋值为0，以后每次调用静态局部变量的时候都用上次调用后的值。这个比较好理解，每次函数调用静态局部变量的时候都修改它然后离开，下次读的时候从全局存储区读出的静态局部变量就是上次修改后的值。</p>
+<p>以下是示例程序：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> normal_var <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token keyword">static</span> <span class="token keyword">int</span> static_var <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"normal_var:%d  static_var:%d\n"</span><span class="token punctuation">,</span> normal_var<span class="token punctuation">,</span> static_var<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ normal_var<span class="token operator">++</span><span class="token punctuation">;</span>
+ static_var<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 硬件相关初始化 */</span>
- <span class="token function">HardWareInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> i<span class="token punctuation">;</span>
 
- <span class="token comment" spellcheck="true">/* 无限循环 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">/* 处理事情 1 */</span>
-     <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">/* 处理事情 2 */</span>
-     <span class="token function">DoSomethingg2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">/* 处理事情 3 */</span>
-     <span class="token function">DoSomethingg3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+   <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token function">ISR1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">/* 如果事件处理时间很短，则在中断里面处理
- 如果事件处理时间比较长，在回到后台处理 */</span>
- <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag2 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-
- <span class="token comment" spellcheck="true">/* 如果事件处理时间很短，则在中断里面处理
- 如果事件处理时间比较长，在回到后台处理 */</span>
- <span class="token function">DoSomething2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag3 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">/* 如果事件处理时间很短，则在中断里面处理
- 如果事件处理时间比较长，在回到后台处理 */</span>
- <span class="token function">DoSomething3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>在顺序执行后台程序的时候，如果有中断来临，那么中断会打断后台程序的正常执行流，转而去执行中断服务程序，在中断服务程序里面标记事件，如果事件要处理的事情很简短，则可在中断服务程序里面处理，如果事件要处理的事情比较多，则返回到后台程序里面处理。</p>
-<p>虽然事件的响应和处理是分开了，但是事件的处理还是在后台里面顺序执行的，但相比轮询系统，前后台系统确保了事件不会丢失，再加上中断具有可嵌套的功能，这可以大大的提高程序的实时响应能力。在大多数的中小型项目中，前后台系统运用的好，堪称有操作系统的效果。</p>
-<h3 id="多线程系统"><a href="#多线程系统" class="headerlink" title="多线程系统"></a>多线程系统</h3><p>相比前后台系统，多线程系统的事件响应也是在中断中完成的，但是事件的处理是在线程中完成的。在多线程系统中，线程跟中断一样，也具有优先级，优先级高的线程会被优先执行。</p>
-<p>当一个紧急的事件在中断被标记之后，如果事件对应的线程的优先级足够高，就会立马得到响应。相比前后台系统，多线程系统的实时性又被提高了。多线程系统大概的伪代码具体见代码清单 1-3所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> flag1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 硬件相关初始化 */</span>
- <span class="token function">HardWareInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token comment" spellcheck="true">/* OS 初始化 */</span>
- <span class="token function">RTOSInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token comment" spellcheck="true">/* OS 启动，开始多线程调度，不再返回 */</span>
- <span class="token function">RTOSStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag2 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag3 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 无限循环，不能返回 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 线程实体 */</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">DoSomething2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 无限循环，不能返回 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 线程实体 */</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">DoSomething3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 无限循环，不能返回 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 线程实体 */</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>相比前后台系统中后台顺序执行的程序主体，在多线程系统中，根据程序的功能，我们把这个程序主体分割成一个个独立的，无限循环且不能返回的小程序，这个小程序我们称之为<code>线程</code>。</p>
-<p>每个线程都是独立的，互不干扰的，且具备自身的优先级，它由操作系统调度管理。加入操作系统后，我们在编程的时候不需要精心地去设计程序的执行流，不用担心每个功能模块之间是否存在干扰。</p>
-<p>加入了操作系统，我们的编程反而变得简单了。整个系统随之带来的额外开销就是操作系统占据的那一丁点的 FLASH 和 RAM。现如今，单片机的 FLASH 和 RAM 是越来越大，完全足以抵挡 RTOS 那点开销。</p>
-<p>轮询、前后台和多线程系统软件模型区别：</p>
-<p><a href="https://imgchr.com/i/VTw6V1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/VTw6V1.md.png" alt="VTw6V1.md.png"></a></p>
-<p>以上是关于裸机系统与多线程系统的笔记，摘抄于《RT-Thread内核实现与应用开发实践指南》一书。</p>
+<p>运行结果如下：</p>
+<p><a href="https://imgchr.com/i/V5kl2n" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5kl2n.md.png" alt="V5kl2n.md.png"></a></p>
+<p>可以看出，函数每次被调用，普通局部变量都是重新分配，而静态局部变量保持上次调用的值不变。</p>
+<p>需要注意的是由于static局部变量的这种特性，使得含静态局部变量的函数变得不可重入，即每次调用可能会产生不同的结果。这在多线程编程时可能会成为一种隐患。需要多加注意。</p>
+<h3 id="static定义函数"><a href="#static定义函数" class="headerlink" title="static定义函数"></a>static定义函数</h3><p>当你的程序中有很多个源文件的时候，你肯定会让某个源文件只提供一些外界需要的接口，其他的函数可能是为了实现这些接口而编写，这些其他的函数你可能并不希望被外界（非本源文件）所看到，这时候就可以用static修饰这些“其他的函数”。</p>
+<p>所以static函数的作用域是本源文件。static定义函数与static定义全局变量类似，不再举例说明，可参考“static定义全局变量”的程序定义全局变量的套路。</p>
+<p>以上就是关于static的三种用法，如有错误，欢迎指出！</p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
@@ -743,9 +666,9 @@
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《【RT-Thread笔记】裸机系统与多线程系统》
+                    《【C语言笔记】static关键字》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/" property="cc:attributionName" rel="cc:attributionURL">
                 ZhengNian
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -786,48 +709,50 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/">
+                <a href="/2018/10/30/c-yu-yan-bi-ji-guan-yu-you-fu-hao-shu-yu-wu-fu-hao-shu-de-yi-xie-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【RT-Thread笔记】裸机系统与多线程系统">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【C语言笔记】关于有符号数与无符号数的一些总结">
                         
-                        <span class="card-title">【RT-Thread笔记】裸机系统与多线程系统</span>
+                        <span class="card-title">【C语言笔记】关于有符号数与无符号数的一些总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单片机编程中有裸机系统与多线程系统的区别。
-裸机系统裸机系统通常分成轮询系统和前后台系统。
-1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 
+                            有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
+请看如下代码：
+#include &lt;stdio.h>
+int main(void)
+{
+    unsigned int a = 6;
+    int b
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -841,26 +766,33 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/12/07/c-yu-yan-bi-ji-ru-he-cha-kan-shu-ju-lei-xing-fan-wei/">
+                <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】如何查看数据类型范围？">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                         
-                        <span class="card-title">【C语言笔记】如何查看数据类型范围？</span>
+                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            知识点一：查看整数范围当前的编译环境下，你可能不知道int的数据范围是多少，或者记不清无符号短整型的范围是0~65535还是0~65536?这时候就可以按照如下程序进行输出查看：
-#include &lt;stdio.h>
-#include
+                            前言数组与指针是不等价的，如：
+
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
                             </span>
                         <span class="publish-author">
                             

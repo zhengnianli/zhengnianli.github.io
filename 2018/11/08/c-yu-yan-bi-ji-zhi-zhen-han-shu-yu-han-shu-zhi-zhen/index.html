@@ -4,8 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 正念君的博客">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="【C语言笔记】指针函数与函数指针？, 正念君的博客">
+    <meta name="description" content="前言函数、指针这两个词结合的顺序不同其意义也不同，即指针函数与函数指针的意义不同。
+###指针函数
+指针函数的本质是一个函数，其返回值是一个指针。示例如下：
+int *pfun(int, int);
+由于“*”的优先级低于“()”的优先级，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | 正念君的博客</title>
+    <title>【C语言笔记】指针函数与函数指针？ | 正念君的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -257,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        【C语言笔记】指针函数与函数指针？
                     </div>
                 </div>
             </div>
@@ -372,12 +376,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C语言/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                C语言笔记
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -385,21 +402,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-16
+                    2018-11-08
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        73
+                        802
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -415,15 +432,79 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>函数、指针这两个词结合的顺序不同其意义也不同，即指针函数与函数指针的意义不同。</p>
+<p>###指针函数</p>
+<p>指针函数的本质是一个函数，其返回值是一个指针。示例如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span><span class="token function">pfun</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>由于“*”的优先级低于“()”的优先级，因而pfun首先和后面的“()”结合，也就意味着，pfun是一个函数。即：<code>int *(pfun(int, int));</code></p>
+<p>接着再和前面的“*”结合，说明这个函数的返回值是一个指针。由于前面还有一个int，也就是说，pfun是一个返回值为整型指针的函数。</p>
+<p>指针函数示例程序如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token comment" spellcheck="true">//这是一个指针函数的声明</span>
+<span class="token keyword">int</span> <span class="token operator">*</span><span class="token function">pfun</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token operator">/</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+ <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+
+ <span class="token comment" spellcheck="true">//指针函数的调用</span>
+ p <span class="token operator">=</span> <span class="token function">pfun</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"array[%d] = %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//这是一个指针函数，其返回值为指向整形的指针</span>
+<span class="token keyword">int</span> <span class="token operator">*</span><span class="token function">pfun</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+
+ <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果如下：</p>
+<p><a href="https://imgchr.com/i/V5wndf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5wndf.md.png" alt="V5wndf.md.png"></a></p>
+<p>主函数中，把一个数组的首地址与数组长度作为实参传入指针函数pfun里，把指针函数的返回值（即指向数组的指针）赋给整形指针p。最后使用指针p来遍历数组元素并打印输出。</p>
+<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p>函数指针其本质是一个指针变量，该指针变量指向一个函数。C程序在编译时，每一个函数都有一个入口地址，该入口地址就是函数指针所指向的地址。函数指针示例：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*声明一个函数指针 */</span>
+<span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>fptr<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">/* 函数指针指向函数func */</span>
+fptr <span class="token operator">=</span> func<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 或者fptr = &amp;func;</span></code></pre>
+<p>func是一个函数名，那么func与&amp;func都表示的是函数的入口地址。同样的，在函数的调用中可以使用：方式一：func()，也可以使用方式二：(*fun)()。这两种调用方式是等价的，只是我们平时大多都习惯用方式一的调用方法。</p>
+<p>至于为什么func与&amp;func的含义相同，<code>《嵌入式Linux上的C语言编程实践》</code>这本书中有如下解释：</p>
+<blockquote>
+<p>对于函数func来说，函数的名称就是函数代码区的常量，对它取地址(&amp;func)可以得到函数代码区的地址，同时，func本身也可以视为函数代码区的地址。因此，函数名称和对其取地址其含义是相同的。</p>
+</blockquote>
+<p>函数指针示例程序如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>fptr<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义一个函数指针</span>
+ <span class="token keyword">int</span> res<span class="token punctuation">;</span>
+ fptr <span class="token operator">=</span> add<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//函数指针fptr指向函数add</span>
+
+ <span class="token comment" spellcheck="true">/* 通过函数指针调用函数 */</span>
+ res <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>fptr<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//等价于res = fptr(1,2);</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a + b = %d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>int add(int a, int b)<br>{
+ return a + b;<br>}</p>
+<p>程序运行结果如下：</p>
+<p><a href="https://imgchr.com/i/V5wJLq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5wJLq.md.png" alt="V5wJLq.md.png"></a></p>
+<p>以上就是关于指针函数与函数指针的简单区分。其中，函数指针广泛应用于嵌入式软件开发中，其常用的两个用途：调用函数和做函数的参数。</p>
+<hr>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
             </div>
             <hr>
@@ -581,9 +662,9 @@
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《Hello World》
+                    《【C语言笔记】指针函数与函数指针？》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/16/hello-world/" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/11/08/c-yu-yan-bi-ji-zhi-zhen-han-shu-yu-han-shu-zhi-zhen/" property="cc:attributionName" rel="cc:attributionURL">
                 ZhengNian
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -626,33 +707,38 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/">
+                <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【RT-Thread笔记】裸机系统与多线程系统">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
                         
-                        <span class="card-title">【RT-Thread笔记】裸机系统与多线程系统</span>
+                        <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单片机编程中有裸机系统与多线程系统的区别。
-裸机系统裸机系统通常分成轮询系统和前后台系统。
-1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 
+                            首先，看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+ int a[5] = {0,1,2,3,4};
+
+ printf("a = %d , &amp;a = %d \n", a, &amp;a
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-16
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
@@ -662,8 +748,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -674,37 +760,54 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/16/hello-world/">
+                <a href="/2018/10/30/c-yu-yan-bi-ji-guan-yu-you-fu-hao-shu-yu-wu-fu-hao-shu-de-yi-xie-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【C语言笔记】关于有符号数与无符号数的一些总结">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">【C语言笔记】关于有符号数与无符号数的一些总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
+请看如下代码：
+#include &lt;stdio.h>
+int main(void)
+{
+    unsigned int a = 6;
+    int b
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            ZhengNian
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -822,7 +925,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">1.6k</span>
+                <span class="white-color">9.9k</span>
             
 
             

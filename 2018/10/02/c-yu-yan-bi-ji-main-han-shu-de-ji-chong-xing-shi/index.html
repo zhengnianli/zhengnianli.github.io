@@ -4,10 +4,18 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【RT-Thread笔记】裸机系统与多线程系统, 正念君的博客">
-    <meta name="description" content="单片机编程中有裸机系统与多线程系统的区别。
-裸机系统裸机系统通常分成轮询系统和前后台系统。
-1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 ">
+    <meta name="keywords" content="【C语言笔记】main()函数的几种形式, 正念君的博客">
+    <meta name="description" content="在C语言中，main函数是程序的入口。其有四种写法，即：
+//写法一
+main()
+{
+ printf(&#34;Hello notepad++ \n&#34;);
+}
+
+//写法二
+int main(void)
+{
+ printf(&#34;Hello note">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【RT-Thread笔记】裸机系统与多线程系统 | 正念君的博客</title>
+    <title>【C语言笔记】main()函数的几种形式 | 正念君的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +267,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【RT-Thread笔记】裸机系统与多线程系统
+                        【C语言笔记】main()函数的几种形式
                     </div>
                 </div>
             </div>
@@ -376,8 +384,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/嵌入式/" target="_blank">
-                                <span class="chip bg-color">嵌入式</span>
+                            <a href="/tags/C语言/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
                             </a>
                         
                     </div>
@@ -388,8 +396,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                C语言笔记
                             </a>
                         
                     </div>
@@ -400,21 +408,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-16
+                    2018-10-02
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        407
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        1 分
                     </div>
                     
                 
@@ -430,160 +438,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>单片机编程中有<code>裸机系统</code>与<code>多线程系统</code>的区别。</p>
-<h3 id="裸机系统"><a href="#裸机系统" class="headerlink" title="裸机系统"></a>裸机系统</h3><p>裸机系统通常分成<code>轮询系统</code>和<code>前后台系统</code>。</p>
-<h3 id="1、轮询系统"><a href="#1、轮询系统" class="headerlink" title="1、轮询系统"></a>1、轮询系统</h3><p>轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 1-1所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+                <p>在C语言中，main函数是程序的入口。其有四种写法，即：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//写法一</span>
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 硬件相关初始化 */</span>
- <span class="token function">HardWareInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
- <span class="token comment" spellcheck="true">/* 无限循环 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 处理事情 1 */</span>
-   <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">/* 处理事情 2 */</span>
-   <span class="token function">DoSomethingg2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token comment" spellcheck="true">/* 处理事情 3 */</span>
-   <span class="token function">DoSomethingg3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>轮询系统是一种非常简单的软件结构，通常只适用于那些只需要顺序执行代码且不需要外部事件来驱动的就能完成的事情。在代码清单 1-1 中，如果只是实现 LED 翻转，串口输出，液晶显示等这些操作，那么使用轮询系统将会非常完美。但是，如果加入了按键操作等需要检测外部信号的事件，用来模拟紧急报警，那么整个系统的实时响应能力就不会那么好了。</p>
-<p>假设DoSomethingg3 是按键扫描，当外部按键被按下，相当于一个警报，这个时候，需要立马响 应 ， 并 做 紧 急 处 理 ， 而 这 个 时 候 程 序 刚 好 执 行 到 DoSomethingg1 ， 要 命 的 是DoSomethingg1 需要执行的时间比较久，久到按键释放之后都没有执行完毕，那么当执行到 DoSomethingg3 的时候就会丢失掉一次事件。足见，轮询系统只适合顺序执行的功能代码，当有外部事件驱动时，实时性就会降低。</p>
-<h3 id="2、前后台系统"><a href="#2、前后台系统" class="headerlink" title="2、前后台系统"></a>2、前后台系统</h3><p>相比轮询系统，前后台系统是在轮询系统的基础上加入了中断。外部事件的响应在中断里面完成，事件的处理还是回到轮询系统中完成，中断在这里我们称为前台， main 函数里面的无限循环我们称为后台，大概的伪代码见代码清单 1-2所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> flag1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
+<span class="token comment" spellcheck="true">//写法二</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 硬件相关初始化 */</span>
- <span class="token function">HardWareInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
- <span class="token comment" spellcheck="true">/* 无限循环 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">/* 处理事情 1 */</span>
-     <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">/* 处理事情 2 */</span>
-     <span class="token function">DoSomethingg2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">/* 处理事情 3 */</span>
-     <span class="token function">DoSomethingg3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token function">ISR1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//写法三</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">/* 如果事件处理时间很短，则在中断里面处理
- 如果事件处理时间比较长，在回到后台处理 */</span>
- <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token function">ISR2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//写法四</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag2 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-
- <span class="token comment" spellcheck="true">/* 如果事件处理时间很短，则在中断里面处理
- 如果事件处理时间比较长，在回到后台处理 */</span>
- <span class="token function">DoSomething2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag3 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">/* 如果事件处理时间很短，则在中断里面处理
- 如果事件处理时间比较长，在回到后台处理 */</span>
- <span class="token function">DoSomething3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>在顺序执行后台程序的时候，如果有中断来临，那么中断会打断后台程序的正常执行流，转而去执行中断服务程序，在中断服务程序里面标记事件，如果事件要处理的事情很简短，则可在中断服务程序里面处理，如果事件要处理的事情比较多，则返回到后台程序里面处理。</p>
-<p>虽然事件的响应和处理是分开了，但是事件的处理还是在后台里面顺序执行的，但相比轮询系统，前后台系统确保了事件不会丢失，再加上中断具有可嵌套的功能，这可以大大的提高程序的实时响应能力。在大多数的中小型项目中，前后台系统运用的好，堪称有操作系统的效果。</p>
-<h3 id="多线程系统"><a href="#多线程系统" class="headerlink" title="多线程系统"></a>多线程系统</h3><p>相比前后台系统，多线程系统的事件响应也是在中断中完成的，但是事件的处理是在线程中完成的。在多线程系统中，线程跟中断一样，也具有优先级，优先级高的线程会被优先执行。</p>
-<p>当一个紧急的事件在中断被标记之后，如果事件对应的线程的优先级足够高，就会立马得到响应。相比前后台系统，多线程系统的实时性又被提高了。多线程系统大概的伪代码具体见代码清单 1-3所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> flag1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> flag3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<p>前面三种不带参数的都是比较常见的写法。第四种写法带的两个参数是什么意思呢？下面简单来介绍一下。首先，主函数不能被其他函数调用，所以形参<code>argc</code>与<code>argv</code>的实际值就不能从其他函数传入，那么其实参应该从哪传入呢？是从操作系统命令行上获得的。因此这两个参数也被称为命令行参数，<code>argc</code>为命令行参数的个数，<code>argv</code>为字符串命令行参数的首地址。</p>
+<p>下面看一个代码实例：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//写法四</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 硬件相关初始化 */</span>
- <span class="token function">HardWareInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> i<span class="token punctuation">;</span>
 
- <span class="token comment" spellcheck="true">/* OS 初始化 */</span>
- <span class="token function">RTOSInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token comment" spellcheck="true">/* OS 启动，开始多线程调度，不再返回 */</span>
- <span class="token function">RTOSStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag2 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">ISR3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 置位标志位 */</span>
- flag3 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">DoSomething1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 无限循环，不能返回 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 线程实体 */</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-   <span class="token punctuation">}</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;&lt;&lt;&lt; argument list >>>>\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"argc = %d\n"</span><span class="token punctuation">,</span> argc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> argc<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"argv[%d] = %s\n"</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span> argv<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">void</span> <span class="token function">DoSomething2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 无限循环，不能返回 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 线程实体 */</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">DoSomething3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">/* 无限循环，不能返回 */</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">/* 线程实体 */</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>flag3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>相比前后台系统中后台顺序执行的程序主体，在多线程系统中，根据程序的功能，我们把这个程序主体分割成一个个独立的，无限循环且不能返回的小程序，这个小程序我们称之为<code>线程</code>。</p>
-<p>每个线程都是独立的，互不干扰的，且具备自身的优先级，它由操作系统调度管理。加入操作系统后，我们在编程的时候不需要精心地去设计程序的执行流，不用担心每个功能模块之间是否存在干扰。</p>
-<p>加入了操作系统，我们的编程反而变得简单了。整个系统随之带来的额外开销就是操作系统占据的那一丁点的 FLASH 和 RAM。现如今，单片机的 FLASH 和 RAM 是越来越大，完全足以抵挡 RTOS 那点开销。</p>
-<p>轮询、前后台和多线程系统软件模型区别：</p>
-<p><a href="https://imgchr.com/i/VTw6V1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/VTw6V1.md.png" alt="VTw6V1.md.png"></a></p>
-<p>以上是关于裸机系统与多线程系统的笔记，摘抄于《RT-Thread内核实现与应用开发实践指南》一书。</p>
+<p>键入组合键<code>【win+r】</code>打开<code>运行</code>窗口，输入<code>cmd</code>并回车进入命令行环境：</p>
+<p>输入<code>gcc hello.c -o hello.exe</code>命令进行编译，再输入<code>hello.exe cmd1 cmd2 cmd3 cmd4 cmd5</code>（DOS提示符下命令行的一般形式为： <code>C:\&gt;可执行文件名 参数 参数……）</code>对main函数进行传参，输出结果为：</p>
+<p><a href="https://imgchr.com/i/V5hhQ0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5hhQ0.md.png" alt="V5hhQ0.md.png"></a></p>
+<p>可见， argv为字符串指针数组，其各元素值为命令行中各字符串(参数均按字符串处理)的首地址，argc为指针数组的长度，即为参数的个数。</p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
@@ -743,9 +646,9 @@
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《【RT-Thread笔记】裸机系统与多线程系统》
+                    《【C语言笔记】main()函数的几种形式》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/10/02/c-yu-yan-bi-ji-main-han-shu-de-ji-chong-xing-shi/" property="cc:attributionName" rel="cc:attributionURL">
                 ZhengNian
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -786,48 +689,46 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/">
+                <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【RT-Thread笔记】裸机系统与多线程系统">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
                         
-                        <span class="card-title">【RT-Thread笔记】裸机系统与多线程系统</span>
+                        <span class="card-title">【C语言笔记】C语言编译的过程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单片机编程中有裸机系统与多线程系统的区别。
-裸机系统裸机系统通常分成轮询系统和前后台系统。
-1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 
+                            1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
+下面以windows环境下的test.c为例，test.c里的代码为：
+#inc
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -838,29 +739,37 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
-                <a href="/2018/12/07/c-yu-yan-bi-ji-ru-he-cha-kan-shu-ju-lei-xing-fan-wei/">
+                <a href="/2018/10/02/c-yu-yan-bi-ji-main-han-shu-de-ji-chong-xing-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】如何查看数据类型范围？">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="【C语言笔记】main()函数的几种形式">
                         
-                        <span class="card-title">【C语言笔记】如何查看数据类型范围？</span>
+                        <span class="card-title">【C语言笔记】main()函数的几种形式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            知识点一：查看整数范围当前的编译环境下，你可能不知道int的数据范围是多少，或者记不清无符号短整型的范围是0~65535还是0~65536?这时候就可以按照如下程序进行输出查看：
-#include &lt;stdio.h>
-#include
+                            在C语言中，main函数是程序的入口。其有四种写法，即：
+//写法一
+main()
+{
+ printf("Hello notepad++ \n");
+}
+
+//写法二
+int main(void)
+{
+ printf("Hello note
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-02
                             </span>
                         <span class="publish-author">
                             
@@ -874,6 +783,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
