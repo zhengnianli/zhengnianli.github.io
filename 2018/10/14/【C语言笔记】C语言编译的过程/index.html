@@ -653,28 +653,25 @@ int main(void)
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/17/【C语言笔记】volatile关键字/">
+                <a href="/2018/10/14/【C语言笔记】复合赋值语句/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【C语言笔记】volatile关键字">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
                         
-                        <span class="card-title">【C语言笔记】volatile关键字</span>
+                        <span class="card-title">【C语言笔记】复合赋值语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
-简单地说就是防止编译器对代码进行优化。比如如下程序：
-XBYTE[2]=0x55;
-XBYTE[2]=0x56;
-XB
+                            增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
+现在，a = a + 5和
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
                         </span>
                         <span class="publish-author">
                             
@@ -706,20 +703,21 @@ XB
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/14/【C语言笔记】复合赋值语句/">
+                <a href="/2018/10/14/【C语言笔记】char _str与char str[]的区别/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                         
-                        <span class="card-title">【C语言笔记】复合赋值语句</span>
+                        <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
-现在，a = a + 5和
+                            C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = &quot;happy&quot;;
+(2)char *str = &quot;happy&quot
                         
                     </div>
                     <div class="publish-info">
