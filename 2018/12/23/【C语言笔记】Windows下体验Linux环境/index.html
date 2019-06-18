@@ -602,45 +602,32 @@
 
             
 
-    <div class="reprint" id="reprint-statement">
-        <p class="reprint-tip">
-            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
-            <span>转载规则</span>
-        </p>
-        
-            <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                    <img alt style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png">
-                </a>
-            </div>
-            <br>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《【C语言笔记】Windows下体验Linux环境》
-                </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/12/23/【C语言笔记】Windows下体验Linux环境/" property="cc:attributionName" rel="cc:attributionURL">
-                ZhengNian
-            </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                知识共享署名 4.0 国际许可协议
-            </a>进行许可。
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
 
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2018-12-23T08-22-15',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
@@ -660,29 +647,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/12/23/【C语言笔记】windows命令行下编译C程序/">
+                <a href="/2018/12/24/【C语言笔记】你的黑窗口闪退？/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】windows命令行下编译C程序">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="【C语言笔记】你的黑窗口闪退？">
                         
-                        <span class="card-title">【C语言笔记】windows命令行下编译C程序</span>
+                        <span class="card-title">【C语言笔记】你的黑窗口闪退？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gcc编译器进行编译。如：
-在Notepad++里写代码：
+                            上一篇中写到了Windows下体验Linux环境，其中的测试代码简单的打印一句话，如：
 
-在黑窗口下编译及运行代码：
+编译后得到test.exe，运行得到如下结果：
 
-此处，编译命
+在命令行下运行可以输出结果，但是在文件夹下，双击运行test1.exe却发现黑窗口一闪而过：
+
+怎么
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
                         </span>
                         <span class="publish-author">
                             
@@ -714,24 +702,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/12/14/【C语言笔记】分享一个C语言测试程序模板/">
+                <a href="/2018/12/23/【C语言笔记】windows命令行下编译C程序/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="【C语言笔记】分享一个C语言测试程序模板">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】windows命令行下编译C程序">
                         
-                        <span class="card-title">【C语言笔记】分享一个C语言测试程序模板</span>
+                        <span class="card-title">【C语言笔记】windows命令行下编译C程序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个test.c文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪费时
+                            有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gcc编译器进行编译。如：
+在Notepad++里写代码：
+
+在黑窗口下编译及运行代码：
+
+此处，编译命
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
                             </span>
                         <span class="publish-author">
                             
@@ -870,7 +863,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.6k</span>
+                <span class="white-color">38k</span>
             
 
             

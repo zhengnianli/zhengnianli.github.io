@@ -451,7 +451,7 @@
  }
 }</code></pre>
 <p>轮询系统是一种非常简单的软件结构，通常只适用于那些只需要顺序执行代码且不需要外部事件来驱动的就能完成的事情。在代码清单 1-1 中，如果只是实现 LED 翻转，串口输出，液晶显示等这些操作，那么使用轮询系统将会非常完美。但是，如果加入了按键操作等需要检测外部信号的事件，用来模拟紧急报警，那么整个系统的实时响应能力就不会那么好了。</p>
-<p>假设DoSomethingg3 是按键扫描，当外部按键被按下，相当于一个警报，这个时候，需要立马响 应 ， 并 做 紧 急 处 理 ， 而 这 个 时 候 程 序 刚 好 执 行 到 DoSomethingg1 ， 要 命 的 是DoSomethingg1 需要执行的时间比较久，久到按键释放之后都没有执行完毕，那么当执行到 DoSomethingg3 的时候就会丢失掉一次事件。足见，轮询系统只适合顺序执行的功能代码，当有外部事件驱动时，实时性就会降低。</p>
+<p>假设<code>DoSomethingg3</code> 是按键扫描，当外部按键被按下，相当于一个警报，这个时候，需要立马响 应 ， 并 做 紧 急 处 理 ， 而 这 个 时 候 程 序 刚 好 执 行 到 <code>DoSomethingg1</code> ， 要 命 的 是<code>DoSomethingg1</code> 需要执行的时间比较久，久到按键释放之后都没有执行完毕，那么当执行到 <code>DoSomethingg3</code> 的时候就会丢失掉一次事件。足见，轮询系统只适合顺序执行的功能代码，当有外部事件驱动时，实时性就会降低。</p>
 <h3 id="2、前后台系统"><a href="#2、前后台系统" class="headerlink" title="2、前后台系统"></a>2、前后台系统</h3><p>相比轮询系统，前后台系统是在轮询系统的基础上加入了中断。外部事件的响应在中断里面完成，事件的处理还是回到轮询系统中完成，中断在这里我们称为前台， main 函数里面的无限循环我们称为后台，大概的伪代码见代码清单 1-2所示：</p>
 <pre><code class="c">int flag1 = 0;
 int flag2 = 0;
@@ -730,45 +730,32 @@ void DoSomething3(void)
 
             
 
-    <div class="reprint" id="reprint-statement">
-        <p class="reprint-tip">
-            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
-            <span>转载规则</span>
-        </p>
-        
-            <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                    <img alt style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png">
-                </a>
-            </div>
-            <br>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《【RT-Thread笔记】裸机系统与多线程系统》
-                </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/16/【RT-Thread笔记】裸机系统与多线程系统/" property="cc:attributionName" rel="cc:attributionURL">
-                ZhengNian
-            </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                知识共享署名 4.0 国际许可协议
-            </a>进行许可。
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
 
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-06-16T13-59-36',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
@@ -1006,7 +993,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.6k</span>
+                <span class="white-color">38k</span>
             
 
             

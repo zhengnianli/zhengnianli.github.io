@@ -653,45 +653,32 @@ int main(void)
 
             
 
-    <div class="reprint" id="reprint-statement">
-        <p class="reprint-tip">
-            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
-            <span>转载规则</span>
-        </p>
-        
-            <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                    <img alt style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png">
-                </a>
-            </div>
-            <br>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《【C语言笔记】static关键字》
-                </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/10/25/【C语言笔记】static关键字/" property="cc:attributionName" rel="cc:attributionURL">
-                ZhengNian
-            </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                知识共享署名 4.0 国际许可协议
-            </a>进行许可。
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
 
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2018-10-25T08-22-15',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
@@ -711,24 +698,28 @@ int main(void)
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/25/【C语言笔记】关于二维数组作为函数参数的问题/">
+                <a href="/2018/10/25/【C语言笔记】数组与指针不等价/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                         
-                        <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
+                            前言数组与指针是不等价的，如：
 
- for ( i = 0; i &lt; m; 
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                         
                     </div>
                     <div class="publish-info">
@@ -765,33 +756,36 @@ void func1(int **array, int m, int n)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/25/【C语言笔记】数组与指针不等价/">
+                <a href="/2018/10/23/【C语言笔记】关于数组与指针的总结/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【C语言笔记】关于数组与指针的总结">
                         
-                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                        <span class="card-title">【C语言笔记】关于数组与指针的总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言数组与指针是不等价的，如：
+                            
+参考：C语言中文网
 
-数组名不可以改变，而指向数组的指针是可以改变的。
+前言数组与指针有很密切的联系，常见的结合情况有以下三种：
 
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+数组指针
+指针数组
+二维数组指针
 
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+数组指针数组指针：指向数组的指针。如：
+int arr[] = {0,1,2,3,4};
 
-
-
+int *p = arr; 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-23
                             </span>
                         <span class="publish-author">
                             
@@ -930,7 +924,7 @@ void func1(int **array, int m, int n)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.6k</span>
+                <span class="white-color">38k</span>
             
 
             
