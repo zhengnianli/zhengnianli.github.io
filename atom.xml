@@ -392,32 +392,6 @@
   </entry>
   
   <entry>
-    <title>【C语言笔记】windows命令行下编译C程序</title>
-    <link href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/"/>
-    <id>https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/</id>
-    <published>2018-12-23T00:22:15.000Z</published>
-    <updated>2019-06-18T04:22:14.517Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;有关注我的朋友可能会知道我的C开发环境是：&lt;code&gt;Notepad++&lt;/code&gt;与&lt;code&gt;MinGW&lt;/code&gt;相结合，即用&lt;code&gt;Notepad++&lt;/code&gt;写代码，用&lt;code&gt;MinGW&lt;/code&gt;这个工具包中的&lt;code&gt;gcc编译器&lt;/cod
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>【C语言笔记】Windows下体验Linux环境</title>
     <link href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/"/>
     <id>https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/</id>
@@ -431,6 +405,32 @@
         
         
           &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【C语言笔记】windows命令行下编译C程序</title>
+    <link href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/"/>
+    <id>https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/</id>
+    <published>2018-12-23T00:22:15.000Z</published>
+    <updated>2019-06-18T04:22:14.517Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;有关注我的朋友可能会知道我的C开发环境是：&lt;code&gt;Notepad++&lt;/code&gt;与&lt;code&gt;MinGW&lt;/code&gt;相结合，即用&lt;code&gt;Notepad++&lt;/code&gt;写代码，用&lt;code&gt;MinGW&lt;/code&gt;这个工具包中的&lt;code&gt;gcc编译器&lt;/cod
         
       
     
