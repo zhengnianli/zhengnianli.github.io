@@ -394,28 +394,24 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
+                        <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                                 
-                                <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                                <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    前言数组与指针是不等价的，如：
+                                    在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
 
-数组名不可以改变，而指向数组的指针是可以改变的。
-
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
-
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
-
-
-
+ for ( i = 0; i &lt; m; 
                                 
                             </div>
                             <div class="publish-info">
@@ -851,20 +847,23 @@ XBYTE[2]=0x
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/">
+                        <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
+                                <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                                 
-                                <span class="card-title">【C语言笔记】复合赋值语句</span>
+                                <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
-现在，a = a + 5和
+                                    C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+下面看两个
                                 
                             </div>
                             <div class="publish-info">
@@ -911,23 +910,20 @@ XBYTE[2]=0x
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
+                        <a href="/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
                                 
-                                <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                                <span class="card-title">【C语言笔记】复合赋值语句</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = "happy";
-(2)char *str = "happy";
-这种方式有什么不同呢？
-下面看两个
+                                    增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
+现在，a = a + 5和
                                 
                             </div>
                             <div class="publish-info">
@@ -1101,23 +1097,23 @@ C语言程序的存储区如下图所示：
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">
+                        <a href="/2018/10/11/c-yu-yan-bi-ji-getchar-getche-getch-de-qu-bie/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】#define与typedef的区别？">
+                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【C语言笔记】getchar()、getche()、getch()的区别">
                                 
-                                <span class="card-title">【C语言笔记】#define与typedef的区别？</span>
+                                <span class="card-title">【C语言笔记】getchar()、getche()、getch()的区别</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
-宏定义的一般形式为：
-#define 宏名 字符串
-这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
-typedeftyp
+                                    1、getchar()函数所在头文件：stdio.h
+函数原型：int getchar(void);
+函数功能：读取控制台输入的字符，并保存在键盘缓冲区中。直到用户按回车为止(回车字符也放在缓冲区中)。
+看一段代码：
+#include &l
                                 
                             </div>
                             <div class="publish-info">
