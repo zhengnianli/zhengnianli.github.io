@@ -334,10 +334,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="summary block-with-text">
                             
                                 前言函数、指针这两个词结合的顺序不同其意义也不同，即指针函数与函数指针的意义不同。
-###指针函数
-指针函数的本质是一个函数，其返回值是一个指针。示例如下：
+指针函数指针函数的本质是一个函数，其返回值是一个指针。示例如下：
 int *pfun(int, int);
-由于“*”的优先级低于“()”的优先级，
+由于“*”的优先级低于“()”的优先级，因而pf
                             
                         </div>
                         <div class="publish-info">
@@ -474,28 +473,20 @@ void func1(int **array, int m, int n)
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/【C语言笔记】数组与指针不等价/">
+                    <a href="/2018/10/25/【C语言笔记】static关键字/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
                             
-                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                            <span class="card-title">【C语言笔记】static关键字</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言数组与指针是不等价的，如：
-
-数组名不可以改变，而指向数组的指针是可以改变的。
-
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
-
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
-
-
-
+                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
+C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
                             
                         </div>
                         <div class="publish-info">
@@ -529,20 +520,28 @@ void func1(int **array, int m, int n)
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/【C语言笔记】static关键字/">
+                    <a href="/2018/10/25/【C语言笔记】数组与指针不等价/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                             
-                            <span class="card-title">【C语言笔记】static关键字</span>
+                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
-C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
+                                前言数组与指针是不等价的，如：
+
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                             
                         </div>
                         <div class="publish-info">
