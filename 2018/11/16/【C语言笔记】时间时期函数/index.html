@@ -496,27 +496,15 @@ int main(void)
    return 0;
 }</code></pre>
 <p>输出结果</p>
-<pre><code class="c">2018-11-16 Fri 22:23:25
-```
-
-
-### localtime()函数
-
-1、函数原型
-```c
-struct tm *localtime(const time_t * timep);
-```
-2、函数说明
-
-localtime()将参数timep所指的time_t 结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。
-
-3、函数返回值
-
-返回结构tm代表目前的当地时间。
-
-4、示例程序
-```c
-#include &lt;stdio.h&gt;
+<pre><code class="c">2018-11-16 Fri 22:23:25</code></pre>
+<h3 id="localtime-函数"><a href="#localtime-函数" class="headerlink" title="localtime()函数"></a>localtime()函数</h3><p>1、函数原型</p>
+<pre><code class="c">struct tm *localtime(const time_t * timep);</code></pre>
+<p>2、函数说明</p>
+<p>localtime()将参数timep所指的time_t 结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。</p>
+<p>3、函数返回值</p>
+<p>返回结构tm代表目前的当地时间。</p>
+<p>4、示例程序</p>
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;time.h&gt;
 int main(void)
 {
@@ -541,34 +529,17 @@ int main(void)
    printf(&quot; %.2d:%.2d:%.2d\n&quot;, hour, min, sec);
 
    return 0;
-} 
-```
-
-输出结果
-```c
-2018-11-16 Fri 22:32:27
-```
-
-
-### ctime()函数
-
-1、函数原型
-```c
-char *ctime(const time_t *timep);
-```
-
-
-2、函数说明
-
-ctime()将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串形态返回。此函数已经由时区转换成当地时间。注意：若再调用相关的时间日期函数，此字符串可能会被破坏。
-
-3、函数返回值
-
-返回一字符串表示目前当地的时间日期。格式：星期,月,日,小时:分:秒,年。
-
-4、示例程序
-```c
-#include &lt;stdio.h&gt;
+} </code></pre>
+<p>输出结果</p>
+<pre><code class="c">2018-11-16 Fri 22:32:27</code></pre>
+<h3 id="ctime-函数"><a href="#ctime-函数" class="headerlink" title="ctime()函数"></a>ctime()函数</h3><p>1、函数原型</p>
+<pre><code class="c">char *ctime(const time_t *timep);</code></pre>
+<p>2、函数说明</p>
+<p>ctime()将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串形态返回。此函数已经由时区转换成当地时间。注意：若再调用相关的时间日期函数，此字符串可能会被破坏。</p>
+<p>3、函数返回值</p>
+<p>返回一字符串表示目前当地的时间日期。格式：星期,月,日,小时:分:秒,年。</p>
+<p>4、示例程序</p>
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;time.h&gt;
 int main(void)
 {
@@ -577,32 +548,15 @@ int main(void)
    printf(&quot;%s\n&quot;, ctime(&amp;t));
 
    return 0;
-}
-```
-
-输出结果
-```c
-Fri Nov 16 22:38:51 2018
-```
-
-
-### asctime()函数
-
-1、函数原型
-```c
-char *asctime(const struct tm * timeptr);
-```
-2、函数说明
-asctime()将参数timeptr所指的tm结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串形态返回。此函数已经由时区转换成当地时间。注意：若再调用相关的时间日期函数，此字符串可能会被破坏。与ctime()函数的不同在于传入参数结构不同。
-
-
-3、函数返回值
-返回一字符串表示目前当地的时间日期。格式：星期,月,日,小时:分:秒,年。
-
-
-4、示例程序
-```c
-#include &lt;stdio.h&gt;
+}</code></pre>
+<p>输出结果</p>
+<pre><code class="c">Fri Nov 16 22:38:51 2018</code></pre>
+<h3 id="asctime-函数"><a href="#asctime-函数" class="headerlink" title="asctime()函数"></a>asctime()函数</h3><p>1、函数原型</p>
+<pre><code class="c">char *asctime(const struct tm * timeptr);</code></pre>
+<p>2、函数说明<br>asctime()将参数timeptr所指的tm结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串形态返回。此函数已经由时区转换成当地时间。注意：若再调用相关的时间日期函数，此字符串可能会被破坏。与ctime()函数的不同在于传入参数结构不同。</p>
+<p>3、函数返回值<br>返回一字符串表示目前当地的时间日期。格式：星期,月,日,小时:分:秒,年。</p>
+<p>4、示例程序</p>
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;time.h&gt;
 int main(void)
 {
@@ -617,25 +571,13 @@ int main(void)
    printf(&quot;%s\n&quot;, date);
 
    return 0;
-}
-```
-输出结果
-```c
-Fri Nov 16 14:48:29 2018
-```
-
-以上就是关于time.h头文件里一些时间函数的介绍。其中gmtime()函数与localtime()函数类似，ctime()函数与asctime()函数类似，应把这两对函数对比来看。
-```c
-参考资料：百度百科及C语言中文网
-```
-
----
-
-[![VcSFJJ.md.png](https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png)](https://imgchr.com/i/VcSFJJ)
-
-
-
-</code></pre>
+}</code></pre>
+<p>输出结果</p>
+<pre><code class="c">Fri Nov 16 14:48:29 2018</code></pre>
+<p>以上就是关于time.h头文件里一些时间函数的介绍。其中gmtime()函数与localtime()函数类似，ctime()函数与asctime()函数类似，应把这两对函数对比来看。</p>
+<pre><code class="c">参考资料：百度百科及C语言中文网</code></pre>
+<hr>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
             </div>
             <hr>

@@ -5,11 +5,11 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】volatile关键字, 正念君的博客">
-    <meta name="description" content="作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
+    <meta name="description" content="volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
 简单地说就是防止编译器对代码进行优化。比如如下程序：
 XBYTE[2]=0x55;
 XBYTE[2]=0x56;
-XBYTE[2]=0x">
+XB">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -432,7 +432,7 @@ XBYTE[2]=0x">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。</p>
+                <h3 id="volatile的作用"><a href="#volatile的作用" class="headerlink" title="volatile的作用"></a>volatile的作用</h3><p>volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。</p>
 <p>简单地说就是防止编译器对代码进行优化。比如如下程序：</p>
 <pre><code class="c">XBYTE[2]=0x55;
 XBYTE[2]=0x56;
@@ -443,28 +443,13 @@ XBYTE[2]=0x58;</code></pre>
 <p>当变量值在本线程里改变时，会同时把变量的新值copy到该寄存器中，以便保持一致<br>当变量在因别的线程等而改变了值，该寄存器的值不会相应改变，从而造成应用程序读取的值和实际的变量值不一致；</p>
 <p>当该寄存器在因别的线程等而改变了值，原变量的值不会改变，从而造成应用程序读取的值和实际的变量值不一致。</p>
 <p>举一个不太准确的例子：<br>发薪资时，会计每次都把员工叫来登记他们的银行卡号；一次会计为了省事，没有即时登记，用了以前登记的银行卡号；刚好一个员工的银行卡丢了，已挂失该银行卡号；从而造成该员工领不到工资。<br>员工 －－ 原始变量地址<br>银行卡号 －－ 原始变量在寄存器的备份</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。下面是volatile变量的几个例子：</p>
+<h3 id="volatile例子"><a href="#volatile例子" class="headerlink" title="volatile例子"></a>volatile例子</h3><p>精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。下面是volatile变量的几个例子：</p>
 <blockquote>
-<p>1）并行设备的硬件寄存器（如：状态寄存器）</p>
-</blockquote>
-<blockquote>
-<p>2）一个中断服务子程序中会访问到的非自动变量</p>
-</blockquote>
-<blockquote>
-<p>3）多线程应用中被几个任务共享的变量</p>
+<p>1）并行设备的硬件寄存器（如：状态寄存器）<br>2）一个中断服务子程序中会访问到的非自动变量<br>3）多线程应用中被几个任务共享的变量</p>
 </blockquote>
 <p>请看下面几个问题：</p>
 <blockquote>
-<p>1）一个参数既可以是const还可以是volatile吗？解释为什么。</p>
-</blockquote>
-<blockquote>
-<p>2）一个指针可以是volatile 吗？解释为什么。</p>
-</blockquote>
-<blockquote>
-<p>3）下面的函数有什么错误：</p>
-</blockquote>
-<blockquote>
-<p>int square(volatile int <em>ptr)<br>{
+<p>1）一个参数既可以是const还可以是volatile吗？解释为什么。<br>2）一个指针可以是volatile 吗？解释为什么。<br>3）下面的函数有什么错误：<br>int square(volatile int <em>ptr)<br>{
    return ((</em>ptr) * (*ptr));<br>}</p>
 </blockquote>
 <p>下面是答案：</p>
@@ -765,21 +750,20 @@ int main(void)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/14/【C语言笔记】char _str与char str[]的区别/">
+                <a href="/2018/10/14/【C语言笔记】复合赋值语句/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
                         
-                        <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                        <span class="card-title">【C语言笔记】复合赋值语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = &quot;happy&quot;;
-(2)char *str = &quot;happy&quot
+                            增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
+现在，a = a + 5和
                         
                     </div>
                     <div class="publish-info">
