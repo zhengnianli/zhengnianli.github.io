@@ -293,27 +293,21 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/11/13/【C语言笔记】数组a与&a有什么不同？/">
+                    <a href="/2018/11/13/【C语言笔记】两个小知识/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】两个小知识">
                             
-                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
+                            <span class="card-title">【C语言笔记】两个小知识</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                首先，看一段代码：
-#include &lt;stdio.h&gt;
-
-int main(void)
-{
- int a[5] = {0,1,2,3,4};
-
- printf(&quot;a = %d , &amp;a = %d \n&quo
+                                一、关于头文件包含问题
+C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号
                             
                         </div>
                         <div class="publish-info">
@@ -451,25 +445,21 @@ int main(void)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/【C语言笔记】关于二维数组作为函数参数的问题/">
+                    <a href="/2018/10/25/【C语言笔记】static关键字/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
                             
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                            <span class="card-title">【C语言笔记】static关键字</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
-
- for ( i = 0; i &lt; m; 
+                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
+C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
                             
                         </div>
                         <div class="publish-info">
@@ -559,21 +549,25 @@ void func1(int **array, int m, int n)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/【C语言笔记】static关键字/">
+                    <a href="/2018/10/25/【C语言笔记】关于二维数组作为函数参数的问题/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                             
-                            <span class="card-title">【C语言笔记】static关键字</span>
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
-C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
+
+ for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
@@ -922,22 +916,22 @@ XBYTE[2]=0x
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/【C语言笔记】C语言编译的过程/">
+                    <a href="/2018/10/14/【C语言笔记】char _str与char str[]的区别/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                             
-                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
+                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
-下面以windows环境下的test.c为例，test.c里的代码为：
-#inc
+                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = &quot;happy&quot;;
+(2)char *str = &quot;happy&quot
                             
                         </div>
                         <div class="publish-info">
@@ -971,22 +965,22 @@ XBYTE[2]=0x
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/【C语言笔记】char _str与char str[]的区别/">
+                    <a href="/2018/10/14/【C语言笔记】C语言编译的过程/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
                             
-                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = &quot;happy&quot;;
-(2)char *str = &quot;happy&quot
+                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
+下面以windows环境下的test.c为例，test.c里的代码为：
+#inc
                             
                         </div>
                         <div class="publish-info">
@@ -1465,7 +1459,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">38k</span>
+                <span class="white-color">37.9k</span>
             
 
             

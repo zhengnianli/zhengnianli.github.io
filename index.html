@@ -351,31 +351,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
     
-    <div class="carousel-item amber white-text carousel-post bg-cover" style="background-image: url('/medias/featureimages/14.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">【C语言笔记】#define与typedef的区别？</div>
-                    <div class="description center-align">
-                    
-                        #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
-宏定义的一般形式为：
-#define 宏名 字符串
-这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
-typedeftyp
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2018/10/11/【C语言笔记】#define与typedef的区别？/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
     <div class="carousel-item amber white-text carousel-post bg-cover" style="background-image: url('/medias/featureimages/20.jpg');">
         <div class="container">
             <div class="row">
@@ -395,6 +370,31 @@ typedeftyp
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/05/07/【C语言笔记】#运算符与##运算符/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover" style="background-image: url('/medias/featureimages/14.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">【C语言笔记】#define与typedef的区别？</div>
+                    <div class="description center-align">
+                    
+                        #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
+宏定义的一般形式为：
+#define 宏名 字符串
+这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
+typedeftyp
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2018/10/11/【C语言笔记】#define与typedef的区别？/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -1832,21 +1832,27 @@ time_t 是lon
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/11/13/【C语言笔记】两个小知识/">
+                    <a href="/2018/11/13/【C语言笔记】数组a与&a有什么不同？/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】两个小知识">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
                             
-                            <span class="card-title">【C语言笔记】两个小知识</span>
+                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、关于头文件包含问题
-C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号
+                                首先，看一段代码：
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+ int a[5] = {0,1,2,3,4};
+
+ printf(&quot;a = %d , &amp;a = %d \n&quo
                             
                         </div>
                         <div class="publish-info">
@@ -1917,7 +1923,7 @@ C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">38k</span>
+                <span class="white-color">37.9k</span>
             
 
             
