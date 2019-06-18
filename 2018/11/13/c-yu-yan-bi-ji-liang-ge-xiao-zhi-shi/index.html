@@ -642,31 +642,29 @@ C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
+                <a href="/2018/11/16/c-yu-yan-bi-ji-shi-jian-shi-qi-han-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】时间日期函数">
                         
-                        <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
+                        <span class="card-title">【C语言笔记】时间日期函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先，看一段代码：
-#include &lt;stdio.h>
+                            前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
 
-int main(void)
-{
- int a[5] = {0,1,2,3,4};
-
- printf("a = %d , &amp;a = %d \n", a, &amp;a
+time()函数1、函数原型
+time_t time(time_t *t);
+2、函数说明
+time_t 是lon
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-16
                         </span>
                         <span class="publish-author">
                             
@@ -698,28 +696,31 @@ int main(void)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/11/08/c-yu-yan-bi-ji-zhi-zhen-han-shu-yu-han-shu-zhi-zhen/">
+                <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】指针函数与函数指针？">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
                         
-                        <span class="card-title">【C语言笔记】指针函数与函数指针？</span>
+                        <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言函数、指针这两个词结合的顺序不同其意义也不同，即指针函数与函数指针的意义不同。
-###指针函数
-指针函数的本质是一个函数，其返回值是一个指针。示例如下：
-int *pfun(int, int);
-由于“*”的优先级低于“()”的优先级，
+                            首先，看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+ int a[5] = {0,1,2,3,4};
+
+ printf("a = %d , &amp;a = %d \n", a, &amp;a
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
                             </span>
                         <span class="publish-author">
                             
@@ -858,7 +859,7 @@ int *pfun(int, int);
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">34k</span>
+                <span class="white-color">34.8k</span>
             
 
             

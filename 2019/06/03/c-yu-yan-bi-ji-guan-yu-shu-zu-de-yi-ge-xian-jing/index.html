@@ -4,18 +4,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【C语言笔记】main()函数的几种形式, 正念君的博客">
-    <meta name="description" content="在C语言中，main函数是程序的入口。其有四种写法，即：
-//写法一
-main()
-{
- printf(&#34;Hello notepad++ \n&#34;);
-}
+    <meta name="keywords" content="【C语言笔记】关于数组的一个陷阱！, 正念君的博客">
+    <meta name="description" content="问题
+两个数组元素的地址相减得到什么？
 
-//写法二
+先看一段代码：
+#include &amp;lt;stdio.h&gt;
+
 int main(void)
 {
- printf(&#34;Hello note">
+    int a[]={0,1,2,3,4,5};
+    printf(&#34;&amp;amp;a[0] = ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +22,7 @@ int main(void)
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【C语言笔记】main()函数的几种形式 | 正念君的博客</title>
+    <title>【C语言笔记】关于数组的一个陷阱！ | 正念君的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -267,13 +266,13 @@ int main(void)
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【C语言笔记】main()函数的几种形式
+                        【C语言笔记】关于数组的一个陷阱！
                     </div>
                 </div>
             </div>
@@ -408,21 +407,21 @@ int main(void)
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-10-02
+                    2019-06-03
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        407
+                        727
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -438,55 +437,91 @@ int main(void)
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在C语言中，main函数是程序的入口。其有四种写法，即：</p>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//写法一</span>
-<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//写法二</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//写法三</span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//写法四</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>前面三种不带参数的都是比较常见的写法。第四种写法带的两个参数是什么意思呢？下面简单来介绍一下。首先，主函数不能被其他函数调用，所以形参<code>argc</code>与<code>argv</code>的实际值就不能从其他函数传入，那么其实参应该从哪传入呢？是从操作系统命令行上获得的。因此这两个参数也被称为命令行参数，<code>argc</code>为命令行参数的个数，<code>argv</code>为字符串命令行参数的首地址。</p>
-<p>下面看一个代码实例：</p>
+                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
+<p>两个数组元素的地址相减得到什么？</p>
+</blockquote>
+<p>先看一段代码：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-<span class="token comment" spellcheck="true">//写法四</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
- <span class="token keyword">int</span> i<span class="token punctuation">;</span>
-
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;&lt;&lt;&lt; argument list >>>>\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"argc = %d\n"</span><span class="token punctuation">,</span> argc<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> argc<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"argv[%d] = %s\n"</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span> argv<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello notepad++ \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&amp;a[0] = %d, &amp;a[2] = %d\n"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这段代码以十进制的形式打印出第0号元素的地址和第2号元素的地址，输出结果为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2686760</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2686768</span></code></pre>
+<p>所以，<code>&amp;a[2] - &amp;a[0]</code>的结果是8？但是，事实不是这样的！！让我们把其结果打印出来：<br><img src="http://i2.bvimg.com/679898/5120b83b05a35a06.png" alt="Markdown"><br>竟然是<code>2</code>！我们把<code>&amp;a[5] - &amp;a[2]</code>的结果输出来看看有什么规律：<br><img src="http://i2.bvimg.com/679898/c9e65e875d44ddf4.png" alt="Markdown"></p>
+<h2 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a>陷阱</h2><p>事实证明，两个数组元素的地址相减，其值并不是等于两个地址数值上的差，而是等于这两个地址之间内存单元的个数。本例中数组的类型是int类型，并且在32bit编译环境下编译，因此这里的内存单元的大小是4字节。所以本例中<code>&amp;a[2] - &amp;a[0]</code>的值为:</p>
+<pre class=" language-c"><code class="language-c"><span class="token punctuation">(</span><span class="token number">2686768</span> <span class="token operator">-</span> <span class="token number">2686760</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">4</span></code></pre>
+<p>当然，若是低号元素地址减去高号元素地址，得到的结果是负数：<br><img src="http://i2.bvimg.com/679898/6f5e72921e1654a3.png" alt="Markdown"><br>网上看到了一篇博客也是印证了这一点：</p>
+<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>harvic880925<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">8953854</span></code></pre>
+<p>这是个很容易出错的问题，需要特别注意！</p>
+<h2 id="学以致用"><a href="#学以致用" class="headerlink" title="学以致用"></a>学以致用</h2><p>我们的C语言每日一练（004）中的题目是</p>
+<blockquote>
+<p>寻找数组元素第一次出现的位置</p>
+</blockquote>
+<p>之前已经提供了两种方法，函数的返回值都是要寻找的元素的下标。这里可以稍微修改一下得到第三种方法，我们的第三种方法返回的是寻找的元素的指针：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 函数返回找到元素的指针</span>
+<span class="token keyword">int</span> <span class="token operator">*</span><span class="token function">serch</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span><span class="token comment" spellcheck="true">// 已知数表的首元指针</span>
+          <span class="token keyword">int</span> n<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// 数表中元素个数</span>
+          <span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 要寻找的值</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> arr<span class="token punctuation">;</span> p <span class="token operator">&lt;</span> arr<span class="token operator">+</span>n<span class="token punctuation">;</span> p<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>p <span class="token operator">==</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> p<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 返回找到元素的指针</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 未查找到key</span>
 <span class="token punctuation">}</span></code></pre>
-<p>键入组合键<code>【win+r】</code>打开<code>运行</code>窗口，输入<code>cmd</code>并回车进入命令行环境：</p>
-<p>输入<code>gcc hello.c -o hello.exe</code>命令进行编译，再输入<code>hello.exe cmd1 cmd2 cmd3 cmd4 cmd5</code>（DOS提示符下命令行的一般形式为： <code>C:\&gt;可执行文件名 参数 参数……）</code>对main函数进行传参，输出结果为：</p>
-<p><a href="https://imgchr.com/i/V5hhQ0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5hhQ0.md.png" alt="V5hhQ0.md.png"></a></p>
-<p>可见， argv为字符串指针数组，其各元素值为命令行中各字符串(参数均按字符串处理)的首地址，argc为指针数组的长度，即为参数的个数。</p>
+<h2 id="完整的验证代码为"><a href="#完整的验证代码为" class="headerlink" title="完整的验证代码为"></a>完整的验证代码为</h2><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************
+** 题    目: 同一个数组中两个元素的地址相减
+********************************************************************************************************/</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+
+<span class="token comment" spellcheck="true">// 函数返回找到元素的指针</span>
+<span class="token keyword">int</span> <span class="token operator">*</span><span class="token function">serch</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span><span class="token comment" spellcheck="true">// 已知数表的首元指针</span>
+          <span class="token keyword">int</span> n<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// 数表中元素个数</span>
+          <span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 要寻找的值</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> arr<span class="token punctuation">;</span> p <span class="token operator">&lt;</span> arr<span class="token operator">+</span>n<span class="token punctuation">;</span> p<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>p <span class="token operator">==</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> p<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 返回找到元素的指针</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 未查找到key</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 定义一个全局数组</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">,</span><span class="token number">999</span><span class="token punctuation">,</span><span class="token number">666</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">,</span> <span class="token number">88</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 主函数</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> key<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>p_a<span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"The elements of array a is:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">/</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">" %d"</span><span class="token punctuation">,</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"\nPlease input the key number you want to search:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p_a <span class="token operator">=</span> <span class="token function">serch</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">/</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\nThe index of the key number %d in the array is: %d."</span><span class="token punctuation">,</span> key<span class="token punctuation">,</span> p_a<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> </code></pre>
+<p>可见，得到的结果与我们C语言每日一练（004）中的验证结果一样。</p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
@@ -646,9 +681,9 @@ int main(void)
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《【C语言笔记】main()函数的几种形式》
+                    《【C语言笔记】关于数组的一个陷阱！》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/10/02/c-yu-yan-bi-ji-main-han-shu-de-ji-chong-xing-shi/" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/" property="cc:attributionName" rel="cc:attributionURL">
                 ZhengNian
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -691,32 +726,33 @@ int main(void)
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">
+                <a href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="【C语言笔记】使用notepad++、MinGW来开发C程序">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【RT-Thread笔记】裸机系统与多线程系统">
                         
-                        <span class="card-title">【C语言笔记】使用notepad++、MinGW来开发C程序</span>
+                        <span class="card-title">【RT-Thread笔记】裸机系统与多线程系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Windows平台下C程序的集成开发工具有很多：
-1、Visual C++6.0Visual C++是Microsoft公司推出的用于开发C/C++程序的一款经典的IDE，很多高校都使用其作为教学工具来讲解C和C++。但是，Visual C
+                            单片机编程中有裸机系统与多线程系统的区别。
+裸机系统裸机系统通常分成轮询系统和前后台系统。
+1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-05
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
                                 </a>
                             
                             
@@ -726,8 +762,8 @@ int main(void)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
                     </a>
                     
                 </div>
@@ -738,37 +774,34 @@ int main(void)
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/02/c-yu-yan-bi-ji-main-han-shu-de-ji-chong-xing-shi/">
+                <a href="/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="【C语言笔记】main()函数的几种形式">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【C语言笔记】#运算符与##运算符">
                         
-                        <span class="card-title">【C语言笔记】main()函数的几种形式</span>
+                        <span class="card-title">【C语言笔记】#运算符与##运算符</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在C语言中，main函数是程序的入口。其有四种写法，即：
-//写法一
-main()
-{
- printf("Hello notepad++ \n");
-}
+                            1、#运算符我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：
 
-//写法二
-int main(void)
-{
- printf("Hello note
+输出结果为：
+
+然而，我们期望输出的结果是：
+5 + 20 = 25
+13 + 14 = 27
+这该怎么做呢？其实，C语言允许在字符串中包含宏参数。在类函数宏（带参
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
                             </span>
                         <span class="publish-author">
                             
@@ -782,7 +815,6 @@ int main(void)
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
