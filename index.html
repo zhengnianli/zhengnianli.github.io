@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -342,7 +342,29 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
             </div>
-            <div class="cover-social-link"></div>
+            <div class="cover-social-link">
+    <a href="https://github.com/zhengnianli" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2238184039@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2238184039" class="tooltipped" data-tooltip="QQ联系我: 2238184039" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
         </div>
     </div>
 
@@ -366,7 +388,7 @@ typedeftyp
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2018/10/11/【C语言笔记】#define与typedef的区别？/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -394,7 +416,7 @@ typedeftyp
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2019/05/07/【C语言笔记】#运算符与##运算符/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -412,12 +434,14 @@ typedeftyp
                     <div class="description center-align">
                     
                         C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = &quot;happy&quot;;
-(2)char *str = &quot;happy&quot
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+下面看两个
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2018/10/14/【C语言笔记】char _str与char str[]的区别/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -558,7 +582,7 @@ $(function () {
             preload: 'auto',
             volume: Number('0.7'),
             video: {
-                url: 'http://player.youku.com/embed/XNDExMjQ5MjEwOA==',
+                url: 'http://player.youku.com/embed/XNDExMjQ5MjEwOA==.mp4',
                 pic: '/medias/featureimages/100.png',
                 thumbnails: ''
             }
@@ -588,7 +612,7 @@ $(function () {
                     <a href="/categories/C语言笔记/" class="category" target="_blank">C语言笔记</a>
                     
                 </div>
-                <a href="/2018/10/14/【C语言笔记】C语言编译的过程/" target="_blank">
+                <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/" target="_blank">
                     <h3 class="post-title">【C语言笔记】C语言编译的过程</h3>
                 </a>
                 <p class="post-description">
@@ -596,7 +620,7 @@ $(function () {
                         1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过
                     
                 </p>
-                <a href="/2018/10/14/【C语言笔记】C语言编译的过程/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -612,7 +636,7 @@ $(function () {
                     <a href="/categories/C语言笔记/" class="category" target="_blank">C语言笔记</a>
                     
                 </div>
-                <a href="/2018/12/23/【C语言笔记】Windows下体验Linux环境/" target="_blank">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/" target="_blank">
                     <h3 class="post-title">【C语言笔记】Windows下体验Linux环境</h3>
                 </a>
                 <p class="post-description">
@@ -620,7 +644,7 @@ $(function () {
                         前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两
                     
                 </p>
-                <a href="/2018/12/23/【C语言笔记】Windows下体验Linux环境/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -636,7 +660,7 @@ $(function () {
                     <a href="/categories/C语言笔记/" class="category" target="_blank">C语言笔记</a>
                     
                 </div>
-                <a href="/2018/12/23/【C语言笔记】windows命令行下编译C程序/" target="_blank">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/" target="_blank">
                     <h3 class="post-title">【C语言笔记】windows命令行下编译C程序</h3>
                 </a>
                 <p class="post-description">
@@ -644,7 +668,7 @@ $(function () {
                         有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gc
                     
                 </p>
-                <a href="/2018/12/23/【C语言笔记】windows命令行下编译C程序/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -660,7 +684,7 @@ $(function () {
                     <a href="/categories/C语言笔记/" class="category" target="_blank">C语言笔记</a>
                     
                 </div>
-                <a href="/2018/10/05/【C语言笔记】使用notepad++、MinGW来开发C程序/" target="_blank">
+                <a href="/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/" target="_blank">
                     <h3 class="post-title">【C语言笔记】使用notepad++、MinGW来开发C程序</h3>
                 </a>
                 <p class="post-description">
@@ -669,7 +693,7 @@ $(function () {
 1、Visual C++6.0Visual C++是Microsoft公司推出的用于开发C
                     
                 </p>
-                <a href="/2018/10/05/【C语言笔记】使用notepad++、MinGW来开发C程序/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
+                <a href="/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -695,7 +719,7 @@ $(function () {
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/06/16/【RT-Thread笔记】裸机系统与多线程系统/">
+                    <a href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/">
                         <div class="card-image">
                             
                             
@@ -744,7 +768,7 @@ $(function () {
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/06/03/【C语言笔记】关于数组的一个陷阱！/">
+                    <a href="/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/">
                         <div class="card-image">
                             
                             
@@ -761,12 +785,12 @@ $(function () {
 两个数组元素的地址相减得到什么？
 
 先看一段代码：
-#include &lt;stdio.h&gt;
+#include &lt;stdio.h>
 
 int main(void)
 {
     int a[]={0,1,2,3,4,5};
-    printf(&quot;&amp
+    printf("&amp;a[0] = 
                             
                         </div>
                         <div class="publish-info">
@@ -800,7 +824,7 @@ int main(void)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/05/07/【C语言笔记】#运算符与##运算符/">
+                    <a href="/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/">
                         <div class="card-image">
                             
                             
@@ -854,7 +878,7 @@ int main(void)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/03/26/【C语言笔记】带参宏定义（二）/">
+                    <a href="/2019/03/26/c-yu-yan-bi-ji-dai-can-hong-ding-yi-er/">
                         <div class="card-image">
                             
                             
@@ -903,7 +927,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/03/23/【C语言笔记】带参宏定义（一）/">
+                    <a href="/2019/03/23/c-yu-yan-bi-ji-dai-can-hong-ding-yi-yi/">
                         <div class="card-image">
                             
                             
@@ -950,7 +974,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/02/16/【C语言笔记】指定初始化器/">
+                    <a href="/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/">
                         <div class="card-image">
                             
                             
@@ -998,7 +1022,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/02/15/【C语言笔记】操作位的技巧/">
+                    <a href="/2019/02/15/c-yu-yan-bi-ji-cao-zuo-wei-de-ji-qiao/">
                         <div class="card-image">
                             
                             
@@ -1047,7 +1071,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/02/14/【C语言笔记】位域/">
+                    <a href="/2019/02/14/c-yu-yan-bi-ji-wei-yu/">
                         <div class="card-image">
                             
                             
@@ -1095,7 +1119,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/22/【C语言笔记】结构体/">
+                    <a href="/2019/01/22/c-yu-yan-bi-ji-jie-gou-ti/">
                         <div class="card-image">
                             
                             
@@ -1143,7 +1167,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/15/【C语言笔记】枚举/">
+                    <a href="/2019/01/15/c-yu-yan-bi-ji-mei-ju/">
                         <div class="card-image">
                             
                             
@@ -1192,7 +1216,7 @@ define 标识符(参数列表) 字符序列
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/10/【C语言笔记】整数溢出问题/">
+                    <a href="/2019/01/10/c-yu-yan-bi-ji-zheng-shu-yi-chu-wen-ti/">
                         <div class="card-image">
                             
                             
@@ -1241,7 +1265,7 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/04/【C语言笔记】函数指针作为函数的参数/">
+                    <a href="/2019/01/04/c-yu-yan-bi-ji-han-shu-zhi-zhen-zuo-wei-han-shu-de-can-shu/">
                         <div class="card-image">
                             
                             
@@ -1287,603 +1311,6 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/01/03/【C语言笔记】函数指针作为结构体成员/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】函数指针作为结构体成员">
-                            
-                            <span class="card-title">【C语言笔记】函数指针作为结构体成员</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                函数指针在C语言中的意义在C语言程序中，数据结构和算法是两个基本的元素。C语言的基本数据类型、结构体、数组和联合体是数据结构的代表；C语言中的函数则是算法的代表。只有将数据结构和算法有机结合才能构成具有一定功能的程序。
-函数指针的应用函数指
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/24/【C语言笔记】你的黑窗口闪退？/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="【C语言笔记】你的黑窗口闪退？">
-                            
-                            <span class="card-title">【C语言笔记】你的黑窗口闪退？</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                上一篇中写到了Windows下体验Linux环境，其中的测试代码简单的打印一句话，如：
-
-编译后得到test.exe，运行得到如下结果：
-
-在命令行下运行可以输出结果，但是在文件夹下，双击运行test1.exe却发现黑窗口一闪而过：
-
-怎么
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/23/【C语言笔记】Windows下体验Linux环境/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】Windows下体验Linux环境">
-                            
-                            <span class="card-title">【C语言笔记】Windows下体验Linux环境</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。
-在Windows系统下可以使用集成开发环
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/23/【C语言笔记】windows命令行下编译C程序/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】windows命令行下编译C程序">
-                            
-                            <span class="card-title">【C语言笔记】windows命令行下编译C程序</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gcc编译器进行编译。如：
-在Notepad++里写代码：
-
-在黑窗口下编译及运行代码：
-
-此处，编译命
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/14/【C语言笔记】分享一个C语言测试程序模板/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="【C语言笔记】分享一个C语言测试程序模板">
-                            
-                            <span class="card-title">【C语言笔记】分享一个C语言测试程序模板</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个test.c文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪费时
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/07/【C语言笔记】如何查看数据类型范围？/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】如何查看数据类型范围？">
-                            
-                            <span class="card-title">【C语言笔记】如何查看数据类型范围？</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                知识点一：查看整数范围当前的编译环境下，你可能不知道int的数据范围是多少，或者记不清无符号短整型的范围是0~65535还是0~65536?这时候就可以按照如下程序进行输出查看：
-#include &lt;stdio.h&gt;
-#incl
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/12/06/【C语言笔记】什么是ANSI C标准？/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="【C语言笔记】什么是ANSI C标准？">
-                            
-                            <span class="card-title">【C语言笔记】什么是ANSI C标准？</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                我们在很多地方都有看到过K&amp;R C、ANSI C、ISO C、C89、C99、C11等标准，具体有什么不同呢？（文末有个很好的实例）
-什么是K&amp;R C？1978年，丹尼斯•里奇（Dennis Ritchie）和布莱恩•柯林汉
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/26/【C语言笔记】ASCII码可见字符与不可见字符/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="【C语言笔记】ASCII码可见字符与不可见字符">
-                            
-                            <span class="card-title">【C语言笔记】ASCII码可见字符与不可见字符</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言。下面看一段示例代码，用于输出ASC
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/22/【C语言笔记】变参函数/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【C语言笔记】变参函数">
-                            
-                            <span class="card-title">【C语言笔记】变参函数</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                提到变参函数，我们的感觉是不是既熟悉又陌生？感觉熟悉是因为我们平时都在使用着，如我们常使用的printf()函数与scanf()函数就是典型的变参函数。因为printf()函数是变参函数我们才可以根据我们的需要灵活地输出变量的值。如：
-pr
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/17/【C语言笔记】关于随机数的总结/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】关于随机数的总结">
-                            
-                            <span class="card-title">【C语言笔记】关于随机数的总结</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                C语言的库头文件stdlib.h中有个生成随机数的函数：
-int rand(void);
-该函数返回0~RAND_MAX之间的随机数，在stdlib.h中可知道，RAND_MAX为0x7FFF，如：
-
-但这里生成的随机数为伪随机数。所谓的伪
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/16/【C语言笔记】时间时期函数/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】时间日期函数">
-                            
-                            <span class="card-title">【C语言笔记】时间日期函数</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
-
-time()函数1、函数原型
-time_t time(time_t *t);
-2、函数说明
-time_t 是lon
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/13/【C语言笔记】数组a与&a有什么不同？/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
-                            
-                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                首先，看一段代码：
-#include &lt;stdio.h&gt;
-
-int main(void)
-{
- int a[5] = {0,1,2,3,4};
-
- printf(&quot;a = %d , &amp;a = %d \n&quo
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1900,7 +1327,7 @@ int main(void)
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
+            <div class="center-align b-text-gray">1 / 4</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1923,7 +1350,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.9k</span>
+                <span class="white-color">37.3k</span>
             
 
             
@@ -1943,7 +1370,29 @@ int main(void)
                 
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"></div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhengnianli" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2238184039@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2238184039" class="tooltipped" data-tooltip="QQ联系我: 2238184039" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
     </div>
 </footer>
 
