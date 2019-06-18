@@ -645,28 +645,24 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/25/【C语言笔记】数组与指针不等价/">
+                        <a href="/2018/10/25/【C语言笔记】关于二维数组作为函数参数的问题/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                                 
-                                <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                                <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    前言数组与指针是不等价的，如：
+                                    在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
 
-数组名不可以改变，而指向数组的指针是可以改变的。
-
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
-
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
-
-
-
+ for ( i = 0; i &lt; m; 
                                 
                             </div>
                             <div class="publish-info">
@@ -713,24 +709,28 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/25/【C语言笔记】关于二维数组作为函数参数的问题/">
+                        <a href="/2018/10/25/【C语言笔记】数组与指针不等价/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                                 
-                                <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                                <span class="card-title">【C语言笔记】数组与指针不等价</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
+                                    前言数组与指针是不等价的，如：
 
- for ( i = 0; i &lt; m; 
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                                 
                             </div>
                             <div class="publish-info">
@@ -1164,66 +1164,6 @@ XB
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/14/【C语言笔记】复合赋值语句/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
-                                
-                                <span class="card-title">【C语言笔记】复合赋值语句</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
-现在，a = a + 5和
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/C语言/"><span class="chip bg-color">C语言</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>14</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6 overflow-policy">
-                    <div class="card">
                         <a href="/2018/10/14/【C语言笔记】C语言编译的过程/">
                             <div class="card-image">
                                 
@@ -1300,6 +1240,66 @@ XB
                                     C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
 (1)char str[] = &quot;happy&quot;;
 (2)char *str = &quot;happy&quot
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/C语言/"><span class="chip bg-color">C语言</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>14</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6 overflow-policy">
+                    <div class="card">
+                        <a href="/2018/10/14/【C语言笔记】复合赋值语句/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
+                                
+                                <span class="card-title">【C语言笔记】复合赋值语句</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
+现在，a = a + 5和
                                 
                             </div>
                             <div class="publish-info">
