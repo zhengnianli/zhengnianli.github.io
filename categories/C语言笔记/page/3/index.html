@@ -422,6 +422,57 @@ int main(void)
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
+
+ for ( i = 0; i &lt; m; 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
                         <div class="card-image tag-image">
                             
@@ -491,57 +542,6 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
 
 
 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
-                            
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
-
- for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
@@ -884,23 +884,21 @@ XB
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
                             
-                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = "happy";
-(2)char *str = "happy";
-这种方式有什么不同呢？
-下面看两个
+                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
+下面以windows环境下的test.c为例，test.c里的代码为：
+#inc
                             
                         </div>
                         <div class="publish-info">
