@@ -5,9 +5,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】枚举, 正念君的博客">
-    <meta name="description" content="首先，提一下宏定义#define，其一般形式为：
+    <meta name="description" content="一、前言首先，提一下宏定义#define，其一般形式为：
 #define 宏名 字符串
-这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以与enu">
+这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -407,7 +407,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        902
+                        910
                     </div>
                     
 
@@ -430,10 +430,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>首先，提一下宏定义<code>#define</code>，其一般形式为：</p>
+                <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>首先，提一下宏定义<code>#define</code>，其一般形式为：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> 宏名 字符串</span></code></pre>
-<p>这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=100000185&idx=3&sn=45449023129f96bf6966512ec44e7e10&chksm=7e0d6f7e497ae6681f2ec2d4ac51a56757d5e7787be9abfac943c548f2a43dffe3cdf2dab19b#rd" target="_blank" rel="noopener">【C语言笔记】define与typedef的区别？</a>）。除此之外，其还可以与<code>enum</code>进行类比。</p>
-<h3 id="什么是枚举"><a href="#什么是枚举" class="headerlink" title="什么是枚举"></a>什么是枚举</h3><p>从字面理解，就是一一列举的意思。很多时候，有一些数据的取值有限的，这时候可以把这些可能的结果列出来，并赋予新的名字，这样有助于提高代码的可读性。例如，一个星期有7天，一年有12个月，期末考试科目有6个科目等情况，完全可以一一列举出来。</p>
+<p>这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看<a href="https://zhengnianli.github.io/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">【C语言笔记】define与typedef的区别？</a>）。除此之外，其还可以与枚举<code>enum</code>进行类比。</p>
+<h3 id="二、什么是枚举"><a href="#二、什么是枚举" class="headerlink" title="二、什么是枚举"></a>二、什么是枚举</h3><p>从字面理解，就是一一列举的意思。很多时候，有一些数据的取值有限的，这时候可以把这些可能的结果列出来，并赋予新的名字，这样有助于提高代码的可读性。例如，一个星期有7天，一年有12个月，期末考试科目有6个科目等情况，完全可以一一列举出来。</p>
 <p>当我们要为整数定义一些别名（例如定义为星期数）的时候，可以使用宏定义，如：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">define</span> MON  1</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> TUE  2</span>
@@ -466,7 +466,7 @@ C<span class="token operator">=</span><span class="token number">100</span>
 D<span class="token operator">=</span><span class="token number">101</span>
 F<span class="token operator">=</span><span class="token number">200</span>
 G<span class="token operator">=</span><span class="token number">201</span></code></pre>
-<h3 id="枚举类型变量的定义方法"><a href="#枚举类型变量的定义方法" class="headerlink" title="枚举类型变量的定义方法"></a>枚举类型变量的定义方法</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">enum</span> DAY
+<h3 id="三、枚举类型变量的定义方法"><a href="#三、枚举类型变量的定义方法" class="headerlink" title="三、枚举类型变量的定义方法"></a>三、枚举类型变量的定义方法</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">enum</span> DAY
 <span class="token punctuation">{</span>
     MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -485,7 +485,7 @@ G<span class="token operator">=</span><span class="token number">201</span></cod
 
 DAY good_day<span class="token punctuation">,</span> bad_day<span class="token punctuation">;</span></code></pre>
 <p>此处使用<code>typedef</code>为枚举定义一个别名，这个别名为<code>DAY</code>，关于<code>typedef</code>的介绍可点击文首的链接进行查看。</p>
-<h3 id="程序实例"><a href="#程序实例" class="headerlink" title="程序实例"></a>程序实例</h3><p>编译环境为 : <code>gcc 6.3.0</code></p>
+<h4 id="程序实例"><a href="#程序实例" class="headerlink" title="程序实例"></a>程序实例</h4><p>编译环境为 : <code>gcc 6.3.0</code></p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">enum</span> DAY
@@ -515,7 +515,7 @@ DAY good_day<span class="token punctuation">,</span> bad_day<span class="token p
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果：</p>
 <p><a href="https://imgchr.com/i/VH8JUS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH8JUS.md.png" alt="VH8JUS.md.png"></a></p>
-<h3 id="枚举变量占用的字节数？"><a href="#枚举变量占用的字节数？" class="headerlink" title="枚举变量占用的字节数？"></a>枚举变量占用的字节数？</h3><p>实测程序：</p>
+<h3 id="四、枚举变量占用的字节数？"><a href="#四、枚举变量占用的字节数？" class="headerlink" title="四、枚举变量占用的字节数？"></a>四、枚举变量占用的字节数？</h3><p>实测程序：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">enum</span> DAY
@@ -743,8 +743,8 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
-那么，当我们要做一个学生信息管理系统时，需要保存学生的姓名
+                            一、同时定义多个变量我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
+那么，当我们要做一个学生信息管理系统时
                         
                     </div>
                     <div class="publish-info">
@@ -793,9 +793,9 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：
+                            一、前言整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：
 
-SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无法估
+SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无
                         
                     </div>
                     <div class="publish-info">
@@ -939,7 +939,7 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.3k</span>
+                <span class="white-color">41.4k</span>
             
 
             

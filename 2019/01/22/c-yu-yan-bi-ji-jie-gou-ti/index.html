@@ -5,8 +5,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】结构体, 正念君的博客">
-    <meta name="description" content="我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
-那么，当我们要做一个学生信息管理系统时，需要保存学生的姓名">
+    <meta name="description" content="一、同时定义多个变量我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
+那么，当我们要做一个学生信息管理系统时">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -429,15 +429,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为<code>int</code>类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为<code>float</code>。</p>
+                <h3 id="一、同时定义多个变量"><a href="#一、同时定义多个变量" class="headerlink" title="一、同时定义多个变量"></a>一、同时定义多个变量</h3><p>我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为<code>int</code>类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为<code>float</code>。</p>
 <p>那么，当我们要做一个学生信息管理系统时，需要保存学生的姓名、学号、年龄等信息，该怎么做呢？</p>
 <p>如当要保存三个学生的信息时，</p>
-<p>方法一是：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>name1<span class="token punctuation">,</span><span class="token operator">*</span>name2<span class="token punctuation">,</span><span class="token operator">*</span>name3<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 三个学生的姓名</span>
+<h4 id="方法一是："><a href="#方法一是：" class="headerlink" title="方法一是："></a>方法一是：</h4><pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>name1<span class="token punctuation">,</span><span class="token operator">*</span>name2<span class="token punctuation">,</span><span class="token operator">*</span>name3<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 三个学生的姓名</span>
 <span class="token keyword">int</span> num1<span class="token punctuation">,</span>num2<span class="token punctuation">,</span>num3<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 三个学生的学号</span>
 <span class="token keyword">int</span> age1<span class="token punctuation">,</span>age2<span class="token punctuation">,</span>age3<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 三个学生的年龄</span></code></pre>
-<p>方法二是：</p>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 创建结构体模板</span>
+<h4 id="方法二是："><a href="#方法二是：" class="headerlink" title="方法二是："></a>方法二是：</h4><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 创建结构体模板</span>
 <span class="token keyword">struct</span> student
 <span class="token punctuation">{</span>
   <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 学生名字</span>
@@ -448,11 +446,10 @@
 <span class="token comment" spellcheck="true">// 使用该结构体模板创建三个变量stu1, stu2, stu3</span>
 <span class="token keyword">struct</span> student stu1<span class="token punctuation">,</span> stu2<span class="token punctuation">,</span> stu3<span class="token punctuation">;</span></code></pre>
 <p>显然，方法二跟更清晰，因为它把<code>name、num、age</code>都集成在一个模板，要用的时候只要套用模板进行创建即可。这就是<code>结构体</code>。</p>
-<h3 id="什么是结构体"><a href="#什么是结构体" class="headerlink" title="什么是结构体"></a>什么是结构体</h3><p><code>结构体(struct)</code>是由一系列具有相同类型或不同类型的数据项构成的数据集合，这些数据项称为结构体的成员。如上面的<code>student</code>结构体包含三个成员，分别是<code>name、num、age</code>。</p>
+<h3 id="二、什么是结构体"><a href="#二、什么是结构体" class="headerlink" title="二、什么是结构体"></a>二、什么是结构体</h3><p><code>结构体(struct)</code>是由一系列具有相同类型或不同类型的数据项构成的数据集合，这些数据项称为结构体的成员。如上面的<code>student</code>结构体包含三个成员，分别是<code>name、num、age</code>。</p>
 <p>结构体是C语言中的一种构造类型。C语言的数据类型如下图：</p>
 <p><a href="https://imgchr.com/i/VHCDJg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHCDJg.md.png" alt="VHCDJg.md.png"></a></p>
-<h3 id="结构体变量的定义方法"><a href="#结构体变量的定义方法" class="headerlink" title="结构体变量的定义方法"></a>结构体变量的定义方法</h3><p>####方法一</p>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 创建结构体模板struct student</span>
+<h3 id="三、结构体变量的定义方法"><a href="#三、结构体变量的定义方法" class="headerlink" title="三、结构体变量的定义方法"></a>三、结构体变量的定义方法</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 创建结构体模板struct student</span>
 <span class="token keyword">struct</span> student
 <span class="token punctuation">{</span>
 <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 学生名字</span>
@@ -481,9 +478,9 @@
 
 <span class="token comment" spellcheck="true">// 使用student创建三个结构体变量stu1, stu2, stu3</span>
 student stu1<span class="token punctuation">,</span> stu2<span class="token punctuation">,</span> stu3<span class="token punctuation">;</span></code></pre>
-<p>此处使用<code>typedef</code>为结构体模板<code>struct student</code>定义一个别名<code>student</code>，关于<code>typedef</code>的介绍移步至往期笔记：<a href="https://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=2247483836&idx=3&sn=2495cd250834605b8e92b5c6c1a33a95&chksm=fe0d6f7bc97ae66db2f0059322a442c661a396beb4450fb0c6427a288b0e010b5af3be134726&scene=21#wechat_redirect" target="_blank" rel="noopener">【C语言笔记】#define与typedef的区别？</a>进行查看。使用<code>typedef</code>给结构体创建一个别名，这在实际编程用使用非常广泛，如<code>STM32</code>单片机固件库中，使用得很多，如下图：</p>
+<p>此处使用<code>typedef</code>为结构体模板<code>struct student</code>定义一个别名<code>student</code>，关于<code>typedef</code>的介绍移步至往期笔记：<a href="https://zhengnianli.github.io/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">【C语言笔记】#define与typedef的区别？</a>进行查看。使用<code>typedef</code>给结构体创建一个别名，这在实际编程用使用非常广泛，如<code>STM32</code>单片机固件库中，使用得很多，如下图：</p>
 <p><a href="https://imgchr.com/i/VHPZtS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHPZtS.md.png" alt="VHPZtS.md.png"></a></p>
-<h3 id="初始化结构"><a href="#初始化结构" class="headerlink" title="初始化结构"></a>初始化结构</h3><p>初始化变量和数组如下：</p>
+<h3 id="四、初始化结构"><a href="#四、初始化结构" class="headerlink" title="四、初始化结构"></a>四、初始化结构</h3><p>初始化变量和数组如下：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>结构体变量是否也可以这样初始化？是的，可以。与初始化数组的语法类似：</p>
@@ -517,13 +514,12 @@ student stu1<span class="token punctuation">,</span> stu2<span class="token punc
 <p>此时，赋给<code>num</code>的值应该是<code>1314</code>，因为它在结构声明中紧跟在<code>name</code>成员之后。新值<code>1314</code>取代了之前的<code>520</code>。</p>
 <p>指定初始化器在实际编程中也很常用到。如在<code>linux2.6.32.2</code>源码的<code>usb</code>驱动中（路径为：<code>linux-2.6.32.2\drivers\usb\storage\usb.c</code>），有如下代码：</p>
 <p><a href="https://imgchr.com/i/VHPD76" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHPD76.md.png" alt="VHPD76.md.png"></a></p>
-<h3 id="访问结构体成员"><a href="#访问结构体成员" class="headerlink" title="访问结构体成员"></a>访问结构体成员</h3><p>结构体成员的访问需要借助结构体成员运算符——点（.）。如：</p>
+<h3 id="五、访问结构体成员"><a href="#五、访问结构体成员" class="headerlink" title="五、访问结构体成员"></a>五、访问结构体成员</h3><p>结构体成员的访问需要借助结构体成员运算符——点（.）。如：</p>
 <pre class=" language-c"><code class="language-c">student stu1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 定义一个结构体变量stu1</span>
 stu1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengNianJun"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 给stu1的成员name赋值</span>
 stu1<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">520</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">// 给stu1的成员num赋值</span>
 stu1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// 给stu1的成员age赋值</span></code></pre>
-<p>实例</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span> student
 <span class="token punctuation">{</span>
@@ -552,7 +548,7 @@ stu1<span class="token punctuation">.</span>age <span class="token operator">=</
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果为：</p>
 <p><a href="https://imgchr.com/i/VHPq3Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHPq3Q.md.png" alt="VHPq3Q.md.png"></a></p>
-<p>结构体是一块很重要的内容，用得很多。关于结构体的内存对齐可查看往期笔记：<a href="https://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=2247483922&idx=1&sn=e0d24baca5bd0d0accabd2b864479a67&chksm=fe0d6cd5c97ae5c305b52d3e3267f89077af1d948471eec064562c7bd09677d11da7da8aae41&scene=21#wechat_redirect" target="_blank" rel="noopener">【C语言笔记】C语言结构体内存对齐问题</a></p>
+<p>结构体是一块很重要的内容，用得很多。关于结构体的内存对齐可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/20/c-yu-yan-bi-ji-jie-gou-ti-nei-cun-dui-qi/">【C语言笔记】C语言结构体内存对齐问题</a></p>
 <p>以上就是关于结构体的一些笔记，如有错误欢迎指出。谢谢！</p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
@@ -807,9 +803,9 @@ stu1<span class="token punctuation">.</span>age <span class="token operator">=</
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先，提一下宏定义#define，其一般形式为：
+                            一、前言首先，提一下宏定义#define，其一般形式为：
 #define 宏名 字符串
-这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以与enu
+这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以
                         
                     </div>
                     <div class="publish-info">
@@ -953,7 +949,7 @@ stu1<span class="token punctuation">.</span>age <span class="token operator">=</
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.3k</span>
+                <span class="white-color">41.4k</span>
             
 
             

@@ -477,9 +477,9 @@ prnt<span class="token punctuation">.</span>undin <span class="token operator">=
 <p>程序输出结果为：</p>
 <pre class=" language-cpp"><code class="language-cpp">pk1<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> pk1<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> pk1<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">5</span>
 pk2<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> pk2<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> pk2<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">2</span></code></pre>
-<p>显然，结构体变量<code>pk1</code>的各成员都没有超出限定的位数，能够正常输出。而结构体变量<code>pk2</code>的各成员超出了限定的位数，并发生了<code>上溢</code>（溢出中的一种），关于溢出的概念可查看往期笔记：<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=100000812&idx=1&sn=b8435d0429c74c6e4902b3e9e553de40&chksm=7e0d6aeb497ae3fd555711981b9fdb295058d8fcf4b47ad0850c1c68faa2ba9ad1fef9eaae14#rd" target="_blank" rel="noopener">【C语言笔记】整数溢出</a></p>
-<p>C语言标准规定，只有有限的几种数据类型可以用于位域。在<code>ANSI C</code> 中，这几种数据类型是<code>signed int</code>和<code>unsigned int</code>；到了<code>C99、C11</code>新增了<code>_Bool</code>的位字段。关于C语言的几套标准可查看往期笔记：<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=100000596&idx=1&sn=67dc88459a36f138cf98ce8d75469dfa&chksm=7e0d6d93497ae485a211f47eff1e92f3efed78d51ebe15cbb3ca101f5f8053584ce57c9cb5e6#rd" target="_blank" rel="noopener">【C语言笔记】什么是ANSI C标准？</a></p>
-<h3 id="位域的存储"><a href="#位域的存储" class="headerlink" title="位域的存储"></a>位域的存储</h3><p>位域的存储同样遵循结构体内存对齐的规则，关于结构体内存对齐的问题可查看往期笔记：<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=100000273&idx=1&sn=2acdd7fcfcdceec8cc34e3b8fb68a2d5&chksm=7e0d6cd6497ae5c0dbdd46e3ac865de3d938dba5fb9f6da955542224662fc8831693e4ef9c32#rd" target="_blank" rel="noopener">【C语言笔记】C语言结构体内存对齐问题</a></p>
+<p>显然，结构体变量<code>pk1</code>的各成员都没有超出限定的位数，能够正常输出。而结构体变量<code>pk2</code>的各成员超出了限定的位数，并发生了<code>上溢</code>（溢出中的一种），关于溢出的概念可查看往期笔记：<a href="https://zhengnianli.github.io/2019/01/10/c-yu-yan-bi-ji-zheng-shu-yi-chu-wen-ti/">【C语言笔记】整数溢出</a></p>
+<p>C语言标准规定，只有有限的几种数据类型可以用于位域。在<code>ANSI C</code> 中，这几种数据类型是<code>signed int</code>和<code>unsigned int</code>；到了<code>C99、C11</code>新增了<code>_Bool</code>的位字段。关于C语言的几套标准可查看往期笔记：<a href="https://zhengnianli.github.io/2018/12/06/c-yu-yan-bi-ji-shi-me-shi-ansi-c-biao-zhun/">【C语言笔记】什么是ANSI C标准？</a></p>
+<h3 id="位域的存储"><a href="#位域的存储" class="headerlink" title="位域的存储"></a>位域的存储</h3><p>位域的存储同样遵循结构体内存对齐的规则，关于结构体内存对齐的问题可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/20/c-yu-yan-bi-ji-jie-gou-ti-nei-cun-dui-qi/">【C语言笔记】C语言结构体内存对齐问题</a></p>
 <p>看一个例子：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">struct</span> pack
@@ -723,9 +723,9 @@ pk2<span class="token punctuation">.</span>a <span class="token operator">=</spa
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            操作位有两种方法，一种是位字段，另一种是使用按位运算符。位字段的方法可查看往期笔记：【C语言笔记】位域。本文介绍使用按位运算符操作位的方法。下表为几种位操作符及其含义：
+                            一、操作位的方法操作位有两种方法，一种是位字段，另一种是使用按位运算符。位字段的方法可查看往期笔记：【C语言笔记】位域。本文介绍使用按位运算符操作位的方法。下表为几种位操作符及其含义：
 
-不改变其他位的值的状况下，对某几个位进行设值。在嵌入式编程中，常常需
+二、不改变其他位的值的状况下，对某几个位进行设值。在
                         
                     </div>
                     <div class="publish-info">
@@ -774,8 +774,8 @@ pk2<span class="token punctuation">.</span>a <span class="token operator">=</spa
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
-那么，当我们要做一个学生信息管理系统时，需要保存学生的姓名
+                            一、同时定义多个变量我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
+那么，当我们要做一个学生信息管理系统时
                         
                     </div>
                     <div class="publish-info">
@@ -919,7 +919,7 @@ pk2<span class="token punctuation">.</span>a <span class="token operator">=</spa
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.3k</span>
+                <span class="white-color">41.4k</span>
             
 
             

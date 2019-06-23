@@ -5,9 +5,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】整数溢出问题, 正念君的博客">
-    <meta name="description" content="前言整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：
+    <meta name="description" content="一、前言整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：
 
-SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无法估">
+SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -407,7 +407,7 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        446
+                        449
                     </div>
                     
 
@@ -430,16 +430,16 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：</p>
+                <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：</p>
 <p><a href="https://imgchr.com/i/VHnOiR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHnOiR.md.png" alt="VHnOiR.md.png"></a></p>
 <p>SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无法估量。</p>
-<h3 id="什么是整数溢出？"><a href="#什么是整数溢出？" class="headerlink" title="什么是整数溢出？"></a>什么是整数溢出？</h3><p>计算机语言中整数类型都有一个取值范围，两个整数进行运算时，若其结果大于最大值（<code>上溢</code>）或者小于最小值（<code>下溢</code>）就是溢出。</p>
+<h3 id="二、什么是整数溢出？"><a href="#二、什么是整数溢出？" class="headerlink" title="二、什么是整数溢出？"></a>二、什么是整数溢出？</h3><p>计算机语言中整数类型都有一个取值范围，两个整数进行运算时，若其结果大于最大值（<code>上溢</code>）或者小于最小值（<code>下溢</code>）就是溢出。</p>
 <p>假如最大值为 <code>a</code> ，在最大值和最小值之间如果发生以下计算：</p>
 <blockquote>
 <p>a+1=0或0-1=a</p>
 </blockquote>
 <p>此时就会发生溢出，其中<code>a+1=0</code>会发生上溢，<code>0-1=a</code>会发生下溢。</p>
-<h3 id="程序实例"><a href="#程序实例" class="headerlink" title="程序实例"></a>程序实例</h3><p>示例（在32bit环境中编译）</p>
+<h3 id="三、程序实例"><a href="#三、程序实例" class="headerlink" title="三、程序实例"></a>三、程序实例</h3><p>示例（在32bit环境中编译）</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 整数溢出例子</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
@@ -462,7 +462,7 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
 <pre class=" language-c"><code class="language-c"><span class="token operator">-</span><span class="token number">32768</span><span class="token operator">~</span><span class="token number">32767</span></code></pre>
 <p>unsigned short的范围为：</p>
 <pre><code>0~65535</code></pre><p>所以<code>short</code>类型的<code>i=32767</code>加1、加2时会产生上溢。<code>unsigned short</code>类型的<code>j=65535</code>加1、加2时会产生上溢。<code>unsigned short</code>类型的k=0减1、减2时会产生下溢。</p>
-<p>（ps：可以使用程序来查看整数数据类型的范围，具体可移步至<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=100000603&idx=1&sn=b4c71c14e56cf5a68d7700c391c39cdc&chksm=7e0d6d9c497ae48a53929fca159525ebd10b4f2e5e0f08d996c15ce2702a4506252833582ab0#rd" target="_blank" rel="noopener">【C语言笔记】如何查看数据类型范围？</a>进行查看）</p>
+<p>（ps：可以使用程序来查看整数数据类型的范围，具体可移步至<a href="https://zhengnianli.github.io/2018/12/06/c-yu-yan-bi-ji-shi-me-shi-ansi-c-biao-zhun/">【C语言笔记】如何查看数据类型范围？</a>进行查看）</p>
 <p>以上就是关于整数溢出的笔记分享，如有错误欢迎指出！</p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
@@ -667,9 +667,9 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先，提一下宏定义#define，其一般形式为：
+                            一、前言首先，提一下宏定义#define，其一般形式为：
 #define 宏名 字符串
-这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以与enu
+这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以
                         
                     </div>
                     <div class="publish-info">
@@ -719,7 +719,7 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
                     <div class="summary block-with-text">
                         
                             函数指针有两种常用的用法，一种是作为结构体成员，关于函数指针作为结构体成员的用法可移步至上一篇【C语言笔记】函数指针作为结构体成员进行查看。另一种是函数指针作为函数的参数。这一篇分享的是函数指针作为函数的参数。
-函数指针作为函数的参数函数指
+一、函数指针作为函数的参数函
                         
                     </div>
                     <div class="publish-info">
@@ -863,7 +863,7 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">37.3k</span>
+                <span class="white-color">41.4k</span>
             
 
             

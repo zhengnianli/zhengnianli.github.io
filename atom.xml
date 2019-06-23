@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-06-18T08:42:03.379Z</updated>
+  <updated>2019-06-19T04:35:08.146Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhengnianli.github.io/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/"/>
     <id>https://zhengnianli.github.io/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/</id>
     <published>2019-06-16T05:59:36.000Z</published>
-    <updated>2019-06-18T08:42:03.379Z</updated>
+    <updated>2019-06-19T04:35:08.146Z</updated>
     
     <summary type="html">
     
@@ -40,6 +40,200 @@
     
     
       <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习011</title>
+    <link href="https://zhengnianli.github.io/2019/06/14/c-bian-cheng-lian-xi-011/"/>
+    <id>https://zhengnianli.github.io/2019/06/14/c-bian-cheng-lian-xi-011/</id>
+    <published>2019-06-14T00:22:15.000Z</published>
+    <updated>2019-06-23T07:20:59.522Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习010</title>
+    <link href="https://zhengnianli.github.io/2019/06/12/c-bian-cheng-lian-xi-010/"/>
+    <id>https://zhengnianli.github.io/2019/06/12/c-bian-cheng-lian-xi-010/</id>
+    <published>2019-06-12T00:22:15.000Z</published>
+    <updated>2019-06-23T06:57:01.843Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;统计文件的字符数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2、代码&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习009</title>
+    <link href="https://zhengnianli.github.io/2019/06/11/c-bian-cheng-lian-xi-009/"/>
+    <id>https://zhengnianli.github.io/2019/06/11/c-bian-cheng-lian-xi-009/</id>
+    <published>2019-06-11T00:22:15.000Z</published>
+    <updated>2019-06-23T06:54:33.765Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;将一个数分解质因数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2、代码&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习008</title>
+    <link href="https://zhengnianli.github.io/2019/06/10/c-bian-cheng-lian-xi-008/"/>
+    <id>https://zhengnianli.github.io/2019/06/10/c-bian-cheng-lian-xi-008/</id>
+    <published>2019-06-10T00:22:15.000Z</published>
+    <updated>2019-06-23T06:52:28.202Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;自定义atoi函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;atoi (表示 ascii to
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习007</title>
+    <link href="https://zhengnianli.github.io/2019/06/06/c-bian-cheng-lian-xi-007/"/>
+    <id>https://zhengnianli.github.io/2019/06/06/c-bian-cheng-lian-xi-007/</id>
+    <published>2019-06-06T00:22:15.000Z</published>
+    <updated>2019-06-23T06:49:08.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习006</title>
+    <link href="https://zhengnianli.github.io/2019/06/05/c-bian-cheng-lian-xi-006/"/>
+    <id>https://zhengnianli.github.io/2019/06/05/c-bian-cheng-lian-xi-006/</id>
+    <published>2019-06-05T00:22:15.000Z</published>
+    <updated>2019-06-23T06:46:46.845Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习005</title>
+    <link href="https://zhengnianli.github.io/2019/06/04/c-bian-cheng-lian-xi-005/"/>
+    <id>https://zhengnianli.github.io/2019/06/04/c-bian-cheng-lian-xi-005/</id>
+    <published>2019-06-04T00:22:15.000Z</published>
+    <updated>2019-06-23T06:42:43.610Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在已知两个从小到大有序的数表中寻找都出现的第一个元素&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
     
   </entry>
   
@@ -74,11 +268,122 @@
   </entry>
   
   <entry>
+    <title>C编程练习004</title>
+    <link href="https://zhengnianli.github.io/2019/06/01/c-bian-cheng-lian-xi-004/"/>
+    <id>https://zhengnianli.github.io/2019/06/01/c-bian-cheng-lian-xi-004/</id>
+    <published>2019-06-01T00:22:15.000Z</published>
+    <updated>2019-06-23T06:40:38.320Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习003</title>
+    <link href="https://zhengnianli.github.io/2019/05/31/c-bian-cheng-lian-xi-003/"/>
+    <id>https://zhengnianli.github.io/2019/05/31/c-bian-cheng-lian-xi-003/</id>
+    <published>2019-05-31T00:22:15.000Z</published>
+    <updated>2019-06-23T06:31:13.365Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;遍历数组&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;2、代码&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习002</title>
+    <link href="https://zhengnianli.github.io/2019/05/30/c-bian-cheng-lian-xi-002/"/>
+    <id>https://zhengnianli.github.io/2019/05/30/c-bian-cheng-lian-xi-002/</id>
+    <published>2019-05-30T00:22:15.000Z</published>
+    <updated>2019-06-23T06:18:00.018Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;求数组元素之和    &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2、代码&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C编程练习001</title>
+    <link href="https://zhengnianli.github.io/2019/05/29/c-bian-cheng-lian-xi-001/"/>
+    <id>https://zhengnianli.github.io/2019/05/29/c-bian-cheng-lian-xi-001/</id>
+    <published>2019-05-29T00:22:15.000Z</published>
+    <updated>2019-06-23T06:27:00.907Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、题目&quot;&gt;&lt;a href=&quot;#1、题目&quot; class=&quot;headerlink&quot; title=&quot;1、题目&quot;&gt;&lt;/a&gt;1、题目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;斐波纳契数列
+        
+      
+    
+    </summary>
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/categories/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+    
+      <category term="C编程练习" scheme="https://zhengnianli.github.io/tags/C%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【C语言笔记】#运算符与##运算符</title>
     <link href="https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/"/>
     <id>https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/</id>
     <published>2019-05-07T00:22:15.000Z</published>
-    <updated>2019-06-18T04:25:48.217Z</updated>
+    <updated>2019-06-23T04:00:22.470Z</updated>
     
     <summary type="html">
     
@@ -158,7 +463,7 @@
     <link href="https://zhengnianli.github.io/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/"/>
     <id>https://zhengnianli.github.io/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/</id>
     <published>2019-02-16T00:22:15.000Z</published>
-    <updated>2019-06-18T07:07:55.045Z</updated>
+    <updated>2019-06-23T04:07:37.554Z</updated>
     
     <summary type="html">
     
@@ -184,7 +489,7 @@
     <link href="https://zhengnianli.github.io/2019/02/15/c-yu-yan-bi-ji-cao-zuo-wei-de-ji-qiao/"/>
     <id>https://zhengnianli.github.io/2019/02/15/c-yu-yan-bi-ji-cao-zuo-wei-de-ji-qiao/</id>
     <published>2019-02-15T00:22:15.000Z</published>
-    <updated>2019-06-18T07:10:06.359Z</updated>
+    <updated>2019-06-23T05:27:21.874Z</updated>
     
     <summary type="html">
     
@@ -192,7 +497,7 @@
       
         
         
-          &lt;p&gt;操作位有两种方法，一种是&lt;code&gt;位字段&lt;/code&gt;，另一种是使用&lt;code&gt;按位运算符&lt;/code&gt;。位字段的方法可查看往期笔记：&lt;a
+          &lt;h3 id=&quot;一、操作位的方法&quot;&gt;&lt;a href=&quot;#一、操作位的方法&quot; class=&quot;headerlink&quot;
         
       
     
@@ -210,7 +515,7 @@
     <link href="https://zhengnianli.github.io/2019/02/14/c-yu-yan-bi-ji-wei-yu/"/>
     <id>https://zhengnianli.github.io/2019/02/14/c-yu-yan-bi-ji-wei-yu/</id>
     <published>2019-02-14T00:22:15.000Z</published>
-    <updated>2019-06-17T14:31:30.926Z</updated>
+    <updated>2019-06-23T05:30:44.939Z</updated>
     
     <summary type="html">
     
@@ -236,7 +541,7 @@
     <link href="https://zhengnianli.github.io/2019/01/22/c-yu-yan-bi-ji-jie-gou-ti/"/>
     <id>https://zhengnianli.github.io/2019/01/22/c-yu-yan-bi-ji-jie-gou-ti/</id>
     <published>2019-01-22T00:22:15.000Z</published>
-    <updated>2019-06-17T15:01:48.618Z</updated>
+    <updated>2019-06-23T05:40:35.693Z</updated>
     
     <summary type="html">
     
@@ -244,298 +549,7 @@
       
         
         
-          &lt;p&gt;我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为&lt;code&gt;int&lt;/code&gt;类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为&lt;code&gt;float&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;那么，当我们要做一个学生信
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】枚举</title>
-    <link href="https://zhengnianli.github.io/2019/01/15/c-yu-yan-bi-ji-mei-ju/"/>
-    <id>https://zhengnianli.github.io/2019/01/15/c-yu-yan-bi-ji-mei-ju/</id>
-    <published>2019-01-15T00:22:15.000Z</published>
-    <updated>2019-06-17T14:36:21.677Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;首先，提一下宏定义&lt;code&gt;#define&lt;/code&gt;，其一般形式为：&lt;/p&gt;
-&lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;#&lt;span
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】整数溢出问题</title>
-    <link href="https://zhengnianli.github.io/2019/01/10/c-yu-yan-bi-ji-zheng-shu-yi-chu-wen-ti/"/>
-    <id>https://zhengnianli.github.io/2019/01/10/c-yu-yan-bi-ji-zheng-shu-yi-chu-wen-ti/</id>
-    <published>2019-01-10T00:22:15.000Z</published>
-    <updated>2019-06-17T14:59:50.641Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：&lt;/p&gt;
-&lt;p&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】函数指针作为函数的参数</title>
-    <link href="https://zhengnianli.github.io/2019/01/04/c-yu-yan-bi-ji-han-shu-zhi-zhen-zuo-wei-han-shu-de-can-shu/"/>
-    <id>https://zhengnianli.github.io/2019/01/04/c-yu-yan-bi-ji-han-shu-zhi-zhen-zuo-wei-han-shu-de-can-shu/</id>
-    <published>2019-01-04T00:22:15.000Z</published>
-    <updated>2019-06-17T14:57:26.434Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;函数指针有两种常用的用法，一种是作为结构体成员，关于函数指针作为结构体成员的用法可移步至上一篇&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】函数指针作为结构体成员</title>
-    <link href="https://zhengnianli.github.io/2019/01/03/c-yu-yan-bi-ji-han-shu-zhi-zhen-zuo-wei-jie-gou-ti-cheng-yuan/"/>
-    <id>https://zhengnianli.github.io/2019/01/03/c-yu-yan-bi-ji-han-shu-zhi-zhen-zuo-wei-jie-gou-ti-cheng-yuan/</id>
-    <published>2019-01-03T00:22:15.000Z</published>
-    <updated>2019-06-17T14:52:28.523Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;函数指针在C语言中的意义&quot;&gt;&lt;a href=&quot;#函数指针在C语言中的意义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】你的黑窗口闪退？</title>
-    <link href="https://zhengnianli.github.io/2018/12/24/c-yu-yan-bi-ji-ni-de-hei-chuang-kou-shan-tui/"/>
-    <id>https://zhengnianli.github.io/2018/12/24/c-yu-yan-bi-ji-ni-de-hei-chuang-kou-shan-tui/</id>
-    <published>2018-12-24T00:22:15.000Z</published>
-    <updated>2019-06-18T04:12:29.400Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;上一篇中写到了Windows下体验Linux环境，其中的测试代码简单的打印一句话，如：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/V73PHO&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】windows命令行下编译C程序</title>
-    <link href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/"/>
-    <id>https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/</id>
-    <published>2018-12-23T00:22:15.000Z</published>
-    <updated>2019-06-18T04:22:14.517Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;有关注我的朋友可能会知道我的C开发环境是：&lt;code&gt;Notepad++&lt;/code&gt;与&lt;code&gt;MinGW&lt;/code&gt;相结合，即用&lt;code&gt;Notepad++&lt;/code&gt;写代码，用&lt;code&gt;MinGW&lt;/code&gt;这个工具包中的&lt;code&gt;gcc编译器&lt;/cod
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】Windows下体验Linux环境</title>
-    <link href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/"/>
-    <id>https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/</id>
-    <published>2018-12-23T00:22:15.000Z</published>
-    <updated>2019-06-18T04:22:32.212Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】分享一个C语言测试程序模板</title>
-    <link href="https://zhengnianli.github.io/2018/12/14/c-yu-yan-bi-ji-fen-xiang-yi-ge-c-yu-yan-ce-shi-cheng-xu-mo-ban/"/>
-    <id>https://zhengnianli.github.io/2018/12/14/c-yu-yan-bi-ji-fen-xiang-yi-ge-c-yu-yan-ce-shi-cheng-xu-mo-ban/</id>
-    <published>2018-12-14T00:22:15.000Z</published>
-    <updated>2019-06-17T15:03:53.779Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】如何查看数据类型范围？</title>
-    <link href="https://zhengnianli.github.io/2018/12/07/c-yu-yan-bi-ji-ru-he-cha-kan-shu-ju-lei-xing-fan-wei/"/>
-    <id>https://zhengnianli.github.io/2018/12/07/c-yu-yan-bi-ji-ru-he-cha-kan-shu-ju-lei-xing-fan-wei/</id>
-    <published>2018-12-07T05:59:36.000Z</published>
-    <updated>2019-06-18T07:15:07.419Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;知识点一：查看整数范围&quot;&gt;&lt;a href=&quot;#知识点一：查看整数范围&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】什么是ANSI C标准？</title>
-    <link href="https://zhengnianli.github.io/2018/12/06/c-yu-yan-bi-ji-shi-me-shi-ansi-c-biao-zhun/"/>
-    <id>https://zhengnianli.github.io/2018/12/06/c-yu-yan-bi-ji-shi-me-shi-ansi-c-biao-zhun/</id>
-    <published>2018-12-06T00:22:15.000Z</published>
-    <updated>2019-06-17T14:32:31.311Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;我们在很多地方都有看到过&lt;code&gt;K&amp;amp;R C、ANSI C、ISO C、C89、C99、C11&lt;/code&gt;等标准，具体有什么不同呢？（文末有个很好的实例）&lt;/p&gt;
-&lt;h3 id=&quot;什么是K-amp-R-C？&quot;&gt;&lt;a href=&quot;#什么是K-amp-R-C？&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】ASCII码可见字符与不可见字符</title>
-    <link href="https://zhengnianli.github.io/2018/11/26/c-yu-yan-bi-ji-ascii-ma-ke-jian-zi-fu-yu-bu-ke-jian-zi-fu/"/>
-    <id>https://zhengnianli.github.io/2018/11/26/c-yu-yan-bi-ji-ascii-ma-ke-jian-zi-fu-yu-bu-ke-jian-zi-fu/</id>
-    <published>2018-11-26T00:22:15.000Z</published>
-    <updated>2019-06-18T06:03:46.900Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;code&gt;ASCII（American Standard Code for Information
+          &lt;h3 id=&quot;一、同时定义多个变量&quot;&gt;&lt;a href=&quot;#一、同时定义多个变量&quot; class=&quot;headerlink&quot;
         
       
     
