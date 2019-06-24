@@ -242,7 +242,7 @@
     <link href="https://zhengnianli.github.io/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/"/>
     <id>https://zhengnianli.github.io/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/</id>
     <published>2019-06-03T00:22:15.000Z</published>
-    <updated>2019-06-18T04:00:44.014Z</updated>
+    <updated>2019-06-24T01:57:19.196Z</updated>
     
     <summary type="html">
     
@@ -432,11 +432,75 @@
   </entry>
   
   <entry>
+    <title>基于合泰单片机的高校公寓远程能源监控系统</title>
+    <link href="https://zhengnianli.github.io/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/"/>
+    <id>https://zhengnianli.github.io/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/</id>
+    <published>2019-04-16T00:22:15.000Z</published>
+    <updated>2019-06-24T02:45:01.007Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
+    
+      <category term="合泰单片机" scheme="https://zhengnianli.github.io/tags/%E5%90%88%E6%B3%B0%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+      <category term="远程监控" scheme="https://zhengnianli.github.io/tags/%E8%BF%9C%E7%A8%8B%E7%9B%91%E6%8E%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于STM32+ATT7022的单相用电器分析监测装置</title>
+    <link href="https://zhengnianli.github.io/2019/04/07/zuo-pin-ji-yu-stm32-att7022-de-dan-xiang-yong-dian-qi-fen-xi-jian-ce-zhuang-zhi/"/>
+    <id>https://zhengnianli.github.io/2019/04/07/zuo-pin-ji-yu-stm32-att7022-de-dan-xiang-yong-dian-qi-fen-xi-jian-ce-zhuang-zhi/</id>
+    <published>2019-04-07T00:22:15.000Z</published>
+    <updated>2019-06-24T01:52:00.409Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
+    
+      <category term="电能采集" scheme="https://zhengnianli.github.io/tags/%E7%94%B5%E8%83%BD%E9%87%87%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于STM32+LDC1000的循迹小车</title>
     <link href="https://zhengnianli.github.io/2019/04/02/zuo-pin-ji-yu-stm32-ldc1000-de-xun-ji-xiao-che/"/>
     <id>https://zhengnianli.github.io/2019/04/02/zuo-pin-ji-yu-stm32-ldc1000-de-xun-ji-xiao-che/</id>
     <published>2019-04-02T00:22:15.000Z</published>
-    <updated>2019-06-24T00:33:44.935Z</updated>
+    <updated>2019-06-24T01:47:37.511Z</updated>
     
     <summary type="html">
     
@@ -505,58 +569,6 @@
         
         
           &lt;p&gt;公司某项目用到&lt;code&gt;DSP+FPGA&lt;/code&gt;架构（当然不是著名的ARM+DSP+FPGA点灯项目,哈哈），我的发展方向为DSP方向。其中DSP与FPGA通过两个带参宏进行数据交互（DSP与FPGA通过一块共享内存来实现数据交互，我这边的DSP只要往共享内存中写入
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】指定初始化器</title>
-    <link href="https://zhengnianli.github.io/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/"/>
-    <id>https://zhengnianli.github.io/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/</id>
-    <published>2019-02-16T00:22:15.000Z</published>
-    <updated>2019-06-23T04:07:37.554Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt; &lt;code&gt;C99&lt;/code&gt;增加了一个新特性：&lt;code&gt;指定初始化器(designated initializer)&lt;/code&gt;。利用该特性可以初始化指定的数组元素，也可以初始化指定的结构体变量（往期笔记&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】操作位的技巧</title>
-    <link href="https://zhengnianli.github.io/2019/02/15/c-yu-yan-bi-ji-cao-zuo-wei-de-ji-qiao/"/>
-    <id>https://zhengnianli.github.io/2019/02/15/c-yu-yan-bi-ji-cao-zuo-wei-de-ji-qiao/</id>
-    <published>2019-02-15T00:22:15.000Z</published>
-    <updated>2019-06-23T05:27:21.874Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;一、操作位的方法&quot;&gt;&lt;a href=&quot;#一、操作位的方法&quot; class=&quot;headerlink&quot;
         
       
     
