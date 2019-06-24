@@ -4,13 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【C语言笔记】关于二维数组作为函数参数的问题, 正念君的博客">
-    <meta name="description" content="在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
-
- for ( i = 0; i &amp;lt; m; ">
+    <meta name="keywords" content="JSON的简单认识, 正念君的博客">
+    <meta name="description" content="1、什么是JSON？JSON（JavaScript Object Notation）：JavaScript 对象表示法。其是一种轻量级的数据交换格式，简洁和清晰的层次结构使得其成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +13,7 @@ void func1(int **array, int m, int n)
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【C语言笔记】关于二维数组作为函数参数的问题 | 正念君的博客</title>
+    <title>JSON的简单认识 | 正念君的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +257,13 @@ void func1(int **array, int m, int n)
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【C语言笔记】关于二维数组作为函数参数的问题
+                        JSON的简单认识
                     </div>
                 </div>
             </div>
@@ -379,8 +374,12 @@ void func1(int **array, int m, int n)
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C语言/" target="_blank">
-                                <span class="chip bg-color">C语言</span>
+                            <a href="/tags/JSON/" target="_blank">
+                                <span class="chip bg-color">JSON</span>
+                            </a>
+                        
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
                             </a>
                         
                     </div>
@@ -391,8 +390,8 @@ void func1(int **array, int m, int n)
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                C语言笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
                             </a>
                         
                     </div>
@@ -403,21 +402,21 @@ void func1(int **array, int m, int n)
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-10-25
+                    2019-06-15
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        500
+                        549
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -433,82 +432,21 @@ void func1(int **array, int m, int n)
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>array<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
- <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-   <span class="token keyword">for</span> <span class="token punctuation">(</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span>
-   <span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">//printf("%d ", array[i][j] );</span>
-     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>array<span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>  
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>函数设计的功能很简单，就是打印输出二维数组中的所有元素。</p>
-<p>假如我们的主函数为：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
- <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">)</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-
- <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>大家觉得输出结果会是什么呢？结果是什么都没输出。出错原因是因为二维数组作为函数参数时要给出二维长度。但是，是不是就不能使用这个函数了呢？还是可以使用的，只要在主函数中定义一个指针数组作为中间桥梁即可正确输出。即主函数修改为如下所示：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
- <span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
- p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//a[0]</span>
- p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//a[1]</span>
- p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//a[2]</span>
- <span class="token function">func1</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-
- <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>         </code></pre>
-<p>定义一个指针数组，该指针数组中的元素分别指向每一行的第一个元素。再把该指针数组作为形参传入func1函数中。</p>
-<p>除此之外，还有如下三种方法构造函数：</p>
-<p>（1）形参声明为一级指针</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func2</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>array<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
- <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token operator">*</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>（2）形参给出二维长度</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func3</span><span class="token punctuation">(</span><span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span>   
-<span class="token punctuation">{</span>
- <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
- <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-   <span class="token keyword">for</span> <span class="token punctuation">(</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span>
-   <span class="token punctuation">{</span>
-     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>（3）形参声明为指向数组的指针（数组指针）</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func4</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>array<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
- <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-   <span class="token keyword">for</span> <span class="token punctuation">(</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span>
-   <span class="token punctuation">{</span>
-     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>以上代码关于二维数组作为函数参数时，函数的定义方法。如有错误，欢迎指出~</p>
+                <h2 id="1、什么是JSON？"><a href="#1、什么是JSON？" class="headerlink" title="1、什么是JSON？"></a>1、什么是JSON？</h2><p><code>JSON（JavaScript Object Notation）</code>：JavaScript 对象表示法。其是一种<code>轻量级的数据交换格式</code>，简洁和清晰的层次结构使得其成为理想的<code>数据交换语言</code>。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。通常用于与服务端交换数据。如心知天气服务器中的一份JSON格式数据包为：</p>
+<p><a href="https://imgchr.com/i/V5dsVf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5dsVf.md.png" alt="V5dsVf.md.png"></a></p>
+<p>JSON格式数据的例子如上图，重点注意其中有几种重要的符号如大括号<code>{}</code>、中括号<code>[]</code>、冒号与引号。下面详细介绍JSON格式数据的结构。JSON大致有三种结构：<code>JSON对象、JSON数组和JSON对象和数组嵌套</code>。</p>
+<h2 id="2、JSON对象"><a href="#2、JSON对象" class="headerlink" title="2、JSON对象"></a>2、JSON对象</h2><p>JSON对象简单而言便是大括号<code>{}</code>里的<code>键值对</code>或<code>名值对</code>，而<code>值</code>可以是数值、字符串和布尔类型等。一个{}表示一个对象。</p>
+<pre class=" language-c"><code class="language-c"><span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"Fuzhou"</span></code></pre>
+<p>这就是一个键值对，其中键为<code>name</code>，值为字符串<code>Fuzhou</code>，键和值使用冒号隔开。由此JSON对象格式可大致归纳为（图片来源于网络）：</p>
+<p><a href="https://imgchr.com/i/V5dWxs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5dWxs.md.png" alt="V5dWxs.md.png"></a></p>
+<p>一个对象中可以有一个键值对，也可有多个键值对。如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token punctuation">{</span><span class="token string">"text"</span><span class="token punctuation">:</span><span class="token string">"Sunny"</span><span class="token punctuation">,</span><span class="token string">"code"</span><span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span><span class="token string">"temperature"</span><span class="token punctuation">:</span><span class="token string">"20"</span><span class="token punctuation">}</span></code></pre>
+<p>这个对象中有三个键值对，每个键值对之间使用逗号隔开。对象里的键值对小编将其称作对象成员。</p>
+<h2 id="3、JSON数组"><a href="#3、JSON数组" class="headerlink" title="3、JSON数组"></a>3、JSON数组</h2><p>JOSN数组的标志是中括号<code>[]</code>，<code>[]</code>中的对象就是数组元素。如</p>
+<p><a href="https://imgchr.com/i/V5d7IU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5d7IU.md.png" alt="V5d7IU.md.png"></a></p>
+<p>这是一个JSON数组，其有一个对象（对象用{}包含起来），也即该数组有一个元素。</p>
+<p>JSON格式的数据包就是由JSON对象与JSON数组互相嵌套组成的，即每个键值对中的值可能是数组也可能是对象，数组中有可能嵌套着对象，对象中又可能嵌套着键值对。</p>
+<p>此外，从JSON的全称（JavaScript Object Notation）中就可以看得出来其主要应用于前端中的JavaScript之中。想更全面地了解JSON可移步至<a href="http://www.runoob.com/json/json-tutorial.html进行学习。同时推荐一篇关于JSON的CSDN博文：https://blog.csdn.net/xukai871105/article/details/32346797" target="_blank" rel="noopener">http://www.runoob.com/json/json-tutorial.html进行学习。同时推荐一篇关于JSON的CSDN博文：https://blog.csdn.net/xukai871105/article/details/32346797</a></p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
@@ -675,7 +613,7 @@ void func1(int **array, int m, int n)
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2018-10-25T08-22-15',
+        id: '2019-06-15T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -700,37 +638,33 @@ void func1(int **array, int m, int n)
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/30/c-yu-yan-bi-ji-guan-yu-you-fu-hao-shu-yu-wu-fu-hao-shu-de-yi-xie-zong-jie/">
+                <a href="/2019/06/16/rt-thread-bi-ji-luo-ji-xi-tong-yu-duo-xian-cheng-xi-tong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【C语言笔记】关于有符号数与无符号数的一些总结">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【RT-Thread笔记】裸机系统与多线程系统">
                         
-                        <span class="card-title">【C语言笔记】关于有符号数与无符号数的一些总结</span>
+                        <span class="card-title">【RT-Thread笔记】裸机系统与多线程系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
-请看如下代码：
-#include &lt;stdio.h>
-int main(void)
-{
-    unsigned int a = 6;
-    int b
+                            单片机编程中有裸机系统与多线程系统的区别。
+裸机系统裸机系统通常分成轮询系统和前后台系统。
+1、轮询系统轮询系统即是在裸机编程的时候，先初始化好相关的硬件，然后让主程序在一个死循环里面不断循环，顺序地做各种事情，大概的伪代码具体如代码清单 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
                                 </a>
                             
                             
@@ -740,8 +674,8 @@ int main(void)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
                     </a>
                     
                 </div>
@@ -755,32 +689,38 @@ int main(void)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
+                <a href="/2019/06/14/c-bian-cheng-lian-xi-011/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="C编程练习011">
                         
-                        <span class="card-title">【C语言笔记】static关键字</span>
+                        <span class="card-title">C编程练习011</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
-C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
+                            题目
+一个10万以内的整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？
+
+代码方法一：
+#include &lt;stdio.h>
+#include &lt;math.h>
+
+int main(void
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
+                                    C编程练习
                                 </a>
                             
                             
@@ -790,8 +730,8 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/C编程练习/" target="_blank">
+                        <span class="chip bg-color">C编程练习</span>
                     </a>
                     
                 </div>
