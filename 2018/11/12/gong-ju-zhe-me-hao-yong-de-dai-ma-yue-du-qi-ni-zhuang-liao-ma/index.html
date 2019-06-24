@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【Linux笔记】文件及目录管理命令, 正念君的博客">
-    <meta name="description" content="之前分享的Cygwin是一个在windows平台上运行的Linux（类UNIX）模拟环境（关于Cygwin的介绍，可移步至往期笔记：【C语言笔记】Windows下体验Linux环境），但毕竟与真实的Linux环境还是有所不同的。我们学习Li">
+    <meta name="keywords" content="JSON的简单认识, 正念君的博客">
+    <meta name="description" content="【工具】这么好用的代码阅读器你装了吗？1、前言作为一名程序员，我们不仅要多动手编代码，而且还应多阅读一些优秀的代码，如C语言的一些第三方库文件、嵌入式中Linux内核源码以及一些项目的代码等。这些源码往往都比较庞大，源文件少则几十个，多则成">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【Linux笔记】文件及目录管理命令 | 正念君的博客</title>
+    <title>JSON的简单认识 | 正念君的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -257,13 +257,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【Linux笔记】文件及目录管理命令
+                        JSON的简单认识
                     </div>
                 </div>
             </div>
@@ -374,8 +374,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/" target="_blank">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/JSON/" target="_blank">
+                                <span class="chip bg-color">JSON</span>
+                            </a>
+                        
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
                             </a>
                         
                     </div>
@@ -386,8 +390,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
-                                Linux笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
                             </a>
                         
                     </div>
@@ -398,21 +402,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-21
+                    2018-11-12
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.1k
+                        550
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -428,74 +432,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>之前分享的<code>Cygwin</code>是一个在windows平台上运行的Linux（类UNIX）模拟环境（关于Cygwin的介绍，可移步至往期笔记：<a href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/">【C语言笔记】Windows下体验Linux环境</a>），但毕竟与真实的Linux环境还是有所不同的。我们学习Linux也应在真实的环境中进行学习。</p>
-<p>掌握Linux的一些常用命令是学习Linux的基础，本文主要分享关于Linux文件及目录管理的一些命令。Linux系统可以安装在真机上，也可以装在虚拟机上。本文使用的Linux的发行版是<code>RedHat7</code>，装在虚拟机<code>vmware12.1.1</code>中。</p>
-<h2 id="文件及目录管理命令"><a href="#文件及目录管理命令" class="headerlink" title="文件及目录管理命令"></a>文件及目录管理命令</h2><p>Linux命令的格式为：</p>
-<pre class=" language-c"><code class="language-c">命令名称 <span class="token punctuation">[</span>命令参数<span class="token punctuation">]</span> <span class="token punctuation">[</span>命令对象<span class="token punctuation">]</span></code></pre>
-<p>其中，命令名称、命令参数、命令对象之间需用空格分隔。</p>
-<p>命令对象一般是指要处理的文件、目录、用户等资源，而命令参数可以用长格式（完整的选项名称）， 也可以用短格式（单个字母的缩写）。参数长格式、短格式示例：</p>
-<p><a href="https://imgchr.com/i/ZPBoin" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPBoin.md.png" alt="ZPBoin.md.png"></a></p>
-<p>Linux的目录结构为树状结构，最顶级的目录为根目录<code>/</code>。路径有绝对路径与相对路径之分。</p>
-<ul>
-<li><p>绝对路径：由根目录<code>/</code>写起，例如：<code>/usr/share/doc</code> 这个目录。</p>
-</li>
-<li><p>相对路径：不是由<code>/</code> 写起，例如由<code>/usr/share/doc</code>要到<code>/usr/share/man</code>底下时，可以写成：<code>cd ../man</code> 这就是相对路径的写法啦！</p>
-</li>
-</ul>
-<p>接下来我们就来看几个常见的处理目录的命令吧：</p>
-<pre class=" language-c"><code class="language-c">ls<span class="token punctuation">:</span> 列出目录
-cd：切换目录
-pwd：显示目前的目录
-mkdir：创建一个新的目录
-rmdir：删除一个空的目录
-cp：复制文件或目录
-rm：移除文件或目录
-mv：移动文件与目录，或修改文件与目录的名称
-touch：创建文件</code></pre>
-<p>你可以使用 man [命令] 来查看各个命令的使用文档，如：<code>man ls</code>。</p>
-<h3 id="1、man命令"><a href="#1、man命令" class="headerlink" title="1、man命令"></a>1、man命令</h3><p>man命令是Linux下的帮助指令，通过man指令可以查看Linux中的指令帮助、配置文件帮助和编程帮助等信息。</p>
-<p>man命令使用示例：<code>man man</code></p>
-<p>在终端中键入该示例命令即可查看帮助手册：</p>
-<p><a href="https://imgchr.com/i/ZPDX1P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPDX1P.md.jpg" alt="ZPDX1P.md.jpg"></a></p>
-<p>其中，按下键盘上的<code>PgUp键</code>可向上翻一页、按下<code>PgDn键</code>可向下翻一页。</p>
-<h3 id="2、ls命令"><a href="#2、ls命令" class="headerlink" title="2、ls命令"></a>2、ls命令</h3><p>ls命令用于显示目录中的文件信息。如：</p>
-<p><img src="https://s2.ax1x.com/2019/06/23/ZPrrgP.png" alt="ZPrrgP.png"></p>
-<p>其中，加上<code>-a</code>参数可查看当前目录下的全部文件（包括隐藏文件），加上<code>-l</code>参数把文件的详细信息（文件大小、文件属性等）列出来。如：</p>
-<p><img src="https://s2.ax1x.com/2019/06/23/ZPrf4s.jpg" alt="ZPrf4s.jpg"></p>
-<p>在Linux下，以 . 开头的文件及目录是隐藏的。关于ls的其他参数及ls命令的其他信息可以查看帮助手册，执行<code>man ls</code>命令即可查看关于ls命令的帮助说明：</p>
-<p><a href="https://imgchr.com/i/ZPrX59" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPrX59.md.jpg" alt="ZPrX59.md.jpg"></a></p>
-<h3 id="3、cd命令"><a href="#3、cd命令" class="headerlink" title="3、cd命令"></a>3、cd命令</h3><p><code>cd</code>命令是<code>Change Directory</code>的缩写，用于切换工作路径。</p>
-<pre class=" language-c"><code class="language-c">格式：cd <span class="token punctuation">[</span>相对路径或绝对路径<span class="token punctuation">]</span></code></pre>
-<p>cd的其他常用用法：</p>
-<pre class=" language-c"><code class="language-c">cd <span class="token punctuation">.</span><span class="token punctuation">.</span> #返回上一级目录
-cd <span class="token operator">~</span> #切换至当前用户的家目录
-cd <span class="token operator">-</span> #返回上一次所处的目录
-cd <span class="token operator">/</span> #切换至根目录
-cd <span class="token operator">~</span>user #切换至user用户的家目录</code></pre>
-<h3 id="4、pwd命令"><a href="#4、pwd命令" class="headerlink" title="4、pwd命令"></a>4、pwd命令</h3><p>pwd命令是<code>Print Working Directory</code>的缩写，也就是显示目前所在目录的命令。</p>
-<p><img src="https://s2.ax1x.com/2019/06/23/ZPsuKf.png" alt="ZPsuKf.png"></p>
-<h3 id="5、mkdir命令"><a href="#5、mkdir命令" class="headerlink" title="5、mkdir命令"></a>5、mkdir命令</h3><p>mkdir 命令用于创建空白的目录。 </p>
-<pre class=" language-c"><code class="language-c">格式为：mkdir <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>目录<span class="token punctuation">]</span></code></pre>
-<p><img src="https://s2.ax1x.com/2019/06/23/ZPs7RI.png" alt="ZPs7RI.png"></p>
-<p>其中，加上<code>-p</code>参数表示递归创建目录。注意：需要切换至超级用户才能创建目录。</p>
-<h3 id="6、rmdir命令"><a href="#6、rmdir命令" class="headerlink" title="6、rmdir命令"></a>6、rmdir命令</h3><p>与mkdir命令相反，rmdir命令用于删除空白文件夹。</p>
-<p><a href="https://imgchr.com/i/ZPyVwF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPyVwF.md.png" alt="ZPyVwF.md.png"></a></p>
-<p>要删除非空目录可用rm命令，关于rm命令的介绍请往下看。</p>
-<h3 id="7、cp命令"><a href="#7、cp命令" class="headerlink" title="7、cp命令"></a>7、cp命令</h3><p>cp命令用于拷贝文件或目录。</p>
-<p><a href="https://imgchr.com/i/ZPy1OK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPy1OK.md.png" alt="ZPy1OK.md.png"></a></p>
-<h3 id="8、rm命令"><a href="#8、rm命令" class="headerlink" title="8、rm命令"></a>8、rm命令</h3><p>rm命令用于删除文件或目录。</p>
-<pre class=" language-c"><code class="language-c">格式：rm <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件或目录<span class="token punctuation">]</span></code></pre>
-<p>选项：</p>
-<blockquote>
-<p>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</p>
-<p>-i ：互动模式，在删除前会询问使用者是否动作</p>
-<p>-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！</p>
+                <h2 id="【工具】这么好用的代码阅读器你装了吗？"><a href="#【工具】这么好用的代码阅读器你装了吗？" class="headerlink" title="【工具】这么好用的代码阅读器你装了吗？"></a>【工具】这么好用的代码阅读器你装了吗？</h2><h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>作为一名程序员，我们不仅要多动手编代码，而且还应多阅读一些优秀的代码，如C语言的一些第三方库文件、嵌入式中Linux内核源码以及一些项目的代码等。这些源码往往都比较庞大，源文件少则几十个，多则成千上万个源文件，很难把握每个源文件之间的调用关系以及代码的层次等。此时，我们可以使用一些代码阅读器来阅读这些庞大的源码。下面给大家推荐一款很棒的代码阅读器：<code>source insight</code></p>
+<h3 id="2、简介"><a href="#2、简介" class="headerlink" title="2、简介"></a>2、简介</h3><p><code>Source Insight</code>实质上是一个支持多种开发语言（java,c ,c 等等）的编辑器，只不过由于其查找、定位、彩色显示等功能的强大，常被我们当成源代码阅读工具使用。</p>
+<h3 id="3、安装包下载"><a href="#3、安装包下载" class="headerlink" title="3、安装包下载"></a>3、安装包下载</h3><blockquote>
+<p>链接：<a href="https://pan.baidu.com/s/1rg-Gn-rtN00ueED1jShIQQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1rg-Gn-rtN00ueED1jShIQQ</a><br>提取码：s38z </p>
 </blockquote>
-<p>我们可以使用<code>rm -rf</code>删除任何删不掉的东西。删库到跑路用的就是这个命令与这两个参数。所以要谨慎使用这组参数！</p>
-<h3 id="9、mv命令"><a href="#9、mv命令" class="headerlink" title="9、mv命令"></a>9、mv命令</h3><p><code>mv</code> 命令用于剪切文件或将文件重命名 。</p>
-<p><a href="https://imgchr.com/i/ZPWil9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPWil9.md.png" alt="ZPWil9.md.png"></a></p>
-<h3 id="10、touch命令"><a href="#10、touch命令" class="headerlink" title="10、touch命令"></a>10、touch命令</h3><p><code>touch</code> 命令创建文件。</p>
-<p><img src="https://s2.ax1x.com/2019/06/23/ZPWQld.png" alt="ZPWQld.png"></p>
+<h3 id="4、安装步骤"><a href="#4、安装步骤" class="headerlink" title="4、安装步骤"></a>4、安装步骤</h3><p>与一般的软件安装差不多，一直点击下一步，直至安装完成。</p>
+<h3 id="5、使用方法"><a href="#5、使用方法" class="headerlink" title="5、使用方法"></a>5、使用方法</h3><p>（1）新建工程，如图：</p>
+<p><a href="https://imgchr.com/i/VHpATU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpATU.md.png" alt="VHpATU.md.png"></a></p>
+<p>设置工程名与工程保存的路径完毕后点击<code>ok</code>。<code>source insight</code>工程通常是与源码在同一路径下，如：</p>
+<p><a href="https://imgchr.com/i/VHpB0f" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpB0f.md.png" alt="VHpB0f.md.png"></a></p>
+<p>（2）点击<code>ok</code>按钮</p>
+<p><a href="https://imgchr.com/i/VHpytg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpytg.md.png" alt="VHpytg.md.png"></a></p>
+<p>（3）找到源码所在路径</p>
+<p><a href="https://imgchr.com/i/VHpWXq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpWXq.md.png" alt="VHpWXq.md.png"></a></p>
+<p>（4）把需要阅读的代码添加进来（可以是文件夹，也可以是文件）</p>
+<p><a href="https://imgchr.com/i/VHp57T" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHp57T.md.png" alt="VHp57T.md.png"></a></p>
+<p>这里我想阅读所有的源码，所以添加了全部的代码。</p>
+<p>（5）点击<code>OK</code></p>
+<p><a href="https://imgchr.com/i/VHpb9J" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpb9J.md.png" alt="VHpb9J.md.png"></a></p>
+<p>（6）源码添加成功后点击<code>Close</code></p>
+<p><a href="https://imgchr.com/i/VHpq39" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpq39.md.png" alt="VHpq39.md.png"></a></p>
+<p>（7）阅读代码</p>
+<p><a href="https://imgchr.com/i/VHpLcR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHpLcR.md.png" alt="VHpLcR.md.png"></a></p>
+<p>这个软件让我们阅读代码很方便，可以看出函数之间的调用关系，可以预览函数实体等。</p>
+<p>并且，这不仅是个强大的阅读器，而且也是个编辑器。在嵌入式Linux开发中，常常在windows环境下使用<code>source insight</code>编写代码，编写完成再传到linux环境下编译，这是一种很不错的开发方式。同样的，Linux下也有类似的阅读器，如<code>kscope</code>等。如何选择看个人习惯。</p>
 <hr>
 <p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
 
@@ -662,7 +623,7 @@ cd <span class="token operator">~</span>user #切换至user用户的家目录</c
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-04-21T08-22-15',
+        id: '2018-11-12T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -687,31 +648,24 @@ cd <span class="token operator">~</span>user #切换至user用户的家目录</c
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/">
+                <a href="/2018/11/13/c-yu-yan-bi-ji-liang-ge-xiao-zhi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【C语言笔记】#运算符与##运算符">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】两个小知识">
                         
-                        <span class="card-title">【C语言笔记】#运算符与##运算符</span>
+                        <span class="card-title">【C语言笔记】两个小知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、#运算符我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：
-
-输出结果为：
-
-然而，我们期望输出的结果是：
-5 + 20 = 25
-13 + 14 = 27
-这该怎么做呢？其实，C语言允许在字符串中包含宏参数。在类函数宏（带参
+                            一、关于头文件包含问题C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
                         </span>
                         <span class="publish-author">
                             
@@ -743,32 +697,34 @@ cd <span class="token operator">~</span>user #切换至user用户的家目录</c
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/">
+                <a href="/2018/11/08/c-yu-yan-bi-ji-zhi-zhen-han-shu-yu-han-shu-zhi-zhen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="基于合泰单片机的高校公寓远程能源监控系统">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】指针函数与函数指针？">
                         
-                        <span class="card-title">基于合泰单片机的高校公寓远程能源监控系统</span>
+                        <span class="card-title">【C语言笔记】指针函数与函数指针？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、前言合泰半导体隶属台湾盛群半导体集团，合泰杯单片机应用设计竞赛的比赛形式为：作品自由发挥，要在几个月之内完成，且必须使用合泰单片机。比赛分为三个环节：初赛、复赛、决赛，每一环节都会刷掉一部分队伍。
-2、作品分享2.1 作品简介这是我们团
+                            前言函数、指针这两个词结合的顺序不同其意义也不同，即指针函数与函数指针的意义不同。
+指针函数指针函数的本质是一个函数，其返回值是一个指针。示例如下：
+int *pfun(int, int);
+由于“*”的优先级低于“()”的优先级，因而pf
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
@@ -778,20 +734,8 @@ cd <span class="token operator">~</span>user #切换至user用户的家目录</c
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
-                    </a>
-                    
-                    <a href="/tags/作品/" target="_blank">
-                        <span class="chip bg-color">作品</span>
-                    </a>
-                    
-                    <a href="/tags/合泰单片机/" target="_blank">
-                        <span class="chip bg-color">合泰单片机</span>
-                    </a>
-                    
-                    <a href="/tags/远程监控/" target="_blank">
-                        <span class="chip bg-color">远程监控</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>

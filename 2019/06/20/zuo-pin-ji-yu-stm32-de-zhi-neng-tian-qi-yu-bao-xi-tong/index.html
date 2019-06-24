@@ -466,14 +466,18 @@
 <p><strong>（4）收音机界面</strong></p>
 <p><a href="https://imgchr.com/i/ZkGTeA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGTeA.md.png" alt="ZkGTeA.md.png"></a></p>
 <p>通过点击下方频率点跳到相应频率，再通过左右按钮调节频率至所需频率。</p>
-<h2 id="2、作品实现"><a href="#2、作品实现" class="headerlink" title="2、作品实现"></a>2、作品实现</h2><h3 id="2-1-天气数据获取及解析"><a href="#2-1-天气数据获取及解析" class="headerlink" title="2.1 天气数据获取及解析"></a>2.1 天气数据获取及解析</h3><h3 id="2-1-1-天气数据从哪来？"><a href="#2-1-1-天气数据从哪来？" class="headerlink" title="2.1.1 天气数据从哪来？"></a>2.1.1 天气数据从哪来？</h3><p>天气数据可以从一些专门做天气预报的网站获取，如心知天气、和风天气等。本人选择的是心知天气（<a href="https://www.seniverse.com/）。网站首页如下：" target="_blank" rel="noopener">https://www.seniverse.com/）。网站首页如下：</a></p>
+<h2 id="2、作品实现"><a href="#2、作品实现" class="headerlink" title="2、作品实现"></a>2、作品实现</h2><h3 id="2-1-天气数据获取及解析"><a href="#2-1-天气数据获取及解析" class="headerlink" title="2.1 天气数据获取及解析"></a>2.1 天气数据获取及解析</h3><h3 id="2-1-1-天气数据从哪来？"><a href="#2-1-1-天气数据从哪来？" class="headerlink" title="2.1.1 天气数据从哪来？"></a>2.1.1 天气数据从哪来？</h3><p>天气数据可以从一些专门做天气预报的网站获取，如心知天气、和风天气等。本人选择的是心知天气</p>
+<blockquote>
+<p><a href="https://www.seniverse.com/" target="_blank" rel="noopener">https://www.seniverse.com/</a></p>
+</blockquote>
+<p>网站首页如下：</p>
 <p><a href="https://imgchr.com/i/ZkJQFx" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkJQFx.md.png" alt="ZkJQFx.md.png"></a></p>
 <p>我们是通过其<code>API密钥</code>才能获取得到其天气数据，而只有注册的用户才拥有API密钥，所以必须得注册，可以点击右上角进行注册。</p>
 <h3 id="2-1-2-天气数据是什么格式？"><a href="#2-1-2-天气数据是什么格式？" class="headerlink" title="2.1.2 天气数据是什么格式？"></a>2.1.2 天气数据是什么格式？</h3><p>登录<code>心知天气</code>网站之后，点击菜单导航中的<code>数据-&gt;常规数据</code>即可查看<code>API文档</code>。在API文档页面的左侧可看到一些可查看的条目，如：</p>
 <p><img src="https://s2.ax1x.com/2019/06/24/ZkJL7R.png" alt="ZkJL7R.png"></p>
 <p>可点击<code>天气实况</code>查看其相关说明，可以看到其天气数据格式如下图所示：</p>
 <p><a href="https://imgchr.com/i/ZkYS1O" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkYS1O.md.png" alt="ZkYS1O.md.png"></a></p>
-<p>这就是JSON格式的数据，不了解JSON的朋友可查看上一篇笔记：<a href>JSON的简单认识进行简单地认识</a></p>
+<p>这就是JSON格式的数据，不了解JSON的朋友可查看上一篇笔记：<a href="https://zhengnianli.github.io/2019/06/15/json-de-jian-dan-ren-shi/">JSON的简单认识</a></p>
 <h3 id="2-1-3-如何解析得到有用的数据？"><a href="#2-1-3-如何解析得到有用的数据？" class="headerlink" title="2.1.3 如何解析得到有用的数据？"></a>2.1.3 如何解析得到有用的数据？</h3><p>从上图中的JSON格式天气数据包中我们可以看出：我们需要用到的数据就是<code>冒号后面的字符串数据</code>，这些数据是我们需要获取并显示到屏幕上的数据。</p>
 <p>那么，我们该怎么从这一堆JSON格式数据中解析出冒号后面的字符串呢？并且，这个系统是基于单片机的天气预报系统。而单片机使用C语言进行编程开发的，所以我们得使用C语言对这些JSON天气数据包进行解析。</p>
 <p>其实，有一个专门解析JSON数据包的第三方C语言库。我们可以使用这个库尽心解析，这个CJSON库的下载链接为：</p>
@@ -1364,7 +1368,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">53k</span>
+                <span class="white-color">53.5k</span>
             
 
             
