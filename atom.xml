@@ -467,11 +467,11 @@
   </entry>
   
   <entry>
-    <title>【Linux笔记】文件及目录管理命令</title>
-    <link href="https://zhengnianli.github.io/2019/04/21/linux-bi-ji-wen-jian-ji-mu-lu-guan-li-ming-ling/"/>
-    <id>https://zhengnianli.github.io/2019/04/21/linux-bi-ji-wen-jian-ji-mu-lu-guan-li-ming-ling/</id>
-    <published>2019-04-21T00:22:15.000Z</published>
-    <updated>2019-06-24T00:31:14.744Z</updated>
+    <title>【Linux笔记】系统目录结构</title>
+    <link href="https://zhengnianli.github.io/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/"/>
+    <id>https://zhengnianli.github.io/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/</id>
+    <published>2019-05-05T00:22:15.000Z</published>
+    <updated>2019-06-24T06:21:41.591Z</updated>
     
     <summary type="html">
     
@@ -479,7 +479,7 @@
       
         
         
-          &lt;p&gt;之前分享的&lt;code&gt;Cygwin&lt;/code&gt;是一个在windows平台上运行的Linux（类UNIX）模拟环境（关于Cygwin的介绍，可移步至往期笔记：&lt;a
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在 Linux 或 Unix
         
       
     
@@ -493,11 +493,11 @@
   </entry>
   
   <entry>
-    <title>基于合泰单片机的高校公寓远程能源监控系统</title>
-    <link href="https://zhengnianli.github.io/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/"/>
-    <id>https://zhengnianli.github.io/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/</id>
-    <published>2019-04-16T00:22:15.000Z</published>
-    <updated>2019-06-24T05:30:12.189Z</updated>
+    <title>【Linux笔记】文件的权限</title>
+    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
+    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
+    <published>2019-04-29T00:22:15.000Z</published>
+    <updated>2019-06-24T06:43:46.326Z</updated>
     
     <summary type="html">
     
@@ -505,31 +505,25 @@
       
         
         
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 &lt;code&gt;ls -l&lt;/code&gt; 命令列出当前目录下的文件及目录的详细信息：&lt;br&gt;&lt;a href=&quot;https://imgchr.com/i/ZkWS8U&quot;
         
       
     
     </summary>
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="合泰单片机" scheme="https://zhengnianli.github.io/tags/%E5%90%88%E6%B3%B0%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-      <category term="远程监控" scheme="https://zhengnianli.github.io/tags/%E8%BF%9C%E7%A8%8B%E7%9B%91%E6%8E%A7/"/>
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
   
   <entry>
-    <title>基于STM32+ATT7022的单相用电器分析监测装置</title>
-    <link href="https://zhengnianli.github.io/2019/04/07/zuo-pin-ji-yu-stm32-att7022-de-dan-xiang-yong-dian-qi-fen-xi-jian-ce-zhuang-zhi/"/>
-    <id>https://zhengnianli.github.io/2019/04/07/zuo-pin-ji-yu-stm32-att7022-de-dan-xiang-yong-dian-qi-fen-xi-jian-ce-zhuang-zhi/</id>
-    <published>2019-04-07T00:22:15.000Z</published>
-    <updated>2019-06-24T05:32:09.338Z</updated>
+    <title>【Linux笔记】Vi/Vim编辑器</title>
+    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
+    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
+    <published>2019-04-29T00:22:15.000Z</published>
+    <updated>2019-06-24T07:00:01.807Z</updated>
     
     <summary type="html">
     
@@ -537,31 +531,25 @@
       
         
         
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;1、什么是vi-vim？&quot;&gt;&lt;a href=&quot;#1、什么是vi-vim？&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
-      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="电能采集" scheme="https://zhengnianli.github.io/tags/%E7%94%B5%E8%83%BD%E9%87%87%E9%9B%86/"/>
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
   
   <entry>
-    <title>基于STM32+LDC1000的循迹小车</title>
-    <link href="https://zhengnianli.github.io/2019/04/02/zuo-pin-ji-yu-stm32-ldc1000-de-xun-ji-xiao-che/"/>
-    <id>https://zhengnianli.github.io/2019/04/02/zuo-pin-ji-yu-stm32-ldc1000-de-xun-ji-xiao-che/</id>
-    <published>2019-04-02T00:22:15.000Z</published>
-    <updated>2019-06-24T05:22:54.415Z</updated>
+    <title>【Linux笔记】文本文件查看命令</title>
+    <link href="https://zhengnianli.github.io/2019/04/27/linux-bi-ji-wen-ben-wen-jian-cha-kan-ming-ling/"/>
+    <id>https://zhengnianli.github.io/2019/04/27/linux-bi-ji-wen-ben-wen-jian-cha-kan-ming-ling/</id>
+    <published>2019-04-27T00:22:15.000Z</published>
+    <updated>2019-06-24T06:32:50.178Z</updated>
     
     <summary type="html">
     
@@ -569,23 +557,17 @@
       
         
         
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot; title=&quot;1、前言&quot;&gt;&lt;/a&gt;1、前言&lt;/h2&gt;&lt;p&gt;这是2016年TI杯电子设计竞赛的作品，并获得了省一等奖。&lt;/p&gt;
-&lt;h2 id=&quot;2、竞赛题目&quot;&gt;&lt;a
+          &lt;p&gt;我们要查看一些文本文件的内容时，要使用文本编辑器来查看。在Linux下，可以使用一些命令预览文本文件中的内容，而不必使用文本编辑器打开查看。这篇笔记分享几个常用的文本查看命令。分别是：&lt;/p&gt;
+&lt;pre class=&quot; language-c&quot;&gt;&lt;code
         
       
     
     </summary>
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
-      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="循迹小车" scheme="https://zhengnianli.github.io/tags/%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/"/>
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
   
