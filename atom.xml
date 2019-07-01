@@ -171,7 +171,7 @@
     <link href="https://zhengnianli.github.io/2019/05/18/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-er/"/>
     <id>https://zhengnianli.github.io/2019/05/18/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-er/</id>
     <published>2019-05-18T00:22:15.000Z</published>
-    <updated>2019-07-01T11:13:11.002Z</updated>
+    <updated>2019-07-01T12:47:03.899Z</updated>
     
     <summary type="html">
     
@@ -190,6 +190,10 @@
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
+      <category term="make工具" scheme="https://zhengnianli.github.io/tags/make%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="makefile" scheme="https://zhengnianli.github.io/tags/makefile/"/>
+    
   </entry>
   
   <entry>
@@ -197,7 +201,7 @@
     <link href="https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/"/>
     <id>https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/</id>
     <published>2019-05-15T00:22:15.000Z</published>
-    <updated>2019-07-01T10:53:23.877Z</updated>
+    <updated>2019-07-01T12:47:19.515Z</updated>
     
     <summary type="html">
     
@@ -215,6 +219,10 @@
     
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+      <category term="make工具" scheme="https://zhengnianli.github.io/tags/make%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="makefile" scheme="https://zhengnianli.github.io/tags/makefile/"/>
     
   </entry>
   
