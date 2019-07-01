@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-06-26T05:56:36.816Z</updated>
+  <updated>2019-07-01T04:11:47.431Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【socket笔记】TCP、UDP通信总结</title>
+    <link href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/"/>
+    <id>https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/</id>
+    <published>2019-06-30T00:22:15.000Z</published>
+    <updated>2019-07-01T04:11:47.431Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、什么是socket？&quot;&gt;&lt;a href=&quot;#一、什么是socket？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
+    
+      <category term="网络编程" scheme="https://zhengnianli.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="TCP" scheme="https://zhengnianli.github.io/tags/TCP/"/>
+    
+      <category term="UDP" scheme="https://zhengnianli.github.io/tags/UDP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于STM32的智能天气预报系统</title>
     <link href="https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/"/>
     <id>https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/</id>
     <published>2019-06-20T00:22:15.000Z</published>
-    <updated>2019-06-26T05:56:36.816Z</updated>
+    <updated>2019-06-26T06:56:14.639Z</updated>
     
     <summary type="html">
     
@@ -493,32 +525,6 @@
   </entry>
   
   <entry>
-    <title>【Linux笔记】Vi/Vim编辑器</title>
-    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
-    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
-    <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-06-24T07:00:01.807Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、什么是vi-vim？&quot;&gt;&lt;a href=&quot;#1、什么是vi-vim？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>【Linux笔记】文件的权限</title>
     <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
     <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
@@ -545,11 +551,11 @@
   </entry>
   
   <entry>
-    <title>【Linux笔记】文本文件查看命令</title>
-    <link href="https://zhengnianli.github.io/2019/04/27/linux-bi-ji-wen-ben-wen-jian-cha-kan-ming-ling/"/>
-    <id>https://zhengnianli.github.io/2019/04/27/linux-bi-ji-wen-ben-wen-jian-cha-kan-ming-ling/</id>
-    <published>2019-04-27T00:22:15.000Z</published>
-    <updated>2019-06-24T06:32:50.178Z</updated>
+    <title>【Linux笔记】Vi/Vim编辑器</title>
+    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
+    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
+    <published>2019-04-29T00:22:15.000Z</published>
+    <updated>2019-06-24T07:00:01.807Z</updated>
     
     <summary type="html">
     
@@ -557,8 +563,7 @@
       
         
         
-          &lt;p&gt;我们要查看一些文本文件的内容时，要使用文本编辑器来查看。在Linux下，可以使用一些命令预览文本文件中的内容，而不必使用文本编辑器打开查看。这篇笔记分享几个常用的文本查看命令。分别是：&lt;/p&gt;
-&lt;pre class=&quot; language-c&quot;&gt;&lt;code
+          &lt;h2 id=&quot;1、什么是vi-vim？&quot;&gt;&lt;a href=&quot;#1、什么是vi-vim？&quot; class=&quot;headerlink&quot;
         
       
     

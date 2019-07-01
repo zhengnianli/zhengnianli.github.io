@@ -721,7 +721,7 @@
 <p><a href="https://imgchr.com/i/Zkauin" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkauin.md.png" alt="Zkauin.md.png"></a></p>
 <p>MCU 总线接口驱动比 RGB 简单一些，对硬件也基本没有任何要求，简单的 MCU 就可以驱动。但是界面的显示<code>驱动工作量很大</code>。</p>
 <p>总线型接口的屏只提供点阵的操作。图片，字符等任何显示内容都是通过取模数据，在屏幕上相应的位置把点阵一个一个的打出来。在此基础上再来实现人机界面的逻辑。工作量很大。</p>
-<p>*<em>（3）串口 HMI *</em></p>
+<p><strong>（3）串口 HMI</strong></p>
 <p><a href="https://imgchr.com/i/Zkawz6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkawz6.md.png" alt="Zkawz6.md.png"></a></p>
 <p>串口HMI是一种新的显示方案。首先它跟MCU总线屏一样<code>对硬件没有任何要求</code>，其次。它<code>没有速度瓶颈</code>，因为界面的显示是设备内部自己实现的，用户MCU只是发送指令，并不需要底层驱动。</p>
 <p>再次，针对显示的人机界面的布局和大多数的逻辑（比如界面背景，按钮效果，文本显示等）。全部都不需要用户的 MCU 参与，使用设备提供的上位软件，在电脑上点几下鼠标就完成了。制作好资源文件以后下载到屏幕即可自动运行，剩下的就是 USART 交互了。</p>
@@ -1142,62 +1142,56 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/">
+                <a href="/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="基于STM32的智能天气预报系统">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【socket笔记】TCP、UDP通信总结">
                         
-                        <span class="card-title">基于STM32的智能天气预报系统</span>
+                        <span class="card-title">【socket笔记】TCP、UDP通信总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、作品介绍首先，看一下作品的演示视频：
-天气预报系统
-
-温馨提示：因为是进行人机对话演示，所以应打开音量观看哈。
-这是本人的毕业设计，一个智能的天气预报系统。显示屏上显示各种天气指标及实时显示时间日期等。可以使用触摸屏输入城市名称搜索天气
+                            一、什么是socket？Socket的英文原义是“孔”或“插座”。在编程中，Socket被称做套接字，是网络通信中的一种约定。Socket编程的应用无处不在，我们平时用的QQ、微信、浏览器等程序，都与Socket编程有关。我们平时使用浏览器
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/socket笔记/" class="post-category" target="_blank">
+                                    socket笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
+                    <a href="/tags/socket/" target="_blank">
+                        <span class="chip bg-color">socket</span>
                     </a>
                     
-                    <a href="/tags/STM32/" target="_blank">
-                        <span class="chip bg-color">STM32</span>
+                    <a href="/tags/网络编程/" target="_blank">
+                        <span class="chip bg-color">网络编程</span>
                     </a>
                     
-                    <a href="/tags/作品/" target="_blank">
-                        <span class="chip bg-color">作品</span>
+                    <a href="/tags/TCP/" target="_blank">
+                        <span class="chip bg-color">TCP</span>
                     </a>
                     
-                    <a href="/tags/天气预报/" target="_blank">
-                        <span class="chip bg-color">天气预报</span>
+                    <a href="/tags/UDP/" target="_blank">
+                        <span class="chip bg-color">UDP</span>
                     </a>
                     
                 </div>
@@ -1369,7 +1363,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">57.7k</span>
+                <span class="white-color">63.4k</span>
             
 
             
