@@ -653,20 +653,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/">
+                <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                         
-                        <span class="card-title">【C语言笔记】复合赋值语句</span>
+                        <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
-现在，a = a + 5和
+                            C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+下面看两个
                         
                     </div>
                     <div class="publish-info">
