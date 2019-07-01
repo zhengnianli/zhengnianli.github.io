@@ -4,15 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C编程练习001, 正念君的博客">
-    <meta name="description" content="1、题目
-斐波纳契数列 1，1，2，3，5，8，13，21，34，55，89……这个数列则称为“斐波纳契数列”，其中每个数字都是“斐波纳契数”。
-
-1.1 输入与输出
-输入：一个整数N(N不能大于40)
-
-
-输出：由N个“斐波纳契数”组成的">
+    <meta name="keywords" content="【Linux笔记】Linux下编译C语言程序, 正念君的博客">
+    <meta name="description" content="在上一篇笔记中有分享Linux下的vi/vim编辑器的使用方法（【Linux笔记】Vi/Vim编辑器），现在我们就可以使用vi/vim编辑器编写C代码了。那么写完代码该怎么进行编译呢？其实，和在Windows下使用命令行编译的方法是一样的。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C编程练习001 | 正念君的博客</title>
+    <title>【Linux笔记】Linux下编译C语言程序 | 正念君的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +257,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C编程练习001
+                        【Linux笔记】Linux下编译C语言程序
                     </div>
                 </div>
             </div>
@@ -381,8 +374,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C编程练习/" target="_blank">
-                                <span class="chip bg-color">C编程练习</span>
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -393,8 +386,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
-                                C编程练习
+                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
+                                Linux笔记
                             </a>
                         
                     </div>
@@ -405,14 +398,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-05-29
+                    2019-05-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        378
+                        481
                     </div>
                     
 
@@ -435,96 +428,21 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、题目"><a href="#1、题目" class="headerlink" title="1、题目"></a>1、题目</h2><blockquote>
-<p>斐波纳契数列 1，1，2，3，5，8，13，21，34，55，89……这个数列则称为“斐波纳契数列”，其中每个数字都是“斐波纳契数”。</p>
-</blockquote>
-<h3 id="1-1-输入与输出"><a href="#1-1-输入与输出" class="headerlink" title="1.1 输入与输出"></a>1.1 输入与输出</h3><blockquote>
-<p>输入：一个整数N(N不能大于40)</p>
-</blockquote>
-<blockquote>
-<p>输出：由N个“斐波纳契数”组成的“斐波纳契数列”。</p>
-</blockquote>
-<h3 id="1-2-样例输入与输出"><a href="#1-2-样例输入与输出" class="headerlink" title="1.2 样例输入与输出"></a>1.2 样例输入与输出</h3><blockquote>
-<p>样例输入：6</p>
-</blockquote>
-<blockquote>
-<p>样例输出：1 1 2 3 5 8</p>
-</blockquote>
-<h2 id="2、代码"><a href="#2、代码" class="headerlink" title="2、代码"></a>2、代码</h2><blockquote>
-<p>规律：当前数=前一个数+前前一个数。如<code>2=1+1, 5=3+2, 8=5+3</code>。有两种方法求解，一种方法是使用<code>迭代法</code>，另一种方法是通过<code>递归</code>的方式。完整代码如下：</p>
-</blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************
-** 题    目: 斐波纳契数列1，1，2，3，5，8，13，21，34，55，89……    
-             这个数列则称为“斐波纳契数列”，其中每个数字都是“斐波纳契数”。
-** 输    入: 一个整数N(N不能大于40)
-** 输    出: 由N个“斐波纳契数”组成的“斐波纳契数列”。
-** 样例输入：6    
-** 样例输出：1 1 2 3 5 8 
-********************************************************************************************************/</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
-
-<span class="token macro property">#<span class="token directive keyword">define</span>  Method   0  </span><span class="token comment" spellcheck="true">// 1：迭代法  0：递归法</span>
-
-<span class="token macro property">#<span class="token directive keyword">if</span> Method </span>
-<span class="token comment" spellcheck="true">// 方法一：迭代法</span>
-<span class="token keyword">long</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">long</span> result<span class="token punctuation">;</span>
-    <span class="token keyword">long</span> pre_result<span class="token punctuation">;</span>
-    <span class="token keyword">long</span> pre_pre_result<span class="token punctuation">;</span>
-
-    pre_result <span class="token operator">=</span> pre_pre_result <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        result <span class="token operator">=</span> pre_result <span class="token operator">+</span> pre_pre_result<span class="token punctuation">;</span>
-        pre_pre_result <span class="token operator">=</span> pre_result<span class="token punctuation">;</span>
-        pre_result <span class="token operator">=</span> result<span class="token punctuation">;</span>
-        n<span class="token operator">--</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token macro property">#<span class="token directive keyword">else</span> </span>
-<span class="token comment" spellcheck="true">// 方法二：递归法</span>
-<span class="token keyword">long</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-<span class="token macro property">#<span class="token directive keyword">endif</span></span>
-
-<span class="token comment" spellcheck="true">// 主函数</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> N<span class="token punctuation">;</span>
-
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>N<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
-
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%ld "</span><span class="token punctuation">,</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>运行结果为：</p>
-<p><img src="https://s2.ax1x.com/2019/06/23/ZPSJ1A.png" alt="ZPSJ1A.png"></p>
+                <p>在上一篇笔记中有分享Linux下的vi/vim编辑器的使用方法（<a href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/">【Linux笔记】Vi/Vim编辑器</a>），现在我们就可以使用vi/vim编辑器编写C代码了。那么写完代码该怎么进行编译呢？其实，和在Windows下使用命令行编译的方法是一样的。关于在Windows命令行下编译C程序的方法可查看往期笔记：<a href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/">【C语言笔记】windows命令行下编译C程序</a>、<a href="https://zhengnianli.github.io/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">【C语言笔记】使用notepad++、MinGW来开发C程序</a>。</p>
+<p>首先，使用命令<code>gcc -v</code>查看当前的Linux发行版是否有安装gcc编译器（PS：本文使用的Linux发行版是红帽6）：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z84dKO.png" alt="Z84dKO.png"></p>
+<p>使用vi/vim编辑器写代码并保存为<code>hello.c</code>：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z84cGt.png" alt="Z84cGt.png"></p>
+<p>然后使用<code>gcc</code>进行编译：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z85kQK.png" alt="Z85kQK.png"></p>
+<p>其中，编译生成的可执行文件默认为 <code>a.out</code> 。其中编译生成的 <code>a.out</code> 有时候是不具备可执行权限的，若是不具备执行权限，则可使用命令 <code>chmod 777 a.out</code> 。关于文件的权限修改的具体的方法可以查看往期笔记：<a href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/">【Linux笔记】文件的权限</a></p>
+<p>编译时可以使用 <code>-o</code> 参数修改编译生成的可执行文件的名称。如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z85mod.png" alt="Z85mod.png"></p>
+<p>以上就是在Linux下编译C程序的基本方法，适用于源文件不多的情况。后续的笔记中还会分享其他编译方法，欢迎持续关注！如果你觉得对你有用的话，麻烦帮忙点个赞。如果你觉得对你的同学与朋友也有用的话，欢迎转发。</p>
+<p>在Linux下进行C语言编程的学习可能会增加学习的成本，但是从长远来看仍然是有必要的。若不想安装Linux系统，也想适应一下Linux环境，则可参考往期笔记：<a href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/">【C语言笔记】Windows下体验Linux环境</a>。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
 
             </div>
             <hr>
@@ -689,7 +607,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2018-05-29T08-22-15',
+        id: '2019-05-13T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -714,38 +632,40 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/05/30/c-bian-cheng-lian-xi-002/">
+                <a href="/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="C编程练习002">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于数组的一个陷阱！">
                         
-                        <span class="card-title">C编程练习002</span>
+                        <span class="card-title">【C语言笔记】关于数组的一个陷阱！</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、题目
-求数组元素之和    
+                            问题
+两个数组元素的地址相减得到什么？
 
-2、代码首先，需要构造一个求和函数。这里求和函数有两种构造方法，一种是迭代法，另一个种是递归法。
-2.1 迭代法求和函数int sum(int a[], int n)
+先看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
 {
-    int i = 0;
- 
+    int a[]={0,1,2,3,4,5};
+    printf("&amp;a[0] = 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-30
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
-                                    C编程练习
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
@@ -755,8 +675,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C编程练习/" target="_blank">
-                        <span class="chip bg-color">C编程练习</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -767,53 +687,52 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/05/29/c-bian-cheng-lian-xi-001/">
+                <a href="/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="C编程练习001">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【C语言笔记】#运算符与##运算符">
                         
-                        <span class="card-title">C编程练习001</span>
+                        <span class="card-title">【C语言笔记】#运算符与##运算符</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、题目
-斐波纳契数列 1，1，2，3，5，8，13，21，34，55，89……这个数列则称为“斐波纳契数列”，其中每个数字都是“斐波纳契数”。
+                            1、#运算符我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：
 
-1.1 输入与输出
-输入：一个整数N(N不能大于40)
+输出结果为：
 
-
-输出：由N个“斐波纳契数”组成的
+然而，我们期望输出的结果是：
+5 + 20 = 25
+13 + 14 = 27
+这该怎么做呢？其实，C语言允许在字符串中包含宏参数。在类函数宏（带参
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
-                                    C编程练习
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C编程练习/" target="_blank">
-                        <span class="chip bg-color">C编程练习</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>

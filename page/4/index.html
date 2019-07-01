@@ -293,6 +293,60 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
+                            
+                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                首先，看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+ int a[5] = {0,1,2,3,4};
+
+ printf("a = %d , &amp;a = %d \n", a, &amp;a
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2018/11/12/gong-ju-zhe-me-hao-yong-de-dai-ma-yue-du-qi-ni-zhuang-liao-ma/">
                         <div class="card-image">
                             
@@ -451,29 +505,25 @@ int main(void)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                             
-                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言数组与指针是不等价的，如：
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
 
-数组名不可以改变，而指向数组的指针是可以改变的。
-
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
-
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
-
-
-
+ for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
@@ -555,25 +605,29 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                             
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
+                                前言数组与指针是不等价的，如：
 
- for ( i = 0; i &lt; m; 
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -869,57 +923,6 @@ int main(void)
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/17/c-yu-yan-bi-ji-volatile-guan-jian-zi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【C语言笔记】volatile关键字">
-                            
-                            <span class="card-title">【C语言笔记】volatile关键字</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
-简单地说就是防止编译器对代码进行优化。比如如下程序：
-XBYTE[2]=0x55;
-XBYTE[2]=0x56;
-XB
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -959,7 +962,7 @@ XB
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">63.4k</span>
+                <span class="white-color">63.9k</span>
             
 
             

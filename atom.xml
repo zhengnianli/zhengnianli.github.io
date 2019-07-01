@@ -167,6 +167,32 @@
   </entry>
   
   <entry>
+    <title>【Linux笔记】Linux下编译C语言程序</title>
+    <link href="https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/"/>
+    <id>https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/</id>
+    <published>2019-05-13T00:22:15.000Z</published>
+    <updated>2019-07-01T10:29:44.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在上一篇笔记中有分享Linux下的vi/vim编辑器的使用方法（&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【C语言笔记】#运算符与##运算符</title>
     <link href="https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/"/>
     <id>https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/</id>
@@ -540,32 +566,6 @@
         
         
           &lt;h3 id=&quot;位域的概念&quot;&gt;&lt;a href=&quot;#位域的概念&quot; class=&quot;headerlink&quot; title=&quot;位域的概念&quot;&gt;&lt;/a&gt;位域的概念&lt;/h3&gt;&lt;p&gt;有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】结构体</title>
-    <link href="https://zhengnianli.github.io/2019/01/22/c-yu-yan-bi-ji-jie-gou-ti/"/>
-    <id>https://zhengnianli.github.io/2019/01/22/c-yu-yan-bi-ji-jie-gou-ti/</id>
-    <published>2019-01-22T00:22:15.000Z</published>
-    <updated>2019-06-23T05:40:35.693Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;一、同时定义多个变量&quot;&gt;&lt;a href=&quot;#一、同时定义多个变量&quot; class=&quot;headerlink&quot;
         
       
     
