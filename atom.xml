@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-07-01T04:11:47.431Z</updated>
+  <updated>2019-07-01T13:30:21.523Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/"/>
     <id>https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/</id>
     <published>2019-06-30T00:22:15.000Z</published>
-    <updated>2019-07-01T04:11:47.431Z</updated>
+    <updated>2019-07-01T13:30:21.523Z</updated>
     
     <summary type="html">
     
@@ -37,6 +37,8 @@
     
       <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
     
@@ -171,7 +173,7 @@
     <link href="https://zhengnianli.github.io/2019/05/27/linux-bi-ji-windows-yu-linux-wen-jian-hu-chuan/"/>
     <id>https://zhengnianli.github.io/2019/05/27/linux-bi-ji-windows-yu-linux-wen-jian-hu-chuan/</id>
     <published>2019-05-27T00:22:15.000Z</published>
-    <updated>2019-07-01T13:23:23.134Z</updated>
+    <updated>2019-07-01T13:26:23.931Z</updated>
     
     <summary type="html">
     
@@ -188,6 +190,8 @@
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
       <category term="WinSCP" scheme="https://zhengnianli.github.io/tags/WinSCP/"/>
@@ -201,7 +205,7 @@
     <link href="https://zhengnianli.github.io/2019/05/18/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-er/"/>
     <id>https://zhengnianli.github.io/2019/05/18/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-er/</id>
     <published>2019-05-18T00:22:15.000Z</published>
-    <updated>2019-07-01T12:47:03.899Z</updated>
+    <updated>2019-07-01T13:26:37.888Z</updated>
     
     <summary type="html">
     
@@ -218,6 +222,8 @@
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
       <category term="make工具" scheme="https://zhengnianli.github.io/tags/make%E5%B7%A5%E5%85%B7/"/>
@@ -231,7 +237,7 @@
     <link href="https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/"/>
     <id>https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/</id>
     <published>2019-05-15T00:22:15.000Z</published>
-    <updated>2019-07-01T12:47:19.515Z</updated>
+    <updated>2019-07-01T13:27:11.884Z</updated>
     
     <summary type="html">
     
@@ -247,6 +253,8 @@
     
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
@@ -314,7 +322,7 @@
     <link href="https://zhengnianli.github.io/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/"/>
     <id>https://zhengnianli.github.io/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/</id>
     <published>2019-05-05T00:22:15.000Z</published>
-    <updated>2019-06-24T06:21:41.591Z</updated>
+    <updated>2019-07-01T13:27:44.149Z</updated>
     
     <summary type="html">
     
@@ -331,35 +339,9 @@
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】Vi/Vim编辑器</title>
-    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
-    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
-    <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-07-01T13:23:49.688Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、什么是vi-vim？&quot;&gt;&lt;a href=&quot;#1、什么是vi-vim？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-      <category term="vim" scheme="https://zhengnianli.github.io/tags/vim/"/>
     
   </entry>
   
@@ -368,7 +350,7 @@
     <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
     <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
     <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-06-24T06:43:46.326Z</updated>
+    <updated>2019-07-01T13:28:49.132Z</updated>
     
     <summary type="html">
     
@@ -385,7 +367,39 @@
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Linux笔记】Vi/Vim编辑器</title>
+    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
+    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
+    <published>2019-04-29T00:22:15.000Z</published>
+    <updated>2019-07-01T13:26:06.651Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、什么是vi-vim？&quot;&gt;&lt;a href=&quot;#1、什么是vi-vim？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+      <category term="vim" scheme="https://zhengnianli.github.io/tags/vim/"/>
     
   </entry>
   
@@ -394,7 +408,7 @@
     <link href="https://zhengnianli.github.io/2019/04/27/linux-bi-ji-wen-ben-wen-jian-cha-kan-ming-ling/"/>
     <id>https://zhengnianli.github.io/2019/04/27/linux-bi-ji-wen-ben-wen-jian-cha-kan-ming-ling/</id>
     <published>2019-04-27T00:22:15.000Z</published>
-    <updated>2019-06-24T06:32:50.178Z</updated>
+    <updated>2019-07-01T13:27:32.043Z</updated>
     
     <summary type="html">
     
@@ -412,6 +426,8 @@
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
@@ -421,7 +437,7 @@
     <link href="https://zhengnianli.github.io/2019/04/21/linux-bi-ji-wen-jian-ji-mu-lu-guan-li-ming-ling/"/>
     <id>https://zhengnianli.github.io/2019/04/21/linux-bi-ji-wen-jian-ji-mu-lu-guan-li-ming-ling/</id>
     <published>2019-04-21T00:22:15.000Z</published>
-    <updated>2019-06-24T00:31:14.744Z</updated>
+    <updated>2019-07-01T13:28:21.069Z</updated>
     
     <summary type="html">
     
@@ -437,6 +453,8 @@
     
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
