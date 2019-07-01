@@ -4,10 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【C语言笔记】操作位的技巧, 正念君的博客">
-    <meta name="description" content="一、操作位的方法操作位有两种方法，一种是位字段，另一种是使用按位运算符。位字段的方法可查看往期笔记：【C语言笔记】位域。本文介绍使用按位运算符操作位的方法。下表为几种位操作符及其含义：
-
-二、不改变其他位的值的状况下，对某几个位进行设值。在">
+    <meta name="keywords" content="【Linux笔记】make工程管理工具（一）, 正念君的博客">
+    <meta name="description" content="1、如何编译具有多个源码（.c文件）的工程上一篇笔记写了如何使用gcc的编译命令编译：【Linux笔记】Linux下编译C程序。当源文件较少时，使用gcc编译命令编译就比较方便，在gcc编译命令中依次列出各个源文件就好，比如：
+gcc sr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【C语言笔记】操作位的技巧 | 正念君的博客</title>
+    <title>【Linux笔记】make工程管理工具（一） | 正念君的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【C语言笔记】操作位的技巧
+                        【Linux笔记】make工程管理工具（一）
                     </div>
                 </div>
             </div>
@@ -376,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C语言/" target="_blank">
-                                <span class="chip bg-color">C语言</span>
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -388,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                C语言笔记
+                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
+                                Linux笔记
                             </a>
                         
                     </div>
@@ -400,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-02-15
+                    2019-05-15
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.1k
+                        752
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        2 分
                     </div>
                     
                 
@@ -430,58 +429,28 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、操作位的方法"><a href="#一、操作位的方法" class="headerlink" title="一、操作位的方法"></a>一、操作位的方法</h3><p>操作位有两种方法，一种是<code>位字段</code>，另一种是使用<code>按位运算符</code>。位字段的方法可查看往期笔记：<a href="https://zhengnianli.github.io/2019/02/14/c-yu-yan-bi-ji-wei-yu/">【C语言笔记】位域</a>。本文介绍使用按位运算符操作位的方法。下表为几种位操作符及其含义：</p>
-<p><a href="https://imgchr.com/i/VH0Pit" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH0Pit.md.png" alt="VH0Pit.md.png"></a></p>
-<h3 id="二、不改变其他位的值的状况下，对某几个位进行设值。"><a href="#二、不改变其他位的值的状况下，对某几个位进行设值。" class="headerlink" title="二、不改变其他位的值的状况下，对某几个位进行设值。"></a>二、不改变其他位的值的状况下，对某几个位进行设值。</h3><p>在<code>嵌入式编程</code>中，常常需要对一些寄存器进行配置，有的情况下需要改变一个字节中的某一位或者几位，但是又不想改变其它位原有的值，这时就可以使用按位运算符进行操作。下面进行举例说明，假如有一个8位的TEST寄存器：</p>
-<p><a href="https://imgchr.com/i/VH0QJ0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH0QJ0.md.png" alt="VH0QJ0.md.png"></a></p>
-<p>当我们要设置第0位bit0的值为1时，可能会这样进行设置：</p>
-<pre class=" language-cpp"><code class="language-cpp">TEST <span class="token operator">=</span> <span class="token number">0x01</span><span class="token punctuation">;</span></code></pre>
-<p>但是，这样设置是不够准确的，因为这时候已经同时操作到了高7位：<code>bit1~bit7</code>，如果这高7位没有用到的话，这么设置没有什么影响；但是，如果这7位正在被使用，结果就不是我们想要的了。</p>
-<p>在这种情况下，我们就可以借用<code>&amp;</code>和<code>|</code>进行配置。</p>
-<p>对于二进制位操作来说，不管该位原来的值是0还是1，它跟0进行&amp;运算，得到的结果都是0，而跟1进行&amp;运算，将保持原来的值不变；不管该位原来的值是0还是1，它跟1进行|运算，得到的结果都是1，而跟0进行|运算，将保持原来的值不变。</p>
-<p>所以，此时可以设置为：</p>
-<pre class=" language-cpp"><code class="language-cpp">TEST <span class="token operator">=</span> TEST <span class="token operator">|</span> <span class="token number">0x01</span><span class="token punctuation">;</span></code></pre>
-<p>其意义为：<code>TEST寄存器</code>的高7位均不变，最低位变成1了。在实际编程中，常改写为：</p>
-<pre class=" language-cpp"><code class="language-cpp">TEST <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">0x01</span><span class="token punctuation">;</span></code></pre>
-<p>这种写法可以一定程度上简化代码，是 C 语言常用的一种编程风格。</p>
-<p>同样的，要给<code>TEST</code>的低4位清0，高4位保持不变，可以进行如下配置：</p>
-<pre class=" language-cpp"><code class="language-cpp">TEST <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token number">0xF0</span><span class="token punctuation">;</span></code></pre>
-<p>这个场景<code>嵌入式开发</code>中经常使用，方法就是先对需要设置的位用<code>&amp;</code>操作符进行清零操作，然后用|操作符设值。比如我要改变<code>GPIOA</code>的状态,可以先对寄存器的值进行<code>&amp;</code>清零操作：</p>
-<pre class=" language-cpp"><code class="language-cpp">GPIOA<span class="token operator">-</span><span class="token operator">></span>CRL <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token number">0XFFFFFF0F</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//将第4-7位清0</span></code></pre>
-<p>然后再与需要设置的值进行|或运算：</p>
-<pre class=" language-cpp"><code class="language-cpp">GPIOA<span class="token operator">-</span><span class="token operator">></span>CRL <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">0X00000040</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置相应位的值，不改变其他位的值</span></code></pre>
-<p>移位操作提高代码的可读性。</p>
-<p>移位操作在单片机开发中也非常重要，下面让我们看看固件库的<code>GPIO</code>初始化的函数里面的一行代码：</p>
-<pre class=" language-cpp"><code class="language-cpp">GPIOx<span class="token operator">-</span><span class="token operator">></span>BSRR <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>uint32_t<span class="token punctuation">)</span><span class="token number">0x01</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> pinpos<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>这个操作就是将<code>BSRR</code>寄存器的第<code>pinpos</code>位设置为<code>1</code>，为什么要通过左移而不是直接设置一个固定的值呢？其实，这是为了提高代码的可读性以及可重用性。这行代码可以很直观明了的知道，是将第<code>pinpos</code>位设置为<code>1</code>。如果你写成：</p>
-<pre class=" language-cpp"><code class="language-cpp">GPIOx<span class="token operator">-</span><span class="token operator">></span>BSRR <span class="token operator">=</span> <span class="token number">0x0030</span><span class="token punctuation">;</span></code></pre>
-<p>这样的代码就不好看也不好重用了。<br>类似这样的代码很多:</p>
-<pre class=" language-cpp"><code class="language-cpp">GPIOA<span class="token operator">-</span><span class="token operator">></span>ODR <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//PA.5输出高,不改变其他位</span></code></pre>
-<p>这样我们一目了然，5告诉我们是第5位也就是第6个端口，1告诉我们是设置为1了。</p>
-<h3 id="三、-取反操作使用技巧"><a href="#三、-取反操作使用技巧" class="headerlink" title="三、~取反操作使用技巧"></a>三、~取反操作使用技巧</h3><p><code>SR寄存器</code>的每一位都代表一个状态，某个时刻我们希望去设置某一位的值为0，同时其他位都保留为1，简单的作法是直接给寄存器设置一个值：</p>
-<pre class=" language-cpp"><code class="language-cpp">TIMx<span class="token operator">-</span><span class="token operator">></span>SR <span class="token operator">=</span> <span class="token number">0xFFF7</span>；</code></pre>
-<p>这样的作法设置第3位为0，但是这样的作法同样不好看，并且可读性很差。看看库函数代码中怎样使用的：</p>
-<pre class=" language-cpp"><code class="language-cpp">TIMx<span class="token operator">-</span><span class="token operator">></span>SR <span class="token operator">=</span> <span class="token punctuation">(</span>uint16_t<span class="token punctuation">)</span><span class="token operator">~</span>TIM_FLAG<span class="token punctuation">;</span></code></pre>
-<p>而TIM_FLAG 是通过宏定义定义的值：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_Update  ((uint16_t)0x0001)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC1     ((uint16_t)0x0002)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC2     ((uint16_t)0x0004)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC3     ((uint16_t)0x0008)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC4     ((int16_t)0x0010)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_COM     ((uint16_t)0x0020)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_Trigger ((uint16_t)0x0040)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_Break   ((uint16_t)0x0080)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC1OF   ((uint16_t)0x0200)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC2OF   ((uint16_t)0x0400)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC3OF   ((uint16_t)0x0800)</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TIM_FLAG_CC4OF   ((uint16_t)0x1000)</span></code></pre>
-<p>即设置<code>SR</code>第3位为0时可设置为：</p>
-<pre class=" language-cpp"><code class="language-cpp">TIMx<span class="token operator">-</span><span class="token operator">></span>SR <span class="token operator">=</span> <span class="token punctuation">(</span>uint16_t<span class="token punctuation">)</span><span class="token operator">~</span>TIM_FLAG_CC3<span class="token punctuation">;</span></code></pre>
-<p>以上就是关于位操作在嵌入式编程中的一些技巧，如有错误，欢迎指出！</p>
-<h3 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h3><p>《STM32F1开发指南-库函数版本_V3.1 》</p>
-<p>《手把手教你学51单片机》</p>
+                <h1 id="1、如何编译具有多个源码（-c文件）的工程"><a href="#1、如何编译具有多个源码（-c文件）的工程" class="headerlink" title="1、如何编译具有多个源码（.c文件）的工程"></a>1、如何编译具有多个源码（.c文件）的工程</h1><p>上一篇笔记写了如何使用<code>gcc</code>的编译命令编译：<a href="https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/">【Linux笔记】Linux下编译C程序</a>。当源文件较少时，使用gcc编译命令编译就比较方便，在gcc编译命令中依次列出各个源文件就好，比如：</p>
+<pre class=" language-c"><code class="language-c">gcc src1<span class="token punctuation">.</span>c src2<span class="token punctuation">.</span>c src3<span class="token punctuation">.</span>c src4<span class="token punctuation">.</span>c <span class="token operator">-</span>o src</code></pre>
+<p>把<code>src1.c、src2.c、src3.c、src4.c</code>编译生成可执行文件<code>src</code> 。在Linux环境下，一般不具有集成开发环境（IDE），一般都是使用命令来编译。当源文件较少时，可以使用上面的方式进行编译。但是，如果我们的项目代码工程源文件很多，几十个，上百个，甚至上千上万个呢，那么该怎么进行编译呢？这时候，就可以使用工程管理文件——<code>Makefile（makefile）</code>文件对你的工程进行管理，然后使用<code>make</code>工具解释Makefile（makefile）文件中的指令（编译指令）进行我们的项目编译。</p>
+<h1 id="2、怎么使用make工具来编译我们的C工程呢"><a href="#2、怎么使用make工具来编译我们的C工程呢" class="headerlink" title="2、怎么使用make工具来编译我们的C工程呢"></a>2、怎么使用make工具来编译我们的C工程呢</h1><p>平常，在技术的学习时，我习惯于先把要学的技术、原理用起来，再进一步去了解这个技术、原理，有进一步的学习之后，然后再进一步的去进行应用，即<code>用-&gt;学-&gt;用</code>。</p>
+<p>所以，我们先看怎么用make工具的问题。当然，首先得想办法编写Makefile文件。在这之前，我们可以使用<code>make -v</code>命令查看我们当前系统是否具有make工具（本文使用的Linux发行版为红帽6）：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8IRHg.png" alt="Z8IRHg.png"></p>
+<p>可见，我们系统的make工具版本是<code>3.81</code>。我们还是以上一篇笔记的例子，这次我们使用make编译我们的<code>hello</code>文件（输出<code>Hello World</code>是我们千年不变的目标，哈哈~）如下是我们编写的<code>Makefile</code>文件中的内容：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8I7vV.png" alt="Z8I7vV.png"></p>
+<p>有了<code>Makefile</code>文件，我们就可以编译我们的<code>hello.c</code>文件了，如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8IbuT.png" alt="Z8IbuT.png"></p>
+<p>要注意的是我们Makefile文件中的命令前面空白是一个<code>【Tab】键</code>的长度，不能使用空格键代替，否则是会出错的，如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8IXE4.png" alt="Z8IXE4.png"></p>
+<p>再或者，想看到我们平时所说的“编译”各个过程，我们可以把Makefile文件修改成：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8oS81.png" alt="Z8oS81.png"></p>
+<p>然后使用make工具进行解释：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8o9v6.png" alt="Z8o9v6.png"></p>
+<p>其中，关于关于源文件至生成可执行文件经过哪几个过程，可查看往期笔记：</p>
+<p><a href="https://zhengnianli.github.io/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">【C语言笔记】C语言编译的过程</a></p>
+<p>以上就是本篇笔记的分享，主要介绍如何使用make工具来编译我们的c工程如有错误，欢迎指出！关于make的内容很多，在之后的笔记中再具体地进行介绍！欢迎大家持续关注！如果你觉得对你有用的话，麻烦帮忙点个赞。如果你觉得对你的同学与朋友也有用的话，欢迎转发。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
 
             </div>
             <hr>
@@ -646,7 +615,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-02-15T08-22-15',
+        id: '2019-05-15T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -671,25 +640,33 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/">
+                <a href="/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】指定初始化器">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于数组的一个陷阱！">
                         
-                        <span class="card-title">【C语言笔记】指定初始化器</span>
+                        <span class="card-title">【C语言笔记】关于数组的一个陷阱！</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             C99增加了一个新特性：指定初始化器(designated initializer)。利用该特性可以初始化指定的数组元素，也可以初始化指定的结构体变量（往期笔记【C语言笔记】结构体有用到这个特性对结构体变量进行初始化）。
-本笔记主要分享：
+                            问题
+两个数组元素的地址相减得到什么？
+
+先看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+    int a[]={0,1,2,3,4,5};
+    printf("&amp;a[0] = 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-16
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
                         </span>
                         <span class="publish-author">
                             
@@ -721,32 +698,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/14/c-yu-yan-bi-ji-wei-yu/">
+                <a href="/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="【C语言笔记】位域">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="【Linux笔记】Linux下编译C语言程序">
                         
-                        <span class="card-title">【C语言笔记】位域</span>
+                        <span class="card-title">【Linux笔记】Linux下编译C语言程序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            位域的概念有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做位域或位段。
-位域是操控
+                            在上一篇笔记中有分享Linux下的vi/vim编辑器的使用方法（【Linux笔记】Vi/Vim编辑器），现在我们就可以使用vi/vim编辑器编写C代码了。那么写完代码该怎么进行编译呢？其实，和在Windows下使用命令行编译的方法是一样的。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
+                                    Linux笔记
                                 </a>
                             
                             
@@ -756,8 +732,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
