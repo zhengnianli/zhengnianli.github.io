@@ -173,7 +173,7 @@
     <link href="https://zhengnianli.github.io/2019/05/27/linux-bi-ji-windows-yu-linux-wen-jian-hu-chuan/"/>
     <id>https://zhengnianli.github.io/2019/05/27/linux-bi-ji-windows-yu-linux-wen-jian-hu-chuan/</id>
     <published>2019-05-27T00:22:15.000Z</published>
-    <updated>2019-07-01T13:26:23.931Z</updated>
+    <updated>2019-07-01T13:46:44.594Z</updated>
     
     <summary type="html">
     
@@ -346,34 +346,6 @@
   </entry>
   
   <entry>
-    <title>【Linux笔记】文件的权限</title>
-    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
-    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
-    <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-07-01T13:28:49.132Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 &lt;code&gt;ls -l&lt;/code&gt; 命令列出当前目录下的文件及目录的详细信息：&lt;br&gt;&lt;a href=&quot;https://imgchr.com/i/ZkWS8U&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>【Linux笔记】Vi/Vim编辑器</title>
     <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
     <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
@@ -400,6 +372,34 @@
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
       <category term="vim" scheme="https://zhengnianli.github.io/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Linux笔记】文件的权限</title>
+    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
+    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
+    <published>2019-04-29T00:22:15.000Z</published>
+    <updated>2019-07-01T13:28:49.132Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 &lt;code&gt;ls -l&lt;/code&gt; 命令列出当前目录下的文件及目录的详细信息：&lt;br&gt;&lt;a href=&quot;https://imgchr.com/i/ZkWS8U&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
   
