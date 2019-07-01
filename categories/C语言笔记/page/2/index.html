@@ -301,18 +301,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/categories/嵌入式/" title="嵌入式: 6">
+                <a href="/categories/C语言笔记/" title="C语言笔记: 45">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">嵌入式
-                        <span class="tag-length">6</span>
+                             chip-active " style="background-color: #F5EEF8;">C语言笔记
+                        <span class="tag-length">45</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/C语言笔记/" title="C语言笔记: 45">
+                <a href="/categories/嵌入式/" title="嵌入式: 6">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #D5F5E3;">C语言笔记
-                        <span class="tag-length">45</span>
+                             chip-default " style="background-color: #D5F5E3;">嵌入式
+                        <span class="tag-length">6</span>
                     </span>
                 </a>
                 
@@ -838,26 +838,19 @@ time_t 是lon
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
+                    <a href="/2018/11/13/c-yu-yan-bi-ji-liang-ge-xiao-zhi-shi/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】两个小知识">
                             
-                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
+                            <span class="card-title">【C语言笔记】两个小知识</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                首先，看一段代码：
-#include &lt;stdio.h>
-
-int main(void)
-{
- int a[5] = {0,1,2,3,4};
-
- printf("a = %d , &amp;a = %d \n", a, &amp;a
+                                一、关于头文件包含问题C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包
                             
                         </div>
                         <div class="publish-info">
@@ -891,19 +884,26 @@ int main(void)
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/11/13/c-yu-yan-bi-ji-liang-ge-xiao-zhi-shi/">
+                    <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】两个小知识">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
                             
-                            <span class="card-title">【C语言笔记】两个小知识</span>
+                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、关于头文件包含问题C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包
+                                首先，看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+ int a[5] = {0,1,2,3,4};
+
+ printf("a = %d , &amp;a = %d \n", a, &amp;a
                             
                         </div>
                         <div class="publish-info">

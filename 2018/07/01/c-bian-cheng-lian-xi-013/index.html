@@ -469,7 +469,7 @@
     <span class="token keyword">return</span> count<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>题目要比较两个int32的整数的不同的bit有多少，首先想到C语言的按位异或运算：参与运算的两个值，如果两个相应位相同，则结果为0，否则为1。即： <code>0^0=0，1^0=1，0^1=1，1^1=0</code>。以上程序中，首先使用一个变量temp存储两个int32的整数m,n异或后的结果，再用temp的低位至高位和0x01做按位与运算，且前提条件是长度len为真。</p>
-<h3 id="3、运行结果"><a href="#3、运行结果" class="headerlink" title="3、运行结果"></a>3、运行结果</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/PnO7BjBKUz9ibAMXMR238FwKsNFAp7bNeY5MbtgTC4AUTLdCsGDA7ibhWjKQjOM8Piaxf7832d3orCyicPmPSvYVDg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h3 id="3、运行结果"><a href="#3、运行结果" class="headerlink" title="3、运行结果"></a>3、运行结果</h3><p><img src="https://s2.ax1x.com/2019/07/01/ZGkzid.png" alt="ZGkzid.png"></p>
 <hr>
 <p>我的微信公众号：嵌入式大杂烩</p>
 <p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
