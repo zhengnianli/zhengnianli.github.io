@@ -4,10 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【C语言笔记】枚举, 正念君的博客">
-    <meta name="description" content="一、前言首先，提一下宏定义#define，其一般形式为：
-#define 宏名 字符串
-这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看【C语言笔记】define与typedef的区别？）。除此之外，其还可以">
+    <meta name="keywords" content="【Linux笔记】make工程管理工具（二）, 正念君的博客">
+    <meta name="description" content="1、前言上一篇笔记分享了使用make工具编译C程序的方法（【Linux笔记】make工程管理工具（一）），但是还未分享make工具是什么，本篇笔记就来看一下make工具是什么吧。
+make和Makefile（或者makefile）文件提供了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【C语言笔记】枚举 | 正念君的博客</title>
+    <title>【Linux笔记】make工程管理工具（二） | 正念君的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【C语言笔记】枚举
+                        【Linux笔记】make工程管理工具（二）
                     </div>
                 </div>
             </div>
@@ -376,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C语言/" target="_blank">
-                                <span class="chip bg-color">C语言</span>
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -388,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                C语言笔记
+                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
+                                Linux笔记
                             </a>
                         
                     </div>
@@ -400,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-01-15
+                    2019-05-18
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        910
+                        2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        7 分
                     </div>
                     
                 
@@ -430,118 +429,69 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>首先，提一下宏定义<code>#define</code>，其一般形式为：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> 宏名 字符串</span></code></pre>
-<p>这个知识点很重要，到处能用得到。其可以与typedef来进行类比进行理解（可查看<a href="https://zhengnianli.github.io/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">【C语言笔记】define与typedef的区别？</a>）。除此之外，其还可以与枚举<code>enum</code>进行类比。</p>
-<h3 id="二、什么是枚举"><a href="#二、什么是枚举" class="headerlink" title="二、什么是枚举"></a>二、什么是枚举</h3><p>从字面理解，就是一一列举的意思。很多时候，有一些数据的取值有限的，这时候可以把这些可能的结果列出来，并赋予新的名字，这样有助于提高代码的可读性。例如，一个星期有7天，一年有12个月，期末考试科目有6个科目等情况，完全可以一一列举出来。</p>
-<p>当我们要为整数定义一些别名（例如定义为星期数）的时候，可以使用宏定义，如：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">define</span> MON  1</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> TUE  2</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> WED  3</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> THU  4</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> FRI  5</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> SAT  6</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> SUN  7</span></code></pre>
-<p>此时，我们可以使用枚举来达到同样的效果，如：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-     MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<p>其中，<code>enum</code>是关键字，是必须的。<code>DAY</code>是枚举名，可有可无，这个名字是自己定义的；<code>MON=1, TUE, WED, THU, FRI, SAT, SUN</code>是枚举成员。</p>
-<p>枚举成员的值是根据前一个成员的值递增1，即上面枚举定义等价于：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-    MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> WED<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> THU<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> FRI<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> SAT<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">,</span> SUN<span class="token operator">=</span><span class="token number">7</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<p>若上述定义中第一个成员<code>MON</code>不赋值的话，那么其默认为<code>0</code>。</p>
-<p>若其他成员赋了初值，也是遵循“枚举成员的值是根据前一个成员的值递增1”这一规则，如：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-   A<span class="token punctuation">,</span>B<span class="token punctuation">,</span>C<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>D<span class="token punctuation">,</span>F<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">,</span>G 
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<p>此处</p>
-<pre class=" language-cpp"><code class="language-cpp">A<span class="token operator">=</span><span class="token number">0</span>
-B<span class="token operator">=</span><span class="token number">1</span>
-C<span class="token operator">=</span><span class="token number">100</span>
-D<span class="token operator">=</span><span class="token number">101</span>
-F<span class="token operator">=</span><span class="token number">200</span>
-G<span class="token operator">=</span><span class="token number">201</span></code></pre>
-<h3 id="三、枚举类型变量的定义方法"><a href="#三、枚举类型变量的定义方法" class="headerlink" title="三、枚举类型变量的定义方法"></a>三、枚举类型变量的定义方法</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-    MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">enum</span> DAY good_day<span class="token punctuation">,</span> bad_day<span class="token punctuation">;</span></code></pre>
-<p>此处，<code>DAY</code>是枚举名，相当于一个模板，可以使用这个模板去定义变量<code>good_day</code>，<code>bad_day</code>，定义的时候不要忘了<code>enum</code>。</p>
-<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">enum</span>
-<span class="token punctuation">{</span>
-   MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span>good_day<span class="token punctuation">,</span> bad_day<span class="token punctuation">;</span></code></pre>
-<p>相对于方法一，此处省略了枚举名。虽然更简洁了，但是因为没有了名字，后面就不能用该枚举定义新的变量。</p>
-<h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">typedef</span> <span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-   MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span>DAY<span class="token punctuation">;</span>
-
-DAY good_day<span class="token punctuation">,</span> bad_day<span class="token punctuation">;</span></code></pre>
-<p>此处使用<code>typedef</code>为枚举定义一个别名，这个别名为<code>DAY</code>，关于<code>typedef</code>的介绍可点击文首的链接进行查看。</p>
-<h4 id="程序实例"><a href="#程序实例" class="headerlink" title="程序实例"></a>程序实例</h4><p>编译环境为 : <code>gcc 6.3.0</code></p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">typedef</span> <span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-  MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span>DAY<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- DAY good_day<span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"你觉得一周中哪一天最美好？\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>good_day<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"我比较喜欢"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token keyword">switch</span><span class="token punctuation">(</span>good_day<span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
- <span class="token keyword">case</span> MON<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期一"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">case</span> TUE<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期二"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">case</span> WED<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">case</span> THU<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">case</span> FRI<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期五"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">case</span> SAT<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期六"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">case</span> SUN<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"星期日"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token keyword">default</span><span class="token operator">:</span>  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-
- <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>程序运行结果：</p>
-<p><a href="https://imgchr.com/i/VH8JUS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH8JUS.md.png" alt="VH8JUS.md.png"></a></p>
-<h3 id="四、枚举变量占用的字节数？"><a href="#四、枚举变量占用的字节数？" class="headerlink" title="四、枚举变量占用的字节数？"></a>四、枚举变量占用的字节数？</h3><p>实测程序：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">typedef</span> <span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-  MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span>DAY<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
- DAY good_day<span class="token punctuation">;</span>
-
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(DAY) = %d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DAY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(good_day) = %d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>good_day<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(int) = %d\n"</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
- <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>运行结果：</p>
-<p><a href="https://imgchr.com/i/VH8U3j" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH8U3j.md.png" alt="VH8U3j.md.png"></a></p>
-<p>从该程序运行结果也可看出，枚举类型变量需要存放的是一个整数，它的长度和int的长度相同。</p>
-<p>以上就是关于枚举类型enum的一些笔记，如有错误欢迎指出。</p>
-<p>最后，分享两篇关于枚举的文章，都讲得很详细。</p>
-<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>cnblogs<span class="token punctuation">.</span>com<span class="token operator">/</span>JCSU<span class="token operator">/</span>articles<span class="token operator">/</span><span class="token number">1299051</span><span class="token punctuation">.</span>html
-http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>c<span class="token punctuation">.</span>biancheng<span class="token punctuation">.</span>net<span class="token operator">/</span>cpp<span class="token operator">/</span>html<span class="token operator">/</span><span class="token number">99</span><span class="token punctuation">.</span>html</code></pre>
+                <h1 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h1><p>上一篇笔记分享了使用make工具编译C程序的方法（<a href="https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/">【Linux笔记】make工程管理工具（一）</a>），但是还未分享make工具是什么，本篇笔记就来看一下make工具是什么吧。</p>
+<p>make和Makefile（或者makefile）文件提供了一种简单有效的工程管理方式。Makefile文件是一个决定着如何编译工程的文本，有一定的书写规则。make是一个GNU命令工具，用来解释Makefile文件中的命令来编译我们的工程。</p>
+<h1 id="2、make工具"><a href="#2、make工具" class="headerlink" title="2、make工具"></a>2、make工具</h1><p><code>make</code> 是一个命令工具，是一个解释 <code>Makefile</code> 中指令的命令工具，一般来说，大多数的 IDE（集成开发环境） 都有这个命令，比如：<code>Delphi</code> 的 make，<code>Visual C++</code>的 nmake。但是在<code>Linux</code> 下一般不具有IDE，所以我们需要学会如何使用make工具来编译。</p>
+<h1 id="2、Makefile文件的书写规范"><a href="#2、Makefile文件的书写规范" class="headerlink" title="2、Makefile文件的书写规范"></a>2、Makefile文件的书写规范</h1><p><code>Makefile</code>文件中最重要的是规则。规则的格式如下：</p>
+<pre class=" language-c"><code class="language-c">target<span class="token punctuation">:</span>prerequisites 
+    command</code></pre>
+<p>其中，<code>target</code> 为目标，<code>prerequisites</code> 为依赖。<code>command</code> 为make需要执行的命令。</p>
+<ul>
+<li><p>目标：往往是程序的中间或者最终生成的文件名，比如目标文件、可执行文件等。</p>
+</li>
+<li><p>依赖：是指用来产生目标文件的输入文件名，一个目标往往依赖于一个或多个文件。</p>
+</li>
+<li><p>命令：是指任何一个文件发生改动之后，需要重新生成目标文件需要执行的命令，这里可以有多条命令，但是每个命令必须单独占一行，且需要注意的是，每个命令的前面必须有一个<code>&lt;tab键&gt;</code>，因为make是用过<tab>来识别命令行的，进而完成相应的动作。</tab></p>
+</li>
+</ul>
+<p>例如，上一篇我们的笔记中为编译<code>hello.c</code>书写的<code>Makefile</code>文件如下：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z87FtH.png" alt="Z87FtH.png"></p>
+<p>其中，第<code>1、2</code>行为一条规则，第<code>4、5</code>行为一条规则，第<code>7、8</code>行为一条规则，第<code>10、11</code>行为一条规则，第<code>13、14</code>行为一条规则。</p>
+<p>拿第<code>1、2</code>行这一条规则来举例说明， <code>hello</code> 为目标文件， <code>hello.o</code> 为依赖文件， <code>gcc hello.o -o hello</code> 为命令。除此之外，这个文件中， <code>#</code>符号后面是注释， <code>clean</code> 是一个特殊的目标，它没有依赖，称为<code>伪目标</code>。</p>
+<p>规则是Makefile文件中的最基本的、也是最核心的部分。Makefile中还有其他内容。</p>
+<p>Makefile文件主要包含5个方面内容：显示规则、隐式规则、变量、文件指示、注释、实目标与伪目标等。</p>
+<p>（1）<code>显式规则</code>。显式规则说明了，如何生成一个或多的的目标文件。这是由 Makefile 的书写者明显指出，要生成的文件，文件的依赖文件，生成的命令。如</p>
+<pre class=" language-c"><code class="language-c">hello<span class="token punctuation">:</span>hello<span class="token punctuation">.</span>o
+    gcc hello<span class="token punctuation">.</span>o <span class="token operator">-</span>o hello</code></pre>
+<p>这就是一条显示规则。</p>
+<p>（2）<code>隐式规则</code>。隐含规则是系统或用户预先定义好的一些特殊规则，主要是一些常用的依赖关系和更新命令。一般规则使用文件的全名，而隐含规则中出现的目标文件和依赖文件都只使用文件的扩展名。</p>
+<p>如果Makefile 文件里面没有显式给出文件的依赖关系的时候，make 就会根据文件的扩展名找到相应的隐含规则，然后按照隐含规则来更新目标。隐式规则的例子是：</p>
+<pre class=" language-c"><code class="language-c">hello<span class="token punctuation">:</span>hello<span class="token punctuation">.</span>o
+    $<span class="token punctuation">(</span>CC<span class="token punctuation">)</span> $<span class="token operator">^</span> <span class="token operator">-</span>o $@</code></pre>
+<p>（3）<code>变量定义</code>。在 Makefile 中我们要定义一系列的变量，变量一般都是字符串，这个有点像 C 语言中的宏，当 Makefile 被执行时，其中的变量都会被扩展到相应的引用位置上。如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z87uB8.png" alt="Z87uB8.png"></p>
+<p>其中 <code>CC</code> 为变量的定义， <code>$(CC)</code> 为变量的调用。 <code>$^</code>、 <code>$@</code>也是变量的调用，这两个变量是Makefile文件中最常用的变量（不需要自己定义），<code>$^</code> 代表当前规则中所有的依赖文件， <code>$@</code> 代表当前规则的目标文件。</p>
+<p>（4）<code>文件指示</code>。其包括了三个部分，一个是在一个 Makefile 中引用另一个 Makefile，就像 C 语言中的 <code>include</code> 一样；另一个是指根据某些情况指定 Makefile 中的有效部分，就像 C 语言中的预编译<code>#if</code> 一样；还有就是定义一个多行的命令。</p>
+<p>（5）<code>注释</code>。Makefile 中只有行注释，和 UNIX 的 <code>Shell</code> 脚本一样，其注释是用 <code>#</code> 字符，这个就像<code>C/C++</code>中的<code>//</code>一样。如果你要在你的Makefile 中使用<code>#</code>字符，可以用反斜框进行转义，如：<code>\#</code>。</p>
+<p>（6）<code>实目标与伪目标</code>。Makefile 文件中的目标分为两类：实目标和伪目标。</p>
+<p>实目标是真正要生成的以文件形式存放在磁盘上的目标。如：</p>
+<pre class=" language-c"><code class="language-c">hello<span class="token punctuation">:</span>hello<span class="token punctuation">.</span>o
+    $<span class="token punctuation">(</span>CC<span class="token punctuation">)</span> $<span class="token operator">^</span> <span class="token operator">-</span>o $@ # 链接</code></pre>
+<p>其中，<code>hello</code> 文件就是实目标；</p>
+<p>而伪目标不要求生成实际的文件，它主要是用于完成一些辅助操作。如：</p>
+<pre class=" language-c"><code class="language-c">clean<span class="token punctuation">:</span>
+    rm <span class="token operator">-</span>rf hello<span class="token punctuation">.</span>i hello<span class="token punctuation">.</span>s hello<span class="token punctuation">.</span>o hello # 删除编译生成文件</code></pre>
+<p>其中的 <code>clean</code> 就是一个伪目标。我们在命令里面输入命令： <code>make clean</code> 就可以执行删除操作： <code>rm -rf hello.i hello.s hello.o hello</code> 。</p>
+<p>但是这种书写形式不是很严谨，因为可能在当前目录下面存在文件名为 clean 的文件，因为这时候， 后面没有依赖文件，所以make 就认为这个文件是最新的，所以就不会执行 <code>rm -rf hello.i hello.s hello.o hello</code> 。所以为了避免这种情况的发生，所以建议使用这种写法：</p>
+<pre class=" language-c"><code class="language-c"><span class="token punctuation">.</span>PHONY<span class="token punctuation">:</span>clean
+clean<span class="token punctuation">:</span>
+    rm <span class="token operator">-</span>rf hello<span class="token punctuation">.</span>i hello<span class="token punctuation">.</span>s hello<span class="token punctuation">.</span>o hello # 删除编译生成文件</code></pre>
+<p>使用 <code>.PHONY</code> 说明clean是一个伪目标。</p>
+<h1 id="3、make是如何工作的？"><a href="#3、make是如何工作的？" class="headerlink" title="3、make是如何工作的？"></a>3、make是如何工作的？</h1><p>当我们只输入<code>make</code> 命令。那么：</p>
+<p>（1）make 会在当前目录下找名字叫<code>Makefile</code>或<code>makefile</code>的文件。</p>
+<p>（2）如果找到，它会找文件中的第一个目标文件（<code>target</code>），在上面的例子中，它会找到<code>hello</code>这个文件，并把这个文件作为最终的目标文件 。</p>
+<p>（3）如果 <code>hello</code>文件不存在，或是<code>hello</code> 所依赖的后面的 <code>.o</code>文件，的文件修改时间要比 <code>hello</code> 这个文件新，那么，他就会执行后面所定义的命令来生成 hello 这个文件。<br>（4）如果<code>hello</code>所依赖的 <code>.o</code> 文件也存在，那么<code>make</code>会在当前文件中找目标为<code>.o</code>文件的依赖性，如果找到则再根据那一个规则生成<code>.o</code>文件。（这有点像一个堆栈的过程）<br>（5）当然，我们的<code>c</code>文件和<code>h</code> 文件是存在的啦，于是 <code>make</code> 会生成 <code>.o</code>文件，然后再用 <code>.o</code> 文件生命<code>make</code> 的终极任务，也就是执行文件 <code>hello</code>了。</p>
+<p>这就是整个<code>make</code> 的依赖性，<code>make</code> 会一层又一层地去找文件的依赖关系，直到最终编译出第一个目标文件。在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么 make 就会直接退出，并报错，而对于所定义的命令的错误，或是编译不成功，make 根本不理。 </p>
+<p>像<code>clean</code> 这种伪目标，没有被第一个目标文件直接或间接关联，那么它后面所定义的命令将不会被自动执行。</p>
+<p>以上就是本次的笔记分享，主要介绍make工具、Makefile文件大概有哪些内容、make是如何工作的。如有错误，欢迎指出！</p>
+<p>参考资料：</p>
+<pre class=" language-c"><code class="language-c">《嵌入式Linux上的C语言编程实践》、
+https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>segmentfault<span class="token punctuation">.</span>com<span class="token operator">/</span>a<span class="token operator">/</span><span class="token number">1190000003756084</span>#articleHeader4、
+https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>haoel<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">2886</span></code></pre>
+<p>如果你觉得对你有用的话，麻烦帮忙点个赞。如果你觉得对你的同学与朋友也有用的话，欢迎转发。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
 
             </div>
             <hr>
@@ -706,7 +656,7 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-01-15T08-22-15',
+        id: '2019-05-18T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -731,25 +681,33 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/01/22/c-yu-yan-bi-ji-jie-gou-ti/">
+                <a href="/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="【C语言笔记】结构体">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于数组的一个陷阱！">
                         
-                        <span class="card-title">【C语言笔记】结构体</span>
+                        <span class="card-title">【C语言笔记】关于数组的一个陷阱！</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、同时定义多个变量我们都知道C语言中变量的类型决定了变量存储占用的空间。当我们要使用一个变量保存年龄时可以将其声明为int类型，当我们要使用一个变量保存某一科目的考试成绩时可以将其声明为float。
-那么，当我们要做一个学生信息管理系统时
+                            问题
+两个数组元素的地址相减得到什么？
+
+先看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+    int a[]={0,1,2,3,4,5};
+    printf("&amp;a[0] = 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
                         </span>
                         <span class="publish-author">
                             
@@ -781,33 +739,32 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/01/10/c-yu-yan-bi-ji-zheng-shu-yi-chu-wen-ti/">
+                <a href="/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="【C语言笔记】整数溢出问题">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="【Linux笔记】make工程管理工具（一）">
                         
-                        <span class="card-title">【C语言笔记】整数溢出问题</span>
+                        <span class="card-title">【Linux笔记】make工程管理工具（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、前言整数溢出是一种未定义的行为，当产生溢出行为时，系统并不会通知用户，所以应当多加小心。如下是整数溢出的一个案例：
-
-SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无
+                            1、如何编译具有多个源码（.c文件）的工程上一篇笔记写了如何使用gcc的编译命令编译：【Linux笔记】Linux下编译C程序。当源文件较少时，使用gcc编译命令编译就比较方便，在gcc编译命令中依次列出各个源文件就好，比如：
+gcc sr
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
+                                    Linux笔记
                                 </a>
                             
                             
@@ -817,8 +774,8 @@ SMT爆出的美图BEC代币出现的安全漏洞—整数溢出，该漏洞代�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>

@@ -293,6 +293,53 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2018/10/19/c-yu-yan-bi-ji-zhi-zhen-de-ji-ben-gai-nian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】指针的基本概念">
+                            
+                            <span class="card-title">【C语言笔记】指针的基本概念</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                我们平时定义的变量最终都会保存在内存里，内存的最小存储单位称为内存单元。通常，一个字节称为一个内存单元。而我们定义的变量就保存在这些内存单元里，为了正确地访问这些数据，必须为每个内存单元都编上编号，每个内存单元的编号是唯一的，就像每个人都有
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2018/10/18/c-yu-yan-bi-ji-bian-liang-de-chu-shi-zhi-shi/">
                         <div class="card-image">
                             
@@ -448,22 +495,24 @@ XB
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                             
-                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
+                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
-下面以windows环境下的test.c为例，test.c里的代码为：
-#inc
+                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+下面看两个
                             
                         </div>
                         <div class="publish-info">
@@ -497,24 +546,22 @@ XB
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
                             
-                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = "happy";
-(2)char *str = "happy";
-这种方式有什么不同呢？
-下面看两个
+                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
+下面以windows环境下的test.c为例，test.c里的代码为：
+#inc
                             
                         </div>
                         <div class="publish-info">
@@ -849,63 +896,6 @@ void stack_test1(int a, int b, i
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/02/c-yu-yan-bi-ji-main-han-shu-de-ji-chong-xing-shi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="【C语言笔记】main()函数的几种形式">
-                            
-                            <span class="card-title">【C语言笔记】main()函数的几种形式</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在C语言中，main函数是程序的入口。其有四种写法，即：
-//写法一
-main()
-{
- printf("Hello notepad++ \n");
-}
-
-//写法二
-int main(void)
-{
- printf("Hello note
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -945,7 +935,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">64.6k</span>
+                <span class="white-color">66.6k</span>
             
 
             
