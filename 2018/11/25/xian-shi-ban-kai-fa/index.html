@@ -395,8 +395,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/socket笔记/" class="post-category" target="_blank">
-                                socket笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
                             </a>
                         
                     </div>
@@ -465,8 +465,9 @@
 **---------------------------------------------------------------------------------------
 ** 参数: code：数码管段码，为一个字节数据
 ** 返回: void
-** 说明:此函数可以达到数码管段码重组的目的，标准情况是数码管的段选线a~dp都会连续排列并且分布于1个字节之
-         中，这样，我们只要往GPIO数据寄存器data中写入相应的字节即可。但是，若段选线a~dp的硬件连接完全打         乱，则可运用该函数就可以达到与标准情况一样的效果。            
+** 说明:
+此函数可以达到数码管段码重组的目的，标准情况是数码管的段选线a~dp都会连续排列并且分布于1个字节之
+中，这样，我们只要往GPIO数据寄存器data中写入相应的字节即可。但是，若段选线a~dp的硬件连接完全打         乱，则可运用该函数就可以达到与标准情况一样的效果。            
 ****************************************************************************************/</span>
 <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> code<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
