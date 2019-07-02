@@ -1,0 +1,1093 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="显示板开发, 正念君的博客">
+    <meta name="description" content="因某产品量产需要附搭一个显示模块（可有可无，用在一些没有电脑的情况下）。因为产品主要的硬件已经定型了，所以没有集成在产品中，需要独立开发一个显示板。功能比较简单，但开发中遇到了一个关于数码管的问题，下面大体看一下：
+1、显示板的功能这次任务">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>显示板开发 | 正念君的博客</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">正念君的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">正念君的博客</div>
+        <div class="logo-desc">
+            
+            一个分享编程笔记的公众号
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhengnianli/stm32_weather" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhengnianli/stm32_weather" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        显示板开发
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
+                            </a>
+                        
+                            <a href="/tags/数码管/" target="_blank">
+                                <span class="chip bg-color">数码管</span>
+                            </a>
+                        
+                            <a href="/tags/232通信/" target="_blank">
+                                <span class="chip bg-color">232通信</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/socket笔记/" class="post-category" target="_blank">
+                                socket笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-11-25
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        7 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>因某产品量产需要附搭一个显示模块（可有可无，用在一些没有电脑的情况下）。因为产品主要的硬件已经定型了，所以没有集成在产品中，需要独立开发一个显示板。功能比较简单，但开发中遇到了一个关于数码管的问题，下面大体看一下：</p>
+<h1 id="1、显示板的功能"><a href="#1、显示板的功能" class="headerlink" title="1、显示板的功能"></a>1、显示板的功能</h1><p>这次任务为：开发个显示板（我把它叫做从机）。要求实时接收显示主机所控制的系统的当前的运行状态，其中显示部分由一个五位八段数码管组成，从机与主机之间通过串口来通信，其中由从机主动向主机申请数据，主机收到申请包之后回传一个数据包。</p>
+<p>当主机系统正常运行时，则会在最后三位数码管显示<code>run</code>；当伺服系统出现异常时，则会在数码管上显示<code>AL.XXX</code>，其中<code>XXX</code>为报警码，<code>AL</code>为报警单词<code>Alarm</code>的缩写。 </p>
+<img src="https://s2.ax1x.com/2019/07/02/ZGtM1P.png" alt="ZGtM1P.png" border="0" width="550">
+
+
+
+
+
+<p>任务虽然看起来不难，但开发调试过程也遇到了很多问题 。首先，先分析一下总体设计，然后得出主要的切入点为：</p>
+<p>（1）显示部分。可以把五段八位数码管的显示封装成一个函数，该函数接收一个字符串，然后再数码管上显示这个字符串；</p>
+<p>（2）通信部分。接收主机数据并解析，然后把有用的数据组包（组成一个字符串，如<code>AL.XXX</code>），最后进行显示。</p>
+<p>首先，看一下程序流程图：</p>
+<img src="https://s2.ax1x.com/2019/07/02/ZGaYAe.png" alt="ZGaYAe.png" border="0" width="500">
+
+
+
+
+
+
+
+<h1 id="2、显示板的显示部分"><a href="#2、显示板的显示部分" class="headerlink" title="2、显示板的显示部分"></a>2、显示板的显示部分</h1><p>首先，由于硬件部分不按常规设计的原因，导致软件就遇到了一个问题。（有时候硬件缺陷可以使用软件来弥补，但往往会增加了软件部分的负担）。按照常规，我们的数码管段选线引脚与MCU连接应该是按连续排列的引脚顺序连接的（如，<code>a~dp</code>连接着<code>PA0~PA7</code>，这样只要给A端口的数据寄存器写一个字节的段码数据就可以进行设置了）。</p>
+<p>但是，硬件的同事（也是新人，哈哈）把这些引脚的顺序给打乱了，所以只能靠软件来重新排列一下，既然不能同时设定8个引脚，那可以一个引脚一个引脚的进行设置。所以，我把数码管段码数据的每个位给分离出来，保存到一个数组里，然后拿这个数组的数据去直接设置数码管段选线就可以了。具体代码实现如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/****************************************************************************************
+** 函数: disp_one_bit_seg，显示一位数码管
+**---------------------------------------------------------------------------------------
+** 参数: code：数码管段码，为一个字节数据
+** 返回: void
+** 说明:此函数可以达到数码管段码重组的目的，标准情况是数码管的段选线a~dp都会连续排列并且分布于1个字节之
+         中，这样，我们只要往GPIO数据寄存器data中写入相应的字节即可。但是，若段选线a~dp的硬件连接完全打         乱，则可运用该函数就可以达到与标准情况一样的效果。            
+****************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> code<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* 把code的二进制位读出来保存到全局数组seg_dest_buf中 */</span>
+    <span class="token function">read_bit</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token function">set_seg_gpio_data</span><span class="token punctuation">(</span>seg_dest_buf<span class="token punctuation">,</span> SEG_BUF_LEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/****************************************************************************************
+** 函数: set_seg_gpio_data，设置数码管段码GPIO数据寄存器
+**---------------------------------------------------------------------------------------
+** 参数: data：转换后的共阳极段码值   len：数组长度
+** 返回: void
+** 说明: SEG_A_GPIO~SEG_DP_GPIO的引脚是不是连续的已经无关紧要
+****************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">set_seg_gpio_data</span><span class="token punctuation">(</span><span class="token keyword">char</span> data<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">char</span> len<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    SEG_A_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_B_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_C_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_D_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_E_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_F_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_G_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    SEG_DP_GPIO <span class="token operator">=</span> data<span class="token punctuation">[</span>len<span class="token number">-8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/****************************************************************************************
+** 函数: read_bit，读出一个字节数据的各个位
+**---------------------------------------------------------------------------------------
+** 参数: byte：单字节数据
+** 返回: void
+** 说明: 读取byte的各个位保存到全局数组seg_dest_buf中
+****************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">read_bit</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> byte<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 字节的低位保存在数组的最后一个元素中</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        seg_dest_buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0x01</span> <span class="token operator">&amp;</span> byte<span class="token punctuation">;</span>
+        byte <span class="token operator">>>=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>因为要拿来显示的字符数量也不多，因此我把它们都给列出来了，字符显示函数为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/****************************************************************************************
+** 函数: seg_disp_char，数码管的字符显示函数
+**---------------------------------------------------------------------------------------
+** 参数: ch：要显示的字符
+** 返回: void
+** 说明: 
+****************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">seg_disp_char</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_0<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_1<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'2'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_2<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_3<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'4'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_4<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'5'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_5<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'6'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_6<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'7'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_7<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'8'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_8<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'9'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_9<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'A'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_A<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'d'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_d<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'n'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_n<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'r'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_r<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'u'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_u<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'y'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_y<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'L'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_L<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'S'</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_5<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">' '</span><span class="token punctuation">:</span> <span class="token function">disp_one_bit_seg</span><span class="token punctuation">(</span>CODE_SPACE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// end of switch</span>
+<span class="token punctuation">}</span></code></pre>
+<p>所以，字符串显示函数就可以通过字符显示函数来封装了，字符串显示函数如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/****************************************************************************************
+** 函数: seg_disp_str，数码管的字符串显示函数
+**---------------------------------------------------------------------------------------
+** 参数: str：要显示的字符串
+** 返回: void
+** 说明: 
+****************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">seg_disp_str</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>str<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> i<span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> SEG_NUM<span class="token number">-1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        SEG_ALL_OFF<span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 设置段选之前先熄灭所有的管</span>
+        <span class="token function">sellect_bit_on</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 打开位选</span>
+        <span class="token function">seg_disp_char</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 显示字符串中的各个字符</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 延时配合人眼反应时间</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h1 id="3、显示板的通信部分"><a href="#3、显示板的通信部分" class="headerlink" title="3、显示板的通信部分"></a>3、显示板的通信部分</h1><p>通信的硬件部分是232通信。首先，得知道从机发送数据的格式以及主机回传过来的数据格式是怎么样的。这些数据是由我们自己制定的数据协议，主机回传的数据示例：</p>
+<pre><code>0F0601FBA3B3C3B3A3A3B3C3B3A3A3B3C3B3A3A3B3C3B3A30D</code></pre><p>其中，<code>0F</code>为帧头，<code>06</code>为功能码，<code>01FB</code>为报警码，<code>0D</code>为帧尾。当从机向主机发送申请包时，主机收到后会回发由帧头、校验码、帧尾等多字节的一帧数据，只要可以能判断接收到这一帧数据，那么，我就可以进行解析。我的处理方法很简单，就是只要判断接收到帧头、帧尾及功能码，就说明已经接收到了这一帧数据，然后进行解析并保存数据。（应该还有其他更严谨的处理方法，以后有机会再考虑）。数据解析及组包的具体实现的代码为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/****************************************************************************************
+** 函数: data_parse，帧数据解析函数
+**---------------------------------------------------------------------------------------
+** 参数: data：帧数据       str_pack：解析、组合后的字符串数据包
+** 返回: void
+** 说明:解析驱动器发送过来的状态监测帧数据，如0F0601FBA3B3C3B3A3A3B3C3B3A3A3B3C3B3A3A3B3C3B3A30D
+        （0F为帧头，06为功能码，01FB为报警码，0D为帧尾）
+****************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">data_parse</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>str_pack<span class="token punctuation">,</span> Uint16 <span class="token operator">*</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> Uint16 alarm_code <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> alarm_code_buf<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/* 接收到帧数据*/</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0x0F</span> <span class="token operator">==</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token number">0x06</span> <span class="token operator">==</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token number">0x0D</span> <span class="token operator">==</span> data<span class="token punctuation">[</span><span class="token number">34</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* 报警码值不为0时为alarm状态 */</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">+</span> data<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            alarm_code <span class="token operator">=</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">+</span> data<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 计算报警码</span>
+            <span class="token function">strcpy</span><span class="token punctuation">(</span>str_pack<span class="token punctuation">,</span> ALARM_STR_HEAD<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">// 此时str_pack中的内容为"AL"</span>
+            <span class="token function">sprintf</span><span class="token punctuation">(</span>alarm_code_buf<span class="token punctuation">,</span> <span class="token string">"%.3d"</span><span class="token punctuation">,</span> alarm_code<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// alarm_code_buf为"XXX"</span>
+            <span class="token function">strcat</span><span class="token punctuation">(</span>str_pack<span class="token punctuation">,</span> alarm_code_buf<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">// 此时str_pack中的内容为"ALXXX"</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">/* 报警码值为0时为run状态 */</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">strcpy</span><span class="token punctuation">(</span>str_pack<span class="token punctuation">,</span> <span class="token string">"  run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>解析判断时判断帧头、帧尾以及功能码是不是一致就可以确定这是一帧报警数据，然后就可以解析出报警码，再调用字符串操作函数进行字符串数据的组包，然后把组合好的字符串数据包通过函数形参<code>str_pack</code>传出即可，外部调用数码管的字符串显示函数进行显示即可。</p>
+<h1 id="4、最后"><a href="#4、最后" class="headerlink" title="4、最后"></a>4、最后</h1><p>以上就是关于这个显示板的主要内容，主要是解决如何处理数码管段选线没有顺序连接在同一个硬件GPIO端口的问题以及通信部分数据解析的问题。</p>
+<hr>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">欢迎关注正念君的微信公众号</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <!--<ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微信公众号</a></li>
+                    </ul>-->
+					<!--
+                    <div id="alipay">
+                        <img src="" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+					-->
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信公众号二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '9a79b0786fdd604107df',
+        clientSecret: 'edab3b58af0f0203fcca1b5002349a46c2cccd8e',
+        repo: 'zhengnianli.github.io',
+        owner: 'zhengnianli',
+        admin: ["zhengnianli"],
+        id: '2018-11-25T08-22-15',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/11/26/c-yu-yan-bi-ji-ascii-ma-ke-jian-zi-fu-yu-bu-ke-jian-zi-fu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="【C语言笔记】ASCII码可见字符与不可见字符">
+                        
+                        <span class="card-title">【C语言笔记】ASCII码可见字符与不可见字符</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1. 如何输出ASCII码？ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言。下面看
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/22/c-yu-yan-bi-ji-bian-can-han-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【C语言笔记】变参函数">
+                        
+                        <span class="card-title">【C语言笔记】变参函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            提到变参函数，我们的感觉是不是既熟悉又陌生？感觉熟悉是因为我们平时都在使用着，如我们常使用的printf()函数与scanf()函数就是典型的变参函数。因为printf()函数是变参函数我们才可以根据我们的需要灵活地输出变量的值。如：
+pr
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://zhengnianli.github.io/" target="_blank">ZhengNian</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">70.9k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhengnianli" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2238184039@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2238184039" class="tooltipped" data-tooltip="QQ联系我: 2238184039" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
