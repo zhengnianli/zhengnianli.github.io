@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-07-01T13:30:21.523Z</updated>
+  <updated>2019-07-08T02:22:38.637Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【socket应用】基于C语言的天气客户端的实现</title>
+    <link href="https://zhengnianli.github.io/2019/07/08/socket-ying-yong-ji-yu-c-yu-yan-de-tian-qi-ke-hu-duan-de-shi-xian/"/>
+    <id>https://zhengnianli.github.io/2019/07/08/socket-ying-yong-ji-yu-c-yu-yan-de-tian-qi-ke-hu-duan-de-shi-xian/</id>
+    <published>2019-07-08T00:22:15.000Z</published>
+    <updated>2019-07-08T02:22:38.637Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇笔记分享了&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
+    
+      <category term="网络编程" scheme="https://zhengnianli.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="TCP" scheme="https://zhengnianli.github.io/tags/TCP/"/>
+    
+  </entry>
   
   <entry>
     <title>【socket笔记】TCP、UDP通信总结</title>
@@ -571,32 +603,6 @@
         
         
           &lt;p&gt;公司某项目用到&lt;code&gt;DSP+FPGA&lt;/code&gt;架构（当然不是著名的ARM+DSP+FPGA点灯项目,哈哈），我的发展方向为DSP方向。其中DSP与FPGA通过两个带参宏进行数据交互（DSP与FPGA通过一块共享内存来实现数据交互，我这边的DSP只要往共享内存中写入
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】指定初始化器</title>
-    <link href="https://zhengnianli.github.io/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/"/>
-    <id>https://zhengnianli.github.io/2019/02/16/c-yu-yan-bi-ji-zhi-ding-chu-shi-hua-qi/</id>
-    <published>2019-02-16T00:22:15.000Z</published>
-    <updated>2019-06-23T04:07:37.554Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt; &lt;code&gt;C99&lt;/code&gt;增加了一个新特性：&lt;code&gt;指定初始化器(designated initializer)&lt;/code&gt;。利用该特性可以初始化指定的数组元素，也可以初始化指定的结构体变量（往期笔记&lt;a
         
       
     
