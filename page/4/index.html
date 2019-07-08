@@ -759,25 +759,29 @@ int main(void)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                             
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
+                                前言数组与指针是不等价的，如：
 
- for ( i = 0; i &lt; m; 
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -859,29 +863,25 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                             
-                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言数组与指针是不等价的，如：
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
 
-数组名不可以改变，而指向数组的指针是可以改变的。
-
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
-
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
-
-
-
+ for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
