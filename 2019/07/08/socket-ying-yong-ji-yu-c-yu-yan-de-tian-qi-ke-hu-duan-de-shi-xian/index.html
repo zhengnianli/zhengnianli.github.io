@@ -380,6 +380,10 @@
                                 <span class="chip bg-color">嵌入式</span>
                             </a>
                         
+                            <a href="/tags/C语言/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
                             <a href="/tags/socket/" target="_blank">
                                 <span class="chip bg-color">socket</span>
                             </a>
@@ -442,7 +446,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>上一篇笔记分享了<a href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/">【socket笔记】TCP、UDP通信总结</a>，这一篇分享一个用C语言写的、基于TCP的一个HTTP天气客户端的实现，这个一个控制台应用程序，最终的界面如下：</p>
+                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>上一篇笔记分享了<a href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/">【socket笔记】TCP、UDP通信总结</a>，这一篇分享一个用C语言写的、基于TCP的一个HTTP天气客户端的实现，这个一个控制台应用程序，最终的界面如下：</p>
 <p><img src="https://s2.ax1x.com/2019/07/07/ZDKRxA.png" alt="ZDKRxA.png"></p>
 <p>关于天气预报，之前我已经用<code>STM32+ESP8266</code>wifi模块实现过了一遍，感兴趣的可查阅往期笔记：<a href="https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/">基于STM32的智能天气预报系统</a>。这次这个基于C语言控制台程序的HTTP客户端的天气解析的代码和之前分享的差不多，只是在那基础上添加修改了一些东西，并配合socket的相关知识实现的，以巩固一下socket编程的知识。下面分享一些实现过程。</p>
 <h1 id="二、天气客户端实现的要点"><a href="#二、天气客户端实现的要点" class="headerlink" title="二、天气客户端实现的要点"></a>二、天气客户端实现的要点</h1><p>首先，需要说明的是，这份代码是在windows系统下使用<code>gcc6.3.0</code>进行编译的。</p>
@@ -909,7 +913,7 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
 <p><img src="https://s2.ax1x.com/2019/07/08/ZDRVC8.png" alt="ZDRVC8.png"></p>
 <p>这里的<code>weather_client.exe</code>就是我们编译生成的可执行文件：<code>天气客户端</code>，双击就可以运行了。此外，<code>-lwsock32</code>参数上一节也有讲过，这个参数用于链接<code>windows</code>下socket编程必须的<code>winsock2</code>这个库。若是使用集成开发环境，则需要把<code>wsock32.lib</code>放在工程目录下，并在我们代码中<code>#include &lt;winsock2.h&gt;</code> 下面加上一行 <code>#pragma comment(lib, &quot;ws2_32.lib&quot;)</code>代码（在IDE里编译本人未验证，有兴趣的朋友可尝试）。</p>
 <p>需要说明的是，Windows下默认是没有装gcc的，需要自己进行配置，关于配置及使用<code>mingw</code>（这是个工具包，里面包含有gcc编译器）可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">【C语言笔记】使用notepad++、MinGW来开发C程序</a>、<a href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/">【C语言笔记】windows命令行下编译C程序</a></p>
-<h2 id="6、运行结果示例"><a href="#6、运行结果示例" class="headerlink" title="6、运行结果示例"></a>6、运行结果示例</h2><p><img src="https://s2.ax1x.com/2019/07/08/ZD4Vds.png" alt="ZD4Vds.png"></p>
+<h2 id="7、运行结果示例"><a href="#7、运行结果示例" class="headerlink" title="7、运行结果示例"></a>7、运行结果示例</h2><p><img src="https://s2.ax1x.com/2019/07/08/ZD4Vds.png" alt="ZD4Vds.png"></p>
 <p>此处，只能使用拼音进行搜索，其实也可以做输入汉字进行搜索的功能，只是要进行转码处理，这个功能实现在<a href="https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/">基于STM32的智能天气预报系统</a>的代码里已经有做，有兴趣的朋友可以参考这个。</p>
 <h1 id="三、代码获取"><a href="#三、代码获取" class="headerlink" title="三、代码获取"></a>三、代码获取</h1><blockquote>
 <p><a href="https://github.com/zhengnianli/WeatherClient" target="_blank" rel="noopener">https://github.com/zhengnianli/WeatherClient</a></p>
@@ -1147,6 +1151,10 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
                     
                     <a href="/tags/嵌入式/" target="_blank">
                         <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                     <a href="/tags/socket/" target="_blank">
