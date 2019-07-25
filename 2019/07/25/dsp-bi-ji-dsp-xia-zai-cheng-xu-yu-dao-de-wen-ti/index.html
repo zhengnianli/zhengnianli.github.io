@@ -4,9 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【Linux笔记】文件的权限, 正念君的博客">
-    <meta name="description" content="Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 ls -l 命令列出当前目录下的文件及目录的详细信息：
-我们重点看前10个字符，如hello文件详细信息中的前10个字符为 -rw-rw-rw- 。这10个字">
+    <meta name="keywords" content="正念君的博客">
+    <meta name="description" content="一、前言最近拿到了一块TI官方的DSP开发板，芯片型号是：TMS320F280049C，板载调试器XDS110。但是下载程序时遇到了一点问题，现记录总结如下：
+
+
+TMS320F280049C特性：
+
+
+二、下载程序时遇到的问题及解决方法之">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【Linux笔记】文件的权限 | 正念君的博客</title>
+    <title>正念君的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【Linux笔记】文件的权限
+                        
                     </div>
                 </div>
             </div>
@@ -373,29 +378,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/嵌入式/" target="_blank">
-                                <span class="chip bg-color">嵌入式</span>
-                            </a>
-                        
-                            <a href="/tags/Linux/" target="_blank">
-                                <span class="chip bg-color">Linux</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
-                                Linux笔记
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -403,21 +391,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-29
+                    2019-07-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        983
+                        422
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -433,51 +421,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 <code>ls -l</code> 命令列出当前目录下的文件及目录的详细信息：<br><a href="https://imgchr.com/i/ZkWS8U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWS8U.md.png" alt="ZkWS8U.md.png"></a></p>
-<p>我们重点看前10个字符，如<code>hello</code>文件详细信息中的前10个字符为 <code>-rw-rw-rw-</code> 。这10个字符的说明为：<br><a href="https://imgchr.com/i/ZkWPKJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWPKJ.md.png" alt="ZkWPKJ.md.png"></a></p>
-<p>其中，第一个字符表示这个对象的类型，如：</p>
-<pre class=" language-c"><code class="language-c">为 d 则是目录
-为 <span class="token operator">-</span> 则是文件；
-为 l 则是链接文档<span class="token punctuation">(</span>link file<span class="token punctuation">)</span>；
-为 b 则表示为装置文件里面的可供储存的接口设备<span class="token punctuation">(</span>可随机存取装置<span class="token punctuation">)</span>；
-为 c 则表示为装置文件里面的串行端口设备，例如键盘、鼠标<span class="token punctuation">(</span>一次性读取装置<span class="token punctuation">)</span>。</code></pre>
-<p>后面的9个字符，每3个字符为一组，且为 『rwx』的组合，且权限的顺序是固定的。其中<code>r</code>代表读权限，<code>w</code>代表写权限，<code>x</code>代表执行权限，若没有哪一个权限，则用<code>-</code> 替代相应的位置。</p>
-<p>第2-4个字符确定属主（该文件的所有者）拥有该文件的权限。第5-7个字符确定属组（所有者的同组用户）拥有该文件的权限。第8-10个字符确定其他用户拥有该文件的权限。</p>
-<p>所以以上的<code>hello</code>的前10个字符<code>-rw-rw-rw-</code>代表的意思为：<code>hello</code>是个文件；<code>hello</code>的属主具有读、写权限，没有执行权限；<code>hello</code>的属组具有读、写权限，没有执行权限；其他用户组对与<code>hello</code>文件有读、写权限，没有执行权限。</p>
-<h3 id="1、更改权限"><a href="#1、更改权限" class="headerlink" title="1、更改权限"></a>1、更改权限</h3><p>权限是可以更改的，我们可以使用 <code>chmod</code> (change mode) 命令来改变文件或目录的访问权限。有两种表示方式，一种是使用符号的方式，另一种是使用数字的方式。</p>
-<p>Linux文件的基本权限就有九个，分别是<code>user/group/others</code>三种身份各有自己的<code>read/write/execute</code>权限。</p>
-<p><strong>（1）使用符号改变文件权限</strong></p>
-<pre class=" language-c"><code class="language-c">格式为：chmod <span class="token punctuation">[</span>身份<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">+</span>、<span class="token operator">-</span>、<span class="token operator">=</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>r、w、x<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件或目录<span class="token punctuation">]</span></code></pre>
-<p>其中，使用<code>u、g、o</code>三种用户身份，除此，还可以使用<code>a</code>表示所有身份。符号<code>+</code>表示增加权限，符号 <code>-</code> 表示删除权限，符号<code>=</code>表示指定权限。如：</p>
-<p><a href="https://imgchr.com/i/ZkWFbR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWFbR.md.png" alt="ZkWFbR.md.png"></a></p>
-<p>我们的<code>hello</code>文件是由<code>hello.c</code>编译生成的可执行文件，但是当前用户身份并没有可执行权限，因此运行该文件是出现“权限不够”的警告。我们可以使用命令：</p>
-<pre class=" language-c"><code class="language-c">chmod u<span class="token operator">+</span>x hello</code></pre>
-<p>来增加当前用户对<code>hello</code>文件的执行权限。结果如下：</p>
-<p><a href="https://imgchr.com/i/ZkW3VI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkW3VI.md.png" alt="ZkW3VI.md.png"></a></p>
-<p><strong>（2）使用数字改变文件权限</strong></p>
-<p>除了使用符号来表示权限，还可以使用数字来表示文件或目录权限。其中：</p>
-<pre class=" language-c"><code class="language-c">r：用数字 <span class="token number">4</span> 表示
-w：用数字 <span class="token number">2</span> 表示
-x：用数字 <span class="token number">1</span> 表示</code></pre>
-<p>每个身份的权限都是这三个数字相加，如当前<code>hello</code>文件的权限为 <code>-rwxrw-rw-</code> ，那么就是：</p>
-<pre class=" language-c"><code class="language-c">u<span class="token operator">=</span>rwx<span class="token operator">=</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">=</span><span class="token number">7</span>
-g<span class="token operator">=</span>rw<span class="token operator">-</span><span class="token operator">=</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">0</span><span class="token operator">=</span><span class="token number">6</span>
-o<span class="token operator">=</span>rwx<span class="token operator">=</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">0</span><span class="token operator">=</span><span class="token number">6</span></code></pre>
-<p>使用数字的方式改变文件或目录属性的命令格式为：</p>
-<pre class=" language-c"><code class="language-c">chmod ugo <span class="token punctuation">[</span>文件或目录<span class="token punctuation">]</span></code></pre>
-<p>这里的 <code>ugo</code> 就是我们每一身份权限的数字表示。</p>
-<p>例如：当我们要把<code>hello</code>文件所有身份的权限都改为可读、可写、可执行时，可以执行以下命令：</p>
-<pre class=" language-c"><code class="language-c">chmod <span class="token number">777</span> hello</code></pre>
-<p><a href="https://imgchr.com/i/ZkWtG8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWtG8.md.png" alt="ZkWtG8.md.png"></a></p>
-<h3 id="2、更改文件所有者与所属组"><a href="#2、更改文件所有者与所属组" class="headerlink" title="2、更改文件所有者与所属组"></a>2、更改文件所有者与所属组</h3><p>文件的所有者与所属组是可以更改的，使用的命令分别是<code>chown</code>（change owner）、<code>chgrp</code>（change group）。格式为：</p>
-<pre class=" language-c"><code class="language-c">更改所有者：chown <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span>
-更改所属组：chgrp <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span></code></pre>
-<p><a href="https://imgchr.com/i/ZkWUxg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWUxg.md.png" alt="ZkWUxg.md.png"></a></p>
-<p>例如：把<code>hello</code>文件的所有者与所属组都改为 <code>win</code>：</p>
-<p><a href="https://imgchr.com/i/ZkWsI0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWsI0.md.png" alt="ZkWsI0.md.png"></a></p>
-<p>以上命令就是关于文件权限的一点笔记，如有错误，欢迎指出。</p>
-<hr>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](<a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener">https://imgchr.com/i/VcSFJJ</a>)</p>
+                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>最近拿到了一块TI官方的DSP开发板，芯片型号是：<code>TMS320F280049C</code>，板载调试器<code>XDS110</code>。但是下载程序时遇到了一点问题，现记录总结如下：</p>
+<img src="https://s2.ax1x.com/2019/07/25/eex9Re.jpg" alt="ZGtM1P.png" border="0" width="600">
+
+<p><code>TMS320F280049C</code>特性：</p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eexlss.png" alt="eexlss.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eex1Ln.png" alt="eex1Ln.png"></p>
+<h1 id="二、下载程序时遇到的问题及解决方法"><a href="#二、下载程序时遇到的问题及解决方法" class="headerlink" title="二、下载程序时遇到的问题及解决方法"></a>二、下载程序时遇到的问题及解决方法</h1><p>之前用过一阵子TI的DSP，也用过其配套的IDE——<code>CCS</code>（Code Composer Studio）进行开发。下载程序之前先新建一个<code>.ccxml</code>结尾的配置文件进行下载、调试配置，这个文件通常只需要配置两个基本信息，一个是调试器，另一个是芯片型号。</p>
+<p>按照以往的经验，配置完这两个信息之后，进行连接测试：</p>
+<p><img src="https://i.loli.net/2019/07/25/5d39925f8a2a441390.png" alt="001.png"></p>
+<p>测试结果显示连接失败：</p>
+<p><img src="https://i.loli.net/2019/07/25/5d3992b394de157588.png" alt="002.png"></p>
+<p>之前使用<code>XDS100v1</code>、<code>XDS100v2</code>仿真器时就是这么设置就可以了。现在用了<code>XDS110</code>却不行，反复操作了好几遍都是连接失败，还以为仿真器或者板子坏了呢。仔细看了看连接失败的说明：<code>The JTAG IR an DR scan-path cannot circulate bits.</code>，表明了这应该是仿真器还需要设置，上官网查了查相关的用户手册文档，发现还真的得对仿真器进行设置：</p>
+<p><img src="https://i.loli.net/2019/07/25/5d399a6a7a3fc37097.png" alt="008.png"></p>
+<p>果然，按照文档说的，设置了仿真器的模式为<code>cJTAG1149.7 2-pin advanced modes</code>（原本默认是<code>JTAG1149.1</code>）之后就可以用了：</p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eevCBq.png" alt="eevCBq.png"></p>
+<p>修改之后的配置为：</p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eevmv9.png" alt="eevmv9.png"></p>
+<p>然后进行连接测试：</p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eevUKA.png" alt="eevUKA.png"></p>
+<p>连接成功。这下就可以愉快的点灯啦。</p>
+<p>总结：XDS100v1、XDS100v2调试器不用修改仿真器模式，默认为<code>JTAG1149.1</code>就可以用，XDS110调试器的模式得改为<code>cJTAG1149.7 2-pin advanced modes</code>才可以正常使用。</p>
 
             </div>
             <hr>
@@ -642,7 +606,7 @@ o<span class="token operator">=</span>rwx<span class="token operator">=</span><s
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-04-29T08-22-15',
+        id: '2019-07-25T23-52-56',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -665,51 +629,43 @@ o<span class="token operator">=</span>rwx<span class="token operator">=</span><s
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/">
+                <a href="/2019/07/25/dsp-bi-ji-dsp-xia-zai-cheng-xu-yu-dao-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="【Linux笔记】系统目录结构">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt>
                         
-                        <span class="card-title">【Linux笔记】系统目录结构</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言在 Linux 或 Unix 操作系统中，所有的文件和目录都被组织成以一个根节点开始的倒置的树状结构。文件系统的最顶层是由根目录开始的，系统使用 / 来表示根目录。在根目录之下的既可以是目录，也可以是文件，而每一个目录中又可以包含子目录
+                            一、前言最近拿到了一块TI官方的DSP开发板，芯片型号是：TMS320F280049C，板载调试器XDS110。但是下载程序时遇到了一点问题，现记录总结如下：
+
+
+TMS320F280049C特性：
+
+
+二、下载程序时遇到的问题及解决方法之
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-25
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
-                                    Linux笔记
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            ZhengNian
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
-                    </a>
-                    
-                    <a href="/tags/Linux/" target="_blank">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -720,31 +676,33 @@ o<span class="token operator">=</span>rwx<span class="token operator">=</span><s
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/29/linux-bi-ji-vim-bian-ji-qi/">
+                <a href="/2019/07/08/socket-ying-yong-ji-yu-c-yu-yan-de-tian-qi-ke-hu-duan-de-shi-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【Linux笔记】Vi/Vim编辑器">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【socket应用】基于C语言的天气客户端的实现">
                         
-                        <span class="card-title">【Linux笔记】Vi/Vim编辑器</span>
+                        <span class="card-title">【socket应用】基于C语言的天气客户端的实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、什么是vi/vim？vi编辑器是Linux和Unix上最基本的文本编辑器（所有版本的 Linux 都带有 vi 编辑器），工作在字符模式下。由于不需要图形界面，vi是效率很高的文本编辑器。尽管在Linux上也有很多图形界面的编辑器可用，
+                            一、前言上一篇笔记分享了【socket笔记】TCP、UDP通信总结，这一篇分享一个用C语言写的、基于TCP的一个HTTP天气客户端的实现，这个一个控制台应用程序，最终的界面如下：
+
+关于天气预报，之前我已经用STM32+ESP8266wif
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux笔记/" class="post-category" target="_blank">
-                                    Linux笔记
+                            <a href="/categories/socket笔记/" class="post-category" target="_blank">
+                                    socket笔记
                                 </a>
                             
                             
@@ -758,12 +716,20 @@ o<span class="token operator">=</span>rwx<span class="token operator">=</span><s
                         <span class="chip bg-color">嵌入式</span>
                     </a>
                     
-                    <a href="/tags/Linux/" target="_blank">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
-                    <a href="/tags/vim/" target="_blank">
-                        <span class="chip bg-color">vim</span>
+                    <a href="/tags/socket/" target="_blank">
+                        <span class="chip bg-color">socket</span>
+                    </a>
+                    
+                    <a href="/tags/网络编程/" target="_blank">
+                        <span class="chip bg-color">网络编程</span>
+                    </a>
+                    
+                    <a href="/tags/TCP/" target="_blank">
+                        <span class="chip bg-color">TCP</span>
                     </a>
                     
                 </div>
