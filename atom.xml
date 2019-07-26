@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-07-25T15:46:24.130Z</updated>
+  <updated>2019-07-26T08:42:39.413Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>【DSP笔记】下载程序遇到的问题及解决方法</title>
     <link href="https://zhengnianli.github.io/2019/07/25/dsp-bi-ji-dsp-xia-zai-cheng-xu-yu-dao-de-wen-ti/"/>
     <id>https://zhengnianli.github.io/2019/07/25/dsp-bi-ji-dsp-xia-zai-cheng-xu-yu-dao-de-wen-ti/</id>
-    <published>2019-07-25T15:52:56.156Z</published>
-    <updated>2019-07-25T15:46:24.130Z</updated>
+    <published>2019-07-25T00:22:15.000Z</published>
+    <updated>2019-07-26T08:42:39.413Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,12 @@
     
     </summary>
     
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="DSP" scheme="https://zhengnianli.github.io/tags/DSP/"/>
     
   </entry>
   
@@ -60,9 +66,9 @@
       <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
       <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
     
