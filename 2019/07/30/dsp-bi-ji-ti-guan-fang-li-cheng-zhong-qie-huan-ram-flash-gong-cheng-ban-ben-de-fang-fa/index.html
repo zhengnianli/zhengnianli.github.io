@@ -4,15 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C编程练习011, 正念君的博客">
-    <meta name="description" content="题目
-一个10万以内的整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？
-
-代码方法一：
-#include &amp;lt;stdio.h&gt;
-#include &amp;lt;math.h&gt;
-
-int main(void">
+    <meta name="keywords" content="【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法, 正念君的博客">
+    <meta name="description" content="一、前言
+我们用Visual Studio来开发程序时，可以选择编译Debug版本，也可以选择编译Release版本。Debug版本为调试版本，Release版本为对外发布版本。
+同样，在我们嵌入式软件中，也有类似这样子的做法。在嵌入式中，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +15,7 @@ int main(void">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C编程练习011 | 正念君的博客</title>
+    <title>【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法 | 正念君的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +259,13 @@ int main(void">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C编程练习011
+                        【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法
                     </div>
                 </div>
             </div>
@@ -381,8 +376,16 @@ int main(void">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C编程练习/" target="_blank">
-                                <span class="chip bg-color">C编程练习</span>
+                            <a href="/tags/嵌入式/" target="_blank">
+                                <span class="chip bg-color">嵌入式</span>
+                            </a>
+                        
+                            <a href="/tags/DSP/" target="_blank">
+                                <span class="chip bg-color">DSP</span>
+                            </a>
+                        
+                            <a href="/tags/存储器/" target="_blank">
+                                <span class="chip bg-color">存储器</span>
                             </a>
                         
                     </div>
@@ -393,8 +396,8 @@ int main(void">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
-                                C编程练习
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
                             </a>
                         
                     </div>
@@ -405,21 +408,21 @@ int main(void">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-06-14
+                    2019-07-30
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        208
+                        3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        10 分
                     </div>
                     
                 
@@ -435,57 +438,90 @@ int main(void">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><blockquote>
-<p>一个10万以内的整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？</p>
-</blockquote>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>方法一：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> <span class="token number">100000</span><span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        x <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        y <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">168</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span> x <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>x<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>y <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"This integer is：%d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-        <span class="token punctuation">}</span> 
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>方法二：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">for</span><span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> <span class="token number">100000</span><span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        x <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        y <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">168</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">*</span>x <span class="token operator">==</span> n <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>y<span class="token operator">*</span>y <span class="token operator">==</span> n <span class="token operator">+</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">168</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"This integer is：%d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-        <span class="token punctuation">}</span> 
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>方法一和方法二都差不多，都是根据判断sqrt(n+100)与sqrt(n+100+168)的值是否为整数来找出符合条件的n的值。</p>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://s2.ax1x.com/2019/06/14/V4ySBR.png" alt="V4ySBR.png"></p>
+                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p><img src="https://s2.ax1x.com/2019/07/30/e8OBqO.png" alt="e8OBqO.png"></p>
+<p>我们用<code>Visual Studio</code>来开发程序时，可以选择编译<code>Debug</code>版本，也可以选择编译<code>Release</code>版本。Debug版本为调试版本，Release版本为对外发布版本。</p>
+<p>同样，在我们嵌入式软件中，也有类似这样子的做法。在嵌入式中，我们可以编译输出<code>RAM版本</code>的可执行文件用于在线调试，也可以编译输出<code>FLASH版本</code>的可执行文件固化到<code>FLASH</code>中。</p>
+<h1 id="二、TI的DSP官方例程中RAM版本与FLASH版本怎么切换"><a href="#二、TI的DSP官方例程中RAM版本与FLASH版本怎么切换" class="headerlink" title="二、TI的DSP官方例程中RAM版本与FLASH版本怎么切换"></a>二、TI的DSP官方例程中RAM版本与FLASH版本怎么切换</h1><h2 id="1、切换方法"><a href="#1、切换方法" class="headerlink" title="1、切换方法"></a>1、切换方法</h2><p>首先，看一下<code>TI</code>的<code>DSP</code>例程工程，其工程默认是编译<code>RAM版本</code>的：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8O0sK.png" alt="e8O0sK.png"></p>
+<p>那么，怎么修改使其编译生成<code>FLASH版本</code>的可执行文件呢？我们可以看到系统控制初始化函数里的代码如下：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OrZD.png" alt="e8OrZD.png"></p>
+<p>显然，根据我们的C语言知识，只要我们定义宏<code>_FLASH</code>就可以切换为<code>FLASH</code>版本了。那么，我们需要手动添加这一句宏代码吗。其实是不用的，我们可以在工程属性<code>Properties</code>里头添加：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8Osde.png" alt="e8Osde.png"></p>
+<p>在<code>Predefined Symbols</code>里添加<code>_FLASH</code>宏：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OyIH.png" alt="e8OyIH.png"></p>
+<p>然后，再修改<code>Configuration</code>为<code>CPU1_FLASH</code>：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8Ocid.png" alt="e8Ocid.png"></p>
+<p>可以看到，工程目录下多了一个<code>CPU1_FLASH</code>文件夹：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8O2RI.png" alt="e8O2RI.png"></p>
+<p>编译之后生成的就是<code>FLASH版本</code>的<code>.out</code>后缀的可执行文件。如果我们想再切换为<code>RAM版本</code>,则只需把<code>_FLASH</code> 宏给删掉，再把<code>Configuration</code>改为<code>CPU1_RAM</code>即可，重新编译就可以生成<code>RAM版本</code>的<code>.out</code>文件。</p>
+<p>我们在工程属性里定义的预定义宏的作用范围是整个工程都有效的。这在我们在使用<code>keil MDK</code>做<code>STM32</code>开发时也是有类似操作的，如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OgJA.png" alt="e8OgJA.png"></p>
+<p>同样的，<code>keil MDK</code>也是可以设置多个<code>target</code>的，如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8ORzt.png" alt="e8ORzt.png"></p>
+<h2 id="2、为什么存在RAM模式和FLASH模式呢？"><a href="#2、为什么存在RAM模式和FLASH模式呢？" class="headerlink" title="2、为什么存在RAM模式和FLASH模式呢？"></a>2、为什么存在RAM模式和FLASH模式呢？</h2><p>在开发调试阶段为了节省程序装载时间和延长<code>Flash</code>寿命，可以将代码空间定位到CPU内部<code>RAM</code>中进行调试，等到调试完毕，确定代码编写得没问题之后，就可以切换至<code>FLASH模式</code>进行编译，输出最终的可执行文件。这就是一个工程同时包含<code>RAM</code>版本与<code>FLASH</code>版本的意义。</p>
+<p>除此之外，<code>RAM</code>是易失性存储器，即掉电数据会丢失；<code>FLASH</code>是非易失性存储器，即掉电之后数据还是存在的。所以，我们最终的程序都是要下载到<code>FLASH</code>中的，并且烧写到<code>FLASH</code>中的可执行文件（带调试信息）也是可以进行在线调试的。可以没有<code>RAM</code>版本代码，但不可没有<code>FLASH</code>版本的代码。</p>
+<h1 id="三、科普：常见存储器种类"><a href="#三、科普：常见存储器种类" class="headerlink" title="三、科普：常见存储器种类"></a>三、科普：常见存储器种类</h1><p>下面，我们一起来归纳学习一下常见的存储器种类。以下内容摘抄于野火<code>《零死角玩转STM32-F429挑战者V2.pdf》</code>。</p>
+<p>存储器是计算机结构的重要组成部分。存储器是用来存储程序代码和数据的部件，有了存储器计算机才具有记忆功能。基本的存储器种类如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8O4L8.png" alt="e8O4L8.png"></p>
+<p>存储器按其存储介质特性主要分为<code>易失性存储器</code>和<code>非易失性存储器两</code>大类。其中的<code>易失/非易失</code>是指存储器断电后，它存储的数据内容是否会丢失的特性。由于一般易失性存储器存取速度快，而非易失性存储器可长期保存数据，它们都在计算机中占据着重要角色。在计算机中易失性存储器最典型的代表是内存，非易失性存储器的代表则是硬盘 。</p>
+<h2 id="1、RAM-存储器（易失性存储器）"><a href="#1、RAM-存储器（易失性存储器）" class="headerlink" title="1、RAM 存储器（易失性存储器）"></a>1、RAM 存储器（易失性存储器）</h2><p><code>RAM</code> 是<code>Random Access Memory</code>的缩写，被译为随机存储器。 所谓随机存取，指的是当存储器中的消息被读取或写入时，所需要的时间与这段信息所在的位置无关。 现在 <code>RAM</code> 已经专门用于指代作为计算机内存的易失性半导体存储器。 </p>
+<p>根据 RAM 的存储机制，又分为<code>动态随机存储器 DRAM(Dynamic RAM)</code>以及<code>静态随机存储器 SRAM(Static RAM)</code>两种。 </p>
+<h3 id="（1）DRAM"><a href="#（1）DRAM" class="headerlink" title="（1）DRAM"></a>（1）DRAM</h3><p>动态随机存储器 DRAM 的存储单元以电容的电荷来表示数据，有电荷代表 <code>1</code>，无电荷代表 <code>0</code> 。如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OfQP.png" alt="e8OfQP.png"></p>
+<p>但时间一长，代表 <code>1</code> 的电容会放电，代表 <code>0</code> 的电容会吸收电荷，因此它需要定期刷新操作，这就是<code>动态(Dynamic)</code>一词所形容的特性。刷新操作会对电容进行检查，若电量大于满电量的 <code>1/2</code>，则认为其代表 <code>1</code>，并把电容充满电； 若电量小于 <code>1/2</code>，则认为其代表 <code>0</code>，并把电容放电，藉此来保证数据的正确性。 </p>
+<ul>
+<li><h4 id="SDRAM"><a href="#SDRAM" class="headerlink" title="SDRAM"></a>SDRAM</h4></li>
+</ul>
+<p>根据 DRAM 的通讯方式，又分为<code>同步</code>和<code>异步</code>两种，这两种方式根据通讯时是否需要使用时钟信号来区分。 下图一种利用时钟进行同步的通讯时序，它在时钟的上升沿表示有效数据：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OIeS.png" alt="e8OIeS.png"></p>
+<p>由于使用时钟同步的通讯速度更快，所以同步 <code>DRAM</code> 使用更为广泛，这种 <code>DRAM</code> 被称为 <code>SDRAM(Synchronous DRAM)</code>。  </p>
+<ul>
+<li><h4 id="DDR-SDRAM"><a href="#DDR-SDRAM" class="headerlink" title="DDR SDRAM"></a>DDR SDRAM</h4></li>
+</ul>
+<p>为了进一步提高 <code>SDRAM</code> 的通讯速度，人们设计了 <code>DDR SDRAM</code> 存储器<code>(Double DataRate SDRAM)</code>。它的存储特性与 <code>SDRAM</code> 没有区别，但 <code>SDRAM</code> 只在上升沿表示有效数据，在 1 个时钟周期内，只能表示 1 个有数据。</p>
+<p>而 <code>DDR SDRAM</code> 在时钟的上升沿及下降沿各表示一个数据，也就是说在 1 个时钟周期内可以表示 2 数据，在时钟频率同样的情况下，提高了一倍的速度。至于 <code>DDRII</code> 和 <code>DDRIII</code>，它们的通讯方式并没有区别，主要是通讯同步时钟的频率提高了。 </p>
+<p>当前个人计算机常用的内存条是 <code>DDRIII SDRAM</code> 存储器，在一个内存条上包含多个<code>DDRIII SDRAM</code> 芯片 。</p>
+<h3 id="（2）SRAM"><a href="#（2）SRAM" class="headerlink" title="（2）SRAM"></a>（2）SRAM</h3><p>静态随机存储器 SRAM 的存储单元以锁存器来存储数据，如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8Oodg.png" alt="e8Oodg.png"></p>
+<p>这种电路结构不需要定时刷新充电，就能保持状态(当然，如果断电了，数据还是会丢失的)，所以这种存储器被称为<code>静态(Static)RAM</code>。 </p>
+<p>同样地， <code>SRAM</code> 根据其通讯方式也分为同步<code>(SSRAM)</code>和异步 <code>SRAM</code>。 </p>
+<h3 id="（3）DRAM-与-SRAM-的应用场合"><a href="#（3）DRAM-与-SRAM-的应用场合" class="headerlink" title="（3）DRAM 与 SRAM 的应用场合"></a>（3）DRAM 与 SRAM 的应用场合</h3><p>对比 <code>DRAM</code> 与 <code>SRAM</code> 的结构，可知 <code>DRAM</code> 的结构简单得多，所以生产相同容量的存储器， <code>DRAM</code> 的成本要更低，且集成度更高。而 <code>DRAM</code> 中的电容结构则决定了它的存取速度不如 <code>SRAM</code> ,特性对比 如：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OToQ.png" alt="e8OToQ.png"></p>
+<p>所以在实际应用场合中， <code>SRAM</code> 一般只用于 CPU 内部的<code>高速缓存(Cache)</code>，而外部扩展的内存一般使用 <code>DRAM</code>。 </p>
+<h2 id="2、非易失性存储器"><a href="#2、非易失性存储器" class="headerlink" title="2、非易失性存储器"></a>2、非易失性存储器</h2><p>非易失性存储器种类非常多，半导体类的有 <code>ROM</code> 和 <code>FLASH</code>，而其它的则包括光盘、软盘及机械硬盘。 </p>
+<h3 id="（1）ROM存储器"><a href="#（1）ROM存储器" class="headerlink" title="（1）ROM存储器"></a>（1）ROM存储器</h3><p><code>ROM</code> 是<code>Read Only Memory</code>的缩写，意为只能读的存储器。 现在一般用于指代非易失性半导体存储器，包括后面介绍的 <code>FLASH</code> 存储器，有些人也把它归到 <code>ROM</code> 类里边 。</p>
+<ul>
+<li><h4 id="MASK-ROM"><a href="#MASK-ROM" class="headerlink" title="MASK ROM"></a>MASK ROM</h4></li>
+</ul>
+<p><code>MASK(掩膜) ROM</code> 就是正宗的<code>Read Only Memory</code>，存储在它内部的数据是在出厂时使用特殊工艺固化的，生产后就不可修改，其主要优势是大批量生产时成本低。当前在生产量大，数据不需要修改的场合，还有应用。 </p>
+<ul>
+<li><h4 id="OTPROM"><a href="#OTPROM" class="headerlink" title="OTPROM"></a>OTPROM</h4></li>
+</ul>
+<p><code>OTPROM(One Time Programable ROM)</code>是一次可编程存储器。这种存储器出厂时内部并没有资料，用户可以使用专用的编程器将自己的资料写入，但只能写入一次，被写入过后，它的内容也不可再修改。在 NXP 公司生产的控制器芯片中常使用 <code>OTPROM</code> 来存储密钥； <code>STM32F429</code> 系列的芯片内部也包含有一部分的 <code>OTPROM</code> 空间。 </p>
+<ul>
+<li><h4 id="EPROM"><a href="#EPROM" class="headerlink" title="EPROM"></a>EPROM</h4></li>
+</ul>
+<p><code>EPROM(Erasable Programmable ROM)</code>是可重复擦写的存储器，它解决了 <code>PROM</code> 芯片只能写入一次的问题。这种存储器使用紫外线照射芯片内部擦除数据，擦除和写入都要专用的设备。现在这种存储器基本淘汰，被 <code>EEPROM</code> 取代。 </p>
+<ul>
+<li><h4 id="EEPROM"><a href="#EEPROM" class="headerlink" title="EEPROM"></a>EEPROM</h4></li>
+</ul>
+<p><code>EEPROM(Electrically Erasable Programmable ROM)</code>是电可擦除存储器。 <code>EEPROM</code> 可以重复擦写，它的擦除和写入都是直接使用电路控制，不需要再使用外部设备来擦写。而且可以按字节为单位修改数据，无需整个芯片擦除。现在主要使用的 <code>ROM</code> 芯片都是<code>EEPROM</code>。 </p>
+<h3 id="（2）FLASH-存储器"><a href="#（2）FLASH-存储器" class="headerlink" title="（2）FLASH 存储器"></a>（2）FLASH 存储器</h3><p><code>FLASH</code> 存储器又称为闪存，它也是可重复擦写的储器，部分书籍会把 <code>FLASH</code> 存储器称为 <code>FLASH ROM</code>，但它的容量一般比 <code>EEPROM</code> 大得多，且在擦除时，一般以多个字节为单位。</p>
+<p>如有的 <code>FLASH</code> 存储器以 <code>4096</code> 个字节为扇区，最小的擦除单位为一个扇区。根据存储单元电路的不同， <code>FLASH</code> 存储器又分为 <code>NOR FLASH</code> 和 <code>NAND FLASH</code>，如： </p>
+<p><img src="https://s2.ax1x.com/2019/07/30/e8OHij.png" alt="e8OHij.png"></p>
+<p><code>NOR</code> 与 <code>NAND</code> 的共性是在数据写入前都需要有擦除操作，而擦除操作一般是以<code>扇区/块</code>为单位的。而 <code>NOR</code> 与 <code>NAND</code> 特性的差别，主要是由于其内部<code>地址/数据线</code>是否分开导致的。 </p>
+<p>由于 <code>NOR</code> 的地址线和数据线分开，它可以按<code>字节</code>读写数据，符合 <code>CPU</code> 的指令译码执行要求，所以假如 <code>NOR</code> 上存储了代码指令， <code>CPU</code> 给 <code>NOR</code> 一个地址， <code>NOR</code> 就能向<code>CPU</code> 返回一个数据让 <code>CPU</code> 执行，中间不需要额外的处理操作。 </p>
+<p>而由于 <code>NAND</code> 的数据和地址线共用，只能按<code>块</code>来读写数据，假如 <code>NAND</code> 上存储了代码指令， <code>CPU</code> 给 <code>NAND</code> 地址后，它无法直接返回该地址的数据，所以不符合指令译码要求。 这就是最后一项<code>是否支持 XIP</code>描述的就是这种立即执行的特性<code>(eXecute In Place)</code> 。</p>
+<p>若代码存储在 <code>NAND</code> 上，可以把它先加载到 <code>RAM</code> 存储器上，再由 <code>CPU</code> 执行。所以在功能上可以认为 <code>NOR</code> 是一种断电后数据不丢失的 <code>RAM</code>，但它的擦除单位与 <code>RAM</code> 有区别，且读写速度比 <code>RAM</code> 要慢得多。 </p>
+<p>另外， <code>FLASH</code> 的擦除次数都是有限的(现在普遍是 10 万次左右)，当它的使用接近寿命的时候，可能会出现写操作失败。由于 <code>NAND</code> 通常是整块擦写，块内有一位失效整个块就会失效，这被称为<code>坏块</code>。</p>
+<p>而且由于擦写过程复杂，从整体来说 <code>NOR</code> 块块更少，寿命更长。由于可能存在坏块，所以 FLASH 存储器需要<code>探测/错误更正(EDC/ECC)算法</code>来确保数据的正确性。 </p>
+<p>由于两种 <code>FLASH</code> 存储器特性的差异， <code>NOR FLASH</code> 一般应用在代码存储的场合，如嵌入式控制器内部的程序存储空间。而 <code>NAND FLASH</code> 一般应用在大数据量存储的场合，包括 SD 卡、 U 盘以及固态硬盘等，都是 <code>NAND FLASH</code> 类型的 。</p>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>1、一个工程可以创建多个target以区分不同模式（RAM模式、FLASH模式）的代码；也可以创建多个target用来适配不同的硬件方案，如有些项目既有有用到小屏幕，也有用到大屏幕，那么就可以创建一个针对大屏的target、一个针对小屏幕的target，方便代码维护。</p>
+<p>2、存储器分两大类：一类是掉电易失的，另一类是掉电不易失的。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客网站为：<a href="https://zhengnianli.github.io">https://zhengnianli.github.io</a></p>
+<p>我的微信公众号为：嵌入式大杂烩</p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
 
             </div>
             <hr>
@@ -650,7 +686,7 @@ int main(void">
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2018-06-14T08-22-15',
+        id: '2019-07-30T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -673,45 +709,56 @@ int main(void">
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/06/19/c-bian-cheng-lian-xi-012/">
+                <a href="/2019/07/30/dsp-bi-ji-ti-guan-fang-li-cheng-zhong-qie-huan-ram-flash-gong-cheng-ban-ben-de-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="C编程练习012">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法">
                         
-                        <span class="card-title">C编程练习012</span>
+                        <span class="card-title">【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            题目
-小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。例如：半径的平方如果为25优雅的点就有：(+/-3, +/-4), (
+                            一、前言
+我们用Visual Studio来开发程序时，可以选择编译Debug版本，也可以选择编译Release版本。Debug版本为调试版本，Release版本为对外发布版本。
+同样，在我们嵌入式软件中，也有类似这样子的做法。在嵌入式中，
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
-                                    C编程练习
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C编程练习/" target="_blank">
-                        <span class="chip bg-color">C编程练习</span>
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/DSP/" target="_blank">
+                        <span class="chip bg-color">DSP</span>
+                    </a>
+                    
+                    <a href="/tags/存储器/" target="_blank">
+                        <span class="chip bg-color">存储器</span>
                     </a>
                     
                 </div>
@@ -725,34 +772,37 @@ int main(void">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/12/c-bian-cheng-lian-xi-010/">
+                <a href="/2019/07/25/dsp-bi-ji-dsp-xia-zai-cheng-xu-yu-dao-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="C编程练习010">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="【DSP笔记】下载程序遇到的问题及解决方法">
                         
-                        <span class="card-title">C编程练习010</span>
+                        <span class="card-title">【DSP笔记】下载程序遇到的问题及解决方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、题目
-统计文件的字符数
+                            一、前言最近拿到了一块TI官方的DSP开发板，芯片型号是：TMS320F280049C，板载调试器XDS110。但是下载程序时遇到了一点问题，现记录总结如下：
 
-2、代码/****************************************************************************************************
+
+TMS320F280049C特性：
+
+
+二、下载程序时遇到的问题及解决方法之
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C编程练习/" class="post-category" target="_blank">
-                                    C编程练习
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
                                 </a>
                             
                             
@@ -762,8 +812,12 @@ int main(void">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C编程练习/" target="_blank">
-                        <span class="chip bg-color">C编程练习</span>
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/DSP/" target="_blank">
+                        <span class="chip bg-color">DSP</span>
                     </a>
                     
                 </div>
