@@ -9,7 +9,7 @@
 (1)char str[] = &#34;happy&#34;;
 (2)char *str = &#34;happy&#34;;
 这种方式有什么不同呢？
-下面看两个">
+示例一：字">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -409,7 +409,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        564
+                        565
                     </div>
                     
 
@@ -436,8 +436,7 @@
 <pre class=" language-c"><code class="language-c"><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"happy"</span><span class="token punctuation">;</span>
 <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token keyword">char</span> <span class="token operator">*</span>str <span class="token operator">=</span> <span class="token string">"happy"</span><span class="token punctuation">;</span></code></pre>
 <p>这种方式有什么不同呢？</p>
-<p>下面看两个例子：修改字符串中的字符</p>
-<p>示例1：</p>
+<p>示例一：字符数组</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
@@ -451,7 +450,7 @@
 <span class="token punctuation">}</span></code></pre>
 <p>运行结果：</p>
 <pre class=" language-c"><code class="language-c">Hello</code></pre>
-<p>示例2：</p>
+<p>示例二：指向字符串的指针</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
@@ -465,8 +464,8 @@
 <span class="token punctuation">}</span></code></pre>
 <p>运行结果：</p>
 <pre class=" language-c"><code class="language-c">无打印信息输出</code></pre>
-<p>可见，使用（1）方式定义的字符串其字符是可以修改的，使用（2）方式定义的字符串其字符是不可以修改的。（2）中可以成功编译和链接，但运行时可能会出现错误，我编译与运行的平台是window10平台，运行结果是无打印信息输出，在其他不同的平台运行可能会出现<code>段错误（Segment Fault）</code>或者写入位置错误。</p>
-<p>这两种表示字符串的方式的主要区别是：字符串指针指向的内容是不可修改的，字符数组是可以修改的，即（2）方式定义的字符串保存在常量区，是不可更改的，（1）方式定义的字符串保存在全局数据区或栈区，是可修改的。</p>
+<p>可见，使用示例一方式定义的字符串其字符是可以修改的，使用示例二方式定义的字符串其字符是不可以修改的。示例二中可以成功编译和链接，但运行时可能会出现错误，我编译坏境是<code>32bit</code>的，运行结果是无打印信息输出，在其他不同的平台运行可能会出现<code>段错误（Segment Fault）</code>或者写入位置错误。</p>
+<p>这两种表示字符串的方式的主要区别是：字符串指针指向的内容是不可修改的，字符数组是可以修改的，即示例二方式定义的字符串保存在常量区，是不可更改的，示例一方式定义的字符串保存在全局数据区或栈区，是可修改的。</p>
 <p>内存的分配方式：</p>
 <p>内存分配可分为三种：静态存储区、栈区、堆区。</p>
 <p><code>1、静态存储区</code>：该内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在，它主要存放静态数据、全局数据和常量。</p>
@@ -871,7 +870,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">78.2k</span>
+                <span class="white-color">79.5k</span>
             
 
             
