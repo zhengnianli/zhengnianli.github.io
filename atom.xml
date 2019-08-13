@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-08-02T00:39:20.896Z</updated>
+  <updated>2019-08-13T00:32:22.074Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【C语言笔记】assert怎么用？</title>
+    <link href="https://zhengnianli.github.io/2019/08/12/c-yu-yan-bi-ji-assert-zen-me-yong/"/>
+    <id>https://zhengnianli.github.io/2019/08/12/c-yu-yan-bi-ji-assert-zen-me-yong/</id>
+    <published>2019-08-12T00:22:15.000Z</published>
+    <updated>2019-08-13T00:32:22.074Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、什么是assert-？&quot;&gt;&lt;a href=&quot;#一、什么是assert-？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>【C语言笔记】联合体</title>
@@ -124,9 +150,9 @@
       <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
       <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
     
@@ -439,6 +465,34 @@
   </entry>
   
   <entry>
+    <title>【Linux笔记】文件的权限</title>
+    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
+    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
+    <published>2019-04-29T00:22:15.000Z</published>
+    <updated>2019-07-02T02:06:14.003Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 &lt;code&gt;ls -l&lt;/code&gt; 命令列出当前目录下的文件及目录的详细信息：&lt;br&gt;&lt;a href=&quot;https://imgchr.com/i/ZkWS8U&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Linux笔记】Vi/Vim编辑器</title>
     <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
     <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
@@ -465,34 +519,6 @@
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
       <category term="vim" scheme="https://zhengnianli.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】文件的权限</title>
-    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
-    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
-    <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-07-02T02:06:14.003Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 &lt;code&gt;ls -l&lt;/code&gt; 命令列出当前目录下的文件及目录的详细信息：&lt;br&gt;&lt;a href=&quot;https://imgchr.com/i/ZkWS8U&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
   
@@ -582,38 +608,6 @@
       <category term="合泰单片机" scheme="https://zhengnianli.github.io/tags/%E5%90%88%E6%B3%B0%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
       <category term="远程监控" scheme="https://zhengnianli.github.io/tags/%E8%BF%9C%E7%A8%8B%E7%9B%91%E6%8E%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于STM32+ATT7022的单相用电器分析监测装置</title>
-    <link href="https://zhengnianli.github.io/2019/04/07/zuo-pin-ji-yu-stm32-att7022-de-dan-xiang-yong-dian-qi-fen-xi-jian-ce-zhuang-zhi/"/>
-    <id>https://zhengnianli.github.io/2019/04/07/zuo-pin-ji-yu-stm32-att7022-de-dan-xiang-yong-dian-qi-fen-xi-jian-ce-zhuang-zhi/</id>
-    <published>2019-04-07T00:22:15.000Z</published>
-    <updated>2019-06-24T05:32:09.338Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
-      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="电能采集" scheme="https://zhengnianli.github.io/tags/%E7%94%B5%E8%83%BD%E9%87%87%E9%9B%86/"/>
     
   </entry>
   

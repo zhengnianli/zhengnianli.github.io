@@ -301,18 +301,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/categories/嵌入式/" title="嵌入式: 10">
+                <a href="/categories/C语言笔记/" title="C语言笔记: 47">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">嵌入式
-                        <span class="tag-length">10</span>
+                             chip-active " style="background-color: #F5EEF8;">C语言笔记
+                        <span class="tag-length">47</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/C语言笔记/" title="C语言笔记: 46">
+                <a href="/categories/嵌入式/" title="嵌入式: 10">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #D5F5E3;">C语言笔记
-                        <span class="tag-length">46</span>
+                             chip-default " style="background-color: #D5F5E3;">嵌入式
+                        <span class="tag-length">10</span>
                     </span>
                 </a>
                 
@@ -350,6 +350,52 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/13/c-yu-yan-bi-ji-liang-ge-xiao-zhi-shi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】两个小知识">
+                            
+                            <span class="card-title">【C语言笔记】两个小知识</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一、关于头文件包含问题C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
@@ -507,20 +553,24 @@ int main(void)
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                             
-                            <span class="card-title">【C语言笔记】static关键字</span>
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
-C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
+
+ for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
@@ -609,24 +659,20 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
                             
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                            <span class="card-title">【C语言笔记】static关键字</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
-
- for ( i = 0; i &lt; m; 
+                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
+C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
                             
                         </div>
                         <div class="publish-info">
@@ -917,56 +963,6 @@ int main(void)
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/17/c-yu-yan-bi-ji-volatile-guan-jian-zi/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【C语言笔记】volatile关键字">
-                            
-                            <span class="card-title">【C语言笔记】volatile关键字</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
-简单地说就是防止编译器对代码进行优化。比如如下程序：
-XBYTE[2]=0x55;
-XBYTE[2]=0x56;
-XB
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
@@ -1004,7 +1000,7 @@ XB
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">79.5k</span>
+                <span class="white-color">81.7k</span>
             
 
             
