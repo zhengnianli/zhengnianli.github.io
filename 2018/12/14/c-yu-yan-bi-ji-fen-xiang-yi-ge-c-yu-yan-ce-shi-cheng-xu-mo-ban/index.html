@@ -5,7 +5,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】分享一个C语言测试程序模板, 正念的博客">
-    <meta name="description" content="前言平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个test.c文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪费时">
+    <meta name="description" content="1、前言平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个test.c文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -405,7 +405,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.1k
                     </div>
                     
 
@@ -428,15 +428,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个<code>test.c</code>文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪费时间的事情。</p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个<code>test.c</code>文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪费时间的事情。</p>
 <p>所以，我们可以编写一个专门用于测试的程序：（1）有菜单，可以通过菜单选择想要测试的函数；（2）有功能函数，把一些需要测试的功能封装成一个函数；（3）有测试函数，用于测试功能函数及一些知识点。</p>
 <p>该测试程序大致如下：</p>
-<p><a href="https://imgchr.com/i/V7zbaF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7zbaF.md.png" alt="V7zbaF.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7zbaF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7zbaF.md.png" alt></a></p>
 <p>我们只要输入菜单前面的数字就可以进行对应的测试啦。挺方便的，日积月累，渐渐的，就可以积累很多知识点。如：</p>
-<p><a href="https://imgchr.com/i/V7zXG9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7zXG9.md.png" alt="V7zXG9.md.png"></a></p>
-<h3 id="该测试程序代码模板"><a href="#该测试程序代码模板" class="headerlink" title="该测试程序代码模板"></a>该测试程序代码模板</h3><h3 id="1、菜单函数如下："><a href="#1、菜单函数如下：" class="headerlink" title="1、菜单函数如下："></a>1、菜单函数如下：</h3><p><a href="https://imgchr.com/i/V7zvx1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7zvx1.md.png" alt="V7zvx1.md.png"></a></p>
-<h3 id="2、主函数如下："><a href="#2、主函数如下：" class="headerlink" title="2、主函数如下："></a>2、主函数如下：</h3><p><a href="https://imgchr.com/i/VHSiIe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHSiIe.md.png" alt="VHSiIe.md.png"></a></p>
-<h3 id="3、该测试程序函数声明部分如下"><a href="#3、该测试程序函数声明部分如下" class="headerlink" title="3、该测试程序函数声明部分如下"></a>3、该测试程序函数声明部分如下</h3><p><a href="https://imgchr.com/i/VHSeMt" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHSeMt.md.png" alt="VHSeMt.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7zXG9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7zXG9.md.png" alt></a></p>
+<h2 id="2、该测试程序代码模板"><a href="#2、该测试程序代码模板" class="headerlink" title="2、该测试程序代码模板"></a>2、该测试程序代码模板</h2><h3 id="（1）菜单函数如下："><a href="#（1）菜单函数如下：" class="headerlink" title="（1）菜单函数如下："></a>（1）菜单函数如下：</h3><p><a href="https://imgchr.com/i/V7zvx1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7zvx1.md.png" alt></a></p>
+<h3 id="（2）主函数如下："><a href="#（2）主函数如下：" class="headerlink" title="（2）主函数如下："></a>（2）主函数如下：</h3><p><a href="https://imgchr.com/i/VHSiIe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHSiIe.md.png" alt></a></p>
+<h3 id="（3）该测试程序函数声明部分如下"><a href="#（3）该测试程序函数声明部分如下" class="headerlink" title="（3）该测试程序函数声明部分如下"></a>（3）该测试程序函数声明部分如下</h3><p><a href="https://imgchr.com/i/VHSeMt" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHSeMt.md.png" alt></a></p>
 <p>完整程序</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*----------------------------------------------------------------------------------------
 
@@ -584,7 +584,9 @@
 </code></pre>
 <p>每当需要测试一些知识点时，就可以按照这样子的格式在后边添加，可以很好地进行积累。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -774,20 +776,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】Windows下体验Linux环境">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】windows命令行下编译C程序">
                         
-                        <span class="card-title">【C语言笔记】Windows下体验Linux环境</span>
+                        <span class="card-title">【C语言笔记】windows命令行下编译C程序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。
-在Windows系统下可以使用集成开发环
+                            有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gcc编译器进行编译。如：
+在Notepad++里写代码：
+
+在黑窗口下编译及运行代码：
+
+此处，编译命
                         
                     </div>
                     <div class="publish-info">
@@ -982,7 +988,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

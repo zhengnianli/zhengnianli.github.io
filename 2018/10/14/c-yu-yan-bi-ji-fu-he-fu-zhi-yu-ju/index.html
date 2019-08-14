@@ -406,7 +406,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        277
+                        300
                     </div>
                     
 
@@ -431,11 +431,13 @@
             <div id="articleContent">
                 <p>增加一个变量的值有两种方式，如：<code>a = a + 5</code>和<code>a += 5</code>。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。</p>
 <p>现在，a = a + 5和a += 5之间的差别不再那么显著，而且现代的编译器为这两种表达式产生优化代码并无多大问题。但是，要考虑如下两条语句：</p>
-<p><a href="https://imgchr.com/i/V4q9hD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4q9hD.md.png" alt="V4q9hD.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V4q9hD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4q9hD.md.png" alt></a></p>
 <p>此处a为数组。在第一种形式种，由于编译器无从知道f函数是否具有副作用，所以它必须两次计算数组a的下标表达式的值。而在第二种形式中，下标表达式只需计算一次，所以第二种形式效率更高。并且，从书写的角度看，第一种形式的下标表达式需要书写两次，而第二种形式只需书写一次。</p>
 <p>基于这些理由，我们应该使用复合赋值语句。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -637,11 +639,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
+                            1、volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
 简单地说就是防止编译器对代码进行优化。比如如下程序：
 XBYTE[2]=0x55;
 XBYTE[2]=0x56;
-XB
+
                         
                     </div>
                     <div class="publish-info">
@@ -836,7 +838,7 @@ XB
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

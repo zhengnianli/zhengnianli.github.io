@@ -405,7 +405,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        269
+                        292
                     </div>
                     
 
@@ -429,14 +429,22 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="一、关于头文件包含问题"><a href="#一、关于头文件包含问题" class="headerlink" title="一、关于头文件包含问题"></a>一、关于头文件包含问题</h3><p>C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包含标准头文件，使用双引号包含自定义头文件。如：</p>
-<p><a href="https://imgchr.com/i/V5W5pq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5W5pq.md.png" alt="V5W5pq.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5W5pq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5W5pq.md.png" alt></a></p>
 <h3 id="二、关于头文件重复包含问题"><a href="#二、关于头文件重复包含问题" class="headerlink" title="二、关于头文件重复包含问题"></a>二、关于头文件重复包含问题</h3><p>同一个头文件在不同的C文件里可能会被包含很多次，可能会产生重复包含的错误。我们可以使用宏保护来解决这个问题，如test.h中可以使用如下宏保护：</p>
-<p><a href="https://imgchr.com/i/V5WocV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5WocV.md.png" alt="V5WocV.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/14/V5WocV.md.png" alt border="0" width="350">
+
+
+
 <p>第一次包含头文件，会定义宏_TEST_H，并执行“头文件“的代码；第二次包含时因为之前已经有定义宏_TEST_H，不会重复执行”#ifndef _TEST_H“与”#endif“之间的代码。</p>
 <p>stm32单片机中的库文件就是这么做的，如</p>
-<p><a href="https://imgchr.com/i/V5WOAJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5WOAJ.md.png" alt="V5WOAJ.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/14/V5WOAJ.md.png" alt border="0" width="350">
+
+
+
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -638,12 +646,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
+                            一、前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
 
-time()函数1、函数原型
+二、time()函数1、函数原型
 time_t time(time_t *t);
 2、函数说明
-time_t 是lon
+time_t 
                         
                     </div>
                     <div class="publish-info">
@@ -843,7 +851,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

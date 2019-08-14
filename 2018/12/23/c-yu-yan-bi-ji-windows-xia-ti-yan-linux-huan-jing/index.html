@@ -5,8 +5,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】Windows下体验Linux环境, 正念的博客">
-    <meta name="description" content="前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。
-在Windows系统下可以使用集成开发环">
+    <meta name="description" content="1、前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。
+在Windows系统下可以使用集成开">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -406,7 +406,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        590
+                        617
                     </div>
                     
 
@@ -429,35 +429,35 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。</p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。</p>
 <p>在Windows系统下可以使用集成开发环境（如Visual Studio、VC++、C-free等）编译C语言源代码文件，也可以使用命令行编译。</p>
 <p>若要使用命令行编译C文件，就必须得安装C编译器，因为C编译器不是标准Windows软件包的一部分，因此需要从别处获取并安装。常用的有两种：一种是<code>MinGW</code>（之前已经分享过，可移步至MinGW进行查看）；另一种是<code>Cygwin</code>，本文着重介绍Cygwin。</p>
-<h3 id="Cygwin简介"><a href="#Cygwin简介" class="headerlink" title="Cygwin简介"></a>Cygwin简介</h3><p><code>Cygwin</code>是一个在windows平台上运行的<code>类UNIX</code>模拟环境，是<code>cygnus solutions</code>公司开发的自由软件（该公司开发的著名工具还有<code>eCos</code>，不过现已被<code>Redhat</code>收购）。</p>
+<h2 id="2、Cygwin简介"><a href="#2、Cygwin简介" class="headerlink" title="2、Cygwin简介"></a>2、Cygwin简介</h2><p><code>Cygwin</code>是一个在windows平台上运行的<code>类UNIX</code>模拟环境，是<code>cygnus solutions</code>公司开发的自由软件（该公司开发的著名工具还有<code>eCos</code>，不过现已被<code>Redhat</code>收购）。</p>
 <p>它对于学习<code>UNIX/Linux</code>操作环境，或者从<code>UNIX</code>到<code>Windows</code>的应用程序移植，或者进行某些特殊的开发工作，尤其是使用<code>GNU</code>工具集在<code>Windows</code>上进行嵌入式系统开发，非常有用。随着嵌入式系统开发在国内日渐流行，越来越多的开发者对<code>Cygwin</code>产生了兴趣。</p>
-<h3 id="Cygwin下载、安装"><a href="#Cygwin下载、安装" class="headerlink" title="Cygwin下载、安装"></a>Cygwin下载、安装</h3><p>1、下载链接</p>
-<blockquote>
+<h2 id="3、Cygwin下载、安装"><a href="#3、Cygwin下载、安装" class="headerlink" title="3、Cygwin下载、安装"></a>3、Cygwin下载、安装</h2><h3 id="（1）下载链接"><a href="#（1）下载链接" class="headerlink" title="（1）下载链接"></a>（1）下载链接</h3><blockquote>
 <p><a href="https://cygwin.com/install.html" target="_blank" rel="noopener">https://cygwin.com/install.html</a></p>
 </blockquote>
 <p>打开该网址，可以看到如下页面：</p>
-<p><a href="https://imgchr.com/i/V7hayn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7hayn.md.png" alt="V7hayn.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7hayn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7hayn.md.png" alt></a></p>
 <p>根据自己的需求选择下载32bit或者64bit的Cygwin包。</p>
-<p>2、安装</p>
-<p>由上一步下载得到.exe结尾的软件，双击进行安装，一直点击下一步直至安装完成。安装的路径根据自己的需要进行选择。</p>
-<h3 id="Cygwin的使用"><a href="#Cygwin的使用" class="headerlink" title="Cygwin的使用"></a>Cygwin的使用</h3><p>打开上一步安装的路径，如：</p>
-<p><a href="https://imgchr.com/i/V7hBwV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7hBwV.md.png" alt="V7hBwV.md.png"></a></p>
+<h3 id="（2）安装"><a href="#（2）安装" class="headerlink" title="（2）安装"></a>（2）安装</h3><p>由上一步下载得到.exe结尾的软件，双击进行安装，一直点击下一步直至安装完成。安装的路径根据自己的需要进行选择。</p>
+<h2 id="4、Cygwin的使用"><a href="#4、Cygwin的使用" class="headerlink" title="4、Cygwin的使用"></a>4、Cygwin的使用</h2><p>打开上一步安装的路径，如：</p>
+<p><a href="https://imgchr.com/i/V7hBwV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7hBwV.md.png" alt></a></p>
 <p>双击<code>Cygwin.bat</code>文件即可打开Linux命令行。双击后得到如下界面：</p>
-<p><a href="https://imgchr.com/i/V7hDoT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7hDoT.md.png" alt="V7hDoT.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7hDoT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7hDoT.md.png" alt></a></p>
 <p>这就是Linux命令行，然后就可以进行一些Linux练习啦。如：</p>
-<p><a href="https://imgchr.com/i/V7h6W4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7h6W4.md.png" alt="V7h6W4.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7h6W4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7h6W4.md.png" alt></a></p>
 <p>进行如上操作后，就可以在<code>/c_test/test1/</code>路径下看到<code>test.c</code>文件啦（以上创建文件及文件夹的操作也可以直接在Windows下完成）。如：</p>
-<p><a href="https://imgchr.com/i/V7vLeU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7vLeU.md.png" alt="V7vLeU.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7vLeU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7vLeU.md.png" alt></a></p>
 <p>使用<code>notepad++</code>打开该<code>test1.c</code>输入如下代码并保存：</p>
-<p><a href="https://imgchr.com/i/V7x3Tg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7x3Tg.md.png" alt="V7x3Tg.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7x3Tg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7x3Tg.md.png" alt></a></p>
 <p>然后在我们的Linux终端中进行编译：</p>
-<p><a href="https://imgchr.com/i/V7xTtH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7xTtH.md.png" alt="V7xTtH.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V7xTtH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/V7xTtH.md.png" alt></a></p>
 <p>以上就是关于在windows下体验Linux的方法。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -647,29 +647,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/">
+                <a href="/2018/12/24/c-yu-yan-bi-ji-ni-de-hei-chuang-kou-shan-tui/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】windows命令行下编译C程序">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="【C语言笔记】你的黑窗口闪退？">
                         
-                        <span class="card-title">【C语言笔记】windows命令行下编译C程序</span>
+                        <span class="card-title">【C语言笔记】你的黑窗口闪退？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gcc编译器进行编译。如：
-在Notepad++里写代码：
+                            上一篇中写到了Windows下体验Linux环境，其中的测试代码简单的打印一句话，如：
 
-在黑窗口下编译及运行代码：
+编译后得到test.exe，运行得到如下结果：
 
-此处，编译命
+在命令行下运行可以输出结果，但是在文件夹下，双击运行test1.exe却发现黑窗口一闪而过：
+
+怎么
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
                         </span>
                         <span class="publish-author">
                             
@@ -701,24 +702,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/12/14/c-yu-yan-bi-ji-fen-xiang-yi-ge-c-yu-yan-ce-shi-cheng-xu-mo-ban/">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="【C语言笔记】分享一个C语言测试程序模板">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】windows命令行下编译C程序">
                         
-                        <span class="card-title">【C语言笔记】分享一个C语言测试程序模板</span>
+                        <span class="card-title">【C语言笔记】windows命令行下编译C程序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个test.c文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪费时
+                            有关注我的朋友可能会知道我的C开发环境是：Notepad++与MinGW相结合，即用Notepad++写代码，用MinGW这个工具包中的gcc编译器进行编译。如：
+在Notepad++里写代码：
+
+在黑窗口下编译及运行代码：
+
+此处，编译命
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
                             </span>
                         <span class="publish-author">
                             
@@ -857,7 +863,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

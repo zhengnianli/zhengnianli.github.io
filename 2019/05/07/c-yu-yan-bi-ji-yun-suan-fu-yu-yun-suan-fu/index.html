@@ -412,7 +412,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        516
+                        539
                     </div>
                     
 
@@ -435,24 +435,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、-运算符"><a href="#1、-运算符" class="headerlink" title="1、#运算符"></a>1、#运算符</h3><p>我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：</p>
-<p><a href="https://imgchr.com/i/VbbRo9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbbRo9.md.png" alt="VbbRo9.md.png"></a></p>
+                <h2 id="1、-运算符"><a href="#1、-运算符" class="headerlink" title="1、#运算符"></a>1、#运算符</h2><p>我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：</p>
+<p><a href="https://imgchr.com/i/VbbRo9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbbRo9.md.png" alt></a></p>
 <p>输出结果为：</p>
 <p><a href="https://imgchr.com/i/VbbqdH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbbqdH.md.png" alt="VbbqdH.md.png"></a></p>
 <p>然而，我们期望输出的结果是：</p>
 <pre class=" language-c"><code class="language-c"><span class="token number">5</span> <span class="token operator">+</span> <span class="token number">20</span> <span class="token operator">=</span> <span class="token number">25</span>
 <span class="token number">13</span> <span class="token operator">+</span> <span class="token number">14</span> <span class="token operator">=</span> <span class="token number">27</span></code></pre>
 <p>这该怎么做呢？其实，C语言允许在字符串中包含宏参数。在类函数宏（带参宏）中，<code>#号</code>作为一个<code>预处理运算符</code>，可以<code>把记号转换成字符串</code>。例如，如果A是一个宏形参，那么#A就是转换为字符串”A”的形参名。这个过程称为<code>字符串化（stringizing）</code>。以下程序演示这个过程：</p>
-<p><a href="https://imgchr.com/i/Vbq9OS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbq9OS.md.png" alt="Vbq9OS.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Vbq9OS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbq9OS.md.png" alt></a></p>
 <p>输出结果为：</p>
-<p><a href="https://imgchr.com/i/VbqiwQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqiwQ.md.png" alt="VbqiwQ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VbqiwQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqiwQ.md.png" alt></a></p>
 <p>这就达到我们想要的结果了。所以，<code>#运算符</code>可以完成<code>字符串化（stringizing）</code>的过程。</p>
-<h3 id="2、-运算符"><a href="#2、-运算符" class="headerlink" title="2、##运算符"></a>2、##运算符</h3><p>与#运算符类似，<code>##运算符</code>可用于类函数宏（带参宏）的替换部分。<code>##运算符</code>可以把两个记号组合成一个记号。例如，可以这样做：</p>
+<h2 id="2、-运算符"><a href="#2、-运算符" class="headerlink" title="2、##运算符"></a>2、##运算符</h2><p>与#运算符类似，<code>##运算符</code>可用于类函数宏（带参宏）的替换部分。<code>##运算符</code>可以把两个记号组合成一个记号。例如，可以这样做：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> XNAME(n) x##n</span></code></pre>
 <p>然后，宏XNAME(4)将展开x4。以下程序演示##运算符的用法：</p>
-<p><a href="https://imgchr.com/i/VbqEYn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqEYn.md.png" alt="VbqEYn.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VbqEYn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqEYn.md.png" alt></a></p>
 <p>输出结果为：</p>
-<p><a href="https://imgchr.com/i/VbqdmD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqdmD.md.png" alt="VbqdmD.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VbqdmD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqdmD.md.png" alt></a></p>
 <p>注意：<code>PRINT_XN()</code>宏用<code>#运算符</code>组合字符串，<code>##运算符</code>把记号组合为一个新的标识符。</p>
 <p>其实，<code>##运算符</code>在这里看来并没有起到多大的便利，反而会让我们感觉到不习惯。但是，使用<code>##运算符</code>有时候是可以提高封装性及程序的可读性的。如跑实时操作系统的stm32程序中，关于gpio的硬件驱动中有如下代码：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> __STM32_PIN(index, gpio, gpio_index) \
@@ -464,10 +464,12 @@ index, GPIO##gpio##_CLK_ENABLE, GPIO##gpio, GPIO_PIN_##gpio_index \
 <p>该宏将展开为：</p>
 <pre class=" language-c"><code class="language-c"><span class="token punctuation">{</span><span class="token number">7</span><span class="token punctuation">,</span> GPIOC_CLK_ENABLE<span class="token punctuation">,</span> GPIOC<span class="token punctuation">,</span> GPIO_PIN_13<span class="token punctuation">}</span></code></pre>
 <p>然后这就可以很方便的将要使用的硬件引脚这么一一列出来，然后再拿去进行配置：</p>
-<p><a href="https://imgchr.com/i/ZC60ij" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZC60ij.md.png" alt="ZC60ij.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZC60ij" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZC60ij.md.png" alt></a></p>
 <p>以上就是关于#运算符与##运算符的笔记，用#运算符组合字符串，##运算符把记号组合为一个新的标识符。如有错误欢迎指出。资料：『RT-Thread-IoT代码』、『C Primer Plus』。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -866,7 +868,7 @@ index, GPIO##gpio##_CLK_ENABLE, GPIO##gpio, GPIO_PIN_##gpio_index \
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

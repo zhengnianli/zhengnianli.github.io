@@ -408,7 +408,7 @@ void stack_test1(int a, int b, i">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        382
+                        405
                     </div>
                     
 
@@ -461,7 +461,9 @@ c <span class="token operator">=</span> <span class="token number">3</span><span
 <p>我们都知道，printf是个变参函数。那么，其参数的个数是如何确定的呢，靠的就是format，如果format首先被压入栈中，就无法知道还有多少个参数还没入栈了；所以，format应该最后入栈，才能确定参数的个数，也即符合参数入栈顺序为“从右到左”的规则。</p>
 <p>以上就是关于函数参数压栈顺序的总结，如有错误欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -651,23 +653,23 @@ c <span class="token operator">=</span> <span class="token number">3</span><span
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">
+                <a href="/2018/10/11/c-yu-yan-bi-ji-getchar-getche-getch-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】#define与typedef的区别？">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【C语言笔记】getchar()、getche()、getch()的区别">
                         
-                        <span class="card-title">【C语言笔记】#define与typedef的区别？</span>
+                        <span class="card-title">【C语言笔记】getchar()、getche()、getch()的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
-宏定义的一般形式为：
-#define 宏名 字符串
-这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
-typedeftyp
+                            1、getchar()函数所在头文件：stdio.h
+函数原型：int getchar(void);
+函数功能：读取控制台输入的字符，并保存在键盘缓冲区中。直到用户按回车为止(回车字符也放在缓冲区中)。
+看一段代码：
+#include &l
                         
                     </div>
                     <div class="publish-info">
@@ -861,7 +863,7 @@ typedeftyp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

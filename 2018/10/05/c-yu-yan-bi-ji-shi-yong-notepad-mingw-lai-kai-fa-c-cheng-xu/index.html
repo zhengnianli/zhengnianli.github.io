@@ -444,34 +444,73 @@
 <p>（2）百度云盘：链接：<a href="https://pan.baidu.com/s/1o4Etp0rrW7IxUOwEg9yxyQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1o4Etp0rrW7IxUOwEg9yxyQ</a><br>提取码：lm5j </p>
 </blockquote>
 <h3 id="5、MinGW环境变量配置"><a href="#5、MinGW环境变量配置" class="headerlink" title="5、MinGW环境变量配置"></a>5、MinGW环境变量配置</h3><p>（1）解压MinGW到指定路径中（要记住这个路径，后面需要用的到），如我解压到路径<code>D:\Program Files\</code>中：</p>
-<p><a href="https://imgchr.com/i/V6xshj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xshj.md.png" alt="V6xshj.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xshj.md.png" alt border="0" width="550">
+
+
+
 <p>（2）右击<code>我的电脑</code>，点击<code>属性</code>：</p>
-<p><a href="https://imgchr.com/i/V6xc3n" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xc3n.md.png" alt="V6xc3n.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xc3n.md.png" alt border="0" width="550">
+
+
+
 <p>（3）点击<code>高级系统设置</code>：</p>
-<p><a href="https://imgchr.com/i/V6xWuV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xWuV.md.png" alt="V6xWuV.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xWuV.md.png" alt border="0" width="550">
+
+
+
 <p>（4）在系统变量中找到<code>Path</code>，然后点击<code>编辑</code>按钮：</p>
-<p><a href="https://imgchr.com/i/V6xIN4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xIN4.md.png" alt="V6xIN4.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xIN4.md.png" alt border="0" width="550">
+
+
+
 <p>（5）点击<code>新建</code>按钮新建一个<code>D:\Program Files\MinGW\bin</code>变量（bin所在的路径就是刚才解压的路径），然后点击<code>确定</code>：</p>
-<p><a href="https://imgchr.com/i/V6x7C9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6x7C9.md.png" alt="V6x7C9.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6x7C9.md.png" alt border="0" width="550">
+
+
+
 <p>（6）在系统变量中新建一个系统变量，变量名为<code>lib</code>，变量值为 MinGW 中 lib 文件夹的路径，然后点击<code>确定</code>按钮，如图：</p>
-<p><a href="https://imgchr.com/i/V6xH3R" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xH3R.md.png" alt="V6xH3R.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xH3R.md.png" alt border="0" width="550">
+
+
+
 <p>（7）同步骤（6）新建一个系统变量<code>include</code>，如图：</p>
-<p><a href="https://imgchr.com/i/V6xqjx" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xqjx.md.png" alt="V6xqjx.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xqjx.md.png" alt border="0" width="550">
+
+
+
 <p>（8）点击<code>确定</code>：</p>
-<p><a href="https://imgchr.com/i/V6xOu6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xOu6.md.png" alt="V6xOu6.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xOu6.md.png" alt border="0" width="550">
+
+
+
 <p>（9）点击<code>确定</code>：</p>
-<p><a href="https://imgchr.com/i/V6xxED" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6xxED.md.png" alt="V6xxED.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6xxED.md.png" alt border="0" width="550">
+
+
+
 <p>（10）点击组合键<code>win + r</code>打开运行窗口，输入<code>cmd</code>进入 DOS 窗口：</p>
-<p><a href="https://imgchr.com/i/V6zS4H" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6zS4H.md.png" alt="V6zS4H.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6zS4H.md.png" alt border="0" width="550">
+
+
+
 <p>（11）在 DOS 窗口下输入命令：<code>gcc -v</code>，若输出如下所示信息则表明gcc环境变量配置成功，否则配置失败：</p>
-<p><a href="https://imgchr.com/i/V6zC8A" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6zC8A.md.png" alt="V6zC8A.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6zC8A.md.png" alt border="0" width="650">
+
+
+
 <h3 id="6、如何使用Notepad-、gcc进行开发？"><a href="#6、如何使用Notepad-、gcc进行开发？" class="headerlink" title="6、如何使用Notepad++、gcc进行开发？"></a>6、如何使用Notepad++、gcc进行开发？</h3><p>首先，使用 notepad++ 编写好代码，这里我们写一个 hello.c 文件，然后在 cmd 窗口中运用命令切换当前路径为 hello.c 所在的路径。然后调用编译命令：<code>gcc hello.c -o hello.exe</code>进行编译。其中，<code>-o</code>参数是给编译生成的可执行文件重新命名为<code>hello.exe</code>，如果不加这个参数，则编译生成的可执行文件默认为<code>a.exe</code>。</p>
 <p>其中，如果你不会通过命令来切换路径，也可以在 notepad++ 里直接进入当前文件所在的路径，具体操作为：</p>
-<p><a href="https://imgchr.com/i/V6zaG9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/V6zaG9.md.png" alt="V6zaG9.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/11/V6zaG9.md.png" alt border="0" width="650">
+
+
+
 <p>除此，编译多个文件.c文件和编译一个.c文件的命令差不多，编译多个文件就把要编译的文件都加到编译命令中就可以了，如：</p>
 <pre class=" language-c"><code class="language-c">gcc cJSON<span class="token punctuation">.</span>c json_parse_now<span class="token punctuation">.</span>c <span class="token operator">-</span>o test<span class="token punctuation">.</span>exe</code></pre>
 <p>以上就是使用notepad++、MinGW开发C程序的环境配置及使用方法，如有错误，欢迎指出。</p>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<hr>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -879,7 +918,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

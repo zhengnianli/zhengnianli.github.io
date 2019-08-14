@@ -412,14 +412,14 @@ int main(void)
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        476
+                        499
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -447,14 +447,14 @@ int main(void)
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>该代码运行结果为：</p>
-<p><a href="https://imgchr.com/i/V5MJSO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5MJSO.md.png" alt="V5MJSO.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5MJSO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5MJSO.md.png" alt></a></p>
 <p>可见，对于一个数组：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>a与&amp;a的值是相同的。为什么呢？</p>
 <p>a是数组名，是一个数据区的常量，对其取地址（&amp;a）就可以得到数组存储区域的地址，同样，a本身也代表了数组存储区的首地址。所以，a与&amp;a的值是一样的。但是，虽然a与&amp;a指向同一个地址，但是他们的含义是不同的。下面我们修改一下上面的代码看看”a+1”与”&amp;a+1”是否还相等？修改后的代码运行结果为：</p>
-<p><a href="https://imgchr.com/i/V5GRnU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5GRnU.md.png" alt="V5GRnU.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5GRnU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5GRnU.md.png" alt></a></p>
 <p>可见，a+1的值比a的值大4，即sizeof(a[0])；&amp;a+1比&amp;a的值大20，即sizeof(a)。由此，可得出结论：a+1指向的地址相对与a指向的地址向后偏移了sizeof（a[0]）个字节，&amp;a+1指向的地址相对与&amp;a指向的地址向后偏移了sizeof(a)个字节，其描述图如下：</p>
-<p><a href="https://imgchr.com/i/V5G5N9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5G5N9.md.png" alt="V5G5N9.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5G5N9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5G5N9.md.png" alt></a></p>
 <p>下面分析一段代码：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
@@ -473,7 +473,9 @@ int main(void)
 <p><code>*(a+1) = 1</code>，是因为<code>a+1</code>代表数组第二个元素的地址，即<code>&amp;a[1]</code>，<code>*(a+1)</code>为取该地址上的值，即为1；<code>*（ptr-1)=4</code>，是因为ptr指向的是整个数组内存区域之后的内存，即数组最后一个元素之后的地址，<code>ptr-1</code>就是指向数组的最后一个元素，<code>*（ptr-1)</code>为取该地址上的值，即为4。</p>
 <p>以上就是今天分享的关于数组的一个小知识点,如有错误欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -876,7 +878,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

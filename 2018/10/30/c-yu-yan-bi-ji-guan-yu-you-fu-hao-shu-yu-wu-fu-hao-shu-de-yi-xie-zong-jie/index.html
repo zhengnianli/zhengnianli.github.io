@@ -5,13 +5,13 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】关于有符号数与无符号数的一些总结, 正念的博客">
-    <meta name="description" content="有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
+    <meta name="description" content="1、有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
 请看如下代码：
 #include &amp;lt;stdio.h&gt;
 int main(void)
 {
     unsigned int a = 6;
-    int b">
+    int">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -411,7 +411,7 @@ int main(void)
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        745
+                        770
                     </div>
                     
 
@@ -434,7 +434,7 @@ int main(void)
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="有、无符号数之间的运算"><a href="#有、无符号数之间的运算" class="headerlink" title="有、无符号数之间的运算"></a>有、无符号数之间的运算</h3><p>有符号数与无符号数之间的运算，编译器会进行隐式类型转换。</p>
+                <h2 id="1、有、无符号数之间的运算"><a href="#1、有、无符号数之间的运算" class="headerlink" title="1、有、无符号数之间的运算"></a>1、有、无符号数之间的运算</h2><p>有符号数与无符号数之间的运算，编译器会进行隐式类型转换。</p>
 <p>请看如下代码：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
@@ -456,7 +456,7 @@ int main(void)
 <p>C 语言按照一定的规则来进行此类运算的转换，这种规则称为<code>正常算术转换</code>，转换的顺序为：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">double</span><span class="token operator">></span><span class="token keyword">float</span><span class="token operator">></span><span class="token keyword">unsigned</span> <span class="token keyword">long</span><span class="token operator">></span><span class="token keyword">long</span><span class="token operator">></span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token keyword">int</span></code></pre>
 <p>即操作数类型排在后面的与操作数类型排在前面的进行运算时，排在后面的类型将隐式转换为排在前面的类型。</p>
-<h3 id="有、无符号数转化为更大类型"><a href="#有、无符号数转化为更大类型" class="headerlink" title="有、无符号数转化为更大类型"></a>有、无符号数转化为更大类型</h3><p>请看如下代码：</p>
+<h2 id="2、有、无符号数转化为更大类型"><a href="#2、有、无符号数转化为更大类型" class="headerlink" title="2、有、无符号数转化为更大类型"></a>2、有、无符号数转化为更大类型</h2><p>请看如下代码：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -496,11 +496,13 @@ a5<span class="token operator">=</span><span class="token function">127</span><s
 <p>正数的原码、反码、补码都相等。负数的反码是将原码中除符号位以外的所有位（数值位）取反，也就是 0 变成 1，1 变成 0；负数的补码是其反码加 1。</p>
 <p>此处，对于一个signed char类型数据，-1的原码为1000 0001，反码为1111 1110，所以补码为1111 1111。</p>
 <p>signed char的负数对应表为（图片来源于网络）：</p>
-<p><a href="https://imgchr.com/i/V5Fk0U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5Fk0U.md.png" alt="V5Fk0U.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5Fk0U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5Fk0U.md.png" alt></a></p>
 <p>其中，-128最为特殊，需要特别记住，其不遵循传统的由补码计算原码的方法。</p>
 <p>以上就是关于有符号数与无符号数的两点总结：（1）有符号数与无符号数之间的运算，编译器会进行隐式类型转换。（2）有符号数、无符号数转换为更大的数据类型。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -742,20 +744,28 @@ int *pfun(int, int);
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
+                <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                         
-                        <span class="card-title">【C语言笔记】static关键字</span>
+                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
-C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
+                            前言数组与指针是不等价的，如：
+
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                         
                     </div>
                     <div class="publish-info">
@@ -899,7 +909,7 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

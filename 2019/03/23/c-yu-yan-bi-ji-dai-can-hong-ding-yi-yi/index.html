@@ -429,7 +429,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>公司某项目用到<code>DSP+FPGA</code>架构（当然不是著名的ARM+DSP+FPGA点灯项目,哈哈），我的发展方向为DSP方向。其中DSP与FPGA通过两个带参宏进行数据交互（DSP与FPGA通过一块共享内存来实现数据交互，我这边的DSP只要往共享内存中写入数据即为往FPGA中写数据，往共享内存中读取数据就是读取FPGA发送过来的数据），如下图：</p>
-<p><a href="https://imgchr.com/i/VbYz7t" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VbYz7t.md.png" alt="VbYz7t.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VbYz7t" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VbYz7t.md.png" alt></a></p>
 <p>也即：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">define</span> FPGA_WRITE(data_out, base_addr, offset)  \
 ((((volatile uint32*)base_addr)[(offset)]) = (data_out))</span>
@@ -447,7 +447,7 @@
 <p>该宏函数实体为：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">volatile</span> uint32<span class="token operator">*</span><span class="token punctuation">)</span>base_addr<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">(</span>offset<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>data_out<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>我们先看等号左边，从最里层的括号开始看，<code>(volatile uint32*)base_addr</code>的意思是把<code>base_addr</code>强制转换为<code>(volatile uint32*)</code>类型的数据，其中加volatile关键字的作用是确保本条指令不会因编译器的优化而省略。volatile在嵌入式编程中用得很多，如在Cortex-M3内核MCU的内核文件的C函数内嵌汇编中使用了大量的volatile关键字：</p>
-<p><a href="https://imgchr.com/i/VbtpAP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VbtpAP.md.png" alt="VbtpAP.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VbtpAP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VbtpAP.md.png" alt></a></p>
 <p>关于volatile关键字更多的介绍可查看往期分享：<br><a href="https://zhengnianli.github.io/2018/10/17/%E3%80%90C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0%E3%80%91volatile%E5%85%B3%E9%94%AE%E5%AD%97/">【C语言笔记】volatile关键字</a></p>
 <p><code>((volatile uint32*)base_addr)[(offset)]</code>的意思是相对于base_addr偏移offset个内存单元后所占的空间，此时已经转变为了<code>base_addr[offset]</code>，这就可以看做数组base_addr的第offset个元素，所以可以给它赋值。等号右边的数据data_out就是给数组元素base_addr[offset]进行赋值的。数组和指针在此处其实是可以等价的，所以</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">volatile</span> uint32<span class="token operator">*</span><span class="token punctuation">)</span>base_addr<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">(</span>offset<span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
@@ -512,10 +512,12 @@
 <pre class=" language-cpp"><code class="language-cpp"><span class="token function">FPGA_WRITE</span><span class="token punctuation">(</span>data_write<span class="token punctuation">,</span> ptr<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>这条语句的意思就是往ptr往后第3个内存单元写入数据data_write，即<code>arr[3] = data_write;</code>，arr[3]由原来的3变成了520。</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token function">FPGA_READ</span><span class="token punctuation">(</span>data_read<span class="token punctuation">,</span> ptr<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p> 这条语句的意思就是把ptr往后第5个内存单元中的数据赋给data_read变量，即data_read = arr[5];，data_read由原来的0变成了5。程序运行结果如下：<br><img src="https://s2.ax1x.com/2019/06/17/Vbti9S.png" alt="Vbti9S.png"></p>
+<p> 这条语句的意思就是把ptr往后第5个内存单元中的数据赋给data_read变量，即data_read = arr[5];，data_read由原来的0变成了5。程序运行结果如下：<br><img src="https://s2.ax1x.com/2019/06/17/Vbti9S.png" alt></p>
 <p>可见，程序输出结果与我们分析的一致！带参宏很重要，在一定程度上可以帮助我们防止出错，<strong><code>提高代码的可移植性和可读性</code></strong>等，应重点掌握。下一篇笔记我们将分享更多的带参宏的笔记，欢迎阅读。</p>
 <hr>
-<p>我的微信公众号如下，欢迎扫码关注查看更多分享：<br><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -717,9 +719,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            带参宏在我们的嵌入式编程中使用得非常多，其定义如下：
+                            1、什么是带参宏？带参宏在我们的嵌入式编程中使用得非常多，其定义如下：
 define 标识符(参数列表) 字符序列
-其中参数列表中的参数之间用逗号分隔，字符序列中应包含参数表中的参数。在定义带参数的宏时，宏名标识符与左圆括号之间不允许有空白符，应紧接在一起，
+其中参数列表中的参数之间用逗号分隔，字符序列中应包含参数表中的参数。在定义带参数的宏时，宏名标识符与左圆括号之间不允许有空白
                         
                     </div>
                     <div class="publish-info">
@@ -913,7 +915,7 @@ define 标识符(参数列表) 字符序列
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

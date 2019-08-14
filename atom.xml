@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-08-14T14:10:31.165Z</updated>
+  <updated>2019-08-14T14:57:35.042Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhengnianli.github.io/2019/08/13/gong-ju-zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/"/>
     <id>https://zhengnianli.github.io/2019/08/13/gong-ju-zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/</id>
     <published>2019-08-13T00:22:15.000Z</published>
-    <updated>2019-08-14T14:10:31.165Z</updated>
+    <updated>2019-08-14T14:57:35.042Z</updated>
     
     <summary type="html">
     
@@ -51,7 +51,7 @@
     <link href="https://zhengnianli.github.io/2019/08/12/c-yu-yan-bi-ji-assert-zen-me-yong/"/>
     <id>https://zhengnianli.github.io/2019/08/12/c-yu-yan-bi-ji-assert-zen-me-yong/</id>
     <published>2019-08-12T00:22:15.000Z</published>
-    <updated>2019-08-13T00:32:22.074Z</updated>
+    <updated>2019-08-14T14:25:06.718Z</updated>
     
     <summary type="html">
     
@@ -59,7 +59,7 @@
       
         
         
-          &lt;h1 id=&quot;一、什么是assert-？&quot;&gt;&lt;a href=&quot;#一、什么是assert-？&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;一、什么是assert-？&quot;&gt;&lt;a href=&quot;#一、什么是assert-？&quot; class=&quot;headerlink&quot;
         
       
     
@@ -77,7 +77,7 @@
     <link href="https://zhengnianli.github.io/2019/08/01/c-yu-yan-bi-ji-lian-he-ti/"/>
     <id>https://zhengnianli.github.io/2019/08/01/c-yu-yan-bi-ji-lian-he-ti/</id>
     <published>2019-08-01T00:22:15.000Z</published>
-    <updated>2019-08-02T00:39:20.896Z</updated>
+    <updated>2019-08-14T14:59:14.854Z</updated>
     
     <summary type="html">
     
@@ -292,7 +292,7 @@
     <link href="https://zhengnianli.github.io/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/"/>
     <id>https://zhengnianli.github.io/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/</id>
     <published>2019-06-03T00:22:15.000Z</published>
-    <updated>2019-06-24T01:57:19.196Z</updated>
+    <updated>2019-08-14T14:50:47.141Z</updated>
     
     <summary type="html">
     
@@ -300,11 +300,7 @@
       
         
         
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;两个数组元素的地址相减得到什么？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;先看一段代码：&lt;/p&gt;
-&lt;pre
+          &lt;h2 id=&quot;1、问题&quot;&gt;&lt;a href=&quot;#1、问题&quot; class=&quot;headerlink&quot;
         
       
     
@@ -444,7 +440,7 @@
     <link href="https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/"/>
     <id>https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/</id>
     <published>2019-05-07T00:22:15.000Z</published>
-    <updated>2019-06-24T05:22:18.198Z</updated>
+    <updated>2019-08-14T14:22:28.743Z</updated>
     
     <summary type="html">
     
@@ -452,7 +448,7 @@
       
         
         
-          &lt;h3 id=&quot;1、-运算符&quot;&gt;&lt;a href=&quot;#1、-运算符&quot; class=&quot;headerlink&quot; title=&quot;1、#运算符&quot;&gt;&lt;/a&gt;1、#运算符&lt;/h3&gt;&lt;p&gt;我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：&lt;/p&gt;
+          &lt;h2 id=&quot;1、-运算符&quot;&gt;&lt;a href=&quot;#1、-运算符&quot; class=&quot;headerlink&quot; title=&quot;1、#运算符&quot;&gt;&lt;/a&gt;1、#运算符&lt;/h2&gt;&lt;p&gt;我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：&lt;/p&gt;
 &lt;p&gt;&lt;a
         
       

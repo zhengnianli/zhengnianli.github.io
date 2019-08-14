@@ -5,7 +5,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】关于数组的一个陷阱！, 正念的博客">
-    <meta name="description" content="问题
+    <meta name="description" content="1、问题
 两个数组元素的地址相减得到什么？
 
 先看一段代码：
@@ -14,7 +14,7 @@
 int main(void)
 {
     int a[]={0,1,2,3,4,5};
-    printf(&#34;&amp;amp;a[0] = ">
+    printf(&#34;&amp;amp;a[0] ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -414,7 +414,7 @@ int main(void)
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        722
+                        749
                     </div>
                     
 
@@ -437,7 +437,7 @@ int main(void)
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
+                <h2 id="1、问题"><a href="#1、问题" class="headerlink" title="1、问题"></a>1、问题</h2><blockquote>
 <p>两个数组元素的地址相减得到什么？</p>
 </blockquote>
 <p>先看一段代码：</p>
@@ -452,13 +452,13 @@ int main(void)
 </code></pre>
 <p>这段代码以十进制的形式打印出第0号元素的地址和第2号元素的地址，输出结果为：</p>
 <pre class=" language-c"><code class="language-c"><span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2686760</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2686768</span></code></pre>
-<p>所以，<code>&amp;a[2] - &amp;a[0]</code>的结果是8？但是，事实不是这样的！！让我们把其结果打印出来：<br><a href="https://imgchr.com/i/VqAEbd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VqAEbd.md.png" alt="VqAEbd.md.png"></a><br>竟然是<code>2</code>！我们把<code>&amp;a[5] - &amp;a[2]</code>的结果输出来看看有什么规律：<br><a href="https://imgchr.com/i/VqA1Kg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VqA1Kg.md.png" alt="VqA1Kg.md.png"></a></p>
-<h2 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a>陷阱</h2><p>事实证明，两个数组元素的地址相减，其值并不是等于两个地址数值上的差，而是等于这两个地址之间内存单元的个数。本例中数组的类型是int类型，并且在32bit编译环境下编译，因此这里的内存单元的大小是4字节。所以本例中<code>&amp;a[2] - &amp;a[0]</code>的值为:</p>
+<p>所以，<code>&amp;a[2] - &amp;a[0]</code>的结果是8？但是，事实不是这样的！！让我们把其结果打印出来：<br><a href="https://imgchr.com/i/VqAEbd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VqAEbd.md.png" alt></a><br>竟然是<code>2</code>！我们把<code>&amp;a[5] - &amp;a[2]</code>的结果输出来看看有什么规律：<br><a href="https://imgchr.com/i/VqA1Kg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VqA1Kg.md.png" alt></a></p>
+<h2 id="2、陷阱"><a href="#2、陷阱" class="headerlink" title="2、陷阱"></a>2、陷阱</h2><p>事实证明，两个数组元素的地址相减，其值并不是等于两个地址数值上的差，而是等于这两个地址之间内存单元的个数。本例中数组的类型是int类型，并且在32bit编译环境下编译，因此这里的内存单元的大小是4字节。所以本例中<code>&amp;a[2] - &amp;a[0]</code>的值为:</p>
 <pre class=" language-c"><code class="language-c"><span class="token punctuation">(</span><span class="token number">2686768</span> <span class="token operator">-</span> <span class="token number">2686760</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">4</span></code></pre>
-<p>当然，若是低号元素地址减去高号元素地址，得到的结果是负数：<br><a href="https://imgchr.com/i/VqAUP0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VqAUP0.md.png" alt="VqAUP0.md.png"></a><br>网上看到了一篇博客也是印证了这一点：</p>
+<p>当然，若是低号元素地址减去高号元素地址，得到的结果是负数：<br><a href="https://imgchr.com/i/VqAUP0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VqAUP0.md.png" alt></a><br>网上看到了一篇博客也是印证了这一点：</p>
 <pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>harvic880925<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">8953854</span></code></pre>
 <p>这是个很容易出错的问题，需要特别注意！</p>
-<h2 id="学以致用"><a href="#学以致用" class="headerlink" title="学以致用"></a>学以致用</h2><p>我们的<a href="https://zhengnianli.github.io/2019/06/01/c-bian-cheng-lian-xi-004/">C编程练习004</a>中的题目是</p>
+<h2 id="3、学以致用"><a href="#3、学以致用" class="headerlink" title="3、学以致用"></a>3、学以致用</h2><p>我们的<a href="https://zhengnianli.github.io/2019/06/01/c-bian-cheng-lian-xi-004/">C编程练习004</a>中的题目是</p>
 <blockquote>
 <p>寻找数组元素第一次出现的位置</p>
 </blockquote>
@@ -478,7 +478,7 @@ int main(void)
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 未查找到key</span>
 <span class="token punctuation">}</span></code></pre>
-<h2 id="完整的验证代码为"><a href="#完整的验证代码为" class="headerlink" title="完整的验证代码为"></a>完整的验证代码为</h2><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************
+<h2 id="4、完整的验证代码为"><a href="#4、完整的验证代码为" class="headerlink" title="4、完整的验证代码为"></a>4、完整的验证代码为</h2><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************
 ** 题    目: 同一个数组中两个元素的地址相减
 ********************************************************************************************************/</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
@@ -523,7 +523,9 @@ int main(void)
 <span class="token punctuation">}</span> </code></pre>
 <p>可见，得到的结果与我们的<a href="https://zhengnianli.github.io/2019/06/01/c-bian-cheng-lian-xi-004/">C编程练习004</a>中的验证结果一样。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -934,7 +936,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

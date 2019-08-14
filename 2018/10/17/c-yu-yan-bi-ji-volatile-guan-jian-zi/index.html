@@ -5,11 +5,11 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】volatile关键字, 正念的博客">
-    <meta name="description" content="volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
+    <meta name="description" content="1、volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
 简单地说就是防止编译器对代码进行优化。比如如下程序：
 XBYTE[2]=0x55;
 XBYTE[2]=0x56;
-XB">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -432,18 +432,21 @@ XB">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="volatile的作用"><a href="#volatile的作用" class="headerlink" title="volatile的作用"></a>volatile的作用</h3><p>volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。</p>
+                <h2 id="1、volatile的作用"><a href="#1、volatile的作用" class="headerlink" title="1、volatile的作用"></a>1、volatile的作用</h2><p>volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。</p>
 <p>简单地说就是防止编译器对代码进行优化。比如如下程序：</p>
 <pre class=" language-c"><code class="language-c">XBYTE<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0x55</span><span class="token punctuation">;</span>
 XBYTE<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0x56</span><span class="token punctuation">;</span>
 XBYTE<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0x57</span><span class="token punctuation">;</span>
 XBYTE<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0x58</span><span class="token punctuation">;</span></code></pre>
 <p>对外部硬件而言，上述四条语句分别表示不同的操作，会产生四种不同的动作，但是编译器却会对上述四条语句进行优化，认为只有<code>XBYTE[2]=0x58</code>（即忽略前三条语句，只产生一条机器代码）。如果键入volatile，则编译器会逐一地进行编译并产生相应的机器代码（产生四条代码）。</p>
-<h3 id="编译器的优化"><a href="#编译器的优化" class="headerlink" title="编译器的优化"></a>编译器的优化</h3><p>在本次线程内，当读取一个变量时，为提高存取速度，编译器优化时有时会先把变量读取到一个寄存器中；以后再取变量值时，就直接从寄存器中取值；</p>
+<h2 id="2、编译器的优化"><a href="#2、编译器的优化" class="headerlink" title="2、编译器的优化"></a>2、编译器的优化</h2><p>在本次线程内，当读取一个变量时，为提高存取速度，编译器优化时有时会先把变量读取到一个寄存器中；以后再取变量值时，就直接从寄存器中取值；</p>
 <p>当变量值在本线程里改变时，会同时把变量的新值copy到该寄存器中，以便保持一致<br>当变量在因别的线程等而改变了值，该寄存器的值不会相应改变，从而造成应用程序读取的值和实际的变量值不一致；</p>
 <p>当该寄存器在因别的线程等而改变了值，原变量的值不会改变，从而造成应用程序读取的值和实际的变量值不一致。</p>
-<p>举一个不太准确的例子：<br>发薪资时，会计每次都把员工叫来登记他们的银行卡号；一次会计为了省事，没有即时登记，用了以前登记的银行卡号；刚好一个员工的银行卡丢了，已挂失该银行卡号；从而造成该员工领不到工资。<br>员工 －－ 原始变量地址<br>银行卡号 －－ 原始变量在寄存器的备份</p>
-<h3 id="volatile例子"><a href="#volatile例子" class="headerlink" title="volatile例子"></a>volatile例子</h3><p>精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。下面是volatile变量的几个例子：</p>
+<p>举一个不太准确的例子：<br>发薪资时，会计每次都把员工叫来登记他们的银行卡号；一次会计为了省事，没有即时登记，用了以前登记的银行卡号；刚好一个员工的银行卡丢了，已挂失该银行卡号；从而造成该员工领不到工资。</p>
+<blockquote>
+<p>员工 －－ 原始变量地址<br>银行卡号 －－ 原始变量在寄存器的备份</p>
+</blockquote>
+<h2 id="2、volatile例子"><a href="#2、volatile例子" class="headerlink" title="2、volatile例子"></a>2、volatile例子</h2><p>精确地说就是，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。下面是volatile变量的几个例子：</p>
 <blockquote>
 <p>1）并行设备的硬件寄存器（如：状态寄存器）<br>2）一个中断服务子程序中会访问到的非自动变量<br>3）多线程应用中被几个任务共享的变量</p>
 </blockquote>
@@ -502,7 +505,9 @@ XBYTE<span class="token punctuation">[</span><span class="token number">2</span>
 <p>如果将变量加上volatile修饰，则编译器保证对此变量的读写操作都不会被优化（肯定执行）。此例中i也应该如此说明。</p>
 <p>嵌入式系统中涉及到硬件、中断、RTOS等，所有这些都要求使用volatile变量，可能被意想不到地改变。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -907,7 +912,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

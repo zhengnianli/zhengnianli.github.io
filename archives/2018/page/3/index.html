@@ -474,11 +474,11 @@ int main(void)
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
+                                    1、volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
 简单地说就是防止编译器对代码进行优化。比如如下程序：
 XBYTE[2]=0x55;
 XBYTE[2]=0x56;
-XB
+
                                 
                             </div>
                             <div class="publish-info">
@@ -722,12 +722,12 @@ XB
                             <div class="summary block-with-text">
                                 
                                     extern关键字可以用来声明变量和函数作为外部变量或者函数供其它文件使用。
-extern声明变量示例程序：test.h如下：
+1、extern声明变量示例程序：test.h如下：
 //声明
 extern int a;
 extern int b;
 test.c如下：
-#include "tes
+#include "t
                                 
                             </div>
                             <div class="publish-info">
@@ -836,23 +836,23 @@ C语言程序的存储区如下图所示：
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/11/c-yu-yan-bi-ji-getchar-getche-getch-de-qu-bie/">
+                        <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【C语言笔记】getchar()、getche()、getch()的区别">
+                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】#define与typedef的区别？">
                                 
-                                <span class="card-title">【C语言笔记】getchar()、getche()、getch()的区别</span>
+                                <span class="card-title">【C语言笔记】#define与typedef的区别？</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    1、getchar()函数所在头文件：stdio.h
-函数原型：int getchar(void);
-函数功能：读取控制台输入的字符，并保存在键盘缓冲区中。直到用户按回车为止(回车字符也放在缓冲区中)。
-看一段代码：
-#include &l
+                                    1、#definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
+宏定义的一般形式为：
+#define 宏名 字符串
+这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
+2、typede
                                 
                             </div>
                             <div class="publish-info">
@@ -899,23 +899,23 @@ C语言程序的存储区如下图所示：
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">
+                        <a href="/2018/10/11/c-yu-yan-bi-ji-getchar-getche-getch-de-qu-bie/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】#define与typedef的区别？">
+                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【C语言笔记】getchar()、getche()、getch()的区别">
                                 
-                                <span class="card-title">【C语言笔记】#define与typedef的区别？</span>
+                                <span class="card-title">【C语言笔记】getchar()、getche()、getch()的区别</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
-宏定义的一般形式为：
-#define 宏名 字符串
-这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
-typedeftyp
+                                    1、getchar()函数所在头文件：stdio.h
+函数原型：int getchar(void);
+函数功能：读取控制台输入的字符，并保存在键盘缓冲区中。直到用户按回车为止(回车字符也放在缓冲区中)。
+看一段代码：
+#include &l
                                 
                             </div>
                             <div class="publish-info">
@@ -1175,7 +1175,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

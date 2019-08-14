@@ -407,7 +407,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        544
+                        567
                     </div>
                     
 
@@ -430,7 +430,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？</p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？</p>
 <p>下面以<code>windows</code>环境下的<code>test.c</code>为例，<code>test.c</code>里的代码为：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
@@ -439,31 +439,43 @@
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>其经历如下过程：</p>
-<p><a href="https://imgchr.com/i/V5fr59" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fr59.md.png" alt="V5fr59.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/14/V5fr59.md.png" alt border="0" width="400">
+
+
+
+
 <p>如图，编译生成可执行文件的过程实际包含四个过程：（1）预处理；（2）编译；（3）汇编；（4）链接。</p>
-<h3 id="2、预处理（Preprpcessing）"><a href="#2、预处理（Preprpcessing）" class="headerlink" title="2、预处理（Preprpcessing）"></a>2、预处理（Preprpcessing）</h3><p>使用预处理器把源文件<code>test.c</code>经过预处理生成<code>test.i</code>文件，预处理用于将所有的#include头文件以及宏定义替换成其真正的内容。</p>
+<h2 id="2、预处理（Preprpcessing）"><a href="#2、预处理（Preprpcessing）" class="headerlink" title="2、预处理（Preprpcessing）"></a>2、预处理（Preprpcessing）</h2><p>使用预处理器把源文件<code>test.c</code>经过预处理生成<code>test.i</code>文件，预处理用于将所有的#include头文件以及宏定义替换成其真正的内容。</p>
 <p>预处理的命令为：</p>
 <pre class=" language-c"><code class="language-c">gcc <span class="token operator">-</span>E test<span class="token punctuation">.</span>c <span class="token operator">-</span>o test<span class="token punctuation">.</span>i</code></pre>
 <p>上述命令中<code>-E</code>是让编译器在预处理之后就退出，不进行后续编译过程；<code>-o</code>是指定输出文件名。</p>
 <p>预处理之后得到的仍然是文本文件。test.i文件部分内容截图如下：</p>
-<p><a href="https://imgchr.com/i/V5fRKK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fRKK.md.png" alt="V5fRKK.md.png"></a></p>
-<h3 id="3、编译（Compilation）"><a href="#3、编译（Compilation）" class="headerlink" title="3、编译（Compilation）"></a>3、编译（Compilation）</h3><p>使用编译器将预处理文件<code>test.i</code>编译成汇编文件<code>test.s</code>。</p>
+<p><a href="https://imgchr.com/i/V5fRKK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fRKK.md.png" alt></a></p>
+<h2 id="3、编译（Compilation）"><a href="#3、编译（Compilation）" class="headerlink" title="3、编译（Compilation）"></a>3、编译（Compilation）</h2><p>使用编译器将预处理文件<code>test.i</code>编译成汇编文件<code>test.s</code>。</p>
 <p>编译的命令为：</p>
 <pre class=" language-c"><code class="language-c">gcc <span class="token operator">-</span>S test<span class="token punctuation">.</span>i <span class="token operator">-</span>o test<span class="token punctuation">.</span>s</code></pre>
 <p>上述命令中-S让编译器在编译之后停止，不进行后续过程；-o是指定输出文件名。汇编文件test.s是文本文件，部分内容截图如下：</p>
-<p><a href="https://imgchr.com/i/V5fLKf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fLKf.md.png" alt="V5fLKf.md.png"></a></p>
-<h3 id="4、汇编（Assemble）"><a href="#4、汇编（Assemble）" class="headerlink" title="4、汇编（Assemble）"></a>4、汇编（Assemble）</h3><p>使用汇编器将汇编文件<code>test.s</code>转换成目标文件<code>test.o</code>。</p>
+<img src="https://s2.ax1x.com/2019/06/14/V5fLKf.md.png" alt border="0" width="600">
+
+
+
+<h2 id="4、汇编（Assemble）"><a href="#4、汇编（Assemble）" class="headerlink" title="4、汇编（Assemble）"></a>4、汇编（Assemble）</h2><p>使用汇编器将汇编文件<code>test.s</code>转换成目标文件<code>test.o</code>。</p>
 <p>汇编过程的命令为：</p>
 <pre class=" language-c"><code class="language-c">gcc <span class="token operator">-</span>c test<span class="token punctuation">.</span>s <span class="token operator">-</span>o test<span class="token punctuation">.</span>o</code></pre>
 <p>上述命令中<code>-c</code>、<code>-o</code>让汇编器把汇编文件<code>test.s</code>转换成目标文件<code>test.o</code>。目标文件<code>test.o</code>是二进制文件，部分内容截图如下：</p>
-<p><a href="https://imgchr.com/i/V5fxaQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fxaQ.md.png" alt="V5fxaQ.md.png"></a></p>
-<h3 id="5、链接（Linking）"><a href="#5、链接（Linking）" class="headerlink" title="5、链接（Linking）"></a>5、链接（Linking）</h3><p>链接过程使用链接器将该目标文件与其他目标文件、库文件、启动文件等链接起来生成可执行文件。</p>
+<img src="https://s2.ax1x.com/2019/06/14/V5fxaQ.md.png" alt border="0" width="600">
+
+
+
+<h2 id="5、链接（Linking）"><a href="#5、链接（Linking）" class="headerlink" title="5、链接（Linking）"></a>5、链接（Linking）</h2><p>链接过程使用链接器将该目标文件与其他目标文件、库文件、启动文件等链接起来生成可执行文件。</p>
 <p>链接过程的命令为：</p>
 <pre class=" language-c"><code class="language-c">gcc test<span class="token punctuation">.</span>o <span class="token operator">-</span>o test<span class="token punctuation">.</span>exe</code></pre>
 <p>综上，生成可执行程序过程为：预处理、编译、汇编、链接。各个命令如下图所示：</p>
-<p><a href="https://imgchr.com/i/V5hpPs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5hpPs.md.png" alt="V5hpPs.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5hpPs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5hpPs.md.png" alt></a></p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -863,7 +875,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

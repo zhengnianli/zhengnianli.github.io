@@ -5,12 +5,12 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】时间日期函数, 正念的博客">
-    <meta name="description" content="前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
+    <meta name="description" content="一、前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
 
-time()函数1、函数原型
+二、time()函数1、函数原型
 time_t time(time_t *t);
 2、函数说明
-time_t 是lon">
+time_t ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -410,7 +410,7 @@ time_t 是lon">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.2k
+                        1.3k
                     </div>
                     
 
@@ -433,9 +433,9 @@ time_t 是lon">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：</p>
-<p><a href="https://imgchr.com/i/V5fE4A" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fE4A.md.png" alt="V5fE4A.md.png"></a></p>
-<h3 id="time-函数"><a href="#time-函数" class="headerlink" title="time()函数"></a>time()函数</h3><p>1、函数原型</p>
+                <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：</p>
+<p><a href="https://imgchr.com/i/V5fE4A" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5fE4A.md.png" alt></a></p>
+<h3 id="二、time-函数"><a href="#二、time-函数" class="headerlink" title="二、time()函数"></a>二、time()函数</h3><p>1、函数原型</p>
 <pre class=" language-c"><code class="language-c">time_t <span class="token function">time</span><span class="token punctuation">(</span>time_t <span class="token operator">*</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>2、函数说明</p>
 <p>time_t 是long int 类型。此函数会返回从公元1970年1月1日的UTC时间从0时0 分0秒算起到现在所经过的秒数。如果t是空指针，直接返回当前时间。如果t不是空指针，返回当前时间的同时，将返回值赋予t指向的内存空间。</p>
@@ -451,7 +451,7 @@ time_t 是lon">
    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>输出结果</p>
-<pre><code>1970-01-01至现在的秒数为：1542377079</code></pre><h3 id="gmtime-函数"><a href="#gmtime-函数" class="headerlink" title="gmtime()函数"></a>gmtime()函数</h3><p>1、函数原型</p>
+<pre><code>1970-01-01至现在的秒数为：1542377079</code></pre><h3 id="三、gmtime-函数"><a href="#三、gmtime-函数" class="headerlink" title="三、gmtime()函数"></a>三、gmtime()函数</h3><p>1、函数原型</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">struct</span> tm <span class="token operator">*</span><span class="token function">gmtime</span><span class="token punctuation">(</span><span class="token keyword">const</span> time_t <span class="token operator">*</span>timep<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>2、函数说明</p>
 <p>gmtime()将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。</p>
@@ -497,7 +497,7 @@ time_t 是lon">
 <span class="token punctuation">}</span></code></pre>
 <p>输出结果</p>
 <pre class=" language-c"><code class="language-c"><span class="token number">2018</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">16</span> Fri <span class="token number">22</span><span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">:</span><span class="token number">25</span></code></pre>
-<h3 id="localtime-函数"><a href="#localtime-函数" class="headerlink" title="localtime()函数"></a>localtime()函数</h3><p>1、函数原型</p>
+<h3 id="四、localtime-函数"><a href="#四、localtime-函数" class="headerlink" title="四、localtime()函数"></a>四、localtime()函数</h3><p>1、函数原型</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">struct</span> tm <span class="token operator">*</span><span class="token function">localtime</span><span class="token punctuation">(</span><span class="token keyword">const</span> time_t <span class="token operator">*</span> timep<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>2、函数说明</p>
 <p>localtime()将参数timep所指的time_t 结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。</p>
@@ -532,7 +532,7 @@ time_t 是lon">
 <span class="token punctuation">}</span> </code></pre>
 <p>输出结果</p>
 <pre class=" language-c"><code class="language-c"><span class="token number">2018</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">16</span> Fri <span class="token number">22</span><span class="token punctuation">:</span><span class="token number">32</span><span class="token punctuation">:</span><span class="token number">27</span></code></pre>
-<h3 id="ctime-函数"><a href="#ctime-函数" class="headerlink" title="ctime()函数"></a>ctime()函数</h3><p>1、函数原型</p>
+<h3 id="五、ctime-函数"><a href="#五、ctime-函数" class="headerlink" title="五、ctime()函数"></a>五、ctime()函数</h3><p>1、函数原型</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">ctime</span><span class="token punctuation">(</span><span class="token keyword">const</span> time_t <span class="token operator">*</span>timep<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>2、函数说明</p>
 <p>ctime()将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串形态返回。此函数已经由时区转换成当地时间。注意：若再调用相关的时间日期函数，此字符串可能会被破坏。</p>
@@ -551,7 +551,7 @@ time_t 是lon">
 <span class="token punctuation">}</span></code></pre>
 <p>输出结果</p>
 <pre class=" language-c"><code class="language-c">Fri Nov <span class="token number">16</span> <span class="token number">22</span><span class="token punctuation">:</span><span class="token number">38</span><span class="token punctuation">:</span><span class="token number">51</span> <span class="token number">2018</span></code></pre>
-<h3 id="asctime-函数"><a href="#asctime-函数" class="headerlink" title="asctime()函数"></a>asctime()函数</h3><p>1、函数原型</p>
+<h3 id="六、asctime-函数"><a href="#六、asctime-函数" class="headerlink" title="六、asctime()函数"></a>六、asctime()函数</h3><p>1、函数原型</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">asctime</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">struct</span> tm <span class="token operator">*</span> timeptr<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>2、函数说明<br>asctime()将参数timeptr所指的tm结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串形态返回。此函数已经由时区转换成当地时间。注意：若再调用相关的时间日期函数，此字符串可能会被破坏。与ctime()函数的不同在于传入参数结构不同。</p>
 <p>3、函数返回值<br>返回一字符串表示目前当地的时间日期。格式：星期,月,日,小时:分:秒,年。</p>
@@ -577,7 +577,9 @@ time_t 是lon">
 <p>以上就是关于time.h头文件里一些时间函数的介绍。其中gmtime()函数与localtime()函数类似，ctime()函数与asctime()函数类似，应把这两对函数对比来看。</p>
 <pre class=" language-c"><code class="language-c">参考资料：百度百科及C语言中文网</code></pre>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -976,7 +978,7 @@ int rand(void);
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

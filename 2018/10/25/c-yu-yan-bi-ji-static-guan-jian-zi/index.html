@@ -433,8 +433,10 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
 <p>C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变量）或者函数只能在一个源程序中定义一次，如果有重复定义的话编译器就会报错。</p>
 <p>伴随着不同源文件变量和函数之间的相互引用以及相互独立的关系，产生了extern和static关键字。</p>
 <p>下面，详细分析一下static关键字在编写程序时有的三大类用法：</p>
-<h3 id="static定义全局变量"><a href="#static定义全局变量" class="headerlink" title="static定义全局变量"></a>static定义全局变量</h3><p>一个进程在内存中的布局如图1所示：</p>
-<p><a href="https://imgchr.com/i/V5F0nf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5F0nf.md.png" alt="V5F0nf.md.png"></a></p>
+<h2 id="1、static定义全局变量"><a href="#1、static定义全局变量" class="headerlink" title="1、static定义全局变量"></a>1、static定义全局变量</h2><p>一个进程在内存中的布局如图1所示：</p>
+<img src="https://s2.ax1x.com/2019/06/14/V5F0nf.md.png" alt border="0" width="150">
+
+
 <p>其中<code>.text段</code>保存进程所执行的程序二进制文件，<code>.data段</code>保存进程所有的已初始化的全局变量，<code>.bss段</code>保存进程未初始化的全局变量（其他段中还有很多乱七八糟的段，暂且不表）。在进程的整个生命周期中，.data段和.bss段内的数据时跟整个进程同生共死的，也就是在进程结束之后这些数据才会寿终就寝。</p>
 <p>当一个进程的全局变量被声明为static之后，它的中文名叫<code>静态全局变量</code>。静态全局变量和其他的全局变量的存储地点并没有区别，都是在.data段（已初始化）或者.bss段（未初始化）内，但是它只在定义它的源文件内有效，其他源文件无法访问它。所以，普通全局变量穿上static外衣后，它就变成了新娘，已心有所属，只能被定义它的源文件（新郎）中的变量或函数访问。</p>
 <p>以下是示例程序：</p>
@@ -461,7 +463,7 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>main.c是我们的主程序所在文件，main.c中如果引用hello会编译出错，报错如下：</p>
-<p><a href="https://imgchr.com/i/V5knUg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5knUg.md.png" alt="V5knUg.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5knUg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5knUg.md.png" alt></a></p>
 <p>如果我们将main.c改为下面的形式：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"file1.h"</span></span>
 
@@ -471,8 +473,8 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>则会顺利编译连接。运行结果如下：</p>
-<p><a href="https://imgchr.com/i/V5ku5Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5ku5Q.md.png" alt="V5ku5Q.md.png"></a></p>
-<h3 id="static定义局部变量"><a href="#static定义局部变量" class="headerlink" title="static定义局部变量"></a>static定义局部变量</h3><p>static局部变量中文名叫静态局部变量。它与普通的局部变量比起来有如下几个区别：</p>
+<p><a href="https://imgchr.com/i/V5ku5Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5ku5Q.md.png" alt></a></p>
+<h2 id="2、static定义局部变量"><a href="#2、static定义局部变量" class="headerlink" title="2、static定义局部变量"></a>2、static定义局部变量</h2><p>static局部变量中文名叫静态局部变量。它与普通的局部变量比起来有如下几个区别：</p>
 <p>（1）位置：静态局部变量被编译器放在全局存储区.data（注意：不在.bss段内，原因见（3）），所以它虽然是局部的，但是在程序的整个生命周期中存在。</p>
 <p>（2）访问权限：静态局部变量只能被其作用域内的变量或函数访问。也就是说虽然它会在程序的整个生命周期中存在，由于它是static的，它不能被其他的函数和源文件访问。</p>
 <p>（3）值：静态局部变量如果没有被用户初始化，则会被编译器自动赋值为0，以后每次调用静态局部变量的时候都用上次调用后的值。这个比较好理解，每次函数调用静态局部变量的时候都修改它然后离开，下次读的时候从全局存储区读出的静态局部变量就是上次修改后的值。</p>
@@ -501,14 +503,16 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>运行结果如下：</p>
-<p><a href="https://imgchr.com/i/V5kl2n" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5kl2n.md.png" alt="V5kl2n.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V5kl2n" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5kl2n.md.png" alt></a></p>
 <p>可以看出，函数每次被调用，普通局部变量都是重新分配，而静态局部变量保持上次调用的值不变。</p>
 <p>需要注意的是由于static局部变量的这种特性，使得含静态局部变量的函数变得不可重入，即每次调用可能会产生不同的结果。这在多线程编程时可能会成为一种隐患。需要多加注意。</p>
-<h3 id="static定义函数"><a href="#static定义函数" class="headerlink" title="static定义函数"></a>static定义函数</h3><p>当你的程序中有很多个源文件的时候，你肯定会让某个源文件只提供一些外界需要的接口，其他的函数可能是为了实现这些接口而编写，这些其他的函数你可能并不希望被外界（非本源文件）所看到，这时候就可以用static修饰这些“其他的函数”。</p>
+<h2 id="3、static定义函数"><a href="#3、static定义函数" class="headerlink" title="3、static定义函数"></a>3、static定义函数</h2><p>当你的程序中有很多个源文件的时候，你肯定会让某个源文件只提供一些外界需要的接口，其他的函数可能是为了实现这些接口而编写，这些其他的函数你可能并不希望被外界（非本源文件）所看到，这时候就可以用static修饰这些“其他的函数”。</p>
 <p>所以static函数的作用域是本源文件。static定义函数与static定义全局变量类似，不再举例说明，可参考“static定义全局变量”的程序定义全局变量的套路。</p>
 <p>以上就是关于static的三种用法，如有错误，欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -698,30 +702,33 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/30/c-yu-yan-bi-ji-guan-yu-you-fu-hao-shu-yu-wu-fu-hao-shu-de-yi-xie-zong-jie/">
+                <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【C语言笔记】关于有符号数与无符号数的一些总结">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                         
-                        <span class="card-title">【C语言笔记】关于有符号数与无符号数的一些总结</span>
+                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
-请看如下代码：
-#include &lt;stdio.h>
-int main(void)
-{
-    unsigned int a = 6;
-    int b
+                            前言数组与指针是不等价的，如：
+
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
                         </span>
                         <span class="publish-author">
                             
@@ -914,7 +921,7 @@ void func1(int **array, int m, int n)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

@@ -365,11 +365,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
+                                1、volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
 简单地说就是防止编译器对代码进行优化。比如如下程序：
 XBYTE[2]=0x55;
 XBYTE[2]=0x56;
-XB
+
                             
                         </div>
                         <div class="publish-info">
@@ -403,21 +403,23 @@ XB
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                             
-                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
+                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
-下面以windows环境下的test.c为例，test.c里的代码为：
-#inc
+                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+示例一：字
                             
                         </div>
                         <div class="publish-info">
@@ -498,23 +500,21 @@ XB
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
                             
-                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = "happy";
-(2)char *str = "happy";
-这种方式有什么不同呢？
-示例一：字
+                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
+下面以windows环境下的test.c为例，test.c里的代码为：
+#inc
                             
                         </div>
                         <div class="publish-info">
@@ -561,12 +561,12 @@ XB
                         <div class="summary block-with-text">
                             
                                 extern关键字可以用来声明变量和函数作为外部变量或者函数供其它文件使用。
-extern声明变量示例程序：test.h如下：
+1、extern声明变量示例程序：test.h如下：
 //声明
 extern int a;
 extern int b;
 test.c如下：
-#include "tes
+#include "t
                             
                         </div>
                         <div class="publish-info">
@@ -711,11 +711,11 @@ C语言程序的存储区如下图所示：
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
+                                1、#definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
 宏定义的一般形式为：
 #define 宏名 字符串
 这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
-typedeftyp
+2、typede
                             
                         </div>
                         <div class="publish-info">
@@ -936,7 +936,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

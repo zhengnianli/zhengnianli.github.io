@@ -5,9 +5,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】带参宏定义（二）, 正念的博客">
-    <meta name="description" content="带参宏在我们的嵌入式编程中使用得非常多，其定义如下：
+    <meta name="description" content="1、什么是带参宏？带参宏在我们的嵌入式编程中使用得非常多，其定义如下：
 define 标识符(参数列表) 字符序列
-其中参数列表中的参数之间用逗号分隔，字符序列中应包含参数表中的参数。在定义带参数的宏时，宏名标识符与左圆括号之间不允许有空白符，应紧接在一起，">
+其中参数列表中的参数之间用逗号分隔，字符序列中应包含参数表中的参数。在定义带参数的宏时，宏名标识符与左圆括号之间不允许有空白">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -430,7 +430,7 @@ define 标识符(参数列表) 字符序列
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>带参宏在我们的嵌入式编程中使用得非常多，其定义如下：</p>
+                <h2 id="1、什么是带参宏？"><a href="#1、什么是带参宏？" class="headerlink" title="1、什么是带参宏？"></a>1、什么是带参宏？</h2><p>带参宏在我们的嵌入式编程中使用得非常多，其定义如下：</p>
 <pre class=" language-c"><code class="language-c">define 标识符<span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span> 字符序列</code></pre>
 <p>其中参数列表中的参数之间用逗号分隔，字符序列中应包含参数表中的参数。在定义带参数的宏时，宏名标识符与左圆括号之间不允许有空白符，应紧接在一起，否则变成了无参数的宏定义。</p>
 <p>并且，字符序列与其每一个参数必须用括号扩起来，否则该宏定义可能会产生<code>二义性</code> 。下面举个简单的例子，定义一个求平方的宏函数：</p>
@@ -444,7 +444,7 @@ define 标识符(参数列表) 字符序列
   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"res = %d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>输出结果如下：<br><a href="https://imgchr.com/i/VbO7LT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbO7LT.md.png" alt="VbO7LT.md.png"></a><br><code>res</code>变量的输出结果为17，与我们期望的<code>res = 49;</code>相差甚远！这就是因为我们不给字符序列中的宏参数加括号的原因，产生了歧义。程序生成可执行程序之前的预处理过程中把SQUARE(x+2)替换成了<code>x+2*x+2</code>，因此当<code>x=5</code>时res的结果为17。我们可以使用命令<code>gcc -E hello.c -o hello.i</code>进行预处理，然后查看经过预处理得到的文件<code>hello.i</code>的内容，<code>hello.i</code>里的内容如下：<br><a href="https://imgchr.com/i/VbOqwF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbOqwF.md.png" alt="VbOqwF.md.png"></a><br><code>hello.i</code>里的内容与我们上面分析的一致！关于C程序的编译原理可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">【C语言笔记】C语言编译的过程</a>关于windows系统下使用<code>gcc编译器</code>的方法可参考往期笔记：<a href="https://zhengnianli.github.io/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">【C语言笔记】使用notepad++、MinGW来开发C程序</a></p>
+<p>输出结果如下：<br><a href="https://imgchr.com/i/VbO7LT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbO7LT.md.png" alt></a><br><code>res</code>变量的输出结果为17，与我们期望的<code>res = 49;</code>相差甚远！这就是因为我们不给字符序列中的宏参数加括号的原因，产生了歧义。程序生成可执行程序之前的预处理过程中把SQUARE(x+2)替换成了<code>x+2*x+2</code>，因此当<code>x=5</code>时res的结果为17。我们可以使用命令<code>gcc -E hello.c -o hello.i</code>进行预处理，然后查看经过预处理得到的文件<code>hello.i</code>的内容，<code>hello.i</code>里的内容如下：<br><a href="https://imgchr.com/i/VbOqwF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbOqwF.md.png" alt></a><br><code>hello.i</code>里的内容与我们上面分析的一致！关于C程序的编译原理可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">【C语言笔记】C语言编译的过程</a>关于windows系统下使用<code>gcc编译器</code>的方法可参考往期笔记：<a href="https://zhengnianli.github.io/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">【C语言笔记】使用notepad++、MinGW来开发C程序</a></p>
 <p>以上程序严谨的求平方的宏函数的定义如下：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">define</span> SQUARE(a) ((a)*(a)) </span><span class="token comment" spellcheck="true">// 严谨的做法</span>
@@ -456,13 +456,13 @@ define 标识符(参数列表) 字符序列
   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"res = %d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>程序输出结果如下：<br><a href="https://imgchr.com/i/VbjPcq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjPcq.md.png" alt="VbjPcq.md.png"></a><br>可见，这才是我们要的正确结果。</p>
+<p>程序输出结果如下：<br><a href="https://imgchr.com/i/VbjPcq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjPcq.md.png" alt></a><br>可见，这才是我们要的正确结果。</p>
 <p>带参宏到底有多重要，看看TI的一些官方例程就知道，其把很多算法使用带参宏封装起来，用户就可以很方便的使用。</p>
-<h5 id="带参宏——-clarke变换算法："><a href="#带参宏——-clarke变换算法：" class="headerlink" title="带参宏—— clarke变换算法："></a>带参宏—— clarke变换算法：</h5><p><a href="https://imgchr.com/i/VbjABT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjABT.md.png" alt="VbjABT.md.png"></a></p>
-<h5 id="带参宏——-PI调节器算法："><a href="#带参宏——-PI调节器算法：" class="headerlink" title="带参宏—— PI调节器算法："></a>带参宏—— PI调节器算法：</h5><p><a href="https://imgchr.com/i/VbjEHU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjEHU.md.png" alt="VbjEHU.md.png"></a></p>
-<h5 id="这些-h文件都使用宏来封装各种算法："><a href="#这些-h文件都使用宏来封装各种算法：" class="headerlink" title="这些.h文件都使用宏来封装各种算法："></a>这些.h文件都使用宏来封装各种算法：</h5><p><a href="https://imgchr.com/i/VbjeN4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjeN4.md.png" alt="VbjeN4.md.png"></a></p>
-<p>同样，ST官方固件库中也大量使用带参宏：<br><a href="https://imgchr.com/i/Vbj8HO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbj8HO.md.png" alt="Vbj8HO.md.png"></a><br><a href="https://imgchr.com/i/Vbjrb8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbjrb8.md.png" alt="Vbjrb8.md.png"></a><br><a href="https://imgchr.com/i/Vbj5rV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbj5rV.md.png" alt="Vbj5rV.md.png"></a><br>可见带参宏定义的重要性！除此之外，通过以上宏定义，可发现很多宏定义分行时，其行后都加上反斜杠<code>\</code>进行分隔，这也是需要注意的细节。</p>
-<h3 id="带参宏与函数的区别"><a href="#带参宏与函数的区别" class="headerlink" title="带参宏与函数的区别"></a>带参宏与函数的区别</h3><p>查看以上带参宏，我们发现带参宏似乎与函数似乎长得很像，它们之间有什么区别和联系呢？TI为什么要使用宏来对一些算法进行封装呢，难道使用函数来封装不可以吗？答案是可以的：<br><a href="https://imgchr.com/i/VbjIbT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjIbT.md.png" alt="VbjIbT.md.png"></a><br>TI也说了，使用者可以很方便地把这些算法宏转换成一些函数。换句话说就是你可以使用宏定义，也可以使用函数。那么，什么时候封装成宏定义比较好，什么时候封装成函数比较好呢？</p>
+<h3 id="带参宏——-clarke变换算法："><a href="#带参宏——-clarke变换算法：" class="headerlink" title="带参宏—— clarke变换算法："></a>带参宏—— clarke变换算法：</h3><p><a href="https://imgchr.com/i/VbjABT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjABT.md.png" alt></a></p>
+<h4 id="带参宏——-PI调节器算法："><a href="#带参宏——-PI调节器算法：" class="headerlink" title="带参宏—— PI调节器算法："></a>带参宏—— PI调节器算法：</h4><p><a href="https://imgchr.com/i/VbjEHU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjEHU.md.png" alt></a></p>
+<h3 id="这些-h文件都使用宏来封装各种算法："><a href="#这些-h文件都使用宏来封装各种算法：" class="headerlink" title="这些.h文件都使用宏来封装各种算法："></a>这些.h文件都使用宏来封装各种算法：</h3><p><a href="https://imgchr.com/i/VbjeN4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjeN4.md.png" alt></a></p>
+<p>同样，ST官方固件库中也大量使用带参宏：<br><a href="https://imgchr.com/i/Vbj8HO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbj8HO.md.png" alt></a><br><a href="https://imgchr.com/i/Vbjrb8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbjrb8.md.png" alt></a><br><a href="https://imgchr.com/i/Vbj5rV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/Vbj5rV.md.png" alt></a><br>可见带参宏定义的重要性！除此之外，通过以上宏定义，可发现很多宏定义分行时，其行后都加上反斜杠<code>\</code>进行分隔，这也是需要注意的细节。</p>
+<h2 id="2、带参宏与函数的区别"><a href="#2、带参宏与函数的区别" class="headerlink" title="2、带参宏与函数的区别"></a>2、带参宏与函数的区别</h2><p>查看以上带参宏，我们发现带参宏似乎与函数似乎长得很像，它们之间有什么区别和联系呢？TI为什么要使用宏来对一些算法进行封装呢，难道使用函数来封装不可以吗？答案是可以的：<br><a href="https://imgchr.com/i/VbjIbT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbjIbT.md.png" alt></a><br>TI也说了，使用者可以很方便地把这些算法宏转换成一些函数。换句话说就是你可以使用宏定义，也可以使用函数。那么，什么时候封装成宏定义比较好，什么时候封装成函数比较好呢？</p>
 <p>以下内容参考文章：<br><a href="http://blog.sina.com.cn/s/blog_861912cd0100tc94.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_861912cd0100tc94.html</a><br>下面，先看一下带参宏与函数的一些区别，举个例子，比较两个数或者表达式大小：</p>
 <p>（1）带参宏的方式：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> MAX(a,b) ((a)>(b)?(a):(b))</span></code></pre>
@@ -486,7 +486,7 @@ ptr <span class="token operator">=</span> <span class="token function">MALLOC</s
 <p>将这宏展开以后的结果：</p>
 <pre class=" language-c"><code class="language-c">ptr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>这个例子是宏定义的经典应用之一，完成了函数不能完成的功能，但是宏定义也不能滥用，通常，如果相同的代码需要出现在程序的几个地方，更好的方法是把它实现为一个函数。</p>
-<h3 id="宏的缺点"><a href="#宏的缺点" class="headerlink" title="宏的缺点"></a>宏的缺点</h3><ul>
+<h2 id="3、宏的缺点"><a href="#3、宏的缺点" class="headerlink" title="3、宏的缺点"></a>3、宏的缺点</h2><ul>
 <li>宏可能会大幅度增加程序的长度。</li>
 <li>宏是没法调试的。</li>
 <li>宏由于与类型无关，也就不够严谨。</li>
@@ -494,7 +494,9 @@ ptr <span class="token operator">=</span> <span class="token function">MALLOC</s
 </ul>
 <p>以上就是关于带参宏的一些总结，如有错误，欢迎指出！</p>
 <hr>
-<p>我的微信公众号如下，欢迎扫码关注查看更多分享：<br><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -904,7 +906,7 @@ ptr <span class="token operator">=</span> <span class="token function">MALLOC</s
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

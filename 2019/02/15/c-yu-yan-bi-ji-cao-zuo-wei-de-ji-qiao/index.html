@@ -430,10 +430,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、操作位的方法"><a href="#一、操作位的方法" class="headerlink" title="一、操作位的方法"></a>一、操作位的方法</h3><p>操作位有两种方法，一种是<code>位字段</code>，另一种是使用<code>按位运算符</code>。位字段的方法可查看往期笔记：<a href="https://zhengnianli.github.io/2019/02/14/c-yu-yan-bi-ji-wei-yu/">【C语言笔记】位域</a>。本文介绍使用按位运算符操作位的方法。下表为几种位操作符及其含义：</p>
-<p><a href="https://imgchr.com/i/VH0Pit" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH0Pit.md.png" alt="VH0Pit.md.png"></a></p>
-<h3 id="二、不改变其他位的值的状况下，对某几个位进行设值。"><a href="#二、不改变其他位的值的状况下，对某几个位进行设值。" class="headerlink" title="二、不改变其他位的值的状况下，对某几个位进行设值。"></a>二、不改变其他位的值的状况下，对某几个位进行设值。</h3><p>在<code>嵌入式编程</code>中，常常需要对一些寄存器进行配置，有的情况下需要改变一个字节中的某一位或者几位，但是又不想改变其它位原有的值，这时就可以使用按位运算符进行操作。下面进行举例说明，假如有一个8位的TEST寄存器：</p>
-<p><a href="https://imgchr.com/i/VH0QJ0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH0QJ0.md.png" alt="VH0QJ0.md.png"></a></p>
+                <h2 id="一、操作位的方法"><a href="#一、操作位的方法" class="headerlink" title="一、操作位的方法"></a>一、操作位的方法</h2><p>操作位有两种方法，一种是<code>位字段</code>，另一种是使用<code>按位运算符</code>。位字段的方法可查看往期笔记：<a href="https://zhengnianli.github.io/2019/02/14/c-yu-yan-bi-ji-wei-yu/">【C语言笔记】位域</a>。本文介绍使用按位运算符操作位的方法。下表为几种位操作符及其含义：</p>
+<p><a href="https://imgchr.com/i/VH0Pit" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH0Pit.md.png" alt></a></p>
+<h2 id="二、不改变其他位的值的状况下，对某几个位进行设值。"><a href="#二、不改变其他位的值的状况下，对某几个位进行设值。" class="headerlink" title="二、不改变其他位的值的状况下，对某几个位进行设值。"></a>二、不改变其他位的值的状况下，对某几个位进行设值。</h2><p>在<code>嵌入式编程</code>中，常常需要对一些寄存器进行配置，有的情况下需要改变一个字节中的某一位或者几位，但是又不想改变其它位原有的值，这时就可以使用按位运算符进行操作。下面进行举例说明，假如有一个8位的TEST寄存器：</p>
+<p><a href="https://imgchr.com/i/VH0QJ0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH0QJ0.md.png" alt></a></p>
 <p>当我们要设置第0位bit0的值为1时，可能会这样进行设置：</p>
 <pre class=" language-cpp"><code class="language-cpp">TEST <span class="token operator">=</span> <span class="token number">0x01</span><span class="token punctuation">;</span></code></pre>
 <p>但是，这样设置是不够准确的，因为这时候已经同时操作到了高7位：<code>bit1~bit7</code>，如果这高7位没有用到的话，这么设置没有什么影响；但是，如果这7位正在被使用，结果就不是我们想要的了。</p>
@@ -458,7 +458,7 @@
 <p>这样的代码就不好看也不好重用了。<br>类似这样的代码很多:</p>
 <pre class=" language-cpp"><code class="language-cpp">GPIOA<span class="token operator">-</span><span class="token operator">></span>ODR <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//PA.5输出高,不改变其他位</span></code></pre>
 <p>这样我们一目了然，5告诉我们是第5位也就是第6个端口，1告诉我们是设置为1了。</p>
-<h3 id="三、-取反操作使用技巧"><a href="#三、-取反操作使用技巧" class="headerlink" title="三、~取反操作使用技巧"></a>三、~取反操作使用技巧</h3><p><code>SR寄存器</code>的每一位都代表一个状态，某个时刻我们希望去设置某一位的值为0，同时其他位都保留为1，简单的作法是直接给寄存器设置一个值：</p>
+<h2 id="三、-取反操作使用技巧"><a href="#三、-取反操作使用技巧" class="headerlink" title="三、~取反操作使用技巧"></a>三、~取反操作使用技巧</h2><p><code>SR寄存器</code>的每一位都代表一个状态，某个时刻我们希望去设置某一位的值为0，同时其他位都保留为1，简单的作法是直接给寄存器设置一个值：</p>
 <pre class=" language-cpp"><code class="language-cpp">TIMx<span class="token operator">-</span><span class="token operator">></span>SR <span class="token operator">=</span> <span class="token number">0xFFF7</span>；</code></pre>
 <p>这样的作法设置第3位为0，但是这样的作法同样不好看，并且可读性很差。看看库函数代码中怎样使用的：</p>
 <pre class=" language-cpp"><code class="language-cpp">TIMx<span class="token operator">-</span><span class="token operator">></span>SR <span class="token operator">=</span> <span class="token punctuation">(</span>uint16_t<span class="token punctuation">)</span><span class="token operator">~</span>TIM_FLAG<span class="token punctuation">;</span></code></pre>
@@ -478,10 +478,12 @@
 <p>即设置<code>SR</code>第3位为0时可设置为：</p>
 <pre class=" language-cpp"><code class="language-cpp">TIMx<span class="token operator">-</span><span class="token operator">></span>SR <span class="token operator">=</span> <span class="token punctuation">(</span>uint16_t<span class="token punctuation">)</span><span class="token operator">~</span>TIM_FLAG_CC3<span class="token punctuation">;</span></code></pre>
 <p>以上就是关于位操作在嵌入式编程中的一些技巧，如有错误，欢迎指出！</p>
-<h3 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h3><p>《STM32F1开发指南-库函数版本_V3.1 》</p>
+<h2 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h2><p>《STM32F1开发指南-库函数版本_V3.1 》</p>
 <p>《手把手教你学51单片机》</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -733,8 +735,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            位域的概念有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做位域或位段。
-位域是操控
+                            一、位域的概念有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做位域或位段。
+位域是
                         
                     </div>
                     <div class="publish-info">
@@ -878,7 +880,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

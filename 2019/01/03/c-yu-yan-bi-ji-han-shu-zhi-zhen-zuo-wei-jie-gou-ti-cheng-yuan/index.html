@@ -5,8 +5,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】函数指针作为结构体成员, 正念的博客">
-    <meta name="description" content="函数指针在C语言中的意义在C语言程序中，数据结构和算法是两个基本的元素。C语言的基本数据类型、结构体、数组和联合体是数据结构的代表；C语言中的函数则是算法的代表。只有将数据结构和算法有机结合才能构成具有一定功能的程序。
-函数指针的应用函数指">
+    <meta name="description" content="1、函数指针在C语言中的意义在C语言程序中，数据结构和算法是两个基本的元素。C语言的基本数据类型、结构体、数组和联合体是数据结构的代表；C语言中的函数则是算法的代表。只有将数据结构和算法有机结合才能构成具有一定功能的程序。
+2、函数指针的应">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -406,14 +406,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        483
+                        508
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -429,10 +429,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="函数指针在C语言中的意义"><a href="#函数指针在C语言中的意义" class="headerlink" title="函数指针在C语言中的意义"></a>函数指针在C语言中的意义</h3><p>在C语言程序中，数据结构和算法是两个基本的元素。C语言的基本数据类型、结构体、数组和联合体是数据结构的代表；C语言中的函数则是算法的代表。只有将数据结构和算法有机结合才能构成具有一定功能的程序。</p>
-<h3 id="函数指针的应用"><a href="#函数指针的应用" class="headerlink" title="函数指针的应用"></a>函数指针的应用</h3><p>函数指针在嵌入式中的应用非常广泛，常常把函数指针作为结构体的成员、作为函数的参数等。如在物联网操作系统RT-Thread内核源码中，有如下代码：</p>
-<h4 id="1、函数指针作为结构体成员"><a href="#1、函数指针作为结构体成员" class="headerlink" title="1、函数指针作为结构体成员"></a>1、函数指针作为结构体成员</h4><p><a href="https://imgchr.com/i/VHlag1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHlag1.md.png" alt="VHlag1.md.png"></a></p>
-<h4 id="2、函数指针作为函数的参数"><a href="#2、函数指针作为函数的参数" class="headerlink" title="2、函数指针作为函数的参数"></a>2、函数指针作为函数的参数</h4><h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><p>建立一个结构体，用于四则运算（根据函数指针的指向可以选择加法运算、减法运算、乘法运算、除法运算），如</p>
+                <h2 id="1、函数指针在C语言中的意义"><a href="#1、函数指针在C语言中的意义" class="headerlink" title="1、函数指针在C语言中的意义"></a>1、函数指针在C语言中的意义</h2><p>在C语言程序中，数据结构和算法是两个基本的元素。C语言的基本数据类型、结构体、数组和联合体是数据结构的代表；C语言中的函数则是算法的代表。只有将数据结构和算法有机结合才能构成具有一定功能的程序。</p>
+<h2 id="2、函数指针的应用"><a href="#2、函数指针的应用" class="headerlink" title="2、函数指针的应用"></a>2、函数指针的应用</h2><p>函数指针在嵌入式中的应用非常广泛，常常把函数指针作为结构体的成员、作为函数的参数等。如在物联网操作系统RT-Thread内核源码中，有如下代码：</p>
+<h3 id="（1）函数指针作为结构体成员"><a href="#（1）函数指针作为结构体成员" class="headerlink" title="（1）函数指针作为结构体成员"></a>（1）函数指针作为结构体成员</h3><p><a href="https://imgchr.com/i/VHlag1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHlag1.md.png" alt></a></p>
+<h3 id="（2）函数指针作为函数的参数"><a href="#（2）函数指针作为函数的参数" class="headerlink" title="（2）函数指针作为函数的参数"></a>（2）函数指针作为函数的参数</h3><h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p>建立一个结构体，用于四则运算（根据函数指针的指向可以选择加法运算、减法运算、乘法运算、除法运算），如</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>fun_t<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
 
 <span class="token comment" spellcheck="true">// 包含了数据和算法的结构体</span>
@@ -467,10 +467,12 @@ data<span class="token punctuation">.</span>operation <span class="token operato
 result <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">operation</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>a<span class="token punctuation">,</span> data<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"除法运算: %d/%d = %d\n"</span><span class="token punctuation">,</span>data<span class="token punctuation">.</span>a<span class="token punctuation">,</span> data<span class="token punctuation">.</span>b<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>运行结果：</p>
-<p><a href="https://imgchr.com/i/VHl4Df" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHl4Df.md.png" alt="VHl4Df.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VHl4Df" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHl4Df.md.png" alt></a></p>
 <p>以上就是函数指针作为结构体成员的笔记，如有错误欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -872,7 +874,7 @@ result <span class="token operator">=</span> data<span class="token punctuation"
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

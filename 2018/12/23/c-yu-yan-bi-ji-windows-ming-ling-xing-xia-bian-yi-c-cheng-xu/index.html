@@ -410,7 +410,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        772
+                        795
                     </div>
                     
 
@@ -435,38 +435,40 @@
             <div id="articleContent">
                 <p>有关注我的朋友可能会知道我的C开发环境是：<code>Notepad++</code>与<code>MinGW</code>相结合，即用<code>Notepad++</code>写代码，用<code>MinGW</code>这个工具包中的<code>gcc编译器</code>进行编译。如：</p>
 <p>在Notepad++里写代码：</p>
-<p><a href="https://imgchr.com/i/VH1SVU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1SVU.md.png" alt="VH1SVU.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH1SVU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1SVU.md.png" alt></a></p>
 <p>在黑窗口下编译及运行代码：</p>
-<p><a href="https://imgchr.com/i/VH1954" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1954.md.png" alt="VH1954.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH1954" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1954.md.png" alt></a></p>
 <p>此处，编译命令为:</p>
 <pre class=" language-c"><code class="language-c">gcc hello<span class="token punctuation">.</span>c</code></pre>
 <p>生成的可执行文件默认为<code>a.exe</code>，输入<code>a.exe</code>即可运行该可执行程序。同样，也可添加<code>-o</code>参数给<code>a.exe</code>进行重命名，如把<code>hello.c</code>编译生成的可执行文件命名为<code>hello.exe</code>的编译命令为:</p>
 <pre class=" language-c"><code class="language-c">gcc hello<span class="token punctuation">.</span>c <span class="token operator">-</span>o hello<span class="token punctuation">.</span>exe</code></pre>
 <p>此时就可以输出<code>hello.exe</code>运行该程序，如：</p>
-<p><a href="https://imgchr.com/i/VH1iG9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1iG9.md.png" alt="VH1iG9.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH1iG9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1iG9.md.png" alt></a></p>
 <p>学会这种编译方式后，之后转到Linux环境下进行编译也是类似的，编译的命令是一样的。之前已经分享过了这个环境的安装配置方法，可能有些朋友还不是很清楚怎么配置（配置方法请查看使用<a href="https://zhengnianli.github.io/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">【C语言笔记】使用Notepad++来开发C程序</a>）。</p>
 <p>这不，昨天有位朋友问我怎么在黑窗口下切换路径的问题，因为不会切换路径所以无法找到代码文件的位置。现教大家怎么切换路径：</p>
 <p>（1）首先要知道怎么切换盘符，切换盘符示例：</p>
-<p><a href="https://imgchr.com/i/VH1GsP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1GsP.md.png" alt="VH1GsP.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH1GsP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1GsP.md.png" alt></a></p>
 <p>（2）其次，就可以找到该盘符下你的代码的位置，比如我的代码在<code>D:\c_test</code>路径下，那么我就可以如下操作切换到<code>D:\c_test</code>路径：</p>
-<p><a href="https://imgchr.com/i/VH10Rs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH10Rs.md.png" alt="VH10Rs.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH10Rs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH10Rs.md.png" alt></a></p>
 <p>还有方法是，你可以直接<code>cd</code>至你源代码所在目录的绝对路径，如：</p>
-<p><a href="https://imgchr.com/i/VH1Wi4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1Wi4.md.png" alt="VH1Wi4.md.png"></a></p>
-<p><a href="https://imgchr.com/i/VH1zQI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1zQI.md.png" alt="VH1zQI.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH1Wi4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1Wi4.md.png" alt></a></p>
+<p><a href="https://imgchr.com/i/VH1zQI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH1zQI.md.png" alt></a></p>
 <p>此外，有两个小技巧要告诉大家：</p>
 <p>（1）<code>【Tab】键</code>具有补齐功能，比如你输出<code>cd c_</code>,然后按下<code>【Tab】键</code>就可以自动补齐为：<code>cd c_test</code>。</p>
 <p>（2）你不记得文件夹的名字时可以输入<code>dir命令</code>（类似于linux系统中的ls命令）查看当前文件夹下的所有文件及文件夹，如：</p>
-<p><a href="https://imgchr.com/i/VH3Cef" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH3Cef.md.png" alt="VH3Cef.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH3Cef" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH3Cef.md.png" alt></a></p>
 <p>以上就是在黑窗口下切换至源码路径的一种方法，如果你不会的话，还有另一种更为简单的方法：</p>
 <p>在记事本中就可以很方便的在黑窗口中打开你的源码所在的路径：</p>
-<p><a href="https://imgchr.com/i/VH3MwT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH3MwT.md.png" alt="VH3MwT.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VH3MwT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VH3MwT.md.png" alt></a></p>
 <p>既然已经讲了那么多了，就顺便讲一下多个文件该怎么编译。其实和编译一个文件也差不多，编译多个文件就把要编译的文件都加到编译命令中就可以了，如：</p>
 <pre class=" language-c"><code class="language-c">gcc cJSON<span class="token punctuation">.</span>c json_parse_now<span class="token punctuation">.</span>c <span class="token operator">-</span>o test<span class="token punctuation">.</span>exe</code></pre>
 <p>该命令同时编译链接<code>JSON.c</code>和<code>json_parse_now.c</code>文件。</p>
 <p>以上就是关于如何在window命令行下编译C程序的一点补充的笔记，掌握这一点就可以无缝切换到Linux下进行编译C程序了（相关笔记：<a href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/">【C语言笔记】windows下体验Linux环境</a>）。关于C程序的编译过程可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">【C语言笔记】C语言编译的过程</a></p>
 <p>以上就是关于在windows命令行编译C程序的方法，如有错误，欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -656,30 +658,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/12/24/c-yu-yan-bi-ji-ni-de-hei-chuang-kou-shan-tui/">
+                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="【C语言笔记】你的黑窗口闪退？">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】Windows下体验Linux环境">
                         
-                        <span class="card-title">【C语言笔记】你的黑窗口闪退？</span>
+                        <span class="card-title">【C语言笔记】Windows下体验Linux环境</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            上一篇中写到了Windows下体验Linux环境，其中的测试代码简单的打印一句话，如：
-
-编译后得到test.exe，运行得到如下结果：
-
-在命令行下运行可以输出结果，但是在文件夹下，双击运行test1.exe却发现黑窗口一闪而过：
-
-怎么
+                            1、前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。
+在Windows系统下可以使用集成开
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
                         </span>
                         <span class="publish-author">
                             
@@ -711,25 +708,24 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/12/23/c-yu-yan-bi-ji-windows-xia-ti-yan-linux-huan-jing/">
+                <a href="/2018/12/14/c-yu-yan-bi-ji-fen-xiang-yi-ge-c-yu-yan-ce-shi-cheng-xu-mo-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="【C语言笔记】Windows下体验Linux环境">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="【C语言笔记】分享一个C语言测试程序模板">
                         
-                        <span class="card-title">【C语言笔记】Windows下体验Linux环境</span>
+                        <span class="card-title">【C语言笔记】分享一个C语言测试程序模板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言若要使用Linux环境，可以把Linux操作系统装在真机上，也可以把Linux操作系统安装在虚拟机上（如VMware）。本文介绍除了这两种方法之外的第三种可以使用Linux环境的方法，请往下看。
-在Windows系统下可以使用集成开发环
+                            1、前言平时需要测试一些比较模糊的知识点，或则想要验证一些函数时，我们常常会建一个test.c文件，然后在这个文件里写我们的测试代码，测试完毕后常常会删掉该文件。下次再遇到同样的问题的时候，可能又是记不清楚了，常常又需要测试一遍，这是件很浪
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
                             </span>
                         <span class="publish-author">
                             
@@ -868,7 +864,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

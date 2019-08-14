@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】extern关键字, 正念的博客">
     <meta name="description" content="extern关键字可以用来声明变量和函数作为外部变量或者函数供其它文件使用。
-extern声明变量示例程序：test.h如下：
+1、extern声明变量示例程序：test.h如下：
 //声明
 extern int a;
 extern int b;
 test.c如下：
-#include &#34;tes">
+#include &#34;t">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -411,7 +411,7 @@ test.c如下：
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        571
+                        596
                     </div>
                     
 
@@ -435,7 +435,7 @@ test.c如下：
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>extern关键字可以用来声明变量和函数作为外部变量或者函数供其它文件使用。</p>
-<h3 id="extern声明变量"><a href="#extern声明变量" class="headerlink" title="extern声明变量"></a>extern声明变量</h3><h3 id="示例程序："><a href="#示例程序：" class="headerlink" title="示例程序："></a>示例程序：</h3><p>test.h如下：</p>
+<h2 id="1、extern声明变量"><a href="#1、extern声明变量" class="headerlink" title="1、extern声明变量"></a>1、extern声明变量</h2><h3 id="示例程序："><a href="#示例程序：" class="headerlink" title="示例程序："></a>示例程序：</h3><p>test.h如下：</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//声明</span>
 <span class="token keyword">extern</span> <span class="token keyword">int</span> a<span class="token punctuation">;</span>
 <span class="token keyword">extern</span> <span class="token keyword">int</span> b<span class="token punctuation">;</span></code></pre>
@@ -468,7 +468,7 @@ test.c如下：
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>此时，就不需要包含test.h这个头文件了。</p>
-<h3 id="extern声明函数"><a href="#extern声明函数" class="headerlink" title="extern声明函数"></a>extern声明函数</h3><h3 id="示例程序：-1"><a href="#示例程序：-1" class="headerlink" title="示例程序："></a>示例程序：</h3><p>test.h如下：</p>
+<h2 id="2、extern声明函数"><a href="#2、extern声明函数" class="headerlink" title="2、extern声明函数"></a>2、extern声明函数</h2><h3 id="示例程序：-1"><a href="#示例程序：-1" class="headerlink" title="示例程序："></a>示例程序：</h3><p>test.h如下：</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//声明变量</span>
 <span class="token keyword">extern</span> <span class="token keyword">int</span> a<span class="token punctuation">;</span>
 <span class="token keyword">extern</span> <span class="token keyword">int</span> b<span class="token punctuation">;</span>
@@ -513,7 +513,7 @@ test.c如下：
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果为：</p>
-<p><a href="https://imgchr.com/i/V4OOXj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4OOXj.md.png" alt="V4OOXj.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V4OOXj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4OOXj.md.png" alt></a></p>
 <h3 id="extern-“C”"><a href="#extern-“C”" class="headerlink" title="extern “C”"></a>extern “C”</h3><p>extern “C”的主要作用就是为了能够正确实现C++代码调用其他C语言代码。加上extern “C”后，会指示编译器这部分代码按C语言的进行编译，而不是C++的。</p>
 <p>因为在C++出现以前，很多代码都是C语言写的，而且很底层的库也是C语言写的，为了更好的支持原来的C代码和已经写好的C语言库，需要在C++中尽可能的支持C，而extern “C”就是其中的一个策略。</p>
 <p>示例代码：</p>
@@ -535,7 +535,9 @@ test.c如下：
 <p><code>__cplusplus</code>为C++定义的一个宏，此时<code>extern “C”</code>后的部分的代码按C语言的格式进行编译，而不是C++。</p>
 <p>以上是extern关键字的三种用法，如有错误，欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -937,7 +939,7 @@ C语言程序的存储区如下图所示：
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

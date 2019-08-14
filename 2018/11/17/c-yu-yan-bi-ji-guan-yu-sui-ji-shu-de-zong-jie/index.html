@@ -409,7 +409,7 @@ int rand(void);
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        707
+                        730
                     </div>
                     
 
@@ -435,7 +435,7 @@ int rand(void);
                 <p>C语言的库头文件<code>stdlib.h</code>中有个生成随机数的函数：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>该函数返回<code>0~RAND_MAX</code>之间的随机数，在<code>stdlib.h</code>中可知道，<code>RAND_MAX</code>为<code>0x7FFF</code>，如：</p>
-<p><a href="https://imgchr.com/i/V71CkQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71CkQ.md.png" alt="V71CkQ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V71CkQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71CkQ.md.png" alt></a></p>
 <p>但这里生成的随机数为<code>伪随机数</code>。所谓的伪随机数简单来说就是每次运行程序产生的随机数都是一样的。</p>
 <p>示例程序：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
@@ -447,7 +447,7 @@ int rand(void);
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果为：</p>
-<p><a href="https://imgchr.com/i/V71kpn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71kpn.md.png" alt="V71kpn.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V71kpn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71kpn.md.png" alt></a></p>
 <p>程序连续运行三次，产生的由rand()函数产生的随机数都是一样的，这就是伪随机数。</p>
 <p>那么如何才能产生真正的随机数呢？其实头文件stdlib.h里还有另一个函数：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">srand</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span> seed<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -468,7 +468,7 @@ int rand(void);
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果为：</p>
-<p><a href="https://imgchr.com/i/V71n7F" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71n7F.md.png" alt="V71n7F.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V71n7F" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71n7F.md.png" alt></a></p>
 <p>可见，种子<code>seed</code>不一样，生成的随机数就不一样，即真实的随机数。</p>
 <p>把<code>seed</code>的值改为相同的，则产生的随机数就是伪随机数。</p>
 <p>示例程序：</p>
@@ -487,7 +487,7 @@ int rand(void);
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果：</p>
-<p><img src="https://s2.ax1x.com/2019/06/16/V71YnK.png" alt="V71YnK.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/16/V71YnK.png" alt></p>
 <p>种子<code>seed</code>不变，产生的随机数就是一样的，即伪随机数。</p>
 <p>那么，怎么才能较方便地设置随机数的种子呢？可以使用<code>time()</code>函数的返回值作为随机数种子，<code>time()</code>函数返回的是1970年1月1日至现在的秒数，每一时刻都是不一样的，即每一时刻<code>seed</code>的值都不一样。</p>
 <p>接下来编写一个程序用于产生10个10以内的随机数，示例程序：</p>
@@ -507,11 +507,13 @@ int rand(void);
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果为：</p>
-<p><a href="https://imgchr.com/i/V71aAe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71aAe.md.png" alt="V71aAe.md.png"></a></p>
+<p><a href="https://imgchr.com/i/V71aAe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/16/V71aAe.md.png" alt></a></p>
 <p>除此之外，若要生成a~b之间的数字，可以使用<code>rand()%(b-a+1)+a</code>。</p>
 <p>以上就是关于随机数的总结，要注意<code>srand()</code>函数应与<code>rand()</code>成对使用，并且在调用<code>rand()</code>函数之前应先调用<code>srand()</code>进行播种，每次播的随机种子应该是不一样的，否则产生的随机数就是伪随机数。可用<code>time()</code>函数的返回值作为随机种子，这是典型做法。</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -763,12 +765,12 @@ pr
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
+                            一、前言time.h是C/C++中的日期和时间头文件。用于需要时间方面的函数。下面分享time.h头文件中几个常用函数的用法：
 
-time()函数1、函数原型
+二、time()函数1、函数原型
 time_t time(time_t *t);
 2、函数说明
-time_t 是lon
+time_t 
                         
                     </div>
                     <div class="publish-info">
@@ -912,7 +914,7 @@ time_t 是lon
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

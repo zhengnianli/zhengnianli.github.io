@@ -409,7 +409,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        460
+                        483
                     </div>
                     
 
@@ -432,7 +432,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、getchar-函数"><a href="#1、getchar-函数" class="headerlink" title="1、getchar()函数"></a>1、getchar()函数</h3><p>所在头文件：<code>stdio.h</code></p>
+                <h2 id="1、getchar-函数"><a href="#1、getchar-函数" class="headerlink" title="1、getchar()函数"></a>1、getchar()函数</h2><p>所在头文件：<code>stdio.h</code></p>
 <p>函数原型：<code>int getchar(void);</code></p>
 <p>函数功能：读取控制台输入的字符，并保存在键盘缓冲区中。直到用户按回车为止(回车字符也放在缓冲区中)。</p>
 <p>看一段代码：</p>
@@ -447,7 +447,7 @@
 <p>当输入一个字符并按回车时，该字符被存入缓冲区中，printf函数再把缓冲区中的该字符输出。如输入输出实例：</p>
 <pre class=" language-c"><code class="language-c">d
 d</code></pre>
-<h3 id="2、getche-函数"><a href="#2、getche-函数" class="headerlink" title="2、getche()函数"></a>2、getche()函数</h3><p>所在头文件：<code>conio.h</code></p>
+<h2 id="2、getche-函数"><a href="#2、getche-函数" class="headerlink" title="2、getche()函数"></a>2、getche()函数</h2><p>所在头文件：<code>conio.h</code></p>
 <p>函数原型：<code>int getche(void);</code></p>
 <p>函数用途：输入后立即从控制台取字符，不以回车为结束，且立刻显示在屏幕上（带回显）。</p>
 <p>看一段代码：</p>
@@ -462,7 +462,7 @@ d</code></pre>
 <p>该函数的输入输出示例：</p>
 <pre class=" language-c"><code class="language-c">dd</code></pre>
 <p>也就是说，输入d，直接就输出d，不需要按回车键，即该函数不带缓冲区，且输入有回显。回显的意思就是在控制台显示输入的字符。</p>
-<h3 id="3、getch-函数"><a href="#3、getch-函数" class="headerlink" title="3、getch()函数"></a>3、getch()函数</h3><p>所在头文件：<code>conio.h</code></p>
+<h2 id="3、getch-函数"><a href="#3、getch-函数" class="headerlink" title="3、getch()函数"></a>3、getch()函数</h2><p>所在头文件：<code>conio.h</code></p>
 <p>函数原型：<code>int getch(void);</code></p>
 <p>函数用途：从控制台读取一个字符，但不显示在屏幕上（不带回显）。</p>
 <p>看一段代码：</p>
@@ -479,7 +479,10 @@ d</code></pre>
 <p>输入d，不会显示d，当调用printf函数后才输出d。控制台读取一个字符，但不显示在屏幕上（不带回显）。</p>
 <p>此外，还需要注意的一个问题是：<code>conio.h</code>这个头文件是 windows 平台下特有的，其他平台如 Linux、Mac OS 等平台是没有的，所以使用<code>getch()</code>函数与<code>getche()</code>函数应该注意平台的问题。</p>
 <p>以上就是关于getchar()、getche()、getch()的总结，如有错误欢迎指出！</p>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<hr>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>
 
             </div>
             <hr>
@@ -669,27 +672,28 @@ d</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/12/c-yu-yan-bi-ji-nei-cun-bi-ji/">
+                <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【C语言笔记】内存笔记">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】#define与typedef的区别？">
                         
-                        <span class="card-title">【C语言笔记】内存笔记</span>
+                        <span class="card-title">【C语言笔记】#define与typedef的区别？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C语言程序需要载入内存才可以运行，其不同的数据保存在不同的区域。所使用的内存可以分成两类：一类是静态存储区，另一类是动态存储区。
-C语言程序的存储区如下图所示：
-
-1、静态存储区静态存储区分为三类：只读数据区（RO Data）、已初始化读写
+                            1、#definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
+宏定义的一般形式为：
+#define 宏名 字符串
+这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
+2、typede
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-12
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-11
                         </span>
                         <span class="publish-author">
                             
@@ -721,28 +725,27 @@ C语言程序的存储区如下图所示：
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/11/c-yu-yan-bi-ji-define-yu-typedef-de-qu-bie/">
+                <a href="/2018/10/07/c-yu-yan-bi-ji-han-shu-can-shu-ya-zhan-de-shun-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】#define与typedef的区别？">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】函数参数压栈的顺序？">
                         
-                        <span class="card-title">【C语言笔记】#define与typedef的区别？</span>
+                        <span class="card-title">【C语言笔记】函数参数压栈的顺序？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            #definedefine是预处理指令，在编译时不进行任何检查，只进行简单的替换
-宏定义的一般形式为：
-#define 宏名 字符串
-这里所说的字符串是一般意义上的字符序列，不要和C语言中的字符串等同，它不需要双引号。
-typedeftyp
+                            按照日常习惯来看，C语言的函数参数压栈顺序是从左到右吧？但是事实却是相反的，C语言函数参数压栈顺序是从右到左的。下面看一个程序：
+#include &lt;stdio.h>
+
+void stack_test1(int a, int b, i
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-07
                             </span>
                         <span class="publish-author">
                             
@@ -881,7 +884,7 @@ typedeftyp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             

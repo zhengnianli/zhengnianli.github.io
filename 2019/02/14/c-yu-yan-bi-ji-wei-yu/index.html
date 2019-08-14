@@ -5,8 +5,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】位域, 正念的博客">
-    <meta name="description" content="位域的概念有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做位域或位段。
-位域是操控">
+    <meta name="description" content="一、位域的概念有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做位域或位段。
+位域是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -429,7 +429,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="位域的概念"><a href="#位域的概念" class="headerlink" title="位域的概念"></a>位域的概念</h3><p>有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做<code>位域</code>或<code>位段</code>。</p>
+                <h3 id="一、位域的概念"><a href="#一、位域的概念" class="headerlink" title="一、位域的概念"></a>一、位域的概念</h3><p>有些数据在存储时并不需要占用一个完整的字节，只需要占用一个或几个二进制位即可。例如开关只有通电和断电两种状态，用 0 和 1 表示足以，也就是用一个二进位。正是基于这种考虑，C语言又提供了一种数据结构，叫做<code>位域</code>或<code>位段</code>。</p>
 <p>位域是操控位的一种方法（操控位的另一种方法是使用按位运算符，按位运算符将在之后的笔记中做介绍）。</p>
 <p>位域通过一个结构声明来建立：该结构声明为每个字段提供标签，并确定该字段的宽度。例如，下面的声明建立了个4个1位的字段：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> 
@@ -479,7 +479,7 @@ prnt<span class="token punctuation">.</span>undin <span class="token operator">=
 pk2<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> pk2<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> pk2<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">2</span></code></pre>
 <p>显然，结构体变量<code>pk1</code>的各成员都没有超出限定的位数，能够正常输出。而结构体变量<code>pk2</code>的各成员超出了限定的位数，并发生了<code>上溢</code>（溢出中的一种），关于溢出的概念可查看往期笔记：<a href="https://zhengnianli.github.io/2019/01/10/c-yu-yan-bi-ji-zheng-shu-yi-chu-wen-ti/">【C语言笔记】整数溢出</a></p>
 <p>C语言标准规定，只有有限的几种数据类型可以用于位域。在<code>ANSI C</code> 中，这几种数据类型是<code>signed int</code>和<code>unsigned int</code>；到了<code>C99、C11</code>新增了<code>_Bool</code>的位字段。关于C语言的几套标准可查看往期笔记：<a href="https://zhengnianli.github.io/2018/12/06/c-yu-yan-bi-ji-shi-me-shi-ansi-c-biao-zhun/">【C语言笔记】什么是ANSI C标准？</a></p>
-<h3 id="位域的存储"><a href="#位域的存储" class="headerlink" title="位域的存储"></a>位域的存储</h3><p>位域的存储同样遵循结构体内存对齐的规则，关于结构体内存对齐的问题可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/20/c-yu-yan-bi-ji-jie-gou-ti-nei-cun-dui-qi/">【C语言笔记】C语言结构体内存对齐问题</a></p>
+<h3 id="二、位域的存储"><a href="#二、位域的存储" class="headerlink" title="二、位域的存储"></a>二、位域的存储</h3><p>位域的存储同样遵循结构体内存对齐的规则，关于结构体内存对齐的问题可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/20/c-yu-yan-bi-ji-jie-gou-ti-nei-cun-dui-qi/">【C语言笔记】C语言结构体内存对齐问题</a></p>
 <p>看一个例子：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">struct</span> pack
@@ -508,7 +508,11 @@ pk2<span class="token punctuation">.</span>a <span class="token operator">=</spa
 <p>输出结果为：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> pack<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span></code></pre>
 <p>因为此时a成员单独占一个内存单元（4字节），b、c成员紧挨着占下一个内存单元（4字节），所以结果为8字节，这也是因为内存对齐。a、b、c占用内存的示意图如：</p>
-<p><a href="https://imgchr.com/i/VHBRuF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHBRuF.md.png" alt="VHBRuF.md.png"></a></p>
+<img src="https://s2.ax1x.com/2019/06/17/VHBRuF.md.png" alt border="0" width="550">
+
+
+
+
 <p>其中，空白部分为保留的空白填充内存。这里的空白内存是系统自动留出的，同时，我们也可以自己留出填充内存。如<code>无名位域</code>就可以用来作填充：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> pack
 <span class="token punctuation">{</span>
@@ -518,10 +522,12 @@ pk2<span class="token punctuation">.</span>a <span class="token operator">=</spa
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p><code>无名位域一般用来作填充或者调整成员位置。</code>因为没有名称，无名位域不能使用。<br>上面的例子中，如果没有位宽为 20 的无名成员，a、c 将会挨着存储，<code>sizeof(struct pack)</code> 的结果为 4；有了这 20 位作为填充，a、c将分开存储，<code>sizeof(struct pack)</code>的结果为 8。</p>
 <p>位域也是个很重要的知识点，如在<code>DSP2803X</code>的固件库的一些结构封装中普遍用到这样的写法：</p>
-<p><a href="https://imgchr.com/i/VHBWB4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHBWB4.md.png" alt="VHBWB4.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VHBWB4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHBWB4.md.png" alt></a></p>
 <p>以上就是关于位域的一些笔记，如有错误，欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -932,7 +938,7 @@ pk2<span class="token punctuation">.</span>a <span class="token operator">=</spa
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">82.6k</span>
+                <span class="white-color">83.6k</span>
             
 
             
