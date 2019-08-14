@@ -293,6 +293,61 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2018/11/12/gong-ju-zhe-me-hao-yong-de-dai-ma-yue-du-qi-ni-zhuang-liao-ma/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【工具】这么好用的代码阅读器你装了吗？">
+                            
+                            <span class="card-title">【工具】这么好用的代码阅读器你装了吗？</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、前言作为一名程序员，我们不仅要多动手编代码，而且还应多阅读一些优秀的代码，如C语言的一些第三方库文件、嵌入式中Linux内核源码以及一些项目的代码等。这些源码往往都比较庞大，源文件少则几十个，多则成千上万个源文件，很难把握每个源文件之间
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/工具/" class="post-category" target="_blank">
+                                    工具
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/嵌入式/" target="_blank">
+                            <span class="chip bg-color">嵌入式</span>
+                        </a>
+                        
+                        <a href="/tags/工具/" target="_blank">
+                            <span class="chip bg-color">工具</span>
+                        </a>
+                        
+                        <a href="/tags/代码阅读器/" target="_blank">
+                            <span class="chip bg-color">代码阅读器</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2018/11/08/c-yu-yan-bi-ji-zhi-zhen-han-shu-yu-han-shu-zhi-zhen/">
                         <div class="card-image">
                             
@@ -444,29 +499,25 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                             
-                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言数组与指针是不等价的，如：
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
 
-数组名不可以改变，而指向数组的指针是可以改变的。
-
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
-
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
-
-
-
+ for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
@@ -500,25 +551,29 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                             
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                            <span class="card-title">【C语言笔记】数组与指针不等价</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
+                                前言数组与指针是不等价的，如：
 
- for ( i = 0; i &lt; m; 
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -865,54 +920,6 @@ XB
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="【C语言笔记】复合赋值语句">
-                            
-                            <span class="card-title">【C语言笔记】复合赋值语句</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                增加一个变量的值有两种方式，如：a = a + 5和a += 5。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。
-现在，a = a + 5和
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -952,7 +959,7 @@ XB
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">81.7k</span>
+                <span class="white-color">82.6k</span>
             
 
             

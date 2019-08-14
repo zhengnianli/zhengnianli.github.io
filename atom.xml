@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-08-13T00:32:22.074Z</updated>
+  <updated>2019-08-14T00:29:33.330Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>这个神器可以提取你代码中的关键信息生成技术文档</title>
+    <link href="https://zhengnianli.github.io/2019/08/13/zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/"/>
+    <id>https://zhengnianli.github.io/2019/08/13/zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/</id>
+    <published>2019-08-13T00:22:15.000Z</published>
+    <updated>2019-08-14T00:29:33.330Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://zhengnianli.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="https://zhengnianli.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Doxygen" scheme="https://zhengnianli.github.io/tags/Doxygen/"/>
+    
+      <category term="chm" scheme="https://zhengnianli.github.io/tags/chm/"/>
+    
+  </entry>
   
   <entry>
     <title>【C语言笔记】assert怎么用？</title>
@@ -576,38 +606,6 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于合泰单片机的高校公寓远程能源监控系统</title>
-    <link href="https://zhengnianli.github.io/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/"/>
-    <id>https://zhengnianli.github.io/2019/04/16/zuo-pin-ji-yu-he-tai-dan-pian-ji-de-gao-xiao-gong-yu-yuan-cheng-neng-yuan-jian-kong-xi-tong/</id>
-    <published>2019-04-16T00:22:15.000Z</published>
-    <updated>2019-06-24T05:59:14.781Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="合泰单片机" scheme="https://zhengnianli.github.io/tags/%E5%90%88%E6%B3%B0%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-      <category term="远程监控" scheme="https://zhengnianli.github.io/tags/%E8%BF%9C%E7%A8%8B%E7%9B%91%E6%8E%A7/"/>
     
   </entry>
   
