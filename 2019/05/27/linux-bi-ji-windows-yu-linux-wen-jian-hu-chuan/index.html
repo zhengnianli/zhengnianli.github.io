@@ -417,7 +417,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        513
+                        525
                     </div>
                     
 
@@ -440,30 +440,41 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h1><p>之前分享了Linux下vim编译器简单的使用方法：<a href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/">【Linux笔记】Vi/Vim编辑器</a>。如果觉得不习惯的话，也可以不用vim进行编辑。我们可以使用Windows上的一些编辑器先编辑好代码，然后再传到Linux下进行编译即可。那么，怎么实现Windows与Linux的文件互传呢?可以使用<code>samba</code>，也可以使用一些工具。本篇笔记分享的是一个可以实现Windows与Linux文件互传的工具：<code>WinSCP</code>。</p>
-<h1 id="2、WinSCP工具"><a href="#2、WinSCP工具" class="headerlink" title="2、WinSCP工具"></a>2、WinSCP工具</h1><p><img src="https://s2.ax1x.com/2019/07/01/ZGp7xU.png" alt="ZGp7xU.png"></p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>之前分享了Linux下vim编译器简单的使用方法：<a href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/">【Linux笔记】Vi/Vim编辑器</a>。如果觉得不习惯的话，也可以不用vim进行编辑。我们可以使用Windows上的一些编辑器先编辑好代码，然后再传到Linux下进行编译即可。那么，怎么实现Windows与Linux的文件互传呢?可以使用<code>samba</code>，也可以使用一些工具。本篇笔记分享的是一个可以实现Windows与Linux文件互传的工具：<code>WinSCP</code>。</p>
+<h2 id="2、WinSCP工具"><a href="#2、WinSCP工具" class="headerlink" title="2、WinSCP工具"></a>2、WinSCP工具</h2><p><img src="https://s2.ax1x.com/2019/07/01/ZGp7xU.png" alt></p>
 <p>WinSCP是是一款开源的<code>SFTP</code>客户端，运行于系统下，遵照<code>GPL</code>发布。WinSCP除了SFTP，还支持<code>SSH、SCP</code>。WinSCP具有<code>FTP</code>的文件传输功能，又比FTP更加具有安全性。用户可在<code>SourceForge</code>网站下载。</p>
 <p>也可在以下百度云链接进行下载：</p>
 <blockquote>
 <p>链接：<a href="https://pan.baidu.com/s/12_qdcxiNkSI0nHgsW0yWWg" target="_blank" rel="noopener">https://pan.baidu.com/s/12_qdcxiNkSI0nHgsW0yWWg</a><br>提取码：szcb </p>
 </blockquote>
-<h1 id="3、Windows往Linux互传文件"><a href="#3、Windows往Linux互传文件" class="headerlink" title="3、Windows往Linux互传文件"></a>3、Windows往Linux互传文件</h1><p>Windows与Linux互传文件的前提是要保证Windows要能ping通Linux。首先，使用 <code>ifconfig</code>命令 查看Linux的IP：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/ZG9eit.png" alt="ZG9eit.png"></p>
+<h2 id="3、Windows往Linux互传文件"><a href="#3、Windows往Linux互传文件" class="headerlink" title="3、Windows往Linux互传文件"></a>3、Windows往Linux互传文件</h2><p>Windows与Linux互传文件的前提是要保证Windows要能ping通Linux。首先，使用 <code>ifconfig</code>命令 查看Linux的IP：</p>
+<img src="https://s2.ax1x.com/2019/07/01/ZG9eit.png" alt border="0" width="550">
+
+
+
 <p>然后在<code>Windows</code>命令行<code>ping</code>这个ip:</p>
 <p><img src="http://i63.tinypic.com/kdvqiu.gif" alt></p>
 <p>可以<code>ping</code>得通，说明网络是通的。如果ping不通，则可能是Linux的防火墙没有关，可以使用命令：</p>
 <pre class=" language-c"><code class="language-c"><span class="token operator">/</span>etc<span class="token operator">/</span>init<span class="token punctuation">.</span>d<span class="token operator">/</span>iptables stop</code></pre>
 <p>关闭防火墙。确保网络没问题之后，就可以使用<code>WinSCP</code>软件进行文件互传了。打开<code>WinSCP</code>软件，需要我们输入登录信息：<code>File protocol</code>选的是<code>SFTP</code>，<code>Host name</code>输入的是我们Linux系统的ip，<code>User name</code>和<code>Password</code>填的是登录Linux系统的用户，可以是普通用户，也可以是超级用户。</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/ZG9NWV.png" alt="ZG9NWV.png"></p>
+<img src="https://s2.ax1x.com/2019/07/01/ZG9NWV.png" alt border="0" width="550">
+
 <p>设置完成之后，就可以点击<code>Login</code>按钮进行登录：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/ZG9wyF.png" alt="ZG9wyF.png"></p>
+<img src="https://s2.ax1x.com/2019/07/01/ZG9wyF.png" alt border="0" width="550">
+
+
+
 <p>可以看到，左边是我们的<code>Windows</code>目录，右边是我们的<code>Linux</code>目录，然后就可以使用拖拽的方式传输文件了，例如我们把<code>WindowsToLinux.txt</code>这个文件从Windows传到Linux下：</p>
 <p><img src="http://i68.tinypic.com/14tvg2e.gif" alt></p>
-<p><img src="https://s2.ax1x.com/2019/07/01/ZG9LSf.png" alt="ZG9LSf.png"></p>
+<img src="https://s2.ax1x.com/2019/07/01/ZG9LSf.png" alt border="0" width="550">
+
+
+
 <p>可见，已经传输成功。Linux往Windows传文件也是类似的。以上就是关于Windows与Linux互传的笔记，如有错误，欢迎指出！</p>
 <hr>
-<p>我的公众号：嵌入式大杂烩</p>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -880,7 +891,7 @@ make和Makefile（或者makefile）文件提供了
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

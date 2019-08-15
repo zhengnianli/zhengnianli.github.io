@@ -418,7 +418,7 @@ gcc sr">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        752
+                        764
                     </div>
                     
 
@@ -441,28 +441,29 @@ gcc sr">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1、如何编译具有多个源码（-c文件）的工程"><a href="#1、如何编译具有多个源码（-c文件）的工程" class="headerlink" title="1、如何编译具有多个源码（.c文件）的工程"></a>1、如何编译具有多个源码（.c文件）的工程</h1><p>上一篇笔记写了如何使用<code>gcc</code>的编译命令编译：<a href="https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/">【Linux笔记】Linux下编译C程序</a>。当源文件较少时，使用gcc编译命令编译就比较方便，在gcc编译命令中依次列出各个源文件就好，比如：</p>
+                <h2 id="1、如何编译具有多个源码（-c文件）的工程"><a href="#1、如何编译具有多个源码（-c文件）的工程" class="headerlink" title="1、如何编译具有多个源码（.c文件）的工程"></a>1、如何编译具有多个源码（.c文件）的工程</h2><p>上一篇笔记写了如何使用<code>gcc</code>的编译命令编译：<a href="https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/">【Linux笔记】Linux下编译C程序</a>。当源文件较少时，使用gcc编译命令编译就比较方便，在gcc编译命令中依次列出各个源文件就好，比如：</p>
 <pre class=" language-c"><code class="language-c">gcc src1<span class="token punctuation">.</span>c src2<span class="token punctuation">.</span>c src3<span class="token punctuation">.</span>c src4<span class="token punctuation">.</span>c <span class="token operator">-</span>o src</code></pre>
 <p>把<code>src1.c、src2.c、src3.c、src4.c</code>编译生成可执行文件<code>src</code> 。在Linux环境下，一般不具有集成开发环境（IDE），一般都是使用命令来编译。当源文件较少时，可以使用上面的方式进行编译。但是，如果我们的项目代码工程源文件很多，几十个，上百个，甚至上千上万个呢，那么该怎么进行编译呢？这时候，就可以使用工程管理文件——<code>Makefile（makefile）</code>文件对你的工程进行管理，然后使用<code>make</code>工具解释Makefile（makefile）文件中的指令（编译指令）进行我们的项目编译。</p>
-<h1 id="2、怎么使用make工具来编译我们的C工程呢"><a href="#2、怎么使用make工具来编译我们的C工程呢" class="headerlink" title="2、怎么使用make工具来编译我们的C工程呢"></a>2、怎么使用make工具来编译我们的C工程呢</h1><p>平常，在技术的学习时，我习惯于先把要学的技术、原理用起来，再进一步去了解这个技术、原理，有进一步的学习之后，然后再进一步的去进行应用，即<code>用-&gt;学-&gt;用</code>。</p>
+<h2 id="2、怎么使用make工具来编译我们的C工程呢"><a href="#2、怎么使用make工具来编译我们的C工程呢" class="headerlink" title="2、怎么使用make工具来编译我们的C工程呢"></a>2、怎么使用make工具来编译我们的C工程呢</h2><p>平常，在技术的学习时，我习惯于先把要学的技术、原理用起来，再进一步去了解这个技术、原理，有进一步的学习之后，然后再进一步的去进行应用，即<code>用-&gt;学-&gt;用</code>。</p>
 <p>所以，我们先看怎么用make工具的问题。当然，首先得想办法编写Makefile文件。在这之前，我们可以使用<code>make -v</code>命令查看我们当前系统是否具有make工具（本文使用的Linux发行版为红帽6）：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z8IRHg.png" alt="Z8IRHg.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8IRHg.png" alt></p>
 <p>可见，我们系统的make工具版本是<code>3.81</code>。我们还是以上一篇笔记的例子，这次我们使用make编译我们的<code>hello</code>文件（输出<code>Hello World</code>是我们千年不变的目标，哈哈~）如下是我们编写的<code>Makefile</code>文件中的内容：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z8I7vV.png" alt="Z8I7vV.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8I7vV.png" alt></p>
 <p>有了<code>Makefile</code>文件，我们就可以编译我们的<code>hello.c</code>文件了，如：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z8IbuT.png" alt="Z8IbuT.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8IbuT.png" alt></p>
 <p>要注意的是我们Makefile文件中的命令前面空白是一个<code>【Tab】键</code>的长度，不能使用空格键代替，否则是会出错的，如：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z8IXE4.png" alt="Z8IXE4.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8IXE4.png" alt></p>
 <p>再或者，想看到我们平时所说的“编译”各个过程，我们可以把Makefile文件修改成：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z8oS81.png" alt="Z8oS81.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8oS81.png" alt></p>
 <p>然后使用make工具进行解释：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z8o9v6.png" alt="Z8o9v6.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z8o9v6.png" alt></p>
 <p>其中，关于关于源文件至生成可执行文件经过哪几个过程，可查看往期笔记：</p>
 <p><a href="https://zhengnianli.github.io/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">【C语言笔记】C语言编译的过程</a></p>
 <p>以上就是本篇笔记的分享，主要介绍如何使用make工具来编译我们的c工程如有错误，欢迎指出！关于make的内容很多，在之后的笔记中再具体地进行介绍！欢迎大家持续关注！如果你觉得对你有用的话，麻烦帮忙点个赞。如果你觉得对你的同学与朋友也有用的话，欢迎转发。</p>
 <hr>
-<p>我的公众号：嵌入式大杂烩</p>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -870,7 +871,7 @@ make和Makefile（或者makefile）文件提供了
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

@@ -7,8 +7,8 @@
     <meta name="keywords" content="基于STM32的智能天气预报系统, 正念的博客">
     <meta name="description" content="1、作品介绍首先，看一下作品的演示视频：
 天气预报系统
-
 温馨提示：因为是进行人机对话演示，所以应打开音量观看哈。
+
 这是本人的毕业设计，一个智能的天气预报系统。显示屏上显示各种天气指标及实时显示时间日期等。可以使用触摸屏输入城市名称搜索天气">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -421,7 +421,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        5.4k
+                        5.5k
                     </div>
                     
 
@@ -446,37 +446,37 @@
             <div id="articleContent">
                 <h2 id="1、作品介绍"><a href="#1、作品介绍" class="headerlink" title="1、作品介绍"></a>1、作品介绍</h2><p>首先，看一下作品的演示视频：</p>
 <div align="center"><iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=t0779besn7h" allowfullscreen width="600" height="400" align="center">天气预报系统</iframe></div>
+温馨提示：因为是进行人机对话演示，所以应打开音量观看哈。
 
-<p>温馨提示：因为是进行人机对话演示，所以应打开音量观看哈。</p>
 <p>这是本人的毕业设计，一个智能的天气预报系统。显示屏上显示各种天气指标及实时显示时间日期等。可以使用触摸屏输入城市名称搜索天气，也可以使用语音搜索天气。</p>
 <h3 id="1-1-系统功能"><a href="#1-1-系统功能" class="headerlink" title="1.1 系统功能"></a>1.1 系统功能</h3><p>作品包含的的功能有：</p>
 <p>（1）实时天气显示，温湿度显示，日历显示；</p>
 <p>（2）收音机功能；</p>
 <p>（3）人机对话功能。</p>
 <p>系统框图如下：</p>
-<p><a href="https://imgchr.com/i/ZkGtI0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGtI0.md.png" alt="ZkGtI0.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkGtI0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGtI0.md.png" alt="系统框图"></a></p>
 <h3 id="1-2-系统GUI界面"><a href="#1-2-系统GUI界面" class="headerlink" title="1.2 系统GUI界面"></a>1.2 系统GUI界面</h3><p><strong>（1）主界面</strong></p>
-<p><a href="https://imgchr.com/i/ZkG6d1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkG6d1.md.png" alt="ZkG6d1.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkG6d1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkG6d1.md.png" alt="主界面"></a></p>
 <p>你没有看错，就是99℃，就是星期八。但这不是系统出错，而是本人故意设置的初始值，每当开机收到天气数据之后就可以看出有明显的变化。</p>
 <p><strong>（2）菜单界面</strong></p>
-<p><a href="https://imgchr.com/i/ZkGfzD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGfzD.md.png" alt="ZkGfzD.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkGfzD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGfzD.md.png" alt="菜单界面"></a></p>
 <p><strong>（3）wifi设置界面</strong></p>
-<p><a href="https://imgchr.com/i/ZkGILd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGILd.md.png" alt="ZkGILd.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkGILd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGILd.md.png" alt="wifi设置界面"></a></p>
 <p>点击文本框会进入键盘界面，输入WiFi信息之后返回，再点击<code>Add</code>按钮即可发送WiFi名称与密码给控制器，控制器控制WiFi模块连接WiFi热点。</p>
 <p><strong>（4）收音机界面</strong></p>
-<p><a href="https://imgchr.com/i/ZkGTeA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGTeA.md.png" alt="ZkGTeA.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkGTeA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkGTeA.md.png" alt="收音机界面"></a></p>
 <p>通过点击下方频率点跳到相应频率，再通过左右按钮调节频率至所需频率。</p>
 <h2 id="2、作品实现"><a href="#2、作品实现" class="headerlink" title="2、作品实现"></a>2、作品实现</h2><h3 id="2-1-天气数据获取及解析"><a href="#2-1-天气数据获取及解析" class="headerlink" title="2.1 天气数据获取及解析"></a>2.1 天气数据获取及解析</h3><h3 id="2-1-1-天气数据从哪来？"><a href="#2-1-1-天气数据从哪来？" class="headerlink" title="2.1.1 天气数据从哪来？"></a>2.1.1 天气数据从哪来？</h3><p>天气数据可以从一些专门做天气预报的网站获取，如心知天气、和风天气等。本人选择的是心知天气</p>
 <blockquote>
 <p><a href="https://www.seniverse.com/" target="_blank" rel="noopener">https://www.seniverse.com/</a></p>
 </blockquote>
 <p>网站首页如下：</p>
-<p><a href="https://imgchr.com/i/ZkJQFx" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkJQFx.md.png" alt="ZkJQFx.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkJQFx" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkJQFx.md.png" alt></a></p>
 <p>我们是通过其<code>API密钥</code>才能获取得到其天气数据，而只有注册的用户才拥有API密钥，所以必须得注册，可以点击右上角进行注册。</p>
 <h3 id="2-1-2-天气数据是什么格式？"><a href="#2-1-2-天气数据是什么格式？" class="headerlink" title="2.1.2 天气数据是什么格式？"></a>2.1.2 天气数据是什么格式？</h3><p>登录<code>心知天气</code>网站之后，点击菜单导航中的<code>数据-&gt;常规数据</code>即可查看<code>API文档</code>。在API文档页面的左侧可看到一些可查看的条目，如：</p>
-<p><img src="https://s2.ax1x.com/2019/06/24/ZkJL7R.png" alt="ZkJL7R.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/24/ZkJL7R.png" alt></p>
 <p>可点击<code>天气实况</code>查看其相关说明，可以看到其天气数据格式如下图所示：</p>
-<p><a href="https://imgchr.com/i/ZkYS1O" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkYS1O.md.png" alt="ZkYS1O.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkYS1O" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkYS1O.md.png" alt></a></p>
 <p>这就是JSON格式的数据，不了解JSON的朋友可查看上一篇笔记：<a href="https://zhengnianli.github.io/2019/06/15/json-de-jian-dan-ren-shi/">JSON的简单认识</a></p>
 <h3 id="2-1-3-如何解析得到有用的数据？"><a href="#2-1-3-如何解析得到有用的数据？" class="headerlink" title="2.1.3 如何解析得到有用的数据？"></a>2.1.3 如何解析得到有用的数据？</h3><p>从上图中的JSON格式天气数据包中我们可以看出：我们需要用到的数据就是<code>冒号后面的字符串数据</code>，这些数据是我们需要获取并显示到屏幕上的数据。</p>
 <p>那么，我们该怎么从这一堆JSON格式数据中解析出冒号后面的字符串呢？并且，这个系统是基于单片机的天气预报系统。而单片机使用C语言进行编程开发的，所以我们得使用C语言对这些JSON天气数据包进行解析。</p>
@@ -485,7 +485,7 @@
 <p>链接：<a href="https://pan.baidu.com/s/1DQynsdlNyIvsVXmf4W5b8Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1DQynsdlNyIvsVXmf4W5b8Q</a><br>提取码：ww4z </p>
 </blockquote>
 <p>只要把<code>cJSON.c</code>与<code>cJSON.ｈ</code>放到工程主程序所在目录，然后在主程序中包含头文件<code>JSON.ｈ</code>即可引入该库。如：</p>
-<p><img src="https://s2.ax1x.com/2019/06/24/ZkBVlq.png" alt="ZkBVlq.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/24/ZkBVlq.png" alt></p>
 <p>下面给出一个实例：</p>
 <p><strong>测试代码：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*----------------------------------------------------------------------------------------
@@ -692,7 +692,7 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <p>这个测试程序会去读取我们工程目录下的    <code>now.txt</code>件，所以事先我们需要把JSON格式的天气预报数据复制到该文件中：</p>
-<p><img src="https://s2.ax1x.com/2019/06/24/ZkNa79.png" alt="ZkNa79.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/24/ZkNa79.png" alt></p>
 <p>把    <code>now.txt</code>里面的数据读出并保存到<code>data</code>指向的动态内存中。然后再把<code>data</code>中的数据传入我们事先编写好的解析天气数据的函数<code>int cJSON_WeatherParse(char *JSON)</code>中进行解析，最后把解析之后的数据给到该函数的返回值即可。</p>
 <p>解析函数里主要用到以下函数：<br><strong>1、cJSON_Parse函数</strong></p>
 <pre class=" language-c"><code class="language-c">cJSON<span class="token operator">*</span><span class="token function">cJSON_Parse</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -711,22 +711,22 @@
 <p>该函数用来释放<code>cJSON_Parse</code>函数内部申请的堆内存。</p>
 <p>我们的解析函数主要运用多次<code>cJSON_GetObjectItem</code>来匹配各对象成员，然后取出各个键值对的值<code>valuestring</code>。</p>
 <p>该程序的运行结果如下：</p>
-<p><a href="https://imgchr.com/i/ZkUiB4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkUiB4.md.png" alt="ZkUiB4.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkUiB4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkUiB4.md.png" alt></a></p>
 <p>可见，解析完全正确！解析结果中冒号后面的数据就是我们可以选择使用的数据。这是解析当天的天气实况数据，解析未来几天的天气数据包或是其它天气数据包的方法都是类似的。</p>
 <h2 id="2-2-显示部分"><a href="#2-2-显示部分" class="headerlink" title="2.2 显示部分"></a>2.2 显示部分</h2><h3 id="2-2-1-几类常用的显示屏"><a href="#2-2-1-几类常用的显示屏" class="headerlink" title="2.2.1 几类常用的显示屏"></a>2.2.1 几类常用的显示屏</h3><p>液晶显示屏的接口较为常见的有 3 种类型：<code>RGB 接口</code>，<code>MCU 总线接口</code>，<code>串口 HMI</code>。</p>
 <p><strong>（1）RGB 接口</strong></p>
-<p><a href="https://imgchr.com/i/ZkaSIA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkaSIA.md.png" alt="ZkaSIA.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkaSIA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkaSIA.md.png" alt></a></p>
 <p>RGB 接口必须用在<code>带有RGB驱动的ARM芯片</code>上，一般的 ARM9 芯片有少许支持 RGB 的，ARM9 以上的芯片多数支持 RGB.但是此类接口的<code>驱动是最复杂</code>的，对<code>硬件要求也是最高</code>的。</p>
 <p><strong>（2）MCU 总线接口</strong></p>
-<p><a href="https://imgchr.com/i/Zkauin" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkauin.md.png" alt="Zkauin.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkauin" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkauin.md.png" alt></a></p>
 <p>MCU 总线接口驱动比 RGB 简单一些，对硬件也基本没有任何要求，简单的 MCU 就可以驱动。但是界面的显示<code>驱动工作量很大</code>。</p>
 <p>总线型接口的屏只提供点阵的操作。图片，字符等任何显示内容都是通过取模数据，在屏幕上相应的位置把点阵一个一个的打出来。在此基础上再来实现人机界面的逻辑。工作量很大。</p>
 <p><strong>（3）串口 HMI</strong></p>
-<p><a href="https://imgchr.com/i/Zkawz6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkawz6.md.png" alt="Zkawz6.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkawz6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkawz6.md.png" alt></a></p>
 <p>串口HMI是一种新的显示方案。首先它跟MCU总线屏一样<code>对硬件没有任何要求</code>，其次。它<code>没有速度瓶颈</code>，因为界面的显示是设备内部自己实现的，用户MCU只是发送指令，并不需要底层驱动。</p>
 <p>再次，针对显示的人机界面的布局和大多数的逻辑（比如界面背景，按钮效果，文本显示等）。全部都不需要用户的 MCU 参与，使用设备提供的上位软件，在电脑上点几下鼠标就完成了。制作好资源文件以后下载到屏幕即可自动运行，剩下的就是 USART 交互了。</p>
 <h3 id="2-2-2-本系统的显示方案"><a href="#2-2-2-本系统的显示方案" class="headerlink" title="2.2.2 本系统的显示方案"></a>2.2.2 本系统的显示方案</h3><p>本系统选择的是<code>串口HMI</code>这一显示方案。因为这种方案确实是可以在短时间内设计出比较漂亮的GUI界面。GUI界面设计软件如下图：</p>
-<p><a href="https://imgchr.com/i/Zkacod" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkacod.md.png" alt="Zkacod.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkacod" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkacod.md.png" alt></a></p>
 <p>这是串口屏商家给的配套的GUI设计软件，该软件的下载链接：</p>
 <blockquote>
 <p>链接：<a href="https://pan.baidu.com/s/1uYFhF412WVkk0FuqeOAGCg" target="_blank" rel="noopener">https://pan.baidu.com/s/1uYFhF412WVkk0FuqeOAGCg</a><br>提取码：e70r </p>
@@ -734,20 +734,20 @@
 <p>我们可以从左侧的工具箱里往工作区里拖拽需要用到的控件，常用的控件有文本控件、文字控件、按钮控件等。可在右侧的属性窗口设置控件的属性。可以通过选择不同的字库来设置不同的字体样式。</p>
 <p>控件、页面的切换或则触发可能会产生相应的事件，可以通过代码来控制。其中，页面、控件的背景是可以上传本地的图片的，所以可以事先通过PS或则其他作图软件设计出精美的背景图片，然后再把控件都设置为透明色，最终地显示效果就可以达到很好的效果。</p>
 <p>总之，可以很方便很容易设计出精美的GUI界面。同时，这个GUI设计软件还具有模拟真实的屏幕的功能，可以很方便地与用户MCU进行联调。仿真界面如图所示：</p>
-<p><a href="https://imgchr.com/i/Zka5y8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zka5y8.md.png" alt="Zka5y8.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zka5y8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zka5y8.md.png" alt></a></p>
 <p>进入模拟器界面，可在下方选择数据的输入方式为<code>用户MCU输入</code>，然后设置相应的串口号和波特率即可。还可以实时查看用户MCU传给模拟器的数据。</p>
 <h2 id="2-3-与天气服务器通信"><a href="#2-3-与天气服务器通信" class="headerlink" title="2.3 与天气服务器通信"></a>2.3 与天气服务器通信</h2><p>每个问题的解决往往都不能一步到位，要把这个问题的所有关键点找出来，着手去解决这些关键点，最终问题自然会得到解决。</p>
 <p>同样的，虽然我们最终是用单片机控制WiFi模块来获取天气数据的，但是我们首先应该确保在没有单片机的情况下能获取得到天气数据，确保能和天气服务器正常通信。只有这样，在使用单片机获取数据遇到问题时才知道出错的范围在哪，便于我们进行调试。下面，分享windows下与天气服务器通信的测试方法：</p>
 <h3 id="2-3-1-所需的工具"><a href="#2-3-1-所需的工具" class="headerlink" title="2.3.1 所需的工具"></a>2.3.1 所需的工具</h3><p><code>网络调试助手</code>。本人使用的是<code>SocketTool</code>，<code>SocketTool</code>是一款小巧实用且功能强大的<code>TCP/UDP</code>网络通讯调试工具，可以帮助你检查网络应用软件及硬件的通讯情况，可以创建Socket服务器，如创建UDP组播地址及端口、创建UDP Client客户端、创建TCP Client、创建TCP Server。</p>
-<p><a href="https://imgchr.com/i/ZkdbnO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkdbnO.md.png" alt="ZkdbnO.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkdbnO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkdbnO.md.png" alt></a></p>
 <p>该工具下载链接为：</p>
 <blockquote>
 <p>链接：<a href="https://pan.baidu.com/s/1fgarl8xNb6nEAl3Ly0NQ3w" target="_blank" rel="noopener">https://pan.baidu.com/s/1fgarl8xNb6nEAl3Ly0NQ3w</a><br>提取码：np5v </p>
 </blockquote>
 <h3 id="2-3-2-测试方法"><a href="#2-3-2-测试方法" class="headerlink" title="2.3.2 测试方法"></a>2.3.2 测试方法</h3><p>（1）首先，使用<code>SocketTool</code>工具建立一个<code>TCP Client</code>，对方IP设为：<code>116.62.81.138</code>（这是心知天气服务器的IP地址），对方端口设为80。如：</p>
-<p><img src="http://i67.tinypic.com/34eytmr.gif" alt="ZkweCn.md.gif"></p>
+<p><img src="http://i67.tinypic.com/34eytmr.gif" alt></p>
 <p>怎么才能知道一个网站的IP呢？在DOS黑窗口下输入<code>ping+域名</code>即可得该域名对应的IP，如我们<code>ping</code>百度：</p>
-<p><img src="https://s2.ax1x.com/2019/06/24/Zk08L8.png" alt="Zk08L8.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/24/Zk08L8.png" alt></p>
 <p><code>ping</code>是Windows、Unix和Linux系统下的一个命令，利用ping命令可以检查网络是否连通，可以很好地帮助我们分析和判定网络故障，该命令还可以加许多参数使用，具体是键入Ping按回车即可看到详细说明。</p>
 <p>（2）发送HTTP请求，向心知天气服务器请求天气数据。HTTP有几种请求方法，我们这里使用的是GET请求：</p>
 <blockquote>
@@ -756,16 +756,16 @@
 <p>具体的请求方法示例为：</p>
 <pre class=" language-c"><code class="language-c">GET https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>api<span class="token punctuation">.</span>seniverse<span class="token punctuation">.</span>com<span class="token operator">/</span>v3<span class="token operator">/</span>weather<span class="token operator">/</span>now<span class="token punctuation">.</span>json<span class="token operator">?</span>key<span class="token operator">=</span>2owqvhhd2dd9o9f9<span class="token operator">&amp;</span>location<span class="token operator">=</span>beijing<span class="token operator">&amp;</span>language<span class="token operator">=</span>zh<span class="token operator">-</span>Hans<span class="token operator">&amp;</span>unit<span class="token operator">=</span>c</code></pre>
 <p>其中，GET后面的URL地址可以上心知天气查看，如：</p>
-<p><a href="https://imgchr.com/i/Zk0EqO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk0EqO.md.png" alt="Zk0EqO.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk0EqO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk0EqO.md.png" alt></a></p>
 <p>URL中的几个参数是可以设置的：</p>
 <blockquote>
 <p>key：你的API密钥<br>location：所查询的地点<br>language：语言<br>unit：单位</p>
 </blockquote>
 <p>在<code>SocketTool</code>工具中发送<code>GET请求</code>（首先先得点击<code>连接</code>按钮进行连接），发送格式如下：</p>
-<p><a href="https://imgchr.com/i/Zk0toQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk0toQ.md.png" alt="Zk0toQ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk0toQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk0toQ.md.png" alt></a></p>
 <p>需要注意的问题就是每个GET请求之后都需要空两行，这两个换行也是GET请求的一部分，所以在编写单片机代码时需要注意的是要在这个请求字符串后添加<code>\r\n\r\n</code>，表示换两行。</p>
 <p>服务器返回的天气数据为：</p>
-<p><a href="https://imgchr.com/i/Zk0dWn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk0dWn.md.png" alt="Zk0dWn.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk0dWn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk0dWn.md.png" alt></a></p>
 <p>看看服务器返回的数据，发现中文都是乱码。原因是获取得的天气数据是utf-8格式，必须转换为GBK格式中文才能正常显示。此处，我们只是测试与服务器是否能正常交互，测试结果显示有数据返回，说明通过以上的GET请求时可以获取到数据的。</p>
 <p>在应用到单片机上时，还需要考虑的问题就是怎么把utf-8格式转换为GBK格式的问题，转换后中文才能正常显示在显示屏上。</p>
 <h2 id="2-4-语音对话功能"><a href="#2-4-语音对话功能" class="headerlink" title="2.4 语音对话功能"></a>2.4 语音对话功能</h2><p>本系统人机对话功能采用了两个硬件模块：（1）语音识别模块：采用<code>LD3320</code>语音识别芯片；（2）语音合成模块：采用<code>SYN6288</code>语音合成芯片。</p>
@@ -948,12 +948,14 @@
 <span class="token punctuation">}</span></code></pre>
 <p>调用方式如：</p>
 <pre class=" language-c"><code class="language-c"><span class="token function">TTSPlay</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"[t3][2]小天正在为您搜索福州天气"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="3、最后"><a href="#3、最后" class="headerlink" title="3、最后"></a>3、最后</h2><p>以上就是关于该作品比较重要的一些内容的分享，由于篇幅太长其他功能不做介绍，有兴趣的朋友可以查看源码。源码链接：</p>
+<h2 id="3、代码获取"><a href="#3、代码获取" class="headerlink" title="3、代码获取"></a>3、代码获取</h2><p>以上就是关于该作品比较重要的一些内容的分享，由于篇幅太长其他功能不做介绍，有兴趣的朋友可以查看源码。源码链接：</p>
 <blockquote>
 <p><a href="https://github.com/zhengnianli/stm32_weather" target="_blank" rel="noopener">https://github.com/zhengnianli/stm32_weather</a></p>
 </blockquote>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 <p>我的博客即将同步至腾讯云+社区，邀请大家一同入驻：<a href="https://cloud.tencent.com/developer/support-plan?invite_code=oeilcfscuui4" target="_blank" rel="noopener">https://cloud.tencent.com/developer/support-plan?invite_code=oeilcfscuui4</a></p>
 
             </div>
@@ -1369,7 +1371,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

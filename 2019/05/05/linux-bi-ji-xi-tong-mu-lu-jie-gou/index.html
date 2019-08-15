@@ -434,49 +434,51 @@
             <div id="articleContent">
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在 Linux 或 Unix 操作系统中，所有的文件和目录都被组织成以一个根节点开始的倒置的树状结构。文件系统的最顶层是由根目录开始的，系统使用 / 来表示根目录。在根目录之下的既可以是目录，也可以是文件，而每一个目录中又可以包含子目录文件。如此反复就可以构成一个庞大的文件系统。</p>
 <p>在超级用户下，在根目录<code>/</code>下输入 <code>ls</code>命令，输出如下（本文演示使用的Linux发型版为：红帽企业版6）：</p>
-<p><a href="https://imgchr.com/i/Zk6RYD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk6RYD.md.png" alt="Zk6RYD.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk6RYD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk6RYD.md.png" alt></a></p>
 <h3 id="bin目录"><a href="#bin目录" class="headerlink" title="/bin目录"></a>/bin目录</h3><p>bin是Binary的缩写, 这个目录存放着最经常使用的命令。如：</p>
-<p><a href="https://imgchr.com/i/Zk6hSH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk6hSH.md.png" alt="Zk6hSH.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk6hSH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk6hSH.md.png" alt></a></p>
 <p>我们常用的 cat 、cp 、find等命令就是在这个目录下。/bin下的命令可以被root与一般账号所使用。</p>
 <h3 id="cgroup目录"><a href="#cgroup目录" class="headerlink" title="/cgroup目录"></a>/cgroup目录</h3><p>rhel6为内核准备了一个新特性：资源控制。此服务的软件包是libcgroup。有了这个，我们就可以分配资源，例如：CPU time,系统内存, 网络带宽等。如：</p>
-<p><a href="https://imgchr.com/i/ZkckhF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkckhF.md.png" alt="ZkckhF.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkckhF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkckhF.md.png" alt></a></p>
 <h3 id="etc目录"><a href="#etc目录" class="headerlink" title="/etc目录"></a>/etc目录</h3><p>这个目录用来存放所有的系统管理所需要的配置文件和子目录。如：</p>
-<p><a href="https://imgchr.com/i/Zkc1hD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkc1hD.md.png" alt="Zkc1hD.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkc1hD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkc1hD.md.png" alt></a></p>
 <p>用户的的账户文件、 各种服务的启始档等配置文件就是在这个目录下。一般来说，这个目录下的各文件属性是可以让一般使用者查阅的，但是只有 root 有权力修改。</p>
 <h3 id="lib目录"><a href="#lib目录" class="headerlink" title="/lib目录"></a>/lib目录</h3><p>这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。如：</p>
-<p><a href="https://imgchr.com/i/Zkc44U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkc44U.md.png" alt="Zkc44U.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkc44U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkc44U.md.png" alt></a></p>
 <h3 id="media目录"><a href="#media目录" class="headerlink" title="/media目录"></a>/media目录</h3><p>media是的英文意思是『媒体』，顾名思义，/media底下存放的就是可移除的设备，例如U盘、光驱等等，当识别后，Linux会把识别的设备挂载到这个目录下。这个目录默认是空的。</p>
 <h3 id="mnt目录"><a href="#mnt目录" class="headerlink" title="/mnt目录"></a>/mnt目录</h3><p>如果想要暂时挂载某些额外的设备，一般建议可以存放到这个目录中。 在早些时候，这个目录的用途与/media相同，只是有了/media之后，这个目录就用来暂时挂载用了。这个目录默认是空的。</p>
 <h3 id="opt目录"><a href="#opt目录" class="headerlink" title="/opt目录"></a>/opt目录</h3><p>这是给主机额外安装软件（第三方软件）所摆放的目录。什么是第三方软件？第三方软件就是非原系统提供的。比如你要安装KDE这个桌面管理系统，则KDE桌面管理系统就安装到这个目录下。这个目录默认是空的。</p>
 <h3 id="root目录"><a href="#root目录" class="headerlink" title="/root目录"></a>/root目录</h3><p>该目录为系统管理员（超级用户）的用户主目录。</p>
-<p><a href="https://imgchr.com/i/ZkcICF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcICF.md.png" alt="ZkcICF.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkcICF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcICF.md.png" alt></a></p>
 <h3 id="selinux目录"><a href="#selinux目录" class="headerlink" title="/selinux目录"></a>/selinux目录</h3><p>/selinux是Secure Enhance Linux(SELinux)的执行目录，这是Redhat/CentOS所特有的目录，Selinux是一个安全机制，类似于windows的防火墙，这个目录就是存放selinux相关的文件的。</p>
-<p><a href="https://imgchr.com/i/ZkcTgJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcTgJ.md.png" alt="ZkcTgJ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkcTgJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcTgJ.md.png" alt></a></p>
 <h3 id="sys目录"><a href="#sys目录" class="headerlink" title="/sys目录"></a>/sys目录</h3><p>这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs ，这是一个虚拟的文件系统，主要是记录与内核相关的信息。 包括目前已加载的内核模块与内核侦测到的硬件设备信息等。这个目录下的数据都是在内存当中， 所以本身不占任何硬盘空间。</p>
-<p><a href="https://imgchr.com/i/ZkcqD1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcqD1.md.png" alt="ZkcqD1.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkcqD1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcqD1.md.png" alt></a></p>
 <h3 id="usr目录"><a href="#usr目录" class="headerlink" title="/usr目录"></a>/usr目录</h3><p>这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下。usr 并不是user的缩写，而是Unix Software Resource的缩写， 也就是『Unix操作系统软件资源』所存放的目录。类似于windows下的program files目录。这个目录有点类似Windows系统的『C:\Windows\ + C:\Program files\』这两个目录的综合体，这个目录会占用最多的硬盘容量。</p>
-<p><a href="https://imgchr.com/i/ZkcXE6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcXE6.md.png" alt="ZkcXE6.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkcXE6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcXE6.md.png" alt></a></p>
 <h3 id="boot目录"><a href="#boot目录" class="headerlink" title="/boot目录"></a>/boot目录</h3><p>这里存放的是启动Linux时使用的一些核心文件，包括Linux核心文件以及开机选单与开机所需配置文件等等。Linux kernel常用的文件名为：vmlinuz，如果使用的是grub这个开机管理程序，则还会存在/boot/grub/这个目录。如：</p>
-<p><a href="https://imgchr.com/i/ZkcjUK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcjUK.md.png" alt="ZkcjUK.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkcjUK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkcjUK.md.png" alt></a></p>
 <h3 id="dev目录"><a href="#dev目录" class="headerlink" title="/dev目录"></a>/dev目录</h3><p>dev是Device(设备)的缩写, 该目录下存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。 我们只要通过存取这个目录底下的某个文件，就等于存取某个设备。</p>
-<p><a href="https://imgchr.com/i/Zkcv4O" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkcv4O.md.png" alt="Zkcv4O.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkcv4O" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkcv4O.md.png" alt></a></p>
 <h3 id="home目录"><a href="#home目录" class="headerlink" title="/home目录"></a>/home目录</h3><p>用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。如：</p>
-<p><a href="https://imgchr.com/i/ZkgS8e" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkgS8e.md.png" alt="ZkgS8e.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkgS8e" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkgS8e.md.png" alt></a></p>
 <h3 id="lost-found目录"><a href="#lost-found目录" class="headerlink" title="/lost+found目录"></a>/lost+found目录</h3><p>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
 <h3 id="misc目录"><a href="#misc目录" class="headerlink" title="/misc目录"></a>/misc目录</h3><p>misc是 miscellaneous 的缩写，即混杂的。默认为空，供管理员堆放公共杂物，默认权限是全部用户可读取、可执行文件，但只有管理员才能写入文件。</p>
 <h3 id="proc目录"><a href="#proc目录" class="headerlink" title="/proc目录"></a>/proc目录</h3><p>/proc 这个目录本身是一个虚拟文件系统(virtual filesystem)，他存放的 数据都是在内存当中， 例如系统内核、进程信息(process)、周边设备的状态及网络状态等。因为这个目录下的数据都是在内存当中， 所以本身不占任何硬盘空间。</p>
-<p><a href="https://imgchr.com/i/ZkgAVP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkgAVP.md.png" alt="ZkgAVP.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkgAVP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkgAVP.md.png" alt></a></p>
 <h3 id="sbin目录"><a href="#sbin目录" class="headerlink" title="/sbin目录"></a>/sbin目录</h3><p>sbin就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</p>
-<p><a href="https://imgchr.com/i/Zkgn2Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkgn2Q.md.png" alt="Zkgn2Q.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkgn2Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkgn2Q.md.png" alt></a></p>
 <p>如关机命令poweroff、重启命令reboot等命令就是在这个目录下。</p>
 <h3 id="srv目录"><a href="#srv目录" class="headerlink" title="/srv目录"></a>/srv目录</h3><p>srv是 service 的缩写，是一些网络服务启动之后，这些服务所需要取用的数据目录。</p>
 <h3 id="tmp目录"><a href="#tmp目录" class="headerlink" title="/tmp目录"></a>/tmp目录</h3><p>这个目录是用来存放一些临时文件的，所以需要经常清理。</p>
-<p><a href="https://imgchr.com/i/Zkg3V0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkg3V0.md.png" alt="Zkg3V0.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkg3V0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkg3V0.md.png" alt></a></p>
 <h3 id="var目录"><a href="#var目录" class="headerlink" title="/var目录"></a>/var目录</h3><p>这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
-<p><a href="https://imgchr.com/i/ZkgdM9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkgdM9.md.png" alt="ZkgdM9.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkgdM9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkgdM9.md.png" alt></a></p>
 <p>以上就是关于红帽企业版6的系统目录结构的笔记，如有错误欢迎指出。不同的Linux发行版的目录结构会有微小的差异，但大部分目录都是一样的。</p>
 <hr>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](<a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener">https://imgchr.com/i/VcSFJJ</a>)</p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -886,7 +888,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

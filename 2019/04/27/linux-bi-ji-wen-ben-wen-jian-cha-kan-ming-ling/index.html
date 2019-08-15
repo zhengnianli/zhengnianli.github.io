@@ -411,7 +411,7 @@ cat：从第一行开始显示文本内容（适用于内容较少的）
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        685
+                        703
                     </div>
                     
 
@@ -444,26 +444,28 @@ tail：只看文本的后面几行
 nl：显示文本内容与行号</code></pre>
 <h2 id="1、cat命令"><a href="#1、cat命令" class="headerlink" title="1、cat命令"></a>1、cat命令</h2><p>cat命令常常用于查看内容较少的文件。很多人把这个命令叫做<code>小猫咪</code>命令，但cat其实是 <code>concatenate（连续）</code> 的缩写，即连续显示文本内容。</p>
 <pre class=" language-c"><code class="language-c">格式为：cat <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span></code></pre>
-<p><a href="https://imgchr.com/i/Zk26wq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk26wq.md.png" alt="Zk26wq.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk26wq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk26wq.md.png" alt></a></p>
 <p>其中，加上参数 <code>-n</code> 用可以显示行数。cat的更多的参数选项可以输入 <code>man cat</code> 进行查看。以下列举的其他命令的详细介绍也可以输入<code>man 命令</code>进行查看。</p>
 <h2 id="2、tac命令"><a href="#2、tac命令" class="headerlink" title="2、tac命令"></a>2、tac命令</h2><p>tac命令的正好与cat命令相反，是从文件末尾开始显示。</p>
 <h2 id="3、more命令"><a href="#3、more命令" class="headerlink" title="3、more命令"></a>3、more命令</h2><p>more命令适用于查看内容较多的文件。因为他可以实时显示百分比以提示现在已经阅读了多少内容。</p>
 <pre class=" language-c"><code class="language-c">格式为：more <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span></code></pre>
-<p><a href="https://imgchr.com/i/Zk2OfO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk2OfO.md.png" alt="Zk2OfO.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zk2OfO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zk2OfO.md.png" alt></a></p>
 <p>可以使用<code>空格键</code>或者<code>回车键</code>往下翻页查看后面的内容。</p>
 <h2 id="4、less命令"><a href="#4、less命令" class="headerlink" title="4、less命令"></a>4、less命令</h2><p>less也适用于查看内容较多的文件。less比more更为灵活，因为less可以往上、往下翻页。按下键盘上 <code>PgUp</code> 键可以往上翻页，按下 <code>PgDn</code> 可以往下翻页。但是less命令不会实时显示当前阅读的百分比。</p>
 <pre class=" language-c"><code class="language-c">格式为：less <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span></code></pre>
 <h2 id="5、head命令"><a href="#5、head命令" class="headerlink" title="5、head命令"></a>5、head命令</h2><p>head命令用于查看文件的前n行。如使用命令</p>
 <pre class=" language-c"><code class="language-c">head <span class="token operator">-</span>n <span class="token number">20</span> <span class="token operator">/</span>etc<span class="token operator">/</span>profile</code></pre>
 <p>查看<code>/etc</code>目录下<code>profile</code>文件的前20行内容：</p>
-<p><a href="https://imgchr.com/i/ZkRpnA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRpnA.md.png" alt="ZkRpnA.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkRpnA" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRpnA.md.png" alt></a></p>
 <h2 id="6、tail命令"><a href="#6、tail命令" class="headerlink" title="6、tail命令"></a>6、tail命令</h2><p>tail命令与head命令相反，tail命令用于查看文件<code>后n行</code>内容。如：</p>
-<p><a href="https://imgchr.com/i/ZkRC7t" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRC7t.md.png" alt="ZkRC7t.md.png"></a></p>
-<h2 id="7、nl命令"><a href="#7、nl命令" class="headerlink" title="7、nl命令"></a>7、nl命令</h2><p>nl命令可以显示内容的同时显示行号，与 <code>cat -n</code> 命令的作用差不多：<br><a href="https://imgchr.com/i/ZkRkh8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRkh8.md.png" alt="ZkRkh8.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkRC7t" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRC7t.md.png" alt></a></p>
+<h2 id="7、nl命令"><a href="#7、nl命令" class="headerlink" title="7、nl命令"></a>7、nl命令</h2><p>nl命令可以显示内容的同时显示行号，与 <code>cat -n</code> 命令的作用差不多：<br><a href="https://imgchr.com/i/ZkRkh8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRkh8.md.png" alt></a></p>
 <p>以上命令就是Linux下的一些文本查看命令，虽说作用都一样，都是用来查看文本的，但是可以根据不同的情况来选择不同的命令来查看可以让我们更好地进行预览文件。另外，我们Windows下的黑窗口也有类似的文本查看命令：</p>
-<p><a href="https://imgchr.com/i/ZkRE9S" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRE9S.md.png" alt="ZkRE9S.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkRE9S" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkRE9S.md.png" alt></a></p>
 <hr>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](<a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener">https://imgchr.com/i/VcSFJJ</a>)</p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -867,7 +869,7 @@ nl：显示文本内容与行号</code></pre>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

@@ -441,10 +441,10 @@ make和Makefile（或者makefile）文件提供了">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h1><p>上一篇笔记分享了使用make工具编译C程序的方法（<a href="https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/">【Linux笔记】make工程管理工具（一）</a>），但是还未分享make工具是什么，本篇笔记就来看一下make工具是什么吧。</p>
+                <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>上一篇笔记分享了使用make工具编译C程序的方法（<a href="https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/">【Linux笔记】make工程管理工具（一）</a>），但是还未分享make工具是什么，本篇笔记就来看一下make工具是什么吧。</p>
 <p>make和Makefile（或者makefile）文件提供了一种简单有效的工程管理方式。Makefile文件是一个决定着如何编译工程的文本，有一定的书写规则。make是一个GNU命令工具，用来解释Makefile文件中的命令来编译我们的工程。</p>
-<h1 id="2、make工具"><a href="#2、make工具" class="headerlink" title="2、make工具"></a>2、make工具</h1><p><code>make</code> 是一个命令工具，是一个解释 <code>Makefile</code> 中指令的命令工具，一般来说，大多数的 IDE（集成开发环境） 都有这个命令，比如：<code>Delphi</code> 的 make，<code>Visual C++</code>的 nmake。但是在<code>Linux</code> 下一般不具有IDE，所以我们需要学会如何使用make工具来编译。</p>
-<h1 id="2、Makefile文件的书写规范"><a href="#2、Makefile文件的书写规范" class="headerlink" title="2、Makefile文件的书写规范"></a>2、Makefile文件的书写规范</h1><p><code>Makefile</code>文件中最重要的是规则。规则的格式如下：</p>
+<h2 id="2、make工具"><a href="#2、make工具" class="headerlink" title="2、make工具"></a>2、make工具</h2><p><code>make</code> 是一个命令工具，是一个解释 <code>Makefile</code> 中指令的命令工具，一般来说，大多数的 IDE（集成开发环境） 都有这个命令，比如：<code>Delphi</code> 的 make，<code>Visual C++</code>的 nmake。但是在<code>Linux</code> 下一般不具有IDE，所以我们需要学会如何使用make工具来编译。</p>
+<h2 id="3、Makefile文件的书写规范"><a href="#3、Makefile文件的书写规范" class="headerlink" title="3、Makefile文件的书写规范"></a>3、Makefile文件的书写规范</h2><p><code>Makefile</code>文件中最重要的是规则。规则的格式如下：</p>
 <pre class=" language-c"><code class="language-c">target<span class="token punctuation">:</span>prerequisites 
     command</code></pre>
 <p>其中，<code>target</code> 为目标，<code>prerequisites</code> 为依赖。<code>command</code> 为make需要执行的命令。</p>
@@ -457,7 +457,7 @@ make和Makefile（或者makefile）文件提供了">
 </li>
 </ul>
 <p>例如，上一篇我们的笔记中为编译<code>hello.c</code>书写的<code>Makefile</code>文件如下：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z87FtH.png" alt="Z87FtH.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z87FtH.png" alt></p>
 <p>其中，第<code>1、2</code>行为一条规则，第<code>4、5</code>行为一条规则，第<code>7、8</code>行为一条规则，第<code>10、11</code>行为一条规则，第<code>13、14</code>行为一条规则。</p>
 <p>拿第<code>1、2</code>行这一条规则来举例说明， <code>hello</code> 为目标文件， <code>hello.o</code> 为依赖文件， <code>gcc hello.o -o hello</code> 为命令。除此之外，这个文件中， <code>#</code>符号后面是注释， <code>clean</code> 是一个特殊的目标，它没有依赖，称为<code>伪目标</code>。</p>
 <p>规则是Makefile文件中的最基本的、也是最核心的部分。Makefile中还有其他内容。</p>
@@ -471,7 +471,7 @@ make和Makefile（或者makefile）文件提供了">
 <pre class=" language-c"><code class="language-c">hello<span class="token punctuation">:</span>hello<span class="token punctuation">.</span>o
     $<span class="token punctuation">(</span>CC<span class="token punctuation">)</span> $<span class="token operator">^</span> <span class="token operator">-</span>o $@</code></pre>
 <p>（3）<code>变量定义</code>。在 Makefile 中我们要定义一系列的变量，变量一般都是字符串，这个有点像 C 语言中的宏，当 Makefile 被执行时，其中的变量都会被扩展到相应的引用位置上。如：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z87uB8.png" alt="Z87uB8.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z87uB8.png" alt></p>
 <p>其中 <code>CC</code> 为变量的定义， <code>$(CC)</code> 为变量的调用。 <code>$^</code>、 <code>$@</code>也是变量的调用，这两个变量是Makefile文件中最常用的变量（不需要自己定义），<code>$^</code> 代表当前规则中所有的依赖文件， <code>$@</code> 代表当前规则的目标文件。</p>
 <p>（4）<code>文件指示</code>。其包括了三个部分，一个是在一个 Makefile 中引用另一个 Makefile，就像 C 语言中的 <code>include</code> 一样；另一个是指根据某些情况指定 Makefile 中的有效部分，就像 C 语言中的预编译<code>#if</code> 一样；还有就是定义一个多行的命令。</p>
 <p>（5）<code>注释</code>。Makefile 中只有行注释，和 UNIX 的 <code>Shell</code> 脚本一样，其注释是用 <code>#</code> 字符，这个就像<code>C/C++</code>中的<code>//</code>一样。如果你要在你的Makefile 中使用<code>#</code>字符，可以用反斜框进行转义，如：<code>\#</code>。</p>
@@ -489,7 +489,7 @@ make和Makefile（或者makefile）文件提供了">
 clean<span class="token punctuation">:</span>
     rm <span class="token operator">-</span>rf hello<span class="token punctuation">.</span>i hello<span class="token punctuation">.</span>s hello<span class="token punctuation">.</span>o hello # 删除编译生成文件</code></pre>
 <p>使用 <code>.PHONY</code> 说明clean是一个伪目标。</p>
-<h1 id="3、make是如何工作的？"><a href="#3、make是如何工作的？" class="headerlink" title="3、make是如何工作的？"></a>3、make是如何工作的？</h1><p>当我们只输入<code>make</code> 命令。那么：</p>
+<h1 id="4、make是如何工作的？"><a href="#4、make是如何工作的？" class="headerlink" title="4、make是如何工作的？"></a>4、make是如何工作的？</h1><p>当我们只输入<code>make</code> 命令。那么：</p>
 <p>（1）make 会在当前目录下找名字叫<code>Makefile</code>或<code>makefile</code>的文件。</p>
 <p>（2）如果找到，它会找文件中的第一个目标文件（<code>target</code>），在上面的例子中，它会找到<code>hello</code>这个文件，并把这个文件作为最终的目标文件 。</p>
 <p>（3）如果 <code>hello</code>文件不存在，或是<code>hello</code> 所依赖的后面的 <code>.o</code>文件，的文件修改时间要比 <code>hello</code> 这个文件新，那么，他就会执行后面所定义的命令来生成 hello 这个文件。<br>（4）如果<code>hello</code>所依赖的 <code>.o</code> 文件也存在，那么<code>make</code>会在当前文件中找目标为<code>.o</code>文件的依赖性，如果找到则再根据那一个规则生成<code>.o</code>文件。（这有点像一个堆栈的过程）<br>（5）当然，我们的<code>c</code>文件和<code>h</code> 文件是存在的啦，于是 <code>make</code> 会生成 <code>.o</code>文件，然后再用 <code>.o</code> 文件生命<code>make</code> 的终极任务，也就是执行文件 <code>hello</code>了。</p>
@@ -502,8 +502,9 @@ https<span class="token punctuation">:</span><span class="token operator">/</spa
 https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>haoel<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">2886</span></code></pre>
 <p>如果你觉得对你有用的话，麻烦帮忙点个赞。如果你觉得对你的同学与朋友也有用的话，欢迎转发。</p>
 <hr>
-<p>我的公众号：嵌入式大杂烩</p>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -923,7 +924,7 @@ gcc sr
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

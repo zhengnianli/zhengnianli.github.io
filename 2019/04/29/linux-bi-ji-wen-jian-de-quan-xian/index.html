@@ -410,7 +410,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        983
+                        1k
                     </div>
                     
 
@@ -433,8 +433,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 <code>ls -l</code> 命令列出当前目录下的文件及目录的详细信息：<br><a href="https://imgchr.com/i/ZkWS8U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWS8U.md.png" alt="ZkWS8U.md.png"></a></p>
-<p>我们重点看前10个字符，如<code>hello</code>文件详细信息中的前10个字符为 <code>-rw-rw-rw-</code> 。这10个字符的说明为：<br><a href="https://imgchr.com/i/ZkWPKJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWPKJ.md.png" alt="ZkWPKJ.md.png"></a></p>
+                <p>Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 <code>ls -l</code> 命令列出当前目录下的文件及目录的详细信息：<br><a href="https://imgchr.com/i/ZkWS8U" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWS8U.md.png" alt></a></p>
+<p>我们重点看前10个字符，如<code>hello</code>文件详细信息中的前10个字符为 <code>-rw-rw-rw-</code> 。这10个字符的说明为：<br><a href="https://imgchr.com/i/ZkWPKJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWPKJ.md.png" alt></a></p>
 <p>其中，第一个字符表示这个对象的类型，如：</p>
 <pre class=" language-c"><code class="language-c">为 d 则是目录
 为 <span class="token operator">-</span> 则是文件；
@@ -449,11 +449,11 @@
 <p><strong>（1）使用符号改变文件权限</strong></p>
 <pre class=" language-c"><code class="language-c">格式为：chmod <span class="token punctuation">[</span>身份<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">+</span>、<span class="token operator">-</span>、<span class="token operator">=</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>r、w、x<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件或目录<span class="token punctuation">]</span></code></pre>
 <p>其中，使用<code>u、g、o</code>三种用户身份，除此，还可以使用<code>a</code>表示所有身份。符号<code>+</code>表示增加权限，符号 <code>-</code> 表示删除权限，符号<code>=</code>表示指定权限。如：</p>
-<p><a href="https://imgchr.com/i/ZkWFbR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWFbR.md.png" alt="ZkWFbR.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkWFbR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWFbR.md.png" alt></a></p>
 <p>我们的<code>hello</code>文件是由<code>hello.c</code>编译生成的可执行文件，但是当前用户身份并没有可执行权限，因此运行该文件是出现“权限不够”的警告。我们可以使用命令：</p>
 <pre class=" language-c"><code class="language-c">chmod u<span class="token operator">+</span>x hello</code></pre>
 <p>来增加当前用户对<code>hello</code>文件的执行权限。结果如下：</p>
-<p><a href="https://imgchr.com/i/ZkW3VI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkW3VI.md.png" alt="ZkW3VI.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkW3VI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkW3VI.md.png" alt></a></p>
 <p><strong>（2）使用数字改变文件权限</strong></p>
 <p>除了使用符号来表示权限，还可以使用数字来表示文件或目录权限。其中：</p>
 <pre class=" language-c"><code class="language-c">r：用数字 <span class="token number">4</span> 表示
@@ -468,16 +468,18 @@ o<span class="token operator">=</span>rwx<span class="token operator">=</span><s
 <p>这里的 <code>ugo</code> 就是我们每一身份权限的数字表示。</p>
 <p>例如：当我们要把<code>hello</code>文件所有身份的权限都改为可读、可写、可执行时，可以执行以下命令：</p>
 <pre class=" language-c"><code class="language-c">chmod <span class="token number">777</span> hello</code></pre>
-<p><a href="https://imgchr.com/i/ZkWtG8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWtG8.md.png" alt="ZkWtG8.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkWtG8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWtG8.md.png" alt></a></p>
 <h3 id="2、更改文件所有者与所属组"><a href="#2、更改文件所有者与所属组" class="headerlink" title="2、更改文件所有者与所属组"></a>2、更改文件所有者与所属组</h3><p>文件的所有者与所属组是可以更改的，使用的命令分别是<code>chown</code>（change owner）、<code>chgrp</code>（change group）。格式为：</p>
 <pre class=" language-c"><code class="language-c">更改所有者：chown <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span>
 更改所属组：chgrp <span class="token punctuation">[</span>参数选项<span class="token punctuation">]</span> <span class="token punctuation">[</span>文件<span class="token punctuation">]</span></code></pre>
-<p><a href="https://imgchr.com/i/ZkWUxg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWUxg.md.png" alt="ZkWUxg.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkWUxg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWUxg.md.png" alt></a></p>
 <p>例如：把<code>hello</code>文件的所有者与所属组都改为 <code>win</code>：</p>
-<p><a href="https://imgchr.com/i/ZkWsI0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWsI0.md.png" alt="ZkWsI0.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkWsI0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkWsI0.md.png" alt></a></p>
 <p>以上命令就是关于文件权限的一点笔记，如有错误，欢迎指出。</p>
 <hr>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](<a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener">https://imgchr.com/i/VcSFJJ</a>)</p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -886,7 +888,7 @@ cat：从第一行开始显示文本内容（适用于内容较少的）
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

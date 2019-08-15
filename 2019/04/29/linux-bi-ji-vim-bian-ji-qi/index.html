@@ -413,7 +413,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        919
+                        937
                     </div>
                     
 
@@ -438,10 +438,10 @@
             <div id="articleContent">
                 <h2 id="1、什么是vi-vim？"><a href="#1、什么是vi-vim？" class="headerlink" title="1、什么是vi/vim？"></a>1、什么是vi/vim？</h2><p>vi编辑器是Linux和Unix上最基本的文本编辑器（所有版本的 Linux 都带有 vi 编辑器），工作在字符模式下。由于不需要图形界面，vi是效率很高的文本编辑器。尽管在Linux上也有很多图形界面的编辑器可用，但vi在系统和服务器管理中的功能是那些图形编辑器所无法比拟的。Vim 是<code>Vi improved</code>的缩写，是 vi 的改进版。</p>
 <p>学习vi/vim编辑器的使用是很有必要的。正如vim官网（<a href="https://www.vim.org/）中有一张很形象的说明：" target="_blank" rel="noopener">https://www.vim.org/）中有一张很形象的说明：</a></p>
-<p><a href="https://imgchr.com/i/ZkfcTI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkfcTI.md.png" alt="ZkfcTI.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkfcTI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkfcTI.md.png" alt></a></p>
 <p>其配图说明为：<code>Vim: The power tool for everyone!</code>意在说明vim是一个很有用的工具。确实，小编当初在找工作时，某次技术面试的第二次面试的形式为：给你一台电脑：环境是Linux环境，要求是使用Vim编辑器进行编码。当时，若是不会使用vim那就尴尬了。所以，这些通用性的工具，很有必要掌握。</p>
 <h2 id="2、vi-vim的使用"><a href="#2、vi-vim的使用" class="headerlink" title="2、vi/vim的使用"></a>2、vi/vim的使用</h2><p>在Linux终端中输入<code>vim -v 或 vi -v</code>查看当前的vim版本（本文使用的Linux发型版为：红帽企业版6）：</p>
-<p><a href="https://imgchr.com/i/ZkfTmj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkfTmj.md.png" alt="ZkfTmj.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkfTmj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkfTmj.md.png" alt></a></p>
 <p>首先，<code>vi/vim</code>编辑器有三种模式：<code>命令模式（Command mode）</code>，<code>输入模式（Insert mode）</code>和<code>底行命令模式（Last line mode）</code>。</p>
 <ul>
 <li><p>命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作。</p>
@@ -452,32 +452,34 @@
 </li>
 </ul>
 <p>下图为三种模式之间的切换方法（图片来源于菜鸟教程）：</p>
-<p><a href="https://imgchr.com/i/ZkhpnJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhpnJ.md.png" alt="ZkhpnJ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkhpnJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhpnJ.md.png" alt></a></p>
 <p>下面按照这张图的思路走：</p>
 <p>在Linux终端中输入<code>vim test</code>并回车则可打开vim编辑器并编辑一个新文件：<code>test</code>。此时为命令模式：</p>
-<p><a href="https://imgchr.com/i/ZkhiA1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhiA1.md.png" alt="ZkhiA1.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkhiA1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhiA1.md.png" alt></a></p>
 <p>接着我们按下键盘上的<code>i</code>或者<code>a</code>或者<code>o</code>即可进入输入模式：</p>
-<p><a href="https://imgchr.com/i/Zkh14P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkh14P.md.png" alt="Zkh14P.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkh14P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkh14P.md.png" alt></a></p>
 <p>此时按下键盘上的『Esc』键即可由输入模式切换至命令模式：</p>
-<p><a href="https://imgchr.com/i/ZkhNuQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhNuQ.md.png" alt="ZkhNuQ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkhNuQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhNuQ.md.png" alt></a></p>
 <p>此时输入<code>:</code>即可由命令模式切换至底行输入模式。再输入<code>wq 并按下回车键</code>则可保存当前的文本并退出至命令终端（在命令模式下输入<code>ZZ</code>也可以退回至命令终端中，这个方式用起来更方便）：</p>
-<p><a href="https://imgchr.com/i/ZkhrCV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhrCV.md.png" alt="ZkhrCV.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkhrCV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhrCV.md.png" alt></a></p>
 <p>这个此时在命令终端中输入<code>cat test</code>即可查看我们刚才输入的信息：</p>
-<p><a href="https://imgchr.com/i/ZkhygU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhygU.md.png" alt="ZkhygU.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkhygU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhygU.md.png" alt></a></p>
 <p>cat是一个文本文件查看命令，关于其它几个常用的文本文件查看命令可查看往期笔记：<a href="https://blog.csdn.net/zhengnianli/article/details/89857683" target="_blank" rel="noopener">【Linux笔记】文本文件查看命令</a></p>
 <p>以上就是<code>vi/vim</code>编辑器的基本使用方法，要想更好的使用<code>vi/vim</code>当然就需要记更多的命令了，比如复制、粘贴、删除等操作都是有对应的命令的。其中命令模式与底行命令模式分别有不同的命令：</p>
 <p>（1）命令模式的常用命令（图片来源：《Linux就该这么学》）：</p>
-<p><a href="https://imgchr.com/i/Zkh44x" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkh44x.md.png" alt="Zkh44x.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkh44x" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkh44x.md.png" alt></a></p>
 <p>（2）底行命令模式的常用命令（图片来源：《Linux就该这么学》）：</p>
-<p><a href="https://imgchr.com/i/ZkhbKe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhbKe.md.png" alt="ZkhbKe.md.png"></a></p>
+<p><a href="https://imgchr.com/i/ZkhbKe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/ZkhbKe.md.png" alt></a></p>
 <p>掌握这些命令就可以进行基本的操作了。若想要把<code>vi/vim</code>用到得心应手的地步就需要熟悉<code>vi/vim</code>的快捷键了。这不，某位大佬总结出了如下一副图：</p>
-<p><a href="https://imgchr.com/i/Zkhv5t" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkhv5t.md.png" alt="Zkhv5t.md.png"></a></p>
+<p><a href="https://imgchr.com/i/Zkhv5t" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/24/Zkhv5t.md.png" alt></a></p>
 <p>该图来源于：</p>
 <pre class=" language-c"><code class="language-c">作者：卢钧轶<span class="token punctuation">(</span>cenalulu<span class="token punctuation">)</span>
 来自：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>cenalulu<span class="token punctuation">.</span>github<span class="token punctuation">.</span>io<span class="token operator">/</span>linux<span class="token operator">/</span>all<span class="token operator">-</span>vim<span class="token operator">-</span>cheatsheat<span class="token operator">/</span></code></pre>
 <p>以上就是关于<code>vi/vim</code>编辑器的一些笔记，如有错误，欢迎指出。相关资料：《Linux就该这么学》、百度百科、菜鸟教程、C语言中文网。</p>
 <hr>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](<a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener">https://imgchr.com/i/VcSFJJ</a>)</p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
@@ -881,7 +883,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             

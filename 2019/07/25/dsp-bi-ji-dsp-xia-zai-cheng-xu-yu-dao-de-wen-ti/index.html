@@ -438,25 +438,25 @@ TMS320F280049C特性：
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>最近拿到了一块TI官方的DSP开发板，芯片型号是：<code>TMS320F280049C</code>，板载调试器<code>XDS110</code>。但是下载程序时遇到了一点问题，现记录总结如下：</p>
-<img src="https://s2.ax1x.com/2019/07/25/eex9Re.jpg" alt="ZGtM1P.png" border="0" width="600">
+                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>最近拿到了一块TI官方的DSP开发板，芯片型号是：<code>TMS320F280049C</code>，板载调试器<code>XDS110</code>。但是下载程序时遇到了一点问题，现记录总结如下：</p>
+<img src="https://s2.ax1x.com/2019/07/25/eex9Re.jpg" alt border="0" width="600">
 
 <p><code>TMS320F280049C</code>特性：</p>
-<p><img src="https://s2.ax1x.com/2019/07/25/eexlss.png" alt="eexlss.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eexlss.png" alt></p>
 <p><img src="https://s2.ax1x.com/2019/07/25/eex1Ln.png" alt="eex1Ln.png"></p>
-<h1 id="二、下载程序时遇到的问题及解决方法"><a href="#二、下载程序时遇到的问题及解决方法" class="headerlink" title="二、下载程序时遇到的问题及解决方法"></a>二、下载程序时遇到的问题及解决方法</h1><p>之前用过一阵子TI的DSP，也用过其配套的IDE——<code>CCS</code>（Code Composer Studio）进行开发。下载程序之前先新建一个<code>.ccxml</code>结尾的配置文件进行下载、调试配置，这个文件通常只需要配置两个基本信息，一个是调试器，另一个是芯片型号。</p>
+<h2 id="二、下载程序时遇到的问题及解决方法"><a href="#二、下载程序时遇到的问题及解决方法" class="headerlink" title="二、下载程序时遇到的问题及解决方法"></a>二、下载程序时遇到的问题及解决方法</h2><p>之前用过一阵子TI的DSP，也用过其配套的IDE——<code>CCS</code>（Code Composer Studio）进行开发。下载程序之前先新建一个<code>.ccxml</code>结尾的配置文件进行下载、调试配置，这个文件通常只需要配置两个基本信息，一个是调试器，另一个是芯片型号。</p>
 <p>按照以往的经验，配置完这两个信息之后，进行连接测试：</p>
-<p><img src="https://i.loli.net/2019/07/25/5d39925f8a2a441390.png" alt="001.png"></p>
+<p><img src="https://i.loli.net/2019/07/25/5d39925f8a2a441390.png" alt></p>
 <p>测试结果显示连接失败：</p>
-<p><img src="https://i.loli.net/2019/07/25/5d3992b394de157588.png" alt="002.png"></p>
+<p><img src="https://i.loli.net/2019/07/25/5d3992b394de157588.png" alt></p>
 <p>之前使用<code>XDS100v1</code>、<code>XDS100v2</code>仿真器时就是这么设置就可以了。现在用了<code>XDS110</code>却不行，反复操作了好几遍都是连接失败，还以为仿真器或者板子坏了呢。仔细看了看连接失败的说明：<code>The JTAG IR an DR scan-path cannot circulate bits.</code>，表明了这应该是仿真器还需要设置，上官网查了查相关的用户手册文档，发现还真的得对仿真器进行设置：</p>
-<p><img src="https://i.loli.net/2019/07/25/5d399a6a7a3fc37097.png" alt="008.png"></p>
+<p><img src="https://i.loli.net/2019/07/25/5d399a6a7a3fc37097.png" alt></p>
 <p>果然，按照文档说的，设置了仿真器的模式为<code>cJTAG1149.7 2-pin advanced modes</code>（原本默认是<code>JTAG1149.1</code>）之后就可以用了：</p>
-<p><img src="https://s2.ax1x.com/2019/07/25/eevCBq.png" alt="eevCBq.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eevCBq.png" alt></p>
 <p>修改之后的配置为：</p>
-<p><img src="https://s2.ax1x.com/2019/07/25/eevmv9.png" alt="eevmv9.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eevmv9.png" alt></p>
 <p>然后进行连接测试：</p>
-<p><img src="https://s2.ax1x.com/2019/07/25/eevUKA.png" alt="eevUKA.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/25/eevUKA.png" alt></p>
 <p>连接成功。这下就可以愉快的点灯啦。</p>
 <p><strong>总结：</strong></p>
 <p>（1）<code>XDS100v1</code>、<code>XDS100v2</code>调试器不用修改仿真器模式，默认为<code>JTAG1149.1</code>就可以用，<code>XDS110</code>调试器的模式得改为<code>cJTAG1149.7 2-pin advanced modes</code>才可以正常使用。</p>
@@ -465,7 +465,7 @@ TMS320F280049C特性：
 <hr>
 <p>我的个人博客网站为：<a href="https://zhengnianli.github.io">https://zhengnianli.github.io</a></p>
 <p>我的微信公众号为：嵌入式大杂烩</p>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
             <hr>
@@ -888,7 +888,7 @@ TMS320F280049C特性：
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">83.6k</span>
+                <span class="white-color">83.8k</span>
             
 
             
