@@ -446,11 +446,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>上一篇笔记分享了<a href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/">【socket笔记】TCP、UDP通信总结</a>，这一篇分享一个用C语言写的、基于TCP的一个HTTP天气客户端的实现，这个一个控制台应用程序，最终的界面如下：</p>
-<p><img src="https://s2.ax1x.com/2019/07/07/ZDKRxA.png" alt="ZDKRxA.png"></p>
+                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>上一篇笔记分享了<a href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/">【socket笔记】TCP、UDP通信总结</a>，这一篇分享一个用C语言写的、基于TCP的一个HTTP天气客户端的实现，这个一个控制台应用程序，最终的界面如下：</p>
+<p><img src="https://s2.ax1x.com/2019/07/07/ZDKRxA.png" alt></p>
 <p>关于天气预报，之前我已经用<code>STM32+ESP8266</code>wifi模块实现过了一遍，感兴趣的可查阅往期笔记：<a href="https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/">基于STM32的智能天气预报系统</a>。这次这个基于C语言控制台程序的HTTP客户端的天气解析的代码和之前分享的差不多，只是在那基础上添加修改了一些东西，并配合socket的相关知识实现的，以巩固一下socket编程的知识。下面分享一些实现过程。</p>
-<h1 id="二、天气客户端实现的要点"><a href="#二、天气客户端实现的要点" class="headerlink" title="二、天气客户端实现的要点"></a>二、天气客户端实现的要点</h1><p>首先，需要说明的是，这份代码是在windows系统下使用<code>gcc6.3.0</code>进行编译的。</p>
-<h2 id="1、秘钥"><a href="#1、秘钥" class="headerlink" title="1、秘钥"></a>1、秘钥</h2><blockquote>
+<h2 id="二、天气客户端实现的要点"><a href="#二、天气客户端实现的要点" class="headerlink" title="二、天气客户端实现的要点"></a>二、天气客户端实现的要点</h2><p>首先，需要说明的是，这份代码是在windows系统下使用<code>gcc6.3.0</code>进行编译的。</p>
+<h3 id="1、秘钥"><a href="#1、秘钥" class="headerlink" title="1、秘钥"></a>1、秘钥</h3><blockquote>
 <p>心知天气：<a href="http://www.seniverse.com" target="_blank" rel="noopener">www.seniverse.com</a></p>
 </blockquote>
 <p>我们完成这个实验必须得到这个上面去注册一个账号才能使用它的天气数据，注册之后每个账户都会有一个<code>私钥</code>，例如：</p>
@@ -458,7 +458,7 @@
 <p>私钥 SMEieQjde1C9eXnbE</p>
 </blockquote>
 <p>这个是我们程序中需要用到。</p>
-<h2 id="2、IP和端口"><a href="#2、IP和端口" class="headerlink" title="2、IP和端口"></a>2、IP和端口</h2><p>上一节分享了socket的笔记，我们与服务端通信，需要知道三个重要的信息，分别是：</p>
+<h3 id="2、IP和端口"><a href="#2、IP和端口" class="headerlink" title="2、IP和端口"></a>2、IP和端口</h3><p>上一节分享了socket的笔记，我们与服务端通信，需要知道三个重要的信息，分别是：</p>
 <ol>
 <li>IP地址</li>
 <li>端口</li>
@@ -472,12 +472,12 @@ ServerSockAddr<span class="token punctuation">.</span>sin_family <span class="to
 ServerSockAddr<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>s_addr <span class="token operator">=</span> <span class="token function">inet_addr</span><span class="token punctuation">(</span>WEATHER_IP_ADDR<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 心知天气服务器IP</span>
 ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>WEATHER_PORT<span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">// 端口</span></code></pre>
 <p>这里的<code>WEATHER_IP_ADDR</code>对应的就是<code>116.62.81.138</code>，<code>WEATHER_PORT</code>对应的就是<code>80</code>。</p>
-<h2 id="3、GET请求"><a href="#3、GET请求" class="headerlink" title="3、GET请求"></a>3、GET请求</h2><p>HTTP有几种请求方法，我们这里使用的是<code>GET</code>请求。查看心知天气API文档可知，请求地址示例为：</p>
+<h3 id="3、GET请求"><a href="#3、GET请求" class="headerlink" title="3、GET请求"></a>3、GET请求</h3><p>HTTP有几种请求方法，我们这里使用的是<code>GET</code>请求。查看心知天气API文档可知，请求地址示例为：</p>
 <blockquote>
 <p><a href="https://api.seniverse.com/v3/weather/now.json?key=your_api_key&amp;location=beijing&amp;language=zh-Hans&amp;unit=c" target="_blank" rel="noopener">https://api.seniverse.com/v3/weather/now.json?key=your_api_key&amp;location=beijing&amp;language=zh-Hans&amp;unit=c</a></p>
 </blockquote>
 <p>这是一个天气实况的请求地址示例，其有几个重要的参数：</p>
-<p><img src="https://s2.ax1x.com/2019/07/07/ZD8cPf.png" alt="ZD8cPf.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/07/ZD8cPf.png" alt></p>
 <p>这里的<code>key</code>是个很重要的参数，就是我们前面说的<code>私钥</code>。</p>
 <p>我们的天气客户端就是要往天气服务端发送类似这样的<code>GET请求</code>来获取天气数据，具体的请求方法示例为：</p>
 <pre class=" language-c"><code class="language-c">GET https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>api<span class="token punctuation">.</span>seniverse<span class="token punctuation">.</span>com<span class="token operator">/</span>v3<span class="token operator">/</span>weather<span class="token operator">/</span>now<span class="token punctuation">.</span>json<span class="token operator">?</span>key<span class="token operator">=</span>2owqvhhd2dd9o9f8<span class="token operator">&amp;</span>location<span class="token operator">=</span>beijing<span class="token operator">&amp;</span>language<span class="token operator">=</span>zh<span class="token operator">-</span>Hans<span class="token operator">&amp;</span>unit<span class="token operator">=</span>c</code></pre>
@@ -508,13 +508,13 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
 <p>（3）使用示例：</p>
 <pre class=" language-c"><code class="language-c"><span class="token function">sprintf</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token string">"%s,%d"</span><span class="token punctuation">,</span> str<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>假如此时<code>str</code>为<code>&quot;hello&quot;</code>，<code>num</code>为<code>5201314</code>，则此时buf中的内容为：<code>hello，5201314</code>，需要注意的是buf的容量要足够大。</p>
-<h2 id="4、天气服务端返回的数据"><a href="#4、天气服务端返回的数据" class="headerlink" title="4、天气服务端返回的数据"></a>4、天气服务端返回的数据</h2><p>天气服务端给我们天气客户端返回的数据为<code>JSON</code>格式数据，可查阅往期笔记<a href="https://zhengnianli.github.io/2019/06/15/json-de-jian-dan-ren-shi/">JSON的简单认识</a>。我们这个天气客户端只是实现了查询此刻天气（对应的数据包为<code>now.json</code>）及近三天天气情况（对应的数据包为<code>daily.json</code>），如要查询其他信息，可模仿我们这里处理<code>now.json</code>和<code>daily.json</code>的方法，我们用<code>cJson库</code>进行解析。</p>
+<h3 id="4、天气服务端返回的数据"><a href="#4、天气服务端返回的数据" class="headerlink" title="4、天气服务端返回的数据"></a>4、天气服务端返回的数据</h3><p>天气服务端给我们天气客户端返回的数据为<code>JSON</code>格式数据，可查阅往期笔记<a href="https://zhengnianli.github.io/2019/06/15/json-de-jian-dan-ren-shi/">JSON的简单认识</a>。我们这个天气客户端只是实现了查询此刻天气（对应的数据包为<code>now.json</code>）及近三天天气情况（对应的数据包为<code>daily.json</code>），如要查询其他信息，可模仿我们这里处理<code>now.json</code>和<code>daily.json</code>的方法，我们用<code>cJson库</code>进行解析。</p>
 <p>这个<code>cJson</code>库的下载链接为：</p>
 <blockquote>
 <p>链接：<a href="https://pan.baidu.com/s/1DQynsdlNyIvsVXmf4W5b8Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1DQynsdlNyIvsVXmf4W5b8Q</a><br>提取码：ww4z</p>
 </blockquote>
 <p>只要把<code>cJSON.c</code>与<code>cJSON.ｈ</code>放到工程主程序所在目录，然后在主程序中包含头文件<code>JSON.ｈ</code>即可引入该库。如：</p>
-<p><img src="https://s2.ax1x.com/2019/07/07/ZDYU2T.png" alt="ZDYU2T.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/07/ZDYU2T.png" alt></p>
 <p>为了解析<code>now.json</code>和<code>daily.json</code>中的有用数据，我们建立如下结构体：</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 天气数据结构体 */</span>
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span>
@@ -824,8 +824,8 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<h2 id="5、获取天气数据并解析"><a href="#5、获取天气数据并解析" class="headerlink" title="5、获取天气数据并解析"></a>5、获取天气数据并解析</h2><p>这个函数就涉及到我们上一节笔记中的socket编程的知识了，先看一下这个函数实现的总体框图：</p>
-<p><img src="https://s2.ax1x.com/2019/07/08/ZD2emR.png" alt="ZD2emR.png"></p>
+<h3 id="5、获取天气数据并解析"><a href="#5、获取天气数据并解析" class="headerlink" title="5、获取天气数据并解析"></a>5、获取天气数据并解析</h3><p>这个函数就涉及到我们上一节笔记中的socket编程的知识了，先看一下这个函数实现的总体框图：</p>
+<p><img src="https://s2.ax1x.com/2019/07/08/ZD2emR.png" alt></p>
 <p>下面是函数实现的细节过程：</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************
 ** 函数: GetWeather，获取天气数据并解析
@@ -904,24 +904,24 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
     <span class="token function">WSACleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="6、编译"><a href="#6、编译" class="headerlink" title="6、编译"></a>6、编译</h2><p>如何编译这份代码（可在文末进行获取）呢？</p>
+<h3 id="6、编译"><a href="#6、编译" class="headerlink" title="6、编译"></a>6、编译</h3><p>如何编译这份代码（可在文末进行获取）呢？</p>
 <p>这份C代码工程的文件如下：</p>
-<p><img src="https://s2.ax1x.com/2019/07/08/ZDRFEt.png" alt="ZDRFEt.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/08/ZDRFEt.png" alt></p>
 <p>在windows系统下使用<code>gcc</code>编译器编译，编译命令为：</p>
 <pre class=" language-c"><code class="language-c">gcc weather_client<span class="token punctuation">.</span>c cJSON<span class="token punctuation">.</span>c utf8togbk<span class="token punctuation">.</span>c <span class="token operator">-</span>o weather_client<span class="token punctuation">.</span>exe <span class="token operator">-</span>lwsock32</code></pre>
 <p>如：</p>
-<p><img src="https://s2.ax1x.com/2019/07/08/ZDRVC8.png" alt="ZDRVC8.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/08/ZDRVC8.png" alt></p>
 <p>这里的<code>weather_client.exe</code>就是我们编译生成的可执行文件：<code>天气客户端</code>，双击就可以运行了。此外，<code>-lwsock32</code>参数上一节也有讲过，这个参数用于链接<code>windows</code>下socket编程必须的<code>winsock2</code>这个库。若是使用集成开发环境，则需要把<code>wsock32.lib</code>放在工程目录下，并在我们代码中<code>#include &lt;winsock2.h&gt;</code> 下面加上一行 <code>#pragma comment(lib, &quot;ws2_32.lib&quot;)</code>代码（在IDE里编译本人未验证，有兴趣的朋友可尝试）。</p>
 <p>需要说明的是，Windows下默认是没有装gcc的，需要自己进行配置，关于配置及使用<code>mingw</code>（这是个工具包，里面包含有gcc编译器）可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/05/c-yu-yan-bi-ji-shi-yong-notepad-mingw-lai-kai-fa-c-cheng-xu/">【C语言笔记】使用notepad++、MinGW来开发C程序</a>、<a href="https://zhengnianli.github.io/2018/12/23/c-yu-yan-bi-ji-windows-ming-ling-xing-xia-bian-yi-c-cheng-xu/">【C语言笔记】windows命令行下编译C程序</a></p>
-<h2 id="7、运行结果示例"><a href="#7、运行结果示例" class="headerlink" title="7、运行结果示例"></a>7、运行结果示例</h2><p><img src="https://s2.ax1x.com/2019/07/08/ZD4Vds.png" alt="ZD4Vds.png"></p>
+<h3 id="7、运行结果示例"><a href="#7、运行结果示例" class="headerlink" title="7、运行结果示例"></a>7、运行结果示例</h3><p><img src="https://s2.ax1x.com/2019/07/08/ZD4Vds.png" alt></p>
 <p>此处，只能使用拼音进行搜索，其实也可以做输入汉字进行搜索的功能，只是要进行转码处理，这个功能实现在<a href="https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/">基于STM32的智能天气预报系统</a>的代码里已经有做，有兴趣的朋友可以参考这个。</p>
-<h1 id="三、代码获取"><a href="#三、代码获取" class="headerlink" title="三、代码获取"></a>三、代码获取</h1><blockquote>
+<h2 id="三、代码获取"><a href="#三、代码获取" class="headerlink" title="三、代码获取"></a>三、代码获取</h2><blockquote>
 <p><a href="https://github.com/zhengnianli/WeatherClient" target="_blank" rel="noopener">https://github.com/zhengnianli/WeatherClient</a></p>
 </blockquote>
 <hr>
 <p>我的个人博客网站为：<a href="https://zhengnianli.github.io">https://zhengnianli.github.io</a></p>
 <p>我的微信公众号为：嵌入式大杂烩</p>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>

@@ -421,7 +421,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        5.7k
+                        5.8k
                     </div>
                     
 
@@ -444,37 +444,40 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、什么是socket？"><a href="#一、什么是socket？" class="headerlink" title="一、什么是socket？"></a>一、什么是socket？</h1><p>Socket的英文原义是“孔”或“插座”。在编程中，Socket被称做<code>套接字</code>，是网络通信中的一种约定。Socket编程的应用无处不在，我们平时用的QQ、微信、浏览器等程序，都与Socket编程有关。我们平时使用浏览器查资料，这个过程的技术原理是怎样的呢？</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z3XNyn.png" alt="Z3XNyn.png"></p>
+                <h2 id="一、什么是socket？"><a href="#一、什么是socket？" class="headerlink" title="一、什么是socket？"></a>一、什么是socket？</h2><p>Socket的英文原义是“孔”或“插座”。在编程中，Socket被称做<code>套接字</code>，是网络通信中的一种约定。Socket编程的应用无处不在，我们平时用的QQ、微信、浏览器等程序，都与Socket编程有关。我们平时使用浏览器查资料，这个过程的技术原理是怎样的呢？</p>
+<img src="https://s2.ax1x.com/2019/07/01/Z3XNyn.png" alt border="0" width="350">
+
+
+
 <p>我们平时使用浏览器，大致就是这样的一个过程。这里有两个重要的名词：<code>服务端</code>与<code>客户端</code>。</p>
 <p>Socket编程的目的就是如何实现这两端之间的通信。</p>
-<h2 id="1、Socket编程在嵌入式中也很重要"><a href="#1、Socket编程在嵌入式中也很重要" class="headerlink" title="1、Socket编程在嵌入式中也很重要"></a>1、Socket编程在嵌入式中也很重要</h2><p>Socket编程不仅仅在互联网方面很重要，在我们的嵌入式方面也是非常的重要，因为现在很多电子设备都趋向于联网。比如很多嵌入式工作的招聘要求都会有这一条要求：</p>
-<p><img src="https://s2.ax1x.com/2019/06/30/Z1Kytg.png" alt="Z1Kytg.png"></p>
-<p><img src="https://s2.ax1x.com/2019/06/30/Z1KoAU.png" alt="Z1KoAU.png"></p>
+<h3 id="1、Socket编程在嵌入式中也很重要"><a href="#1、Socket编程在嵌入式中也很重要" class="headerlink" title="1、Socket编程在嵌入式中也很重要"></a>1、Socket编程在嵌入式中也很重要</h3><p>Socket编程不仅仅在互联网方面很重要，在我们的嵌入式方面也是非常的重要，因为现在很多电子设备都趋向于联网。比如很多嵌入式工作的招聘要求都会有这一条要求：</p>
+<p><img src="https://s2.ax1x.com/2019/06/30/Z1Kytg.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/06/30/Z1KoAU.png" alt></p>
 <p>说一点题外话，还在学校的朋友，如果感觉到很迷茫，不知道学什么的时候，可以上招聘网站上看看自己未来工作相关的职位的任职要求，这样就可以总结自己的一些不足、比较有针对性的去学习。</p>
-<h1 id="二、Socket编程中的几个重要概念"><a href="#二、Socket编程中的几个重要概念" class="headerlink" title="二、Socket编程中的几个重要概念"></a>二、Socket编程中的几个重要概念</h1><p>Socket编程用于解决我们<code>客户端</code>与<code>服务端</code>之间通信的问题。我们平时多多少少都有听过IP地址、端口、TCP协议、UDP协议等概念，这些都与Socket编程中相关，想要知道怎么用起来，当然得先了解它们的一些介绍。下面看一下这些专业术语的一些要点介绍：</p>
-<h2 id="1、什么是IP地址？"><a href="#1、什么是IP地址？" class="headerlink" title="1、什么是IP地址？"></a>1、什么是IP地址？</h2><p><code>IP地址（Internet Protocol Address）</code>是指互联网协议地址，又译为<code>网际协议地址</code>。IP地址被用来给Internet上的电脑一个编号。我们可以把“个人电脑”比作“一台电话”，那么“IP地址”就相当于“电话号码”。若计算机1知道计算机2的IP地址，则计算机1就能访问计算机2。</p>
+<h2 id="二、Socket编程中的几个重要概念"><a href="#二、Socket编程中的几个重要概念" class="headerlink" title="二、Socket编程中的几个重要概念"></a>二、Socket编程中的几个重要概念</h2><p>Socket编程用于解决我们<code>客户端</code>与<code>服务端</code>之间通信的问题。我们平时多多少少都有听过IP地址、端口、TCP协议、UDP协议等概念，这些都与Socket编程中相关，想要知道怎么用起来，当然得先了解它们的一些介绍。下面看一下这些专业术语的一些要点介绍：</p>
+<h3 id="1、什么是IP地址？"><a href="#1、什么是IP地址？" class="headerlink" title="1、什么是IP地址？"></a>1、什么是IP地址？</h3><p><code>IP地址（Internet Protocol Address）</code>是指互联网协议地址，又译为<code>网际协议地址</code>。IP地址被用来给Internet上的电脑一个编号。我们可以把“个人电脑”比作“一台电话”，那么“IP地址”就相当于“电话号码”。若计算机1知道计算机2的IP地址，则计算机1就能访问计算机2。</p>
 <p>IP地址是一个32位的二进制数，通常被分割为4个“8位二进制数”（也就是4个字节）。IP地址通常用<code>点分十进制</code>表示成（a.b.c.d）的形式，其中，a,b,c,d都是0~255之间的十进制整数。例：点分十进IP地址（100.4.5.6），实际上是32位二进制数（01100100.00000100.00000101.00000110）。</p>
 <p>IP地址有<code>IPv4</code>与<code>IPv6</code>之分，现在用得较多的是IPv4。其中，有一个特殊的IP地址需要我们记住：<code>127.0.0.1</code>，这是回送地址，即本地机，一般用来测试使用。后边我们的实例中会用到。</p>
 <p>关于IP地址还有很多知识要点，但是对于在Socket编程中的应用，我们暂且知道这么多就可以。</p>
-<h2 id="2、什么是TCP-IP端口？"><a href="#2、什么是TCP-IP端口？" class="headerlink" title="2、什么是TCP/IP端口？"></a>2、什么是TCP/IP端口？</h2><p>上一点中我们提到，若计算机1知道计算机2的IP地址，则计算机1就能访问计算机2。但是，我们要访问计算机2中的不同的应用软件，则还得需要一个信息：<code>端口</code>。端口使用16bit进行编号，即其范围为：<code>0~65536</code>。但<code>0~1023</code> 的端口一般由系统分配给特定的服务程序，例如 Web 服务的端口号为 80，FTP 服务的端口号为 21等。</p>
-<h2 id="3、什么是协议？"><a href="#3、什么是协议？" class="headerlink" title="3、什么是协议？"></a>3、什么是协议？</h2><p>协议（Protocol）是通信双方进行数据交互的一种约定。如TCP、UDP协议：</p>
-<h3 id="（1）TCP协议"><a href="#（1）TCP协议" class="headerlink" title="（1）TCP协议"></a>（1）TCP协议</h3><p>TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议，数据可以准确发送，数据丢失会重发。TCP协议常用于web应用中。</p>
-<h4 id="TCP连接（三次握手）"><a href="#TCP连接（三次握手）" class="headerlink" title="TCP连接（三次握手）"></a>TCP连接（三次握手）</h4><p>TCP传输起始时，客户端、服务端要完成三次数据交互工作才能建立连接，常称为<strong>三次握手</strong>。可形象比喻为如下对话：</p>
+<h3 id="2、什么是TCP-IP端口？"><a href="#2、什么是TCP-IP端口？" class="headerlink" title="2、什么是TCP/IP端口？"></a>2、什么是TCP/IP端口？</h3><p>上一点中我们提到，若计算机1知道计算机2的IP地址，则计算机1就能访问计算机2。但是，我们要访问计算机2中的不同的应用软件，则还得需要一个信息：<code>端口</code>。端口使用16bit进行编号，即其范围为：<code>0~65536</code>。但<code>0~1023</code> 的端口一般由系统分配给特定的服务程序，例如 Web 服务的端口号为 80，FTP 服务的端口号为 21等。</p>
+<h3 id="3、什么是协议？"><a href="#3、什么是协议？" class="headerlink" title="3、什么是协议？"></a>3、什么是协议？</h3><p>协议（Protocol）是通信双方进行数据交互的一种约定。如TCP、UDP协议：</p>
+<h4 id="（1）TCP协议"><a href="#（1）TCP协议" class="headerlink" title="（1）TCP协议"></a>（1）TCP协议</h4><p>TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议，数据可以准确发送，数据丢失会重发。TCP协议常用于web应用中。</p>
+<h5 id="TCP连接（三次握手）"><a href="#TCP连接（三次握手）" class="headerlink" title="TCP连接（三次握手）"></a>TCP连接（三次握手）</h5><p>TCP传输起始时，客户端、服务端要完成三次数据交互工作才能建立连接，常称为<strong>三次握手</strong>。可形象比喻为如下对话：</p>
 <blockquote>
 <p>客户端：服务端您好，我有数据要发给你，请求您开通访问权限。</p>
 <p>服务端：客户端您好，已给您开通权限，您可以发送数据了。</p>
 <p>客户端：收到，谢谢。</p>
 </blockquote>
 <p>具体示意图为：</p>
-<p><img src="https://s2.ax1x.com/2019/06/30/Z1UacT.png" alt="Z1UacT.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/30/Z1UacT.png" alt></p>
 <p>这里的SYN和ACK是都是标志位，其中SYN代表新建一个连接，ACK代表确认。其中m、n都是随机数。具体说明如：</p>
 <ul>
 <li>第一次握手：SYN标志位被置位，客户端向服务端发送一个随机数m。</li>
 <li>第二次握手：ACK、SYN标志位被置位。服务端向客户端发送m+1表示确认刚才收到的数据，同时向客户端发送一个随机数n。</li>
 <li>第三次握手：ACK标志被置位。客户端向服务端发送n+1表示确认收到数据。</li>
 </ul>
-<h4 id="TCP断开（四次挥手）"><a href="#TCP断开（四次挥手）" class="headerlink" title="TCP断开（四次挥手）"></a>TCP断开（四次挥手）</h4><p>TCP断开连接时，客户端、服务端要完成四次数据交互工作才能建立连接，常称为<strong>四次挥手</strong>。可形象比喻为如下对话：</p>
+<h5 id="TCP断开（四次挥手）"><a href="#TCP断开（四次挥手）" class="headerlink" title="TCP断开（四次挥手）"></a>TCP断开（四次挥手）</h5><p>TCP断开连接时，客户端、服务端要完成四次数据交互工作才能建立连接，常称为<strong>四次挥手</strong>。可形象比喻为如下对话：</p>
 <blockquote>
 <p>客户端：服务端您好，我发送数据完毕了，即将和您断开连接。</p>
 <p>服务端：客户端您好，我稍稍准备一下，再给您断开</p>
@@ -482,14 +485,14 @@
 <p>客户端：好的，合作愉快！</p>
 </blockquote>
 <p>具体示意图为：</p>
-<p><img src="https://s2.ax1x.com/2019/06/30/Z1dxts.png" alt="Z1dxts.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/30/Z1dxts.png" alt></p>
 <p>这里的FIN也是一个标志位，代表断开连接。具体说明类似<strong>三次握手</strong>。</p>
 <p><strong>为什么建立连接只需要三次数据交互，而断开连接需要四次呢？</strong></p>
 <p>建立连接时，服务端在监听状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。</p>
 <p>而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。</p>
-<h3 id="（2）UDP协议"><a href="#（2）UDP协议" class="headerlink" title="（2）UDP协议"></a>（2）UDP协议</h3><p>UDP（User Datagram Protocol， 用户数据报协议）是一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务，可以保证通讯效率，传输延时小。例如视频聊天应用中用的就是UDP协议，这样可以保证及时丢失少量数据，视频的显示也不受很大影响。</p>
-<h2 id="4、什么是协议族？"><a href="#4、什么是协议族？" class="headerlink" title="4、什么是协议族？"></a>4、什么是协议族？</h2><p>协议族是多个协议的统称。比如我们的TCP/IP协议族，其不仅仅是TCP协议、IP协议，而是多个协议的集合，其包含IP、TCP、UDP、FTP、SMTP等协议。</p>
-<h1 id="三、socket编程的API接口"><a href="#三、socket编程的API接口" class="headerlink" title="三、socket编程的API接口"></a>三、socket编程的API接口</h1><h2 id="1、Linux下的socket-API接口"><a href="#1、Linux下的socket-API接口" class="headerlink" title="1、Linux下的socket API接口"></a>1、Linux下的socket API接口</h2><h3 id="（1）创建socket：socket-函数"><a href="#（1）创建socket：socket-函数" class="headerlink" title="（1）创建socket：socket()函数"></a>（1）创建socket：socket()函数</h3><p><strong>函数原型：</strong></p>
+<h4 id="（2）UDP协议"><a href="#（2）UDP协议" class="headerlink" title="（2）UDP协议"></a>（2）UDP协议</h4><p>UDP（User Datagram Protocol， 用户数据报协议）是一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务，可以保证通讯效率，传输延时小。例如视频聊天应用中用的就是UDP协议，这样可以保证及时丢失少量数据，视频的显示也不受很大影响。</p>
+<h3 id="4、什么是协议族？"><a href="#4、什么是协议族？" class="headerlink" title="4、什么是协议族？"></a>4、什么是协议族？</h3><p>协议族是多个协议的统称。比如我们的TCP/IP协议族，其不仅仅是TCP协议、IP协议，而是多个协议的集合，其包含IP、TCP、UDP、FTP、SMTP等协议。</p>
+<h2 id="三、socket编程的API接口"><a href="#三、socket编程的API接口" class="headerlink" title="三、socket编程的API接口"></a>三、socket编程的API接口</h2><h3 id="1、Linux下的socket-API接口"><a href="#1、Linux下的socket-API接口" class="headerlink" title="1、Linux下的socket API接口"></a>1、Linux下的socket API接口</h3><h4 id="（1）创建socket：socket-函数"><a href="#（1）创建socket：socket-函数" class="headerlink" title="（1）创建socket：socket()函数"></a>（1）创建socket：socket()函数</h4><p><strong>函数原型：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">socket</span><span class="token punctuation">(</span><span class="token keyword">int</span> af<span class="token punctuation">,</span> <span class="token keyword">int</span> type<span class="token punctuation">,</span> <span class="token keyword">int</span> protocol<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>af参数：af 为地址族（Address Family），也就是 IP 地址类型，常用的有 AF_INET 和 AF_INET6，其前缀也可以是PF（Protocol  Family），即PF_INET 和 PF_INET6。</li>
@@ -501,7 +504,7 @@
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> tcp_socket <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> IPPROTO_TCP<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>创建UDP套接字：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> udp_socket <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_DGRAM<span class="token punctuation">,</span> IPPROTO_UDP<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="（2）绑定套接字：bind-函数"><a href="#（2）绑定套接字：bind-函数" class="headerlink" title="（2）绑定套接字：bind()函数"></a>（2）绑定套接字：bind()函数</h3><p><strong>函数原型：</strong></p>
+<h4 id="（2）绑定套接字：bind-函数"><a href="#（2）绑定套接字：bind-函数" class="headerlink" title="（2）绑定套接字：bind()函数"></a>（2）绑定套接字：bind()函数</h4><p><strong>函数原型：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>addr<span class="token punctuation">,</span> socklen_t addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
 <ul>
 <li>sock参数：sock 为 socket 文件描述符。</li>
@@ -531,13 +534,13 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
     <span class="token keyword">struct</span> in6_addr sin6_addr<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 具体的IPv6地址</span>
     uint32_t sin6_scope_id<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 接口范围ID</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h3 id="（3）建立连接：connect-函数"><a href="#（3）建立连接：connect-函数" class="headerlink" title="（3）建立连接：connect()函数"></a>（3）建立连接：connect()函数</h3><p><strong>函数原型：</strong></p>
+<h4 id="（3）建立连接：connect-函数"><a href="#（3）建立连接：connect-函数" class="headerlink" title="（3）建立连接：connect()函数"></a>（3）建立连接：connect()函数</h4><p><strong>函数原型：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>serv_addr<span class="token punctuation">,</span> socklen_t addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span>  </code></pre>
 <p>参数与<code>bind()</code>的参数类似。</p>
 <p><strong>使用示例：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> ClientSock <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> IPPROTO_TCP<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">connect</span><span class="token punctuation">(</span>ClientSock<span class="token punctuation">,</span> <span class="token punctuation">(</span>SOCKADDR<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>ServerSockAddr<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="（4）监听：listen-函数"><a href="#（4）监听：listen-函数" class="headerlink" title="（4）监听：listen()函数"></a>（4）监听：listen()函数</h3><p><strong>函数原型：</strong></p>
+<h4 id="（4）监听：listen-函数"><a href="#（4）监听：listen-函数" class="headerlink" title="（4）监听：listen()函数"></a>（4）监听：listen()函数</h4><p><strong>函数原型：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">listen</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">int</span> backlog<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>sock参数：sock 为需要进入监听状态的套接字。</li>
@@ -546,7 +549,7 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
 <p><strong>使用示例：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 进入监听状态 */</span>
 <span class="token function">listen</span><span class="token punctuation">(</span>ServerSock<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="（5）接收请求：accept-函数"><a href="#（5）接收请求：accept-函数" class="headerlink" title="（5）接收请求：accept()函数"></a>（5）接收请求：accept()函数</h3><p><strong>函数原型：</strong></p>
+<h4 id="（5）接收请求：accept-函数"><a href="#（5）接收请求：accept-函数" class="headerlink" title="（5）接收请求：accept()函数"></a>（5）接收请求：accept()函数</h4><p><strong>函数原型：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">accept</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>addr<span class="token punctuation">,</span> socklen_t <span class="token operator">*</span>addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>sock参数：sock 为服务器端套接字。</li>
@@ -557,14 +560,14 @@ ServerSockAddr<span class="token punctuation">.</span>sin_port <span class="toke
 <p><strong>使用示例：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 监听客户端请求，accept函数返回一个新的套接字，发送和接收都是用这个套接字 */</span>
 <span class="token keyword">int</span> ClientSock <span class="token operator">=</span> <span class="token function">accept</span><span class="token punctuation">(</span>ServerSock<span class="token punctuation">,</span> <span class="token punctuation">(</span>SOCKADDR<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>ClientAddr<span class="token punctuation">,</span> <span class="token operator">&amp;</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="（6）关闭：close-函数"><a href="#（6）关闭：close-函数" class="headerlink" title="（6）关闭：close()函数"></a>（6）关闭：close()函数</h3><p><strong>函数原型：</strong></p>
+<h4 id="（6）关闭：close-函数"><a href="#（6）关闭：close-函数" class="headerlink" title="（6）关闭：close()函数"></a>（6）关闭：close()函数</h4><p><strong>函数原型：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token keyword">int</span> fd<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>fd：要关闭的文件描述符。</li>
 </ul>
 <p><strong>使用示例：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token function">close</span><span class="token punctuation">(</span>ServerSock<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="（7）数据的接收和发送"><a href="#（7）数据的接收和发送" class="headerlink" title="（7）数据的接收和发送"></a>（7）数据的接收和发送</h3><p>数据收发函数有几组：</p>
+<h4 id="（7）数据的接收和发送"><a href="#（7）数据的接收和发送" class="headerlink" title="（7）数据的接收和发送"></a>（7）数据的接收和发送</h4><p>数据收发函数有几组：</p>
 <ul>
 <li>read()/write()</li>
 <li>recv()/send()</li>
@@ -620,7 +623,7 @@ ssize_t <span class="token function">recvmsg</span><span class="token punctuatio
 <li>to：存有目标地址信息的 sockaddr 结构体变量的地址；</li>
 <li>addrlen：传递给参数 to 的地址值结构体变量的长度。</li>
 </ul>
-<h2 id="2、windows下的socket-API接口"><a href="#2、windows下的socket-API接口" class="headerlink" title="2、windows下的socket API接口"></a>2、windows下的socket API接口</h2><p>跟Linux下的差不多：</p>
+<h3 id="2、windows下的socket-API接口"><a href="#2、windows下的socket-API接口" class="headerlink" title="2、windows下的socket API接口"></a>2、windows下的socket API接口</h3><p>跟Linux下的差不多：</p>
 <pre class=" language-c"><code class="language-c">SOCKET <span class="token function">socket</span><span class="token punctuation">(</span><span class="token keyword">int</span> af<span class="token punctuation">,</span> <span class="token keyword">int</span> type<span class="token punctuation">,</span> <span class="token keyword">int</span> protocol<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">bind</span><span class="token punctuation">(</span>SOCKET sock<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>addr<span class="token punctuation">,</span> <span class="token keyword">int</span> addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">connect</span><span class="token punctuation">(</span>SOCKET sock<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>serv_addr<span class="token punctuation">,</span> <span class="token keyword">int</span> addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -631,11 +634,11 @@ SOCKET <span class="token function">accept</span><span class="token punctuation"
 <span class="token keyword">int</span> <span class="token function">recv</span><span class="token punctuation">(</span>SOCKET sock<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>buf<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">recvfrom</span><span class="token punctuation">(</span>SOCKET sock<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>buf<span class="token punctuation">,</span> <span class="token keyword">int</span> nbytes<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>from<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">sendto</span><span class="token punctuation">(</span>SOCKET sock<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>buf<span class="token punctuation">,</span> <span class="token keyword">int</span> nbytes<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">struct</span> sockadr <span class="token operator">*</span>to<span class="token punctuation">,</span> <span class="token keyword">int</span> addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="3、TCP、UDP通信的socket编程过程图"><a href="#3、TCP、UDP通信的socket编程过程图" class="headerlink" title="3、TCP、UDP通信的socket编程过程图"></a>3、TCP、UDP通信的socket编程过程图</h2><p><strong>（1）TCP通信socket编程过程</strong></p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z37yzq.png" alt="Z37yzq.png"></p>
+<h3 id="3、TCP、UDP通信的socket编程过程图"><a href="#3、TCP、UDP通信的socket编程过程图" class="headerlink" title="3、TCP、UDP通信的socket编程过程图"></a>3、TCP、UDP通信的socket编程过程图</h3><p><strong>（1）TCP通信socket编程过程</strong></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z37yzq.png" alt></p>
 <p><strong>（2）UDP通信socket编程过程</strong></p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z372LT.png" alt="Z372LT.png"></p>
-<h1 id="四、socket的应用实例"><a href="#四、socket的应用实例" class="headerlink" title="四、socket的应用实例"></a>四、socket的应用实例</h1><h2 id="1、基于TCP的本地客户端、服务端信息交互实例"><a href="#1、基于TCP的本地客户端、服务端信息交互实例" class="headerlink" title="1、基于TCP的本地客户端、服务端信息交互实例"></a>1、基于TCP的本地客户端、服务端信息交互实例</h2><p>本例的例子实现的功能为：本地TCP客户端往本地TCP服务端发送数据，TCP服务端收到数据则会打印输出，同时把原数据返回给TCP客户端。这个例子类似于我们在做单片机的串口实验时，串口上位机往我们的单片机发送数据，单片机收到数据则把该数据原样返回给上位机。</p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z372LT.png" alt></p>
+<h2 id="四、socket的应用实例"><a href="#四、socket的应用实例" class="headerlink" title="四、socket的应用实例"></a>四、socket的应用实例</h2><h3 id="1、基于TCP的本地客户端、服务端信息交互实例"><a href="#1、基于TCP的本地客户端、服务端信息交互实例" class="headerlink" title="1、基于TCP的本地客户端、服务端信息交互实例"></a>1、基于TCP的本地客户端、服务端信息交互实例</h3><p>本例的例子实现的功能为：本地TCP客户端往本地TCP服务端发送数据，TCP服务端收到数据则会打印输出，同时把原数据返回给TCP客户端。这个例子类似于我们在做单片机的串口实验时，串口上位机往我们的单片机发送数据，单片机收到数据则把该数据原样返回给上位机。</p>
 <p><strong>（1）windows的程序：</strong></p>
 <p><strong>服务端程序tcp_server.c：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
@@ -772,7 +775,7 @@ gcc tcp_server<span class="token punctuation">.</span>c <span class="token opera
 <p>这里必须要加<code>-lwsock32</code>这个参数用于链接windows下socket编程必须的winsock2这个库。若是使用集成开发环境，则需要把<code>wsock32.lib</code>放在工程目录下，并在我们代码中<code>#include &lt;winsock2.h&gt;</code> 下面加上一行 <code>#pragma comment(lib, &quot;ws2_32.lib&quot;)</code>代码（这种情况本人未验证，有兴趣的朋友可尝试）。</p>
 <p><strong>实验现象：</strong></p>
 <p>先启动服务端程序<code>tcp_server.exe</code>，再启动客户端程序<code>tcp_client.exe</code>，并在客户端中输入字符串，则当服务端会接收到字符串时会打印输出，与此同时也会往客户端返回相同的数据：</p>
-<p><img src="https://s2.ax1x.com/2019/06/30/Z1zBss.png" alt="Z1zBss.png"></p>
+<p><img src="https://s2.ax1x.com/2019/06/30/Z1zBss.png" alt></p>
 <p><strong>动图：</strong></p>
 <p><img src="http://i65.tinypic.com/20t31iv.gif" alt="实验结果"></p>
 <p><strong>（2）Linux的程序：</strong></p>
@@ -924,12 +927,12 @@ gcc tcp_server<span class="token punctuation">.</span>c <span class="token opera
 <pre class=" language-c"><code class="language-c">gcc linux_tcp_server<span class="token punctuation">.</span>c <span class="token operator">-</span>o linux_tcp_server
 gcc linux_tcp_client<span class="token punctuation">.</span>c <span class="token operator">-</span>o linux_tcp_client</code></pre>
 <p><strong>实验现象：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z34TAA.png" alt="Z34TAA.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z34TAA.png" alt></p>
 <p>在调试这份程序时，出现了绑定错误：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z34z7j.png" alt="Z34z7j.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z34z7j.png" alt></p>
 <p>经上网查询发现是端口重复使用，可以在调用<code>bind()</code>函数之前调用<code>setsockopt()</code>函数以解决端口重复使用的问题：</p>
-<p><img src="https://s2.ax1x.com/2019/07/01/Z35NEd.png" alt="Z35NEd.png"></p>
-<h2 id="2、基于UDP的本地客户端、服务端信息交互实例"><a href="#2、基于UDP的本地客户端、服务端信息交互实例" class="headerlink" title="2、基于UDP的本地客户端、服务端信息交互实例"></a>2、基于UDP的本地客户端、服务端信息交互实例</h2><p><strong>（1）windows的程序</strong></p>
+<p><img src="https://s2.ax1x.com/2019/07/01/Z35NEd.png" alt></p>
+<h3 id="2、基于UDP的本地客户端、服务端信息交互实例"><a href="#2、基于UDP的本地客户端、服务端信息交互实例" class="headerlink" title="2、基于UDP的本地客户端、服务端信息交互实例"></a>2、基于UDP的本地客户端、服务端信息交互实例</h3><p><strong>（1）windows的程序</strong></p>
 <p><strong>服务端程序udp_server.c：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;winsock2.h></span></span>
@@ -1165,9 +1168,11 @@ gcc linux_tcp_client<span class="token punctuation">.</span>c <span class="token
 <span class="token punctuation">}</span></code></pre>
 <p><strong>实验现象：</strong></p>
 <p>实验现象如实例1。</p>
-<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>本笔记简单介绍了一些与socket编程相关的一些知识点：IP地址，什么是端口，协议等。重点介绍了TCP、UDP通信的一些原理及其API接口的用法，并给出了windows和linux下的TCP、UDP通信实例。以上就是关于socket编程的一些总结，如有错误，欢迎指出！</p>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>本笔记简单介绍了一些与socket编程相关的一些知识点：IP地址，什么是端口，协议等。重点介绍了TCP、UDP通信的一些原理及其API接口的用法，并给出了windows和linux下的TCP、UDP通信实例。以上就是关于socket编程的一些总结，如有错误，欢迎指出！</p>
 <hr>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>

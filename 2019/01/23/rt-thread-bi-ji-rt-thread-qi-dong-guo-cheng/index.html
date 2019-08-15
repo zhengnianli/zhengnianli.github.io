@@ -419,7 +419,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        972
+                        982
                     </div>
                     
 
@@ -443,14 +443,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>我们学习编程，特别是嵌入式编程，不仅仅要多写代码进行练习，还要多看看一些例程。最近在学习RT-Thread，原子的某例程的的主函数如下（这是在<code>keil5</code>下的截图）：</p>
-<p><a href="https://postimg.cc/1grPLcsK" target="_blank" rel="noopener"><img src="https://i.postimg.cc/FK2RkD6w/001.png" alt="001.png"></a></p>
+<p><a href="https://postimg.cc/1grPLcsK" target="_blank" rel="noopener"><img src="https://i.postimg.cc/FK2RkD6w/001.png" alt></a></p>
 <p>这是主函数中的全部代码，主要是创建一个led线程并启动。那么问题来了，要点个灯，怎么也要进行led的硬件初始化吧？但是，在主函数中并没有发现有相关的初始化操作。那么其在哪进行初始化呢？按照我们以往的习惯，主函数就是用户程序的入口啊。难道还有其他入口？还真的有其他入口！这就涉及到RT-Thread的启动过程。</p>
 <p>我们可以借助<code>jlink仿真器</code>进行硬件单步调试就可以知道程序的执行流程了。</p>
 <p>首先，进入调试界面，并点击复位按钮光标就可以跳到程序开始运行的地方。如：</p>
-<p><img src="https://s2.ax1x.com/2019/07/02/ZG8NQS.png" alt="ZG8NQS.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/02/ZG8NQS.png" alt></p>
 <p>再次，一直点击单步运行按钮，直至光标运行到</p>
 <pre><code>BX      R0</code></pre><p>这一行代码。此时，再点击单步运行按钮，并不会跳转到<code>main.c</code>中的<code>main</code>函数，而是会跳到<code>component.c</code>中的<code>$Sub$$main</code>函数，该函数如下所示：</p>
-<p><img src="https://s2.ax1x.com/2019/07/02/ZG8Bon.png" alt="ZG8Bon.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/02/ZG8Bon.png" alt></p>
 <p><code>$Sub$$main</code>函数里主要是系统中断失能及调用系统启动函数（系统初始化）。</p>
 <p><code>$Sub$$</code>与<code>$Super$$</code>这两个符号是什么意思呢？在<code>《RT-Thread内核实现与应用开发实战指南》</code>这本书中有解释到：</p>
 <blockquote>
@@ -491,9 +491,9 @@
    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p><code>rt_application_init</code>函数中创建了一个<code>main线程</code>：</p>
-<p><img src="https://s2.ax1x.com/2019/07/02/ZG86zT.png" alt="ZG86zT.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/02/ZG86zT.png" alt></p>
 <p><code>main线程</code>的线程函数为：</p>
-<p><img src="https://s2.ax1x.com/2019/07/02/ZG8gQU.png" alt="ZG8gQU.png"></p>
+<p><img src="https://s2.ax1x.com/2019/07/02/ZG8gQU.png" alt></p>
 <p>总结：<code>$Sub$$和$Super$$</code>是成对使用的。可以使用如下结构给函数进行扩展（打补丁）：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">extern</span> <span class="token keyword">void</span> <span class="token function">ExtraFunc</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 用户自己实现的外部函数*/</span>
 <span class="token keyword">void</span> $Sub$<span class="token function">function</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
@@ -514,8 +514,9 @@
 <p><a href="https://blog.csdn.net/yang1111111112/article/details/80913001" target="_blank" rel="noopener">https://blog.csdn.net/yang1111111112/article/details/80913001</a></p>
 </blockquote>
 <hr>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png"></a></p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
 
             </div>
             <hr>
