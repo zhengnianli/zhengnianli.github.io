@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="STM32串口空闲中断接收不定长数据（DMA方式）, 正念的博客">
     <meta name="description" content="在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是RXNE。这里分享另一种接收数据的方式——IDLE中断（PS：本文的例子运行在STM32F103ZET6上）。
-一IDLE中断什么时候发生？IDLE就是串">
+一、IDLE中断什么时候发生？IDLE就是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -438,7 +438,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是<code>RXNE</code>。这里分享另一种接收数据的方式——<code>IDLE</code>中断（PS：本文的例子运行在<code>STM32F103ZET6</code>上）。</p>
-<h2 id="一IDLE中断什么时候发生？"><a href="#一IDLE中断什么时候发生？" class="headerlink" title="一IDLE中断什么时候发生？"></a>一IDLE中断什么时候发生？</h2><p>IDLE就是串口收到一帧数据后，发生的中断。什么是一帧数据呢？比如说给单片机一次发来1个字节，或者一次发来8个字节，这些一次发来的数据，就称为一帧数据，也可以叫做一包数据。</p>
+<h2 id="一、IDLE中断什么时候发生？"><a href="#一、IDLE中断什么时候发生？" class="headerlink" title="一、IDLE中断什么时候发生？"></a>一、IDLE中断什么时候发生？</h2><p>IDLE就是串口收到一帧数据后，发生的中断。什么是一帧数据呢？比如说给单片机一次发来1个字节，或者一次发来8个字节，这些一次发来的数据，就称为一帧数据，也可以叫做一包数据。</p>
 <h2 id="二、RXNE中断和IDLE中断的区别？"><a href="#二、RXNE中断和IDLE中断的区别？" class="headerlink" title="二、RXNE中断和IDLE中断的区别？"></a>二、RXNE中断和IDLE中断的区别？</h2><p>当接收到1个字节，就会产生RXNE中断，当接收到一帧数据，就会产生IDLE中断。比如给单片机一次性发送了8个字节，就会产生8次RXNE中断，1次IDLE中断。</p>
 <h2 id="三、IDLE中断如何配置？"><a href="#三、IDLE中断如何配置？" class="headerlink" title="三、IDLE中断如何配置？"></a>三、IDLE中断如何配置？</h2><p>IDLE中断由<code>USART_CR1</code> 寄存器进行配置：</p>
 <p><img src="https://s2.ax1x.com/2019/08/19/mldcoF.png" alt></p>
@@ -464,7 +464,7 @@
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
-<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](</p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
             <hr>
@@ -652,55 +652,45 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/">
+                <a href="/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="STM32串口空闲中断接收不定长数据（DMA方式）">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】goto语句">
                         
-                        <span class="card-title">STM32串口空闲中断接收不定长数据（DMA方式）</span>
+                        <span class="card-title">【C语言笔记】goto语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是RXNE。这里分享另一种接收数据的方式——IDLE中断（PS：本文的例子运行在STM32F103ZET6上）。
-一IDLE中断什么时候发生？IDLE就是串
+                            关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：
+一、goto的基本语法goto语句有两部分：go
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/STM32/" target="_blank">
-                        <span class="chip bg-color">STM32</span>
-                    </a>
-                    
-                    <a href="/tags/空闲中断/" target="_blank">
-                        <span class="chip bg-color">空闲中断</span>
-                    </a>
-                    
-                    <a href="/tags/DMA/" target="_blank">
-                        <span class="chip bg-color">DMA</span>
+                    <a href="/tags/goto语句/" target="_blank">
+                        <span class="chip bg-color">goto语句</span>
                     </a>
                     
                 </div>
@@ -714,13 +704,13 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/16/ti-dai-chuan-kou-da-yin-kuai-lai-wei-guan-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/">
+                <a href="/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="替代串口打印，快来围观嵌入式中另一种打印调试的方法">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="替代串口打印，嵌入式中另一种打印调试的方法">
                         
-                        <span class="card-title">替代串口打印，快来围观嵌入式中另一种打印调试的方法</span>
+                        <span class="card-title">替代串口打印，嵌入式中另一种打印调试的方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -875,7 +865,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">85k</span>
+                <span class="white-color">87.4k</span>
             
 
             

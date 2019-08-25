@@ -301,18 +301,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/categories/嵌入式/" title="嵌入式: 12">
+                <a href="/categories/嵌入式/" title="嵌入式: 13">
                     <span class="chip center-align waves-effect waves-light
                              chip-default " style="background-color: #F5EEF8;">嵌入式
-                        <span class="tag-length">12</span>
+                        <span class="tag-length">13</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/C语言笔记/" title="C语言笔记: 47">
+                <a href="/categories/C语言笔记/" title="C语言笔记: 48">
                     <span class="chip center-align waves-effect waves-light
                              chip-active " style="background-color: #D5F5E3;">C语言笔记
-                        <span class="tag-length">47</span>
+                        <span class="tag-length">48</span>
                     </span>
                 </a>
                 
@@ -350,6 +350,61 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/18/c-yu-yan-bi-ji-bian-liang-de-chu-shi-zhi-shi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】变量的初始值是？">
+                            
+                            <span class="card-title">【C语言笔记】变量的初始值是？</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一个变量，即使没有给它赋初值，它也是有一个默认初值的。下面来看一段程序：
+#include &lt;stdio.h>
+
+int a1, a2;
+float b1, b2;
+char c1, c2;
+
+int main(void)
+{
+ in
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
@@ -403,21 +458,23 @@ XBYTE[2]=0x56;
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                             
-                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
+                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
-下面以windows环境下的test.c为例，test.c里的代码为：
-#inc
+                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+示例一：字
                             
                         </div>
                         <div class="publish-info">
@@ -451,23 +508,21 @@ XBYTE[2]=0x56;
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
+                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
                             
-                            <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
+                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
-(1)char str[] = "happy";
-(2)char *str = "happy";
-这种方式有什么不同呢？
-示例一：字
+                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
+下面以windows环境下的test.c为例，test.c里的代码为：
+#inc
                             
                         </div>
                         <div class="publish-info">
@@ -936,7 +991,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">85k</span>
+                <span class="white-color">87.4k</span>
             
 
             

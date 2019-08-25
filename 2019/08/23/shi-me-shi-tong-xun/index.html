@@ -4,9 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="替代串口打印，快来围观嵌入式中另一种打印调试的方法, 正念的博客">
-    <meta name="description" content="一、前言在我们的嵌入式开发中，常常把printf重定向到MCU的串口外设，再配合上位机界面软件，通过打印调试信息的方式来调试我们的嵌入式软件。
-此处，我们介绍另一种打印调试的方法——SEGGER 的RTT 。RTT全称是Real Time ">
+    <meta name="keywords" content="什么是通讯？, 正念的博客">
+    <meta name="description" content="一、什么是串行通讯与并行通讯？按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。
+而并行通讯一般是指使用 8、 16、">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>替代串口打印，快来围观嵌入式中另一种打印调试的方法 | 正念的博客</title>
+    <title>什么是通讯？ | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        替代串口打印，快来围观嵌入式中另一种打印调试的方法
+                        什么是通讯？
                     </div>
                 </div>
             </div>
@@ -375,12 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SEGGER-RTT/" target="_blank">
-                                <span class="chip bg-color">SEGGER_RTT</span>
-                            </a>
-                        
-                            <a href="/tags/J-Link/" target="_blank">
-                                <span class="chip bg-color">J-Link</span>
+                            <a href="/tags/通讯/" target="_blank">
+                                <span class="chip bg-color">通讯</span>
                             </a>
                         
                     </div>
@@ -403,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-16
+                    2019-08-23
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        694
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        4 分
                     </div>
                     
                 
@@ -433,61 +429,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>在我们的嵌入式开发中，常常把printf重定向到MCU的串口外设，再配合上位机界面软件，通过打印调试信息的方式来调试我们的嵌入式软件。</p>
-<p>此处，我们介绍另一种打印调试的方法——<code>SEGGER 的RTT</code> 。<code>RTT</code>全称是<code>Real Time Transmit</code>（实时传输），是<code>Segger</code>公司推出的，是配合<code>J-link</code>使用的一种调试手段。其框图如下：</p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mldQxI.png" alt></p>
-<p>可见，我们的MCU通过J-Link，凭借RTT就可往电脑打印调试信息，电脑端这边用的是<code>J-LINK</code> 的小软件 <code>RTT Viewer</code>  （不能是别的软件哦）。这样，我们就可以把MCU的串口资源释放出来了，特别对于一些串口资源不那么充足的MCU来说就可以省出一个串口去与其它外围芯片进行串口通讯。</p>
-<h2 id="二、SEGGER-RTT的使用"><a href="#二、SEGGER-RTT的使用" class="headerlink" title="二、SEGGER_RTT的使用"></a>二、SEGGER_RTT的使用</h2><p>所需准备，<code>J-Link</code>及<code>SEGGER_RTT</code>源码，可在本公众号聊天界面回复关键词：<code>RTT</code>，即可获取下载链接。下面演示在<code>Keil-MDK</code>环境下使用<code>SEGGER_RTT</code>：</p>
-<h3 id="1、安装J-Link驱动"><a href="#1、安装J-Link驱动" class="headerlink" title="1、安装J-Link驱动"></a>1、安装J-Link驱动</h3><p><img src="https://s2.ax1x.com/2019/08/19/mldMRA.png" alt></p>
-<p>安装完之后就可在看到如图所示的<code>J-Link RTT Viewer V6.44b</code>，我们待会要把调试信息传输到这个软件上。</p>
-<h3 id="2、SEGGER-RTT的收发测试"><a href="#2、SEGGER-RTT的收发测试" class="headerlink" title="2、SEGGER_RTT的收发测试"></a>2、SEGGER_RTT的收发测试</h3><p>（1）把<code>SEGGER_RTT_V640</code>添加到我们的工程文件夹中</p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mld1Mt.png" alt></p>
-<p><code>SEGGER_RTT_V640</code>中的内容如下：</p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mld3sP.png" alt></p>
-<p>（2）把<code>SEGGER_RTT_V640</code>下的<code>RTT</code>下的所有文件添加到我们的工程中</p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mld8qf.png" alt></p>
-<p>（3）添加文件路径</p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mldJZ8.png" alt></p>
-<p>（4）在main.c中添加如下测试代码</p>
-<pre><code>int main(void)
-{   
-    /* 今天是2019-08-15 */
-    #define YEAR   2019
-    #define MONTH  8
-    #define DAY    15
-
-    int GetKey;
-
-    /* 配置通道0，上行配置（STM32-&gt;RTT Viewer软件） */
-    SEGGER_RTT_ConfigUpBuffer(0, &quot;RTTUP&quot;, NULL, 0, SEGGER_RTT_MODE_NO_BLOCK_SKIP);
-
-    /* 配置通道0，下行配置（RTT Viewer软件-&gt;STM32） */    
-    SEGGER_RTT_ConfigDownBuffer(0, &quot;RTTDOWN&quot;, NULL, 0, SEGGER_RTT_MODE_NO_BLOCK_SKIP);
-
-    while (1)
-    {
-        /* 收发测试 */
-        if (SEGGER_RTT_HasKey())            /* 判断接收缓冲区中是否有数据 */
-        {
-            GetKey = SEGGER_RTT_GetKey();    /* 从接受缓冲区中取出一个字符 */
-            SEGGER_RTT_SetTerminal(1);
-            SEGGER_RTT_printf(0, &quot;GetKey = %c\r\nHello world! Today is %.4d-%.2d-%.2d&quot;, GetKey, YEAR, MONTH, DAY);
-        }
-    }
-
-    return 0;
-}</code></pre><p>需要注意的是：记得添加头文件<code>SEGGER_RTT.h</code>，范例工程可在聊天界面回复关键词<code>RTT</code>进行获取。</p>
-<p>（5）编译下载到flash中，并启动RTT Viewer软件</p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mlduPH.png" alt></p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mldKGd.png" alt></p>
-<p><img src="https://s2.ax1x.com/2019/08/19/mldmIe.png" alt></p>
-<p>这个测试程序是对<code>SEGGER_RTT</code>进行收发测试，其中<code>SEGGER_RTT_printf</code>与我们平时用的<code>printf</code>差不多。</p>
-<h2 id="三、最后"><a href="#三、最后" class="headerlink" title="三、最后"></a>三、最后</h2><p><code>SEGGER_RTT</code>基本上可以替换掉我们的串口打印调试，关于<code>SEGGER_RTT</code>还有其他可以学习的地方，比如输出颜色设置、多任务调度等，有需要的朋友可以自己进行学习使用，推荐资料：</p>
-<p><a href="http://www.armbbs.cn/forum.php?mod=viewthread&amp;tid=86177&amp;fromuid=58" target="_blank" rel="noopener">http://www.armbbs.cn/forum.php?mod=viewthread&amp;tid=86177&amp;fromuid=58</a></p>
+                <h1 id="一、什么是串行通讯与并行通讯？"><a href="#一、什么是串行通讯与并行通讯？" class="headerlink" title="一、什么是串行通讯与并行通讯？"></a>一、什么是串行通讯与并行通讯？</h1><p>按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。</p>
+<p>而并行通讯一般是指使用 8、 16、 32 及 64 根或更多的数据线进行传输的通讯方式。并行通讯就像多个车道的公路，可以同时传输多个数据位的数据，而串行通讯，而串行通讯就像单个车道的公路，同一时刻只能传输一个数据位的数据。 并行通讯与串行通讯的对比图如下：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQTRs.png" alt></p>
+<p>很明显，因为一次可传输多个数据位的数据 ，在数据传输速率相同的情况下，并行通讯传输的数据量要大得多，而串行通讯则可以节省数据线的硬件成本(特别是远距离时)以及 PCB 的布线面积，串行通讯与并行通讯的特性对比如下：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQ4Ig.png" alt></p>
+<p>不过由于并行传输对同步要求较高，且随着通讯速率的提高，信号干扰的问题会显著影响通讯性能，现在随着技术的发展，越来越多的应用场合采用高速率的串行差分传输。 </p>
+<h1 id="二、什么是全双工、半双工及单工通讯？"><a href="#二、什么是全双工、半双工及单工通讯？" class="headerlink" title="二、什么是全双工、半双工及单工通讯？"></a>二、什么是全双工、半双工及单工通讯？</h1><p>根据数据通讯的方向，通讯又分为全双工、半双工及单工通讯，它们主要以信道的方向来区分：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQoGj.png" alt></p>
+<p>仍以公路来类比，全双工的通讯就是一个双向车道，两个方向上的车流互不相干；半双工则像乡间小道那样，同一时刻只能让一辆小车通过，另一方向的来车只能等待道路空出来时才能经过；而单工则像单行道，另一方向的车辆完全禁止通行。 </p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQIiQ.png" alt></p>
+<h1 id="三、什么是同步通讯与异步通讯？"><a href="#三、什么是同步通讯与异步通讯？" class="headerlink" title="三、什么是同步通讯与异步通讯？"></a>三、什么是同步通讯与异步通讯？</h1><p>根据通讯的数据同步方式，又分为同步和异步两种，可以根据通讯过程中是否有<code>使用到时钟信号进行简单的区分</code>。</p>
+<p>在同步通讯中，收发设备双方会使用一根信号线表示时钟信号，在时钟信号的驱动下双方进行协调，同步数据。通讯中通常双方会统一规定在时钟信号的上升沿或下降沿对数据线进行采样。 同步通讯：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQhdS.png" alt></p>
+<p>在异步通讯中不使用时钟信号进行数据同步，它们直接在数据信号中穿插一些同步用的信号位，或者把主体数据进行打包，以数据帧的格式传输数据，某些通讯中还需要双方约定数据的传输速率，以便更好地同步。异步通讯：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQ7zn.png" alt></p>
+<p>在同步通讯中，数据信号所传输的内容绝大部分就是有效数据，而异步通讯中会包含有帧的各种标识符，所以同步通讯的效率更高，但是同步通讯双方的时钟允许误差较小，而异步通讯双方的时钟允许误差较大。 </p>
+<h1 id="四、什么是通讯速率？"><a href="#四、什么是通讯速率？" class="headerlink" title="四、什么是通讯速率？"></a>四、什么是通讯速率？</h1><p>衡量通讯性能的一个非常重要的参数就是通讯速率，通常以<code>比特率(Bitrate)</code>来表示，即每秒钟传输的二进制位数，单位为比特每秒(bit/s)。容易与比特率混淆的概念是<code>波特率(Baudrate)</code>，它表示每秒钟传输了多少个<code>码元</code>。</p>
+<p>而码元是通讯信号调制的概念，通讯中常用时间间隔相同的符号来表示一个二进制数字，这样的信号称为码元。</p>
+<p>如常见的通讯传输中，用 0V 表示数字 0， 5V 表示数字 1，那么一个码元可以表示两种状态 0 和 1，所以一个码元等于一个二进制比特位，此时波特率的大小与比特率一致；如果在通讯传输中，有 0V、2V、 4V 以及 6V 分别表示二进制数 00、 01、 10、 11，那么每个码元可以表示四种状态，即两个二进制比特位，所以码元数是二进制比特位数的一半，这个时候的波特率为比特率的一半。</p>
+<p>因为很多常见的通讯中一个码元都是表示两种状态，人们常常直接以波特率来表示比特率。 </p>
+<p>摘抄自：</p>
+<blockquote>
+<p>《【野火】零死角玩转<strong>STM32</strong>—<strong>F429</strong>挑战者<strong>V2</strong>.pdf》</p>
+</blockquote>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
-<p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt="VcSFJJ.md.png">](</p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
             <hr>
@@ -652,7 +621,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-08-16T08-22-15',
+        id: '2019-08-23T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -675,28 +644,29 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/">
+                <a href="/2019/08/23/shi-me-shi-tong-xun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="STM32串口空闲中断接收不定长数据（DMA方式）">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="什么是通讯？">
                         
-                        <span class="card-title">STM32串口空闲中断接收不定长数据（DMA方式）</span>
+                        <span class="card-title">什么是通讯？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是RXNE。这里分享另一种接收数据的方式——IDLE中断（PS：本文的例子运行在STM32F103ZET6上）。
-一IDLE中断什么时候发生？IDLE就是串
+                            一、什么是串行通讯与并行通讯？按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。
+而并行通讯一般是指使用 8、 16、
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -709,19 +679,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/STM32/" target="_blank">
-                        <span class="chip bg-color">STM32</span>
-                    </a>
-                    
-                    <a href="/tags/空闲中断/" target="_blank">
-                        <span class="chip bg-color">空闲中断</span>
-                    </a>
-                    
-                    <a href="/tags/DMA/" target="_blank">
-                        <span class="chip bg-color">DMA</span>
+                    <a href="/tags/通讯/" target="_blank">
+                        <span class="chip bg-color">通讯</span>
                     </a>
                     
                 </div>
@@ -735,33 +698,32 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/13/gong-ju-zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/">
+                <a href="/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【工具】这个神器可以提取你代码中的关键信息生成技术文档">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】goto语句">
                         
-                        <span class="card-title">【工具】这个神器可以提取你代码中的关键信息生成技术文档</span>
+                        <span class="card-title">【C语言笔记】goto语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、前言以前，我们学C语言的时候，多多少少都查过一些标准库函数吧。这里介绍查找C语言的标准库函数的两种方法：一种方法是直接到http://www.cplusplus.com这个网站上去查看：
-
-这里覆盖了C语言标准库中的所有函数，给出了每个
+                            关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：
+一、goto的基本语法goto语句有两部分：go
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-13
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
@@ -771,16 +733,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/工具/" target="_blank">
-                        <span class="chip bg-color">工具</span>
-                    </a>
-                    
-                    <a href="/tags/Doxygen/" target="_blank">
-                        <span class="chip bg-color">Doxygen</span>
-                    </a>
-                    
-                    <a href="/tags/chm/" target="_blank">
-                        <span class="chip bg-color">chm</span>
+                    <a href="/tags/goto语句/" target="_blank">
+                        <span class="chip bg-color">goto语句</span>
                     </a>
                     
                 </div>
@@ -901,7 +855,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">85k</span>
+                <span class="white-color">87.4k</span>
             
 
             

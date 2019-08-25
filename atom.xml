@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-08-19T00:36:08.583Z</updated>
+  <updated>2019-08-25T06:23:57.346Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -17,11 +17,64 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>什么是通讯？</title>
+    <link href="https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/"/>
+    <id>https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/</id>
+    <published>2019-08-23T00:22:15.000Z</published>
+    <updated>2019-08-25T06:23:57.346Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、什么是串行通讯与并行通讯？&quot;&gt;&lt;a href=&quot;#一、什么是串行通讯与并行通讯？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="通讯" scheme="https://zhengnianli.github.io/tags/%E9%80%9A%E8%AE%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【C语言笔记】goto语句</title>
+    <link href="https://zhengnianli.github.io/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/"/>
+    <id>https://zhengnianli.github.io/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/</id>
+    <published>2019-08-22T00:22:15.000Z</published>
+    <updated>2019-08-25T03:18:07.556Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：&lt;/p&gt;
+&lt;h2 id=&quot;一、goto的基本语法&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="goto语句" scheme="https://zhengnianli.github.io/tags/goto%E8%AF%AD%E5%8F%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>STM32串口空闲中断接收不定长数据（DMA方式）</title>
     <link href="https://zhengnianli.github.io/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/"/>
     <id>https://zhengnianli.github.io/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/</id>
     <published>2019-08-18T00:22:15.000Z</published>
-    <updated>2019-08-19T00:36:08.583Z</updated>
+    <updated>2019-08-25T03:32:35.112Z</updated>
     
     <summary type="html">
     
@@ -47,11 +100,11 @@
   </entry>
   
   <entry>
-    <title>替代串口打印，快来围观嵌入式中另一种打印调试的方法</title>
-    <link href="https://zhengnianli.github.io/2019/08/16/ti-dai-chuan-kou-da-yin-kuai-lai-wei-guan-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/"/>
-    <id>https://zhengnianli.github.io/2019/08/16/ti-dai-chuan-kou-da-yin-kuai-lai-wei-guan-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/</id>
+    <title>替代串口打印，嵌入式中另一种打印调试的方法</title>
+    <link href="https://zhengnianli.github.io/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/"/>
+    <id>https://zhengnianli.github.io/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/</id>
     <published>2019-08-16T00:22:15.000Z</published>
-    <updated>2019-08-19T00:24:54.708Z</updated>
+    <updated>2019-08-25T03:26:44.848Z</updated>
     
     <summary type="html">
     
@@ -534,64 +587,6 @@
         
         
           &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在 Linux 或 Unix
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】Vi/Vim编辑器</title>
-    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/"/>
-    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-vim-bian-ji-qi/</id>
-    <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-08-15T00:26:10.150Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、什么是vi-vim？&quot;&gt;&lt;a href=&quot;#1、什么是vi-vim？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-      <category term="vim" scheme="https://zhengnianli.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】文件的权限</title>
-    <link href="https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/"/>
-    <id>https://zhengnianli.github.io/2019/04/29/linux-bi-ji-wen-jian-de-quan-xian/</id>
-    <published>2019-04-29T00:22:15.000Z</published>
-    <updated>2019-08-15T00:32:42.242Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Linux是多用户操作系统，不同的用户对于文件的操作拥有不同的权限。我们可以使用 &lt;code&gt;ls -l&lt;/code&gt; 命令列出当前目录下的文件及目录的详细信息：&lt;br&gt;&lt;a href=&quot;https://imgchr.com/i/ZkWS8U&quot;
         
       
     
