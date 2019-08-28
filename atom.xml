@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-08-25T06:23:57.346Z</updated>
+  <updated>2019-08-28T14:30:33.343Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>什么是通讯？</title>
-    <link href="https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/"/>
-    <id>https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/</id>
-    <published>2019-08-23T00:22:15.000Z</published>
-    <updated>2019-08-25T06:23:57.346Z</updated>
+    <title>程序的组成、存储与运行</title>
+    <link href="https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/"/>
+    <id>https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/</id>
+    <published>2019-08-28T00:22:15.000Z</published>
+    <updated>2019-08-28T14:30:33.343Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,62 @@
       
         
         
-          &lt;h1 id=&quot;一、什么是串行通讯与并行通讯？&quot;&gt;&lt;a href=&quot;#一、什么是串行通讯与并行通讯？&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;一般 MCU 包含的存储空间有：片内 Flash 与片内 RAM， RAM 相当于内存， Flash 相当于硬盘。编译器会将一个程序分类为好几个部分，分别存储在 MCU 不同的存储区。&lt;/p&gt;
+&lt;h2 id=&quot;一、编译过程&quot;&gt;&lt;a href=&quot;#一、编译过程&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言代码优化的一些经验及小技巧</title>
+    <link href="https://zhengnianli.github.io/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/"/>
+    <id>https://zhengnianli.github.io/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/</id>
+    <published>2019-08-27T00:22:15.000Z</published>
+    <updated>2019-08-28T14:39:34.941Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、变量与值得比较&quot;&gt;&lt;a href=&quot;#一、变量与值得比较&quot; class=&quot;headerlink&quot; title=&quot;一、变量与值得比较&quot;&gt;&lt;/a&gt;一、变量与值得比较&lt;/h2&gt;&lt;h3 id=&quot;1、布尔变量与零值的比较&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>什么是通讯？</title>
+    <link href="https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/"/>
+    <id>https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/</id>
+    <published>2019-08-23T00:22:15.000Z</published>
+    <updated>2019-08-28T14:42:40.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、什么是串行通讯与并行通讯？&quot;&gt;&lt;a href=&quot;#一、什么是串行通讯与并行通讯？&quot; class=&quot;headerlink&quot;
         
       
     
@@ -360,9 +415,9 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
       <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
     
       <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
     
@@ -541,61 +596,6 @@
     
       <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
     
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】#运算符与##运算符</title>
-    <link href="https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/"/>
-    <id>https://zhengnianli.github.io/2019/05/07/c-yu-yan-bi-ji-yun-suan-fu-yu-yun-suan-fu/</id>
-    <published>2019-05-07T00:22:15.000Z</published>
-    <updated>2019-08-14T14:22:28.743Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、-运算符&quot;&gt;&lt;a href=&quot;#1、-运算符&quot; class=&quot;headerlink&quot; title=&quot;1、#运算符&quot;&gt;&lt;/a&gt;1、#运算符&lt;/h2&gt;&lt;p&gt;我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：&lt;/p&gt;
-&lt;p&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】系统目录结构</title>
-    <link href="https://zhengnianli.github.io/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/"/>
-    <id>https://zhengnianli.github.io/2019/05/05/linux-bi-ji-xi-tong-mu-lu-jie-gou/</id>
-    <published>2019-05-05T00:22:15.000Z</published>
-    <updated>2019-08-15T00:36:09.044Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在 Linux 或 Unix
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     

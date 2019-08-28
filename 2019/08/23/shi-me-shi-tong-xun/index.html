@@ -429,23 +429,23 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、什么是串行通讯与并行通讯？"><a href="#一、什么是串行通讯与并行通讯？" class="headerlink" title="一、什么是串行通讯与并行通讯？"></a>一、什么是串行通讯与并行通讯？</h1><p>按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。</p>
+                <h3 id="一、什么是串行通讯与并行通讯？"><a href="#一、什么是串行通讯与并行通讯？" class="headerlink" title="一、什么是串行通讯与并行通讯？"></a>一、什么是串行通讯与并行通讯？</h3><p>按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。</p>
 <p>而并行通讯一般是指使用 8、 16、 32 及 64 根或更多的数据线进行传输的通讯方式。并行通讯就像多个车道的公路，可以同时传输多个数据位的数据，而串行通讯，而串行通讯就像单个车道的公路，同一时刻只能传输一个数据位的数据。 并行通讯与串行通讯的对比图如下：</p>
 <p><img src="https://s2.ax1x.com/2019/08/25/mgQTRs.png" alt></p>
 <p>很明显，因为一次可传输多个数据位的数据 ，在数据传输速率相同的情况下，并行通讯传输的数据量要大得多，而串行通讯则可以节省数据线的硬件成本(特别是远距离时)以及 PCB 的布线面积，串行通讯与并行通讯的特性对比如下：</p>
 <p><img src="https://s2.ax1x.com/2019/08/25/mgQ4Ig.png" alt></p>
 <p>不过由于并行传输对同步要求较高，且随着通讯速率的提高，信号干扰的问题会显著影响通讯性能，现在随着技术的发展，越来越多的应用场合采用高速率的串行差分传输。 </p>
-<h1 id="二、什么是全双工、半双工及单工通讯？"><a href="#二、什么是全双工、半双工及单工通讯？" class="headerlink" title="二、什么是全双工、半双工及单工通讯？"></a>二、什么是全双工、半双工及单工通讯？</h1><p>根据数据通讯的方向，通讯又分为全双工、半双工及单工通讯，它们主要以信道的方向来区分：</p>
+<h3 id="二、什么是全双工、半双工及单工通讯？"><a href="#二、什么是全双工、半双工及单工通讯？" class="headerlink" title="二、什么是全双工、半双工及单工通讯？"></a>二、什么是全双工、半双工及单工通讯？</h3><p>根据数据通讯的方向，通讯又分为全双工、半双工及单工通讯，它们主要以信道的方向来区分：</p>
 <p><img src="https://s2.ax1x.com/2019/08/25/mgQoGj.png" alt></p>
 <p>仍以公路来类比，全双工的通讯就是一个双向车道，两个方向上的车流互不相干；半双工则像乡间小道那样，同一时刻只能让一辆小车通过，另一方向的来车只能等待道路空出来时才能经过；而单工则像单行道，另一方向的车辆完全禁止通行。 </p>
 <p><img src="https://s2.ax1x.com/2019/08/25/mgQIiQ.png" alt></p>
-<h1 id="三、什么是同步通讯与异步通讯？"><a href="#三、什么是同步通讯与异步通讯？" class="headerlink" title="三、什么是同步通讯与异步通讯？"></a>三、什么是同步通讯与异步通讯？</h1><p>根据通讯的数据同步方式，又分为同步和异步两种，可以根据通讯过程中是否有<code>使用到时钟信号进行简单的区分</code>。</p>
+<h3 id="三、什么是同步通讯与异步通讯？"><a href="#三、什么是同步通讯与异步通讯？" class="headerlink" title="三、什么是同步通讯与异步通讯？"></a>三、什么是同步通讯与异步通讯？</h3><p>根据通讯的数据同步方式，又分为同步和异步两种，可以根据通讯过程中是否有<code>使用到时钟信号进行简单的区分</code>。</p>
 <p>在同步通讯中，收发设备双方会使用一根信号线表示时钟信号，在时钟信号的驱动下双方进行协调，同步数据。通讯中通常双方会统一规定在时钟信号的上升沿或下降沿对数据线进行采样。 同步通讯：</p>
 <p><img src="https://s2.ax1x.com/2019/08/25/mgQhdS.png" alt></p>
 <p>在异步通讯中不使用时钟信号进行数据同步，它们直接在数据信号中穿插一些同步用的信号位，或者把主体数据进行打包，以数据帧的格式传输数据，某些通讯中还需要双方约定数据的传输速率，以便更好地同步。异步通讯：</p>
 <p><img src="https://s2.ax1x.com/2019/08/25/mgQ7zn.png" alt></p>
 <p>在同步通讯中，数据信号所传输的内容绝大部分就是有效数据，而异步通讯中会包含有帧的各种标识符，所以同步通讯的效率更高，但是同步通讯双方的时钟允许误差较小，而异步通讯双方的时钟允许误差较大。 </p>
-<h1 id="四、什么是通讯速率？"><a href="#四、什么是通讯速率？" class="headerlink" title="四、什么是通讯速率？"></a>四、什么是通讯速率？</h1><p>衡量通讯性能的一个非常重要的参数就是通讯速率，通常以<code>比特率(Bitrate)</code>来表示，即每秒钟传输的二进制位数，单位为比特每秒(bit/s)。容易与比特率混淆的概念是<code>波特率(Baudrate)</code>，它表示每秒钟传输了多少个<code>码元</code>。</p>
+<h2 id="四、什么是通讯速率？"><a href="#四、什么是通讯速率？" class="headerlink" title="四、什么是通讯速率？"></a>四、什么是通讯速率？</h2><p>衡量通讯性能的一个非常重要的参数就是通讯速率，通常以<code>比特率(Bitrate)</code>来表示，即每秒钟传输的二进制位数，单位为比特每秒(bit/s)。容易与比特率混淆的概念是<code>波特率(Baudrate)</code>，它表示每秒钟传输了多少个<code>码元</code>。</p>
 <p>而码元是通讯信号调制的概念，通讯中常用时间间隔相同的符号来表示一个二进制数字，这样的信号称为码元。</p>
 <p>如常见的通讯传输中，用 0V 表示数字 0， 5V 表示数字 1，那么一个码元可以表示两种状态 0 和 1，所以一个码元等于一个二进制比特位，此时波特率的大小与比特率一致；如果在通讯传输中，有 0V、2V、 4V 以及 6V 分别表示二进制数 00、 01、 10、 11，那么每个码元可以表示四种状态，即两个二进制比特位，所以码元数是二进制比特位数的一半，这个时候的波特率为比特率的一半。</p>
 <p>因为很多常见的通讯中一个码元都是表示两种状态，人们常常直接以波特率来表示比特率。 </p>
@@ -644,47 +644,44 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/08/23/shi-me-shi-tong-xun/">
+                <a href="/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="什么是通讯？">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C语言代码优化的一些经验及小技巧">
                         
-                        <span class="card-title">什么是通讯？</span>
+                        <span class="card-title">C语言代码优化的一些经验及小技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、什么是串行通讯与并行通讯？按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。
-而并行通讯一般是指使用 8、 16、
+                            一、变量与值得比较1、布尔变量与零值的比较不可将布尔变量直接与 TRUE、 FALSE或者 1、 0进行比较 。据布尔类型的语义，零值为“ 假”（记为 FALSE），任何非零值都是“ 真”（记为TRUE）。 TRUE的值究竟是什么并没有统一
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/通讯/" target="_blank">
-                        <span class="chip bg-color">通讯</span>
+                    <a href="/tags/代码优化/" target="_blank">
+                        <span class="chip bg-color">代码优化</span>
                     </a>
                     
                 </div>
@@ -855,7 +852,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">87.4k</span>
+                <span class="white-color">92.2k</span>
             
 
             

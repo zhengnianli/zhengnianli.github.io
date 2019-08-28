@@ -1,0 +1,1116 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="C语言代码优化的一些经验及小技巧, 正念的博客">
+    <meta name="description" content="一、变量与值得比较1、布尔变量与零值的比较不可将布尔变量直接与 TRUE、 FALSE或者 1、 0进行比较 。据布尔类型的语义，零值为“ 假”（记为 FALSE），任何非零值都是“ 真”（记为TRUE）。 TRUE的值究竟是什么并没有统一">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>C语言代码优化的一些经验及小技巧 | 正念的博客</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">正念的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">正念的博客</div>
+        <div class="logo-desc">
+            
+            一个分享编程笔记的公众号
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhengnianli/stm32_weather" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhengnianli/stm32_weather" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        C语言代码优化的一些经验及小技巧
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/代码优化/" target="_blank">
+                                <span class="chip bg-color">代码优化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                C语言笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-08-27
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3.7k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        13 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、变量与值得比较"><a href="#一、变量与值得比较" class="headerlink" title="一、变量与值得比较"></a>一、变量与值得比较</h2><h3 id="1、布尔变量与零值的比较"><a href="#1、布尔变量与零值的比较" class="headerlink" title="1、布尔变量与零值的比较"></a>1、布尔变量与零值的比较</h3><p>不可将布尔变量直接与 TRUE、 FALSE或者 1、 0进行比较 。据布尔类型的语义，零值为“ 假”（记为 FALSE），任何非零值都是“ 真”（记为TRUE）。 TRUE的值究竟是什么并没有统一的标准。例如 Visual C++ 将 TRUE定义为 1，<br>而 Visual Basic则将 TRUE定义为-1 。</p>
+<p>假设布尔变量名字为 flag，它与零值比较的标准 if语句如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 表示flag为真</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 表示flag为假</span></code></pre>
+<p>其它的用法都属于不良风格，例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>flag <span class="token operator">==</span> TRUE<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>flag <span class="token operator">==</span> FALSE<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+<h3 id="2、整形变量与零值的比较"><a href="#2、整形变量与零值的比较" class="headerlink" title="2、整形变量与零值的比较"></a>2、整形变量与零值的比较</h3><p>应当将整型变量用“ ==” 或“ ！ =” 直接与 0比较 。假设整型变量的名字为 value，它与零值比较的标准 if语句如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+<p> 不可模仿布尔变量的风格而写成：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 会让人误解 value是布尔变量</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>value<span class="token punctuation">)</span></code></pre>
+<h3 id="3、浮点变量与零值的比较"><a href="#3、浮点变量与零值的比较" class="headerlink" title="3、浮点变量与零值的比较"></a>3、浮点变量与零值的比较</h3><p>不可将浮点变量用“ ==” 或“ ！ =” 与任何数字比较 。千万要留意， 无论是 float还是 double类型的变量， 都有精度限制。 所以一定要避免将浮点变量用“ ==” 或“ ！ =” 与数字比较，应该设法转化成“ &gt;=” 或“ &lt;=” 形式。<br>假设浮点变量的名字为 x，应当 将：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">0.0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 隐含错误的比 </span></code></pre>
+<p>转化为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">>=</span><span class="token operator">-</span>EPSINON<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>x<span class="token operator">&lt;=</span>EPSINON<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>其中 EPSINON是允许的误差（即精度） 。</p>
+<h3 id="4、指针变量与零值的比较"><a href="#4、指针变量与零值的比较" class="headerlink" title="4、指针变量与零值的比较"></a>4、指针变量与零值的比较</h3><p>应当将指针变量用“ ==” 或“ ！ =” 与 NULL比较 。指针变量的零值是“ 空”（记为 NULL）。尽管 NULL 的值与 0相同，但是两者意义不同。 假设指针变量的名字为 p，它与零值比较的标准 if语句如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// p与 NULL显式比较，强调 p是指针变量</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span></code></pre>
+<p>不要写成：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 容易让人误解 p是整型变量</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+<p>或者：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 容易让人误解p是布尔变量</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token punctuation">)</span></code></pre>
+<h2 id="二、变量及基本运算"><a href="#二、变量及基本运算" class="headerlink" title="二、变量及基本运算"></a>二、变量及基本运算</h2><h3 id="1、整型数"><a href="#1、整型数" class="headerlink" title="1、整型数"></a>1、整型数</h3><p>如果我们确定整数非负，就应该使用unsigned int而不是int。有些处理器处理无符号unsigned 整形数的效率远远高于有符号signed整形数（这是一种很好的做法，也有利于代码具体类型的自解释）。</p>
+<p>因此，在一个紧密循环中，声明一个int整形变量的最好方法是：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">register</span> <span class="token keyword">unsigned</span> <span class="token keyword">int</span> variable_name<span class="token punctuation">;</span></code></pre>
+<p>记住，整形in的运算速度高浮点型float，并且可以被处理器直接完成运算，而不需要借助于FPU（浮点运算单元）或者浮点型运算库。尽管这不保证编译器一定会使用到寄存器存储变量，也不能保证处理器处理能更高效处理unsigned整型，但这对于所有的编译器是通用的。</p>
+<p>例如在一个计算包中，如果需要结果精确到小数点后两位，我们可以将其乘以100，然后尽可能晚的把它转换为浮点型数字。</p>
+<h3 id="2、除法和取余数"><a href="#2、除法和取余数" class="headerlink" title="2、除法和取余数"></a>2、除法和取余数</h3><p>在标准处理器中，对于分子和分母，一个32位的除法需要使用20至140次循环操作。除法函数消耗的时间包括一个常量时间加上每一位除法消耗的时间。</p>
+<pre class=" language-c"><code class="language-c"><span class="token function">Time</span> <span class="token punctuation">(</span>numerator <span class="token operator">/</span> denominator<span class="token punctuation">)</span> <span class="token operator">=</span> C0 <span class="token operator">+</span> C1<span class="token operator">*</span> <span class="token function">log2</span> <span class="token punctuation">(</span>numerator <span class="token operator">/</span> denominator<span class="token punctuation">)</span>
+     <span class="token operator">=</span> C0 <span class="token operator">+</span> C1 <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token function">log2</span> <span class="token punctuation">(</span>numerator<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">log2</span> <span class="token punctuation">(</span>denominator<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span></code></pre>
+<p>对于ARM处理器，这个版本需要20+4.3N次循环。这是一个消耗很大的操作，应该尽可能的避免执行。有时，可以通过乘法表达式来替代除法。例如，假如我们知道b是正数并且b<em>c是个整数，那么(a/b)&gt;c可以改写为a&gt;(c</em>b)。如果确定操作数是无符号unsigned的，使用无符号unsigned除法更好一些，因为它比有符号signed除法效率高。</p>
+<h3 id="3、取模的一种替代方法"><a href="#3、取模的一种替代方法" class="headerlink" title="3、取模的一种替代方法"></a>3、取模的一种替代方法</h3><p>我们使用取余数操作符来提供算数取模。但有时可以结合使用if语句进行取模操作。考虑如下两个例子：</p>
+<pre class=" language-c"><code class="language-c">uint <span class="token function">modulo_func1</span> <span class="token punctuation">(</span>uint count<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">++</span>count <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+uint <span class="token function">modulo_func2</span> <span class="token punctuation">(</span>uint count<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>count <span class="token operator">>=</span> <span class="token number">60</span><span class="token punctuation">)</span>
+      count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+   <span class="token keyword">return</span> <span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>优先使用if语句，而不是取余数运算符，因为if语句的执行速度更快。这里注意新版本函数只有在我们知道输入的count结余0至59时在能正确的工作。</p>
+<h3 id="4、使用数组下标"><a href="#4、使用数组下标" class="headerlink" title="4、使用数组下标"></a>4、使用数组下标</h3><p>如果你想给一个变量设置一个代表某种意思的字符值，你可能会这样做：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">switch</span> <span class="token punctuation">(</span> queue <span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+<span class="token keyword">case</span> <span class="token number">0</span> <span class="token punctuation">:</span>   letter <span class="token operator">=</span> <span class="token string">'W'</span><span class="token punctuation">;</span>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span> <span class="token number">1</span> <span class="token punctuation">:</span>   letter <span class="token operator">=</span> <span class="token string">'S'</span><span class="token punctuation">;</span>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span> <span class="token number">2</span> <span class="token punctuation">:</span>   letter <span class="token operator">=</span> <span class="token string">'U'</span><span class="token punctuation">;</span>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>或者这样做：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span> queue <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>
+  letter <span class="token operator">=</span> <span class="token string">'W'</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> queue <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+  letter <span class="token operator">=</span> <span class="token string">'S'</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+  letter <span class="token operator">=</span> <span class="token string">'U'</span><span class="token punctuation">;</span></code></pre>
+<p>一种更简洁、更快的方法是使用数组下标获取字符数组的值。如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token operator">*</span>classes<span class="token operator">=</span><span class="token string">"WSU"</span><span class="token punctuation">;</span>
+letter <span class="token operator">=</span> classes<span class="token punctuation">[</span>queue<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<h3 id="5、使用别名"><a href="#5、使用别名" class="headerlink" title="5、使用别名"></a>5、使用别名</h3><p>考虑如下的例子：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func1</span><span class="token punctuation">(</span> <span class="token keyword">int</span> <span class="token operator">*</span>data <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+          <span class="token function">anyfunc</span><span class="token punctuation">(</span> <span class="token operator">*</span>data<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>尽管*data的值可能从未被改变，但编译器并不知道anyfunc函数不会修改它，所以程序必须在每次使用它的时候从内存中读取它。如果我们知道变量的值不会被改变，那么就应该使用如下的编码：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func1</span><span class="token punctuation">(</span> <span class="token keyword">int</span> <span class="token operator">*</span>data <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> localdata<span class="token punctuation">;</span>
+
+    localdata <span class="token operator">=</span> <span class="token operator">*</span>data<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+          <span class="token function">anyfunc</span> <span class="token punctuation">(</span> localdata<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这为编译器优化代码提供了条件。</p>
+<h3 id="6、局部变量的类型"><a href="#6、局部变量的类型" class="headerlink" title="6、局部变量的类型"></a>6、局部变量的类型</h3><p>我们应该尽可能的不使用char和short类型的局部变量。对于char和short类型，编译器需要在每次赋值的时候将局部变量减少到8或者16位。这对于有符号变量称之为有符号扩展，对于无符号变量称之为零扩展。这些扩展可以通过寄存器左移24或者16位，然后根据有无符号标志右移相同的位数实现，这会消耗两次计算机指令操作（无符号char类型的零扩展仅需要消耗一次计算机指令）。</p>
+<p>可以通过使用int和unsigned int类型的局部变量来避免这样的移位操作。这对于先加载数据到局部变量，然后处理局部变量数据值这样的操作非常重要。无论输入输出数据是8位或者16位，将它们考虑为32位是值得的。</p>
+<p>考虑下面的三个函数：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">wordinc</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">return</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">short</span> <span class="token function">shortinc</span> <span class="token punctuation">(</span><span class="token keyword">short</span> a<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">char</span> <span class="token function">charinc</span> <span class="token punctuation">(</span><span class="token keyword">char</span> a<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>尽管结果均相同，但是第一个程序片段运行速度高于后两者。</p>
+<h2 id="三、循环语句"><a href="#三、循环语句" class="headerlink" title="三、循环语句"></a>三、循环语句</h2><h3 id="1、多重循环"><a href="#1、多重循环" class="headerlink" title="1、多重循环"></a>1、多重循环</h3><p>在多重循环中， 如果有可能， 应当将最长的循环放在最内层， 最短的循环放在最外层，以减少 CPU 跨切循环层的次数。例如示例 4-4(b)的效率比示例4-4(a)的高 ：</p>
+<p><img src="https://s2.ax1x.com/2019/08/28/mHafot.png" alt></p>
+<h3 id="2、循环体内的判断"><a href="#2、循环体内的判断" class="headerlink" title="2、循环体内的判断"></a>2、循环体内的判断</h3><p>如果循环体内存在逻辑判断， 并且循环次数很大， 宜将逻辑判断移到循环体的外面。示例 4-4(c)的程序比示例 4-4(d)多执行了 N-1次逻辑判断。 并且由于前者老要进行逻辑判断，打断了循环“ 流水线” 作业，使得编译器不能对循环进行优化处理， 降低了效率。 如果 N非常大， 最好采用示例 4-4(d)的写法， 可以提高效率。如果 N非常小，两者效率差别并不明显，采用示例 4-4(c)的写法比较好， 因为程序更加简洁。</p>
+<p><img src="https://s2.ax1x.com/2019/08/28/mHa4FP.png" alt></p>
+<h3 id="3、for-语句的循环控制变量"><a href="#3、for-语句的循环控制变量" class="headerlink" title="3、for 语句的循环控制变量"></a>3、for 语句的循环控制变量</h3><p>不可在 for 循环体内修改循环变量，防止 for 循环失去控制 。建议 for语句的循环控制变量的取值采用“ 半开半闭区间” 写法。 </p>
+<p>示例 4-5(a)中的 x值属于半开半闭区间“ 0 =&lt; x &lt; N”，起点到终点的间隔为 N，循环次数为 N。</p>
+<p>示例 4-5(b)中的 x值属于闭区间“ 0 =&lt; x &lt;= N-1”，起点到终点的间隔为 N-1，循环次数为 N。</p>
+<p>相比之下，示例 4-5(a)的写法更加直观，尽管两者的功能是相同的 。</p>
+<p><img src="https://s2.ax1x.com/2019/08/28/mHaWdI.png" alt></p>
+<h3 id="4、更快的for-循环"><a href="#4、更快的for-循环" class="headerlink" title="4、更快的for()循环"></a>4、更快的for()循环</h3><p>这是一个简单而高效的概念。通常，我们编写for循环代码如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>  i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>  i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span></code></pre>
+<p>i从0循环到9。如果我们不介意循环计数的顺序，我们可以这样写：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span> i<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span></code></pre>
+<p>这样快的原因是因为它能更快的处理i的值–测试条件是：i是非零的吗？如果这样，递减i的值。对于上面的代码，处理器需要计算“计算i减去10，其值非负吗？如果非负，i递增并继续”。简单的循环却有很大的不同。这样，i从9递减到0，这样的循环执行速度更快。</p>
+<p>这里的语法有点奇怪，但确实合法的。循环中的第三条语句是可选的（无限循环可以写为for(;;)）。如下代码拥有同样的效果：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<p>或者更进一步的：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<p>这里我们需要记住的是循环必须终止于0（因此，如果在50到80之间循环，这不会起作用），并且循环计数器是递减的。使用递增循环计数器的代码不享有这种优化。</p>
+<h2 id="四、指针"><a href="#四、指针" class="headerlink" title="四、指针"></a>四、指针</h2><p>我们应该尽可能的使用引用值的方式传递结构数据，也就是说使用指针，否则传递的数据会被拷贝到栈中，从而降低程序的性能。</p>
+<p>函数通过参数接受结构数据的指针，如果我们确定不改变数据的值，我们需要将指针指向的内容定义为常量。例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">print_data_of_a_structure</span> <span class="token punctuation">(</span> <span class="token keyword">const</span> Thestruct  <span class="token operator">*</span>data_pointer<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>printf contents of the structure<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这个示例告诉编译器函数不会改变外部参数的值（使用const修饰），并且不用在每次访问时都进行读取。同时，确保编译器限制任何对只读结构的修改操作从而给予结构数据额外的保护。</p>
+<h2 id="五、懒检测开发"><a href="#五、懒检测开发" class="headerlink" title="五、懒检测开发"></a>五、懒检测开发</h2><p>在<code>if(a&gt;10 &amp;&amp; b=4)</code>这样的语句中，确保AND表达式的第一部分最可能较快的给出结果（或者最早、最快计算），这样第二部分便有可能不需要执行。</p>
+<h2 id="六、用switch-函数替代if…else…"><a href="#六、用switch-函数替代if…else…" class="headerlink" title="六、用switch()函数替代if…else…"></a>六、用switch()函数替代if…else…</h2><p>对于涉及<code>if…else…else…</code>这样的多条件判断，例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">if</span><span class="token punctuation">(</span> val <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">dostuff1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token function">dostuff2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token function">dostuff3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>使用switch可能更快：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">switch</span><span class="token punctuation">(</span> val <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token function">dostuff1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span> <span class="token function">dostuff2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span> <span class="token function">dostuff3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>在if()语句中，如果最后一条语句命中，之前的条件都需要被测试执行一次。switch允许我们不做额外的测试。如果必须使用if…else…语句，将最可能执行的放在最前面。</p>
+<h2 id="七、函数相关"><a href="#七、函数相关" class="headerlink" title="七、函数相关"></a>七、函数相关</h2><h3 id="1、参数的书写要完整"><a href="#1、参数的书写要完整" class="headerlink" title="1、参数的书写要完整"></a>1、参数的书写要完整</h3><p>参数的书写要完整，不要贪图省事只写参数的类型而省略参数名字。如果函数没有参数，则用void填充。例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token function">voidSetValue</span><span class="token punctuation">(</span><span class="token keyword">int</span> width<span class="token punctuation">,</span><span class="token keyword">int</span> height<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 良好的风格</span>
+<span class="token function">voidSetValue</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">// 不良的风格</span>
+<span class="token function">floatGetValue</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 良好的风格</span>
+<span class="token function">floatGetValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 不良的风格</span></code></pre>
+<h3 id="2、参数命名要恰当，顺序要合理"><a href="#2、参数命名要恰当，顺序要合理" class="headerlink" title="2、参数命名要恰当，顺序要合理"></a>2、参数命名要恰当，顺序要合理</h3><p>例如编写字符串拷贝函数StringCopy，它有两个参数。如果把参数名字起为str1和str2，例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">StringCopy</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span>str1<span class="token punctuation">,</span><span class="token keyword">char</span><span class="token operator">*</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>那么我们很难搞清楚究竟是把str1拷贝到str2中，还是刚好倒过来。</p>
+<p>可以把参数名字起得更有意义，如叫<code>strSource</code>和<code>strDestination</code>。这样从名字上就可以看出应该把strSource拷贝到strDestination。</p>
+<p>还有一个问题，这两个参数那一个该在前那一个该在后？参数的顺序要遵循程序员的习惯。一般地，应将目的参数放在前面，源参数放在后面：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">StringCopy</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span>strDestination<span class="token punctuation">,</span><span class="token keyword">char</span><span class="token operator">*</span>strSource<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="3、参数是指针"><a href="#3、参数是指针" class="headerlink" title="3、参数是指针"></a>3、参数是指针</h3><p>如果参数是指针，且仅作输入用，则应在类型前加const，以防止该指针在函数体内被意外修改。</p>
+<p>例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">StringCopy</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span>strDestination，<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span>strSource<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="4、不要省略返回值的类型"><a href="#4、不要省略返回值的类型" class="headerlink" title="4、不要省略返回值的类型"></a>4、不要省略返回值的类型</h3><p>C语言中，凡不加类型说明的函数，一律自动按整型处理。这样做不会有什么好处，却容易被误解为void类型。</p>
+<h3 id="5、函数名字与返回值类型在语义上不可冲突"><a href="#5、函数名字与返回值类型在语义上不可冲突" class="headerlink" title="5、函数名字与返回值类型在语义上不可冲突"></a>5、函数名字与返回值类型在语义上不可冲突</h3><p>违反这条规则的典型代表是C标准库函数<code>getchar</code>。例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> c<span class="token punctuation">;</span>
+c<span class="token operator">=</span><span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>c<span class="token operator">==</span><span class="token constant">EOF</span><span class="token punctuation">)</span>
+…</code></pre>
+<p>按照getchar名字的意思，将变量c声明为char类型是很自然的事情。但不幸的是getchar的确不是char类型，而是int类型，其原型如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">getchar</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>由于c是char类型，取值范围是[-128，127]，如果宏EOF的值在char的取值范围之外，那么if语句将总是失败，这种“危险”人们一般哪里料得到！导致本例错误的责任并不在用户，是函数<code>getchar</code>误导了使用者。</p>
+<h3 id="6、不要将正常值和错误标志混在一起返回"><a href="#6、不要将正常值和错误标志混在一起返回" class="headerlink" title="6、不要将正常值和错误标志混在一起返回"></a>6、不要将正常值和错误标志混在一起返回</h3><p>正常值用输出参数获得，而错误标志用return语句返回。</p>
+<p>回顾上例，C标准库函数的设计者为什么要将getchar声明为令人迷糊的int类型呢？</p>
+<p>在正常情况下，getchar的确返回单个字符。但如果getchar碰到文件结束标志或发生读错误，它必须返回一个标志EOF。为了区别于正常的字符，只好将EOF定义为负数（通常为负1）。因此函数getchar就成了int类型。</p>
+<p>我们在实际工作中，经常会碰到上述令人为难的问题。为了避免出现误解，我们应该将正常值和错误标志分开。即：正常值用输出参数获得，而错误标志用return语句返回。</p>
+<p>函数<code>getchar</code>可以改写成<code>BOOL GetChar(char*c);</code>。</p>
+<h3 id="7、附加返回值，增强函数的灵活性"><a href="#7、附加返回值，增强函数的灵活性" class="headerlink" title="7、附加返回值，增强函数的灵活性"></a>7、附加返回值，增强函数的灵活性</h3><p>有时候函数原本不需要返回值，但为了增加灵活性如支持链式表达，可以附加返回值。例如字符串拷贝函数<code>strcpy</code>的原型：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>strDest，<span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>strSrc<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>strcpy函数将strSrc拷贝至输出参数strDest中，同时函数的返回值又是strDest。这样做并非多此一举，可以获得如下灵活性：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> length<span class="token operator">=</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token function">strcpy</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span>“HelloWorld”<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>相关资料：</p>
+<pre><code>1、https://blog.csdn.net/conanswp/article/details/55105699
+2、《高质量C、C++》</code></pre><hr>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">欢迎关注正念君的微信公众号</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <!--<ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微信公众号</a></li>
+                    </ul>-->
+					<!--
+                    <div id="alipay">
+                        <img src="" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+					-->
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信公众号二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '9a79b0786fdd604107df',
+        clientSecret: 'edab3b58af0f0203fcca1b5002349a46c2cccd8e',
+        repo: 'zhengnianli.github.io',
+        owner: 'zhengnianli',
+        admin: ["zhengnianli"],
+        id: '2019-08-27T08-22-15',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="程序的组成、存储与运行">
+                        
+                        <span class="card-title">程序的组成、存储与运行</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一般 MCU 包含的存储空间有：片内 Flash 与片内 RAM， RAM 相当于内存， Flash 相当于硬盘。编译器会将一个程序分类为好几个部分，分别存储在 MCU 不同的存储区。
+一、编译过程之前分享过C程序的编译过程的笔记：C程序的
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/嵌入式/" target="_blank">
+                        <span class="chip bg-color">嵌入式</span>
+                    </a>
+                    
+                    <a href="/tags/STM32/" target="_blank">
+                        <span class="chip bg-color">STM32</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/23/shi-me-shi-tong-xun/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="什么是通讯？">
+                        
+                        <span class="card-title">什么是通讯？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、什么是串行通讯与并行通讯？按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。
+而并行通讯一般是指使用 8、 16、
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/通讯/" target="_blank">
+                        <span class="chip bg-color">通讯</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://zhengnianli.github.io/" target="_blank">ZhengNian</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">92.2k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhengnianli" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2238184039@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2238184039" class="tooltipped" data-tooltip="QQ联系我: 2238184039" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
