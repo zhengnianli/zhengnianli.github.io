@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-08-28T14:30:33.343Z</updated>
+  <updated>2019-09-08T10:45:03.094Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>易错、经典问题：return不可返回指向栈内存的指针</title>
+    <link href="https://zhengnianli.github.io/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/"/>
+    <id>https://zhengnianli.github.io/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/</id>
+    <published>2019-09-06T00:22:15.000Z</published>
+    <updated>2019-09-08T10:45:03.094Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;预备知识：内存的分类&quot;&gt;&lt;a href=&quot;#预备知识：内存的分类&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="return" scheme="https://zhengnianli.github.io/tags/return/"/>
+    
+      <category term="栈指针" scheme="https://zhengnianli.github.io/tags/%E6%A0%88%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【RT-Thread笔记】内核对象模型</title>
+    <link href="https://zhengnianli.github.io/2019/09/01/rt-thread-bi-ji-nei-he-dui-xiang-mo-xing/"/>
+    <id>https://zhengnianli.github.io/2019/09/01/rt-thread-bi-ji-nei-he-dui-xiang-mo-xing/</id>
+    <published>2019-09-01T00:22:15.000Z</published>
+    <updated>2019-09-08T03:29:40.420Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;RT-Thread中的对象有哪些？&quot;&gt;&lt;a href=&quot;#RT-Thread中的对象有哪些？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式笔记" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="RT-Thread" scheme="https://zhengnianli.github.io/tags/RT-Thread/"/>
+    
+      <category term="内核对象模型" scheme="https://zhengnianli.github.io/tags/%E5%86%85%E6%A0%B8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【RT-Thread笔记】内核基础</title>
+    <link href="https://zhengnianli.github.io/2019/08/30/rt-thread-bi-ji-nei-he-ji-chu/"/>
+    <id>https://zhengnianli.github.io/2019/08/30/rt-thread-bi-ji-nei-he-ji-chu/</id>
+    <published>2019-08-30T00:22:15.000Z</published>
+    <updated>2019-09-08T03:28:05.944Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近在工作中有用到多任务系统，趁热进行学习一下。这里我选择国产实时操作系统&lt;code&gt;RT-Thread&lt;/code&gt;进行学习，因为现在很火呀。之前已经有简单地过了一遍&lt;code&gt;RT-Thread&lt;/code&gt;，奈何学过地知识一旦不用，就会很容易地忘掉，所以应当多做一些学
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式笔记" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="RT-Thread" scheme="https://zhengnianli.github.io/tags/RT-Thread/"/>
+    
+      <category term="内核" scheme="https://zhengnianli.github.io/tags/%E5%86%85%E6%A0%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>程序的组成、存储与运行</title>
@@ -508,96 +592,6 @@
       <category term="WinSCP" scheme="https://zhengnianli.github.io/tags/WinSCP/"/>
     
       <category term="文件互享" scheme="https://zhengnianli.github.io/tags/%E6%96%87%E4%BB%B6%E4%BA%92%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】make工程管理工具（二）</title>
-    <link href="https://zhengnianli.github.io/2019/05/18/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-er/"/>
-    <id>https://zhengnianli.github.io/2019/05/18/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-er/</id>
-    <published>2019-05-18T00:22:15.000Z</published>
-    <updated>2019-08-15T00:22:57.244Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot; title=&quot;1、前言&quot;&gt;&lt;/a&gt;1、前言&lt;/h2&gt;&lt;p&gt;上一篇笔记分享了使用make工具编译C程序的方法（&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-      <category term="make工具" scheme="https://zhengnianli.github.io/tags/make%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="makefile" scheme="https://zhengnianli.github.io/tags/makefile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】make工程管理工具（一）</title>
-    <link href="https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/"/>
-    <id>https://zhengnianli.github.io/2019/05/15/linux-bi-ji-make-gong-cheng-guan-li-gong-ju-yi/</id>
-    <published>2019-05-15T00:22:15.000Z</published>
-    <updated>2019-08-15T00:23:44.998Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、如何编译具有多个源码（-c文件）的工程&quot;&gt;&lt;a href=&quot;#1、如何编译具有多个源码（-c文件）的工程&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-      <category term="make工具" scheme="https://zhengnianli.github.io/tags/make%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="makefile" scheme="https://zhengnianli.github.io/tags/makefile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】Linux下编译C语言程序</title>
-    <link href="https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/"/>
-    <id>https://zhengnianli.github.io/2019/05/13/linux-bi-ji-linux-xia-bian-yi-c-yu-yan-cheng-xu/</id>
-    <published>2019-05-13T00:22:15.000Z</published>
-    <updated>2019-08-15T00:21:41.431Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在上一篇笔记中有分享Linux下的vi/vim编辑器的使用方法（&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
   </entry>
   
