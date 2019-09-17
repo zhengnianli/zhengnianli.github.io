@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-09-08T10:45:03.094Z</updated>
+  <updated>2019-09-17T00:46:29.785Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STM32串口IAP分享</title>
+    <link href="https://zhengnianli.github.io/2019/09/16/stm32-chuan-kou-iap-fen-xiang/"/>
+    <id>https://zhengnianli.github.io/2019/09/16/stm32-chuan-kou-iap-fen-xiang/</id>
+    <published>2019-09-16T00:22:15.000Z</published>
+    <updated>2019-09-17T00:46:29.785Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;什么是IAP？&quot;&gt;&lt;a href=&quot;#什么是IAP？&quot; class=&quot;headerlink&quot; title=&quot;什么是IAP？&quot;&gt;&lt;/a&gt;什么是IAP？&lt;/h3&gt;&lt;p&gt;&lt;code&gt;IAP&lt;/code&gt;是&lt;code&gt;In Application
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="IAP" scheme="https://zhengnianli.github.io/tags/IAP/"/>
+    
+  </entry>
   
   <entry>
     <title>易错、经典问题：return不可返回指向栈内存的指针</title>
@@ -560,38 +588,6 @@
     
     
       <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux笔记】Windows与Linux文件互享</title>
-    <link href="https://zhengnianli.github.io/2019/05/27/linux-bi-ji-windows-yu-linux-wen-jian-hu-chuan/"/>
-    <id>https://zhengnianli.github.io/2019/05/27/linux-bi-ji-windows-yu-linux-wen-jian-hu-chuan/</id>
-    <published>2019-05-27T00:22:15.000Z</published>
-    <updated>2019-08-15T00:29:51.395Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot; title=&quot;1、前言&quot;&gt;&lt;/a&gt;1、前言&lt;/h2&gt;&lt;p&gt;之前分享了Linux下vim编译器简单的使用方法：&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Linux笔记" scheme="https://zhengnianli.github.io/categories/Linux%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-      <category term="WinSCP" scheme="https://zhengnianli.github.io/tags/WinSCP/"/>
-    
-      <category term="文件互享" scheme="https://zhengnianli.github.io/tags/%E6%96%87%E4%BB%B6%E4%BA%92%E4%BA%AB/"/>
     
   </entry>
   

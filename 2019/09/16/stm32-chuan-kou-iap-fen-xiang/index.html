@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="【C语言笔记】两个小知识, 正念的博客">
-    <meta name="description" content="一、关于头文件包含问题C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&amp;lt;&amp;gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包">
+    <meta name="keywords" content="STM32串口IAP分享, 正念的博客">
+    <meta name="description" content="什么是IAP？IAP是In Application Programming的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【C语言笔记】两个小知识 | 正念的博客</title>
+    <title>STM32串口IAP分享 | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -257,13 +257,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        【C语言笔记】两个小知识
+                        STM32串口IAP分享
                     </div>
                 </div>
             </div>
@@ -374,8 +374,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C语言/" target="_blank">
-                                <span class="chip bg-color">C语言</span>
+                            <a href="/tags/STM32/" target="_blank">
+                                <span class="chip bg-color">STM32</span>
+                            </a>
+                        
+                            <a href="/tags/IAP/" target="_blank">
+                                <span class="chip bg-color">IAP</span>
                             </a>
                         
                     </div>
@@ -386,8 +390,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                C语言笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
                             </a>
                         
                     </div>
@@ -398,21 +402,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-11-13
+                    2019-09-16
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        292
+                        1.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        7 分
                     </div>
                     
                 
@@ -428,23 +432,111 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、关于头文件包含问题"><a href="#一、关于头文件包含问题" class="headerlink" title="一、关于头文件包含问题"></a>一、关于头文件包含问题</h3><p>C语言包含头文件时应该使用尖括号还是双引号？使用尖括号&lt;&gt;,编译器会到系统路径下查找头文件；而使用双引号“”，编译器首先在当前路径目录下查找头文件，如果没有找到，再转到系统目录下查找。所以，通常使用尖括号包含标准头文件，使用双引号包含自定义头文件。如：</p>
-<p><a href="https://imgchr.com/i/V5W5pq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V5W5pq.md.png" alt></a></p>
-<h3 id="二、关于头文件重复包含问题"><a href="#二、关于头文件重复包含问题" class="headerlink" title="二、关于头文件重复包含问题"></a>二、关于头文件重复包含问题</h3><p>同一个头文件在不同的C文件里可能会被包含很多次，可能会产生重复包含的错误。我们可以使用宏保护来解决这个问题，如test.h中可以使用如下宏保护：</p>
-<img src="https://s2.ax1x.com/2019/06/14/V5WocV.md.png" alt border="0" width="350">
+                <h3 id="什么是IAP？"><a href="#什么是IAP？" class="headerlink" title="什么是IAP？"></a>什么是IAP？</h3><p><code>IAP</code>是<code>In Application Programming</code>的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升级。</p>
+<p>在重新编程过程中可以使用任意类型的通信协议，如UART、I2S、SPI等。这篇笔记分享的是使用UART方式IAP。</p>
+<h3 id="串口IAP实验"><a href="#串口IAP实验" class="headerlink" title="串口IAP实验"></a>串口IAP实验</h3><p>先理一理流程（本实验是以<code>STM32F103ZET6</code>为例）：</p>
+<p><strong>1、实验说明</strong></p>
+<p>做这个实验需要准备两个<code>keil</code>工程，一个工程用于编写IAP程序，另一个工程用于编写我们的应用程序（要实现某些功能的程序），这里我们以一个点灯程序为例。最终，两份工程编译出来的可执行文件都需要烧写到芯片的<code>FLASH</code>中。只不过需要烧写到不同的地址，简单的示意图如下：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7VBQ.png" alt></p>
+<p>这里，使用的STM32的型号为STM32F103ZET6，其FLASH大小是512KB，0x08000000为其FLASH被映射的地址，程序被烧写到的就是这个地址。此处，我们的IAP程序烧写到这个地址，根据IAP程序的大小，我们在keil里可以设置合适的IAP结束地址。</p>
+<blockquote>
+<p>注意：在没有IAP程序的情况下，0x08000000这个地址就是应用程序烧写的地址。</p>
+</blockquote>
+<p><strong>2、工程说明</strong></p>
+<p>本实验用到的两个工程可按照文末的方式获取，其中IAP工程移植至ST官方例程。下面对两个工程进行简单的说明</p>
+<p><strong>IAP工程：</strong></p>
+<p>（1）需要在<code>target</code>选项卡里设置我们IAP程序的起始地址与大小，如：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Eng.png" alt></p>
+<p>这里我们的IAP程序起始地址设为0x08000000，大小设为0x3000，即IAP所能用的FLASH空间为12KB。其中IAP所能占的占空间的大小可根据IAP的实际大小进行修改。</p>
+<p>（2）需要修改程序中我们需要跳转到的应用程序的地址（即IAP程序的结束地址）：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7i1f.png" alt></p>
+<p><strong>LED工程：</strong></p>
+<p>（1）需要在<code>target</code>选项卡里设置我们LED程序的起始地址与大小，如：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Fc8.png" alt></p>
+<p>这里我们的LED程序起地址设为0x08003000，大小设为0x10000，即LED所能用的FLASH空间为64KB。其中结束地址可根据LED应用程序的实际大小进行修改。</p>
+<p>（2）生成对应的<code>.bin</code>文件。这需要在<code>User</code>选项卡里添加如下命令（即编译后执行的命令）：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7kjS.png" alt></p>
+<p>其中，<code>fromelf.exe</code>是我们keil安装目录下的一个可执行程序，可以把<code>.axf</code>文件转换成<code>.bin</code>文件。要在keil中直接调用fromelf命令，必须要把<code>fromelf.exe</code>所在目录添加到环境变量中。添加环境变量的方法如下（该方法来自于《【野火】零死角玩转STM32—F429挑战者V2.pdf》）：</p>
+<p>本文以 Win7 系统为例添加工具链的路径到 PATH 环境变量，其它系统是类似的。 </p>
+<p>(1) 右键电脑系统的<code>计算机图标</code>，在弹出的菜单中选择<code>属性</code> ，如图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7uhq.png" alt></p>
+<p>(2) 在弹出的属性页面依次点击<code>高级系统设置 -&gt;环境变量</code>，在用户变量一栏中找到名为<code>PATH</code>的变量，若没有该变量，则新建一个。编辑<code>PATH</code>变量，在它的变量值中输入工具链的路径，如本机的是<code>;D:\work\keil5\ARM\ARMCC\bin</code>，注意要使用分号<code>;</code>让它与其它路径分隔开，输入完毕后依次点<code>确定</code>,如图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7mAs.png" alt></p>
+<p>(3) 打开 Windows 的命令行，点击系统的<code>开始菜单</code>，在搜索框输入<code>cmd</code>，在搜索结果中点击<code>cmd.exe</code>即可打开命令行， 如图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7nNn.png" alt></p>
+<p>(4) 在弹出的命令行窗口中输入<code>fromelf</code>回车，若窗口打印出 <code>formelf</code> 的帮助说明，那么路径正常，就可以开始后面的工作了；若提示<code>不是内部名外部命令，也不是可运行的程序…</code>信息，说明路径不对，请重新配置环境变量，并确认该工作目录下有编译工具链。 </p>
+<p>这个过程本质就是让命令行通过“PATH”路径找到<code>fromelf.exe</code>程序运行 。</p>
+<p><strong>3、IAP源码说明</strong></p>
+<p><strong>（1）主函数：</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>   
+    <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* FLASH解锁 */</span>
+    <span class="token function">KEY_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">/* 按键初始化 */</span>
+    <span class="token function">IAP_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">/* IAP初始化 */</span>
 
+    <span class="token comment" spellcheck="true">/* 按键按下则进入主菜单开始更新程序（注意：需要按下复位键的同时按下该按键触发程序更新） */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">GPIO_ReadInputDataBit</span><span class="token punctuation">(</span>GPIOE<span class="token punctuation">,</span>GPIO_Pin_2<span class="token punctuation">)</span>  <span class="token operator">==</span> <span class="token number">0x00</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n======================================================================"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=              (C) COPYRIGHT 2010 STMicroelectronics                 ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                                                    ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=     In-Application Programming Application  (Version 3.3.0)        ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                                                    ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                   By MCD Application Team          ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n======================================================================"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">Main_Menu</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/* 保持运行用户应用程序 */</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* Test if user code is programmed starting from address "ApplicationAddress" */</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>ApplicationAddress<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x2FFE0000</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x20000000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span> 
+          <span class="token comment" spellcheck="true">/* Jump to user application */</span>
+          JumpAddress <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>ApplicationAddress <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          Jump_To_Application <span class="token operator">=</span> <span class="token punctuation">(</span>pFunction<span class="token punctuation">)</span> JumpAddress<span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">/* Initialize user application's Stack Pointer */</span>
+          <span class="token function">__set_MSP</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span> ApplicationAddress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">Jump_To_Application</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-<p>第一次包含头文件，会定义宏_TEST_H，并执行“头文件“的代码；第二次包含时因为之前已经有定义宏_TEST_H，不会重复执行”#ifndef _TEST_H“与”#endif“之间的代码。</p>
-<p>stm32单片机中的库文件就是这么做的，如</p>
-<img src="https://s2.ax1x.com/2019/06/14/V5WOAJ.md.png" alt border="0" width="350">
-
-
-
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>可见，我们按下复位的同时按下<code>PE2</code>对应的按键即可触发应用程序更新操作，否则跳转到应用程序的起始地址执行应用程序（断点重启也是默认执行应用程序），这里的<code>ApplicationAddress</code>就是我们上面设置的<code>0x08003000</code>。</p>
+<p><strong>（2）主菜单函数Main_Menu</strong></p>
+<p>这个函数里就是该IAP程序的功能，根据其中的打印信息：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Z7j.png" alt></p>
+<p>可以知道，该IAP有三个功能（分别输入键盘上的数字1、2、3进行选择）：一是下载程序（电脑-&gt;STM32）；二是上传程序（STM32-&gt;电脑）；三是执行新程序（即刚下载完成的程序）。</p>
+<p><strong>（3）下载程序功能函数SerialDownload</strong></p>
+<p>首先，上位机使用Ymodem协议进行数据下发，STM32根据协议解析数据，拿到有用的数据，并把这些数据写入FLASH对应的地址中，即ApplicationAddress。关于Ymodem协议及SerialDownload函数这里不展开讨论。</p>
+<p><strong>4、下载验证</strong></p>
+<p><strong>（1）下载IAP程序</strong></p>
+<p>可以使用J-link等调试器进行下载，也可用<code>串口ISP</code>进行下载，我们选用的是<code>串口ISP</code>进行下载，借用的工具是<code>FlyMcu</code>：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7M90.png" alt></p>
+<p>这里下载的是<code>.hex</code>文件，如果下载<code>.bin</code>文件，则会提示如下错误：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Q3V.png" alt></p>
+<blockquote>
+<p>程序文件不是0x8000000和0x20000000区域的</p>
+</blockquote>
+<p>使用ISP方式下载需要进行的硬件操作是：<code>BOOT0引脚拉高，BOOT1引脚接地</code>。即系统存储器被选为启动区域：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7lcT.png" alt></p>
+<p>在点击<code>开始编程</code>按钮后，需要按下板子上的复位键，即可下载程序。</p>
+<p><strong>（2）通过IAP程序引导下载LED程序</strong></p>
+<p>上面提到下载程序使用的是Ymodem协议，所以得选用带有Ymodem协议传输方式的上位机软件来把应用程序下载到板子里。可以选用<code>SecureCRT</code>，也可以选用超级终端。这里选用的是超级终端：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh78uF.png" alt></p>
+<p>首先按下数字键1触发下载程序操作，此时会不断打印<code>CCCCC...</code>。然后点<code>传送-&gt;发送文件</code>,选择要下载的<code>.bin</code>文件及<code>Ymodem</code>协议。下载完成后按下数字3即可执行新下载得应用程序：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh71jU.png" alt></p>
+<p>终于，LED闪烁起来了，点灯项目成功~。断电重启之后默认执行的是这个点灯程序，要想下载新的程序，按下复位的同时按下<code>PE2</code>所对应的按键（需要一定的手速，哈哈）即可触发更新程序操作。</p>
+<p>以上就是本次笔记分享的内容，如有错误，欢迎指出！</p>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
-<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
+<p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
             <hr>
@@ -609,7 +701,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2018-11-13T08-22-15',
+        id: '2019-09-16T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -632,34 +724,84 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
+                <a href="/2019/09/16/stm32-chuan-kou-iap-fen-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="STM32串口IAP分享">
                         
-                        <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
+                        <span class="card-title">STM32串口IAP分享</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先，看一段代码：
-#include &lt;stdio.h>
-
-int main(void)
-{
- int a[5] = {0,1,2,3,4};
-
- printf("a = %d , &amp;a = %d \n", a, &amp;a
+                            什么是IAP？IAP是In Application Programming的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/STM32/" target="_blank">
+                        <span class="chip bg-color">STM32</span>
+                    </a>
+                    
+                    <a href="/tags/IAP/" target="_blank">
+                        <span class="chip bg-color">IAP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="易错、经典问题：return不可返回指向栈内存的指针">
+                        
+                        <span class="card-title">易错、经典问题：return不可返回指向栈内存的指针</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            预备知识：内存的分类C/C++程序占用的内存分为两大类：静态存储区与动态存储区。其示意图如下所示：
+
+数据保存在静态存储区与动态存储区的区别就是：静态存储区在编译-链接阶段已经确定了，程序运行过程中不会变化，只有当程序退出的时候，静态存储区
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -675,65 +817,12 @@ int main(void)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/return/" target="_blank">
+                        <span class="chip bg-color">return</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/11/12/gong-ju-zhe-me-hao-yong-de-dai-ma-yue-du-qi-ni-zhuang-liao-ma/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【工具】这么好用的代码阅读器你装了吗？">
-                        
-                        <span class="card-title">【工具】这么好用的代码阅读器你装了吗？</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            1、前言作为一名程序员，我们不仅要多动手编代码，而且还应多阅读一些优秀的代码，如C语言的一些第三方库文件、嵌入式中Linux内核源码以及一些项目的代码等。这些源码往往都比较庞大，源文件少则几十个，多则成千上万个源文件，很难把握每个源文件之间
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-12
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
-                    </a>
-                    
-                    <a href="/tags/工具/" target="_blank">
-                        <span class="chip bg-color">工具</span>
-                    </a>
-                    
-                    <a href="/tags/代码阅读器/" target="_blank">
-                        <span class="chip bg-color">代码阅读器</span>
+                    <a href="/tags/栈指针/" target="_blank">
+                        <span class="chip bg-color">栈指针</span>
                     </a>
                     
                 </div>
@@ -854,7 +943,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">96.7k</span>
+                <span class="white-color">98.4k</span>
             
 
             
