@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-09-17T00:46:29.785Z</updated>
+  <updated>2019-09-17T16:22:33.076Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STM32串口IAP分享</title>
+    <link href="https://zhengnianli.github.io/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/"/>
+    <id>https://zhengnianli.github.io/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/</id>
+    <published>2019-09-17T00:22:15.000Z</published>
+    <updated>2019-09-17T16:22:33.076Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一篇笔记分享了STM32的串口IAP实例：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="IAP" scheme="https://zhengnianli.github.io/tags/IAP/"/>
+    
+      <category term="ISP" scheme="https://zhengnianli.github.io/tags/ISP/"/>
+    
+      <category term="BootLoader" scheme="https://zhengnianli.github.io/tags/BootLoader/"/>
+    
+  </entry>
   
   <entry>
     <title>STM32串口IAP分享</title>
@@ -562,32 +594,6 @@
       <category term="JSON" scheme="https://zhengnianli.github.io/tags/JSON/"/>
     
       <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】关于数组的一个陷阱！</title>
-    <link href="https://zhengnianli.github.io/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/"/>
-    <id>https://zhengnianli.github.io/2019/06/03/c-yu-yan-bi-ji-guan-yu-shu-zu-de-yi-ge-xian-jing/</id>
-    <published>2019-06-03T00:22:15.000Z</published>
-    <updated>2019-08-14T14:50:47.141Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、问题&quot;&gt;&lt;a href=&quot;#1、问题&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
