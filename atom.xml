@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-09-17T16:22:33.076Z</updated>
+  <updated>2019-09-18T00:30:52.634Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>STM32串口IAP分享</title>
+    <title>STM32的ISP下载得原理是什么？</title>
     <link href="https://zhengnianli.github.io/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/"/>
     <id>https://zhengnianli.github.io/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/</id>
     <published>2019-09-17T00:22:15.000Z</published>
-    <updated>2019-09-17T16:22:33.076Z</updated>
+    <updated>2019-09-18T00:30:52.634Z</updated>
     
     <summary type="html">
     
