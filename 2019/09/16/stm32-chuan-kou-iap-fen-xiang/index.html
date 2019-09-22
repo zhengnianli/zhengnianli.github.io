@@ -437,7 +437,7 @@
 <h3 id="串口IAP实验"><a href="#串口IAP实验" class="headerlink" title="串口IAP实验"></a>串口IAP实验</h3><p>先理一理流程（本实验是以<code>STM32F103ZET6</code>为例）：</p>
 <p><strong>1、实验说明</strong></p>
 <p>做这个实验需要准备两个<code>keil</code>工程，一个工程用于编写IAP程序，另一个工程用于编写我们的应用程序（要实现某些功能的程序），这里我们以一个点灯程序为例。最终，两份工程编译出来的可执行文件都需要烧写到芯片的<code>FLASH</code>中。只不过需要烧写到不同的地址，简单的示意图如下：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7VBQ.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/09/21/nzFsAA.png" alt></p>
 <p>这里，使用的STM32的型号为STM32F103ZET6，其FLASH大小是512KB，0x08000000为其FLASH被映射的地址，程序被烧写到的就是这个地址。此处，我们的IAP程序烧写到这个地址，根据IAP程序的大小，我们在keil里可以设置合适的IAP结束地址。</p>
 <blockquote>
 <p>注意：在没有IAP程序的情况下，0x08000000这个地址就是应用程序烧写的地址。</p>
@@ -951,7 +951,7 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">99.2k</span>
+                <span class="white-color">100.2k</span>
             
 
             
