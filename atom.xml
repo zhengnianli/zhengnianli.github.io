@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-09-22T04:57:53.265Z</updated>
+  <updated>2019-09-27T00:33:36.473Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STM32的复用时钟何时开启呢？</title>
+    <link href="https://zhengnianli.github.io/2019/09/26/stm32-de-fu-yong-shi-zhong-he-shi-kai-qi-ni/"/>
+    <id>https://zhengnianli.github.io/2019/09/26/stm32-de-fu-yong-shi-zhong-he-shi-kai-qi-ni/</id>
+    <published>2019-09-26T00:22:15.000Z</published>
+    <updated>2019-09-27T00:33:36.473Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;STM32的AFIO时钟真的是在开启引脚复用功能的时候开启吗？其实并不是~&lt;/p&gt;
+&lt;h3 id=&quot;什么是复用？&quot;&gt;&lt;a href=&quot;#什么是复用？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="复用" scheme="https://zhengnianli.github.io/tags/%E5%A4%8D%E7%94%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>把notepad++配置成一个能编译C代码的记事本</title>
@@ -561,39 +590,6 @@
       <category term="TCP" scheme="https://zhengnianli.github.io/tags/TCP/"/>
     
       <category term="UDP" scheme="https://zhengnianli.github.io/tags/UDP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于STM32的智能天气预报系统</title>
-    <link href="https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/"/>
-    <id>https://zhengnianli.github.io/2019/06/20/zuo-pin-ji-yu-stm32-de-zhi-neng-tian-qi-yu-bao-xi-tong/</id>
-    <published>2019-06-20T00:22:15.000Z</published>
-    <updated>2019-08-15T00:40:14.223Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、作品介绍&quot;&gt;&lt;a href=&quot;#1、作品介绍&quot; class=&quot;headerlink&quot; title=&quot;1、作品介绍&quot;&gt;&lt;/a&gt;1、作品介绍&lt;/h2&gt;&lt;p&gt;首先，看一下作品的演示视频：&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;&lt;iframe
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
-      <category term="作品" scheme="https://zhengnianli.github.io/tags/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="天气预报" scheme="https://zhengnianli.github.io/tags/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5/"/>
     
   </entry>
   
