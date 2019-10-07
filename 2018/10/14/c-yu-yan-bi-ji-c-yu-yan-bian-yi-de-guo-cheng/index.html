@@ -715,30 +715,28 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/13/c-yu-yan-bi-ji-extern-guan-jian-zi/">
+                <a href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【C语言笔记】extern关键字">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【C语言笔记】char *str与char str[]的区别">
                         
-                        <span class="card-title">【C语言笔记】extern关键字</span>
+                        <span class="card-title">【C语言笔记】char *str与char str[]的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            extern关键字可以用来声明变量和函数作为外部变量或者函数供其它文件使用。
-1、extern声明变量示例程序：test.h如下：
-//声明
-extern int a;
-extern int b;
-test.c如下：
-#include "t
+                            C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：
+(1)char str[] = "happy";
+(2)char *str = "happy";
+这种方式有什么不同呢？
+示例一：字
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-13
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
                             </span>
                         <span class="publish-author">
                             
