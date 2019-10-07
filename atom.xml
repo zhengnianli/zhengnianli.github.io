@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-09-27T00:33:36.473Z</updated>
+  <updated>2019-10-07T02:59:32.104Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见的几种AD滤波算法</title>
+    <link href="https://zhengnianli.github.io/2019/10/07/chang-jian-de-ji-chong-ad-lu-bo-suan-fa/"/>
+    <id>https://zhengnianli.github.io/2019/10/07/chang-jian-de-ji-chong-ad-lu-bo-suan-fa/</id>
+    <published>2019-10-07T00:22:15.000Z</published>
+    <updated>2019-10-07T02:59:32.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在进行AD采样时，常常都会对采样数据进行滤波，以达到更好一点的效果。下面分享几种较简单而常用的滤波算法：&lt;/p&gt;
+&lt;h3 id=&quot;限幅滤波法&quot;&gt;&lt;a href=&quot;#限幅滤波法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="滤波算法" scheme="https://zhengnianli.github.io/tags/%E6%BB%A4%E6%B3%A2%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="AD" scheme="https://zhengnianli.github.io/tags/AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一道简单但易错的C语言面试题</title>
+    <link href="https://zhengnianli.github.io/2019/09/30/yi-dao-jian-dan-dan-yi-cuo-de-c-yu-yan-mian-shi-ti/"/>
+    <id>https://zhengnianli.github.io/2019/09/30/yi-dao-jian-dan-dan-yi-cuo-de-c-yu-yan-mian-shi-ti/</id>
+    <published>2019-09-30T00:22:15.000Z</published>
+    <updated>2019-10-07T02:57:39.866Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;题目：分析以下代码，它的运行结果是？&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;#&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>STM32的复用时钟何时开启呢？</title>
@@ -522,74 +580,6 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="DSP" scheme="https://zhengnianli.github.io/tags/DSP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【socket应用】基于C语言的天气客户端的实现</title>
-    <link href="https://zhengnianli.github.io/2019/07/08/socket-ying-yong-ji-yu-c-yu-yan-de-tian-qi-ke-hu-duan-de-shi-xian/"/>
-    <id>https://zhengnianli.github.io/2019/07/08/socket-ying-yong-ji-yu-c-yu-yan-de-tian-qi-ke-hu-duan-de-shi-xian/</id>
-    <published>2019-07-08T00:22:15.000Z</published>
-    <updated>2019-08-15T04:51:34.408Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇笔记分享了&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
-    
-      <category term="网络编程" scheme="https://zhengnianli.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="TCP" scheme="https://zhengnianli.github.io/tags/TCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【socket笔记】TCP、UDP通信总结</title>
-    <link href="https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/"/>
-    <id>https://zhengnianli.github.io/2019/06/30/socket-bi-ji-tcp-udp-tong-xin-zong-jie/</id>
-    <published>2019-06-30T00:22:15.000Z</published>
-    <updated>2019-08-15T04:47:54.249Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、什么是socket？&quot;&gt;&lt;a href=&quot;#一、什么是socket？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="socket笔记" scheme="https://zhengnianli.github.io/categories/socket%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="socket" scheme="https://zhengnianli.github.io/tags/socket/"/>
-    
-      <category term="网络编程" scheme="https://zhengnianli.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="TCP" scheme="https://zhengnianli.github.io/tags/TCP/"/>
-    
-      <category term="UDP" scheme="https://zhengnianli.github.io/tags/UDP/"/>
     
   </entry>
   
