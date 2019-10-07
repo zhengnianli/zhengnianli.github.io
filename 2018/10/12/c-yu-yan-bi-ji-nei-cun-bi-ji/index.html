@@ -1,0 +1,1232 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="【C语言笔记】内存笔记, 正念的博客">
+    <meta name="description" content="C语言程序需要载入内存才可以运行，其不同的数据保存在不同的区域。所使用的内存可以分成两类：一类是静态存储区，另一类是动态存储区。
+C语言程序的存储区如下图所示：
+
+1、静态存储区静态存储区分为三类：只读数据区（RO Data）、已初始化读写">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>【C语言笔记】内存笔记 | 正念的博客</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">正念的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">正念的博客</div>
+        <div class="logo-desc">
+            
+            本博客内容会同步至我的微信公众号【嵌入式大杂烩】欢迎关注！关注并回复【1024】送你一份学习资料包！
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhengnianli/stm32_weather" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhengnianli/stm32_weather" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        【C语言笔记】内存笔记
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C语言/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                C语言笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-10-12
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        12 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>C语言程序需要载入内存才可以运行，其不同的数据保存在不同的区域。所使用的内存可以分成两类：一类是<code>静态存储区</code>，另一类是<code>动态存储区</code>。</p>
+<p>C语言程序的存储区如下图所示：</p>
+<p><a href="https://imgchr.com/i/V4RTHJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4RTHJ.md.png" alt></a></p>
+<h3 id="1、静态存储区"><a href="#1、静态存储区" class="headerlink" title="1、静态存储区"></a>1、静态存储区</h3><p>静态存储区分为三类：<code>只读数据区（RO Data）、已初始化读写数据区（RW Data）、未初始化读写读写数据区（BSS）</code>。这三类存储区都是在程序的<code>编译-连接阶段</code>确定的，且运行过程中是不会变化的，只有当程序退出的时候，静态存储区的内存才会被系统回收。</p>
+<h3 id="2、动态存储区"><a href="#2、动态存储区" class="headerlink" title="2、动态存储区"></a>2、动态存储区</h3><p>动态存储区主要分为两类：一类是<code>栈（Stack）内存</code>区域，栈内存是由编译器管理的；另一类是<code>堆（Heap）内存</code>区域，堆内存由程序调用具体的库函数来分配的。它们都是程序运行过程中动态分配的。</p>
+<h3 id="2-1栈内存区域"><a href="#2-1栈内存区域" class="headerlink" title="2.1栈内存区域"></a>2.1栈内存区域</h3><h3 id="2-1-1栈的相关概念"><a href="#2-1-1栈的相关概念" class="headerlink" title="2.1.1栈的相关概念"></a>2.1.1栈的相关概念</h3><p>栈内存的使用很大的程度上依赖于处理器的硬件机制。在处理器中，有一个寄存器来表示当前栈指针的位置。通常在内存中分配一块区域，这块区域的上界（高内存地址）和下界（低内存地址）之间是可用的栈内存区域。栈内存如下图所示：</p>
+<p> <a href="https://imgchr.com/i/V4HeKI" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4HeKI.md.png" alt></a></p>
+<p>目前常见的体系结构和编译系统中，<code>栈大多都是向下增长的</code>。在初始阶段，栈指针是指向栈区间的上界，随着栈使用量的增加，栈指针的值向低地址移动，即栈指针的值将变小。下面来看一段程序：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a = %d, &amp;a = %#x \n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"b = %d, &amp;b = %#x \n"</span><span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"c = %d, &amp;c = %#x \n"</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果为：</p>
+<p><a href="https://imgchr.com/i/V4HwIU" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4HwIU.md.png" alt></a></p>
+<p>可见，变量的存储是从高地址往低地址的方向存储。</p>
+<p>栈有一个重要的特性：先放入的数据最后才能取出，后放入的数据优先能取出，即<code>先进后出（First In Last Out）原则</code>。放入数据常被称为<code>入栈或压栈（Push）</code>，取出数据被称为<code>出栈或弹出（Pop）</code>。在运用过程中，栈内存可能出现满栈和空栈两种情况，这是由处理器的体系结构决定的。</p>
+<p>栈（Stack）可以存放函数参数、局部变量、局部数组等作用范围在函数内部的数据，它的用途就是完成函数的调用。</p>
+<h3 id="2-1-1需要知道的关于栈的问题："><a href="#2-1-1需要知道的关于栈的问题：" class="headerlink" title="2.1.1需要知道的关于栈的问题："></a>2.1.1需要知道的关于栈的问题：</h3><p>（1）函数在调用完成之后，栈指针将回到函数进入之前的位置。下面的程序通过两次调用同一个函数印证了这一点：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">void</span> <span class="token function">stack_test1</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> a1 <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> b1 <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> c1 <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"第一次调用stack_test1函数：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">stack_test1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"第二次调用stack_test1函数：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">stack_test1</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span> b1<span class="token punctuation">,</span> c1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">stack_test1</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a = %d, &amp;a = %#x \n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"b = %d, &amp;b = %#x \n"</span><span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"c = %d, &amp;c = %#x \n"</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果：</p>
+<p><a href="https://imgchr.com/i/V4Hsz9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4Hsz9.md.png" alt></a></p>
+<p>可见，两次调用中函数参数使用的栈内存是相同的，即第一次调用函数完成之后，栈指针将回到函数进入之前的位置。</p>
+<p>（2）在函数调用的过程中，每增加一个层次，栈空间就会被压入更多的内容，下面的程序验证了这一点：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token keyword">void</span> <span class="token function">stack_test1</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">stack_test2</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"直接调用stack_test1函数：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">stack_test1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"通过stack_test2函数间接调用stack_test1函数：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">stack_test2</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">stack_test1</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a = %d, &amp;a = %#x \n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"b = %d, &amp;b = %#x \n"</span><span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"c = %d, &amp;c = %#x \n"</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">stack_test2</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token function">stack_test1</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果：</p>
+<p><a href="https://imgchr.com/i/V4HLeP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4HLeP.md.png" alt></a></p>
+<p>可见，在程序中两次调用stack_test1函数，第一次是直接调用，第二次是通过stack_test2函数间接调用。从运行结果来看，通过stack_test2函数间接调用stack_test1函数的栈指针的值变小了，说明是由于栈中压入了更多的内容。</p>
+<p>（3）函数调用结束后，函数栈上的内容不能被其他函数使用。例如，下面是一种错误的用法：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span><span class="token function">stack_test3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>return(&amp;a)</code>将自动变量a的值返回，这种写法不会发生编译错误（有可能出现警告），但是其逻辑是不正确的。此时，调用者可以得到stack_test3运行时a的地址，但是由于变量a是建立在栈上，函数退出后，栈区域已经释放，这个地址已经指向无效的内存，因此不应该再被程序使用。</p>
+<h3 id="2-2堆内存区域"><a href="#2-2堆内存区域" class="headerlink" title="2.2堆内存区域"></a>2.2堆内存区域</h3><h3 id="2-2-1堆的相关概念"><a href="#2-2-1堆的相关概念" class="headerlink" title="2.2.1堆的相关概念"></a>2.2.1堆的相关概念</h3><p>在一般的编译系统中，堆内存的分配方向和栈内存是相反的。栈内存利用的是处理器的硬件机制，而堆内存的处理使用的是库函数。堆内存的分配形式如下图：</p>
+<p><a href="https://imgchr.com/i/V4b9Qs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4b9Qs.md.png" alt></a></p>
+<p>可见，堆内存与栈内存的区别：栈内存只有一个入口点，就是栈指针，栈内存压栈和出栈都只能通过栈指针及其偏移量；而堆内存有多个入口点，每次分配得到的指针就是访问内存的入口，每个分配内存区域都可以被单独释放。</p>
+<p>当频繁的分配和释放内存的过程中，将会出现如下情况：在两块已经分配的内存之间可能出现较小的未分配的内存区域，这些内存理论上可以被使用。但是由于它们的空间较小，不够连续内存的分配，因此当分配内存的时候，它们经常不能被使用。这种较小的内存就是内存碎片。</p>
+<h3 id="2-2-2关于堆空间的使用及其一些问题："><a href="#2-2-2关于堆空间的使用及其一些问题：" class="headerlink" title="2.2.2关于堆空间的使用及其一些问题："></a>2.2.2关于堆空间的使用及其一些问题：</h3><p>（1）库文件：stdlib.h</p>
+<p>实现堆内存分配和释放的4个主要函数为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 分配内存空间 */</span>
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">malloc</span><span class="token punctuation">(</span>size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* 释放内存空间 */</span>
+<span class="token keyword">void</span> <span class="token function">free</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* 分配内存空间 */</span>
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">calloc</span><span class="token punctuation">(</span>size_t num<span class="token punctuation">,</span> size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* 重新分配内存空间 */</span>
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">realloc</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>ptr<span class="token punctuation">,</span> size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>（2）malloc和free的简单应用</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//malloc和free的简单应用</span>
+<span class="token keyword">void</span> <span class="token function">heap_test1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token constant">NULL</span> <span class="token operator">!=</span> pa <span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+   <span class="token operator">*</span>pa <span class="token operator">=</span> <span class="token number">0x1234</span><span class="token punctuation">;</span>
+   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pa = %#x, *pa = %x\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span>pa<span class="token punctuation">,</span> <span class="token operator">*</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>在malloc分配完内存之后，可以用得到的指针值是否为NULL来判断内存是否分配成功。按照C语言内存分配规则，如果内存分配成功，返回的是内存的地址；如果内存分配不成功，将返回NULL（0x0），表示一个无效的地址。</p>
+<p>（3）malloc在分配内存的时候，是从低地址至高地址方向。但是，先分配的内存地址不一定比后分配的内存地址小。下面的程序验证了这一点：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//后分配内存地址反而更小</span>
+<span class="token keyword">void</span> <span class="token function">heap_test2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">void</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+ <span class="token keyword">void</span> <span class="token operator">*</span>pb<span class="token punctuation">;</span>
+ <span class="token keyword">void</span> <span class="token operator">*</span>pc<span class="token punctuation">;</span>
+ <span class="token keyword">void</span> <span class="token operator">*</span>pd<span class="token punctuation">;</span>
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pa = %#x \n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ pb <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pb = %#x \n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span>pb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ pc <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pc = %#x \n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span>pc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ pd <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pd = %#x \n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span>pd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果：</p>
+<p><a href="https://imgchr.com/i/V4beW4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4beW4.md.png" alt></a></p>
+<p>可见，在该程序中，首先3次分配1024字节的堆上内存，然后再将第二次分配的内存释放，再次分配内存时，将利用了这一块空间。</p>
+<p>（4）calloc()和malloc()很类似，主要区别是calloc()可以将分配好的内存区域的初始值全部设置为0，以下程序验证了这一点：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//calloc和malloc的主要区别</span>
+<span class="token keyword">void</span> <span class="token function">heap_test3</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+ <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">calloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token constant">NULL</span> <span class="token operator">!=</span> pa <span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;&lt; colloc pa = %#x >>\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
+   <span class="token punctuation">{</span>
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pa[%d] = %d \n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> pa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果：</p>
+<p><a href="https://imgchr.com/i/V4bJYD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4bJYD.md.png" alt></a></p>
+<p>除此之外，calloc()和malloc()另外一个不同之处在于参数的个数，malloc只有一个参数，即要分配的内存字节数；calloc有两个参数，第一个是分配单元的大小，第二个是要分配的数目。从本质上，calloc使用两个参数和malloc使用一个并没有区别。</p>
+<p>（5）realloc的应用。realloc函数具有两个参数，一个是指向内存的地址指针，另一个是重新分配内存的大小，而返回值是指向所分配内存的指针。基本应用代码如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//realloc的应用</span>
+<span class="token keyword">void</span> <span class="token function">heap_test4</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+ <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token constant">NULL</span> <span class="token operator">!=</span> pa <span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token operator">*</span><span class="token punctuation">(</span>pa <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pa[%d] = %d \n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> pa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"relloc重新分配内存\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>pa<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token constant">NULL</span> <span class="token operator">!=</span> pa <span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pa[%d] = %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> pa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>程序运行结果：</p>
+<p> <a href="https://imgchr.com/i/V4bB0P" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4bB0P.md.png" alt></a></p>
+<p>除此之外，realloc还具有两种功能：一是当指针为NULL的时候，作为malloc使用，分配内存；二是当重新分配内存大小为0的时候，作为free使用，释放内存。</p>
+<p>（6）再堆内存的管理上，容易出现以下几个问题：</p>
+<p>开辟的内存没有释放，造成内存泄漏</p>
+<ul>
+<li><p>内存泄漏的例子：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//内存泄漏例子</span>
+<span class="token keyword">void</span> <span class="token function">heap_test6</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">char</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* ...... */</span>
+
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ul>
+<p>在函数heap_test6中，使用malloc开辟了20个字节的内存区域，但是使用结束后该函数没有释放这块区域，也没有通过任何返回值或者参数的手段将这块内存区域的地址告诉其它函数。此时，这20个字节的内存不会被任何程序释放，因此再调用该函数的时候，就会导致内存泄漏。</p>
+<ul>
+<li>野指针被使用或者释放</li>
+</ul>
+<p>野指针是一个已经被释放的内存指针，它指向的位置已经被free或者realloc释放了，此时再使用该指针，就会导致程序的错误。野指针例子：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//野指针例子</span>
+<span class="token keyword">void</span> <span class="token function">heap_test6</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">char</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"pa = %s \n"</span><span class="token punctuation">,</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//野指针被使用</span>
+
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>在此程序中，调用free函数已经释放了pa指针，但后面还在继续使用pa，这就是一个错误的程序。</p>
+<ul>
+<li>非法释放指针</li>
+</ul>
+<p>1）非法释放静态存储区的内存，示例如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//非法释放静态存储区的内存</span>
+<span class="token keyword">void</span> <span class="token function">heap_test7</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token comment" spellcheck="true">/* 错误释放只读数据区指针 */</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>ro_data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* 错误释放已初始化读写数据区指针 */</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>rw_data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* 错误释放未初始化读写数据区指针 */</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>bss_data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token comment" spellcheck="true">/* 错误释放代码区指针 */</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>heap_test7<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>2）非法释放栈上的内存，示例如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//非法释放栈上的内存</span>
+<span class="token keyword">void</span> <span class="token function">heap_test8</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">char</span> a<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ <span class="token keyword">int</span> b<span class="token punctuation">;</span>
+
+ <span class="token comment" spellcheck="true">/* 错误释放栈上内存 */</span>
+
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>3）非法释放堆上内存，示例如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//非法释放堆上的内存---1</span>
+<span class="token keyword">void</span> <span class="token function">heap_test9</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">char</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pa<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//错误释放堆内存</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>第一次释放之后，该地址已经变成了未被分配的堆上的内存了，free函数不能释放未分配的堆内存。</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//非法释放堆上的内存---2</span>
+<span class="token keyword">void</span> <span class="token function">heap_test10</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">char</span> <span class="token operator">*</span>pa<span class="token punctuation">;</span>
+ <span class="token keyword">char</span> <span class="token operator">*</span>pb<span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ pb <span class="token operator">=</span> pa<span class="token operator">++</span><span class="token punctuation">;</span>
+ <span class="token function">free</span><span class="token punctuation">(</span>pb<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//错误释放堆内存</span>
+ <span class="token comment" spellcheck="true">/* ...... */</span>
+ <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>释放内存pb是非法的内存释放，由于这个指针并不是从malloc分配出来的，而是一个中间的指针值。</p>
+<p>以上是对于C语言内存的一些笔记。如有错误，欢迎指出！</p>
+<hr>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p><a href="https://imgchr.com/i/VcSFJJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></a></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">欢迎关注正念君的微信公众号</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <!--<ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微信公众号</a></li>
+                    </ul>-->
+					<!--
+                    <div id="alipay">
+                        <img src="" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+					-->
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信公众号二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '9a79b0786fdd604107df',
+        clientSecret: 'edab3b58af0f0203fcca1b5002349a46c2cccd8e',
+        repo: 'zhengnianli.github.io',
+        owner: 'zhengnianli',
+        admin: ["zhengnianli"],
+        id: '2018-10-12T08-22-15',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/10/13/c-yu-yan-bi-ji-extern-guan-jian-zi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【C语言笔记】extern关键字">
+                        
+                        <span class="card-title">【C语言笔记】extern关键字</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            extern关键字可以用来声明变量和函数作为外部变量或者函数供其它文件使用。
+1、extern声明变量示例程序：test.h如下：
+//声明
+extern int a;
+extern int b;
+test.c如下：
+#include "t
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/10/11/c-yu-yan-bi-ji-getchar-getche-getch-de-qu-bie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【C语言笔记】getchar()、getche()、getch()的区别">
+                        
+                        <span class="card-title">【C语言笔记】getchar()、getche()、getch()的区别</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、getchar()函数所在头文件：stdio.h
+函数原型：int getchar(void);
+函数功能：读取控制台输入的字符，并保存在键盘缓冲区中。直到用户按回车为止(回车字符也放在缓冲区中)。
+看一段代码：
+#include &l
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://zhengnianli.github.io/" target="_blank">ZhengNian</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">102.6k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhengnianli" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2238184039@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2238184039" class="tooltipped" data-tooltip="QQ联系我: 2238184039" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
