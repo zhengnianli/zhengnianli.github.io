@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-10-08T13:51:08.748Z</updated>
+  <updated>2019-10-08T14:10:55.410Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhengnianli.github.io/2019/10/08/liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/"/>
     <id>https://zhengnianli.github.io/2019/10/08/liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/</id>
     <published>2019-10-08T00:22:15.000Z</published>
-    <updated>2019-10-08T13:51:08.748Z</updated>
+    <updated>2019-10-08T14:10:55.410Z</updated>
     
     <summary type="html">
     
@@ -326,9 +326,9 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
       <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
   </entry>
   
