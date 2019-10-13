@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-10-08T14:10:55.410Z</updated>
+  <updated>2019-10-13T06:37:35.554Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用STM32内部Flash额外的空间来存储数据</title>
+    <link href="https://zhengnianli.github.io/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/"/>
+    <id>https://zhengnianli.github.io/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/</id>
+    <published>2019-10-13T00:22:15.000Z</published>
+    <updated>2019-10-13T06:37:35.554Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;大家周末愉快！本次分享关于STM32内部FLASH的笔记。&lt;/p&gt;
+&lt;p&gt;STM32 芯片内部的 FLASH
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="内部FLASH" scheme="https://zhengnianli.github.io/tags/%E5%86%85%E9%83%A8FLASH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sizeof你真的弄明白了吗？来看看这个例子</title>
+    <link href="https://zhengnianli.github.io/2019/10/09/sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/"/>
+    <id>https://zhengnianli.github.io/2019/10/09/sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/</id>
+    <published>2019-10-09T00:22:15.000Z</published>
+    <updated>2019-10-12T00:33:12.418Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;sizeof基础&quot;&gt;&lt;a href=&quot;#sizeof基础&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>两块STM32之间的SPI主从通讯实例</title>
@@ -80,7 +135,7 @@
     <link href="https://zhengnianli.github.io/2019/09/30/yi-dao-jian-dan-dan-yi-cuo-de-c-yu-yan-mian-shi-ti/"/>
     <id>https://zhengnianli.github.io/2019/09/30/yi-dao-jian-dan-dan-yi-cuo-de-c-yu-yan-mian-shi-ti/</id>
     <published>2019-09-30T00:22:15.000Z</published>
-    <updated>2019-10-07T02:57:39.866Z</updated>
+    <updated>2019-10-12T00:39:16.396Z</updated>
     
     <summary type="html">
     
@@ -304,6 +359,58 @@
   </entry>
   
   <entry>
+    <title>C语言代码优化的一些经验及小技巧（四）</title>
+    <link href="https://zhengnianli.github.io/2019/08/30/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-si/"/>
+    <id>https://zhengnianli.github.io/2019/08/30/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-si/</id>
+    <published>2019-08-30T00:22:15.000Z</published>
+    <updated>2019-10-12T00:41:55.724Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;无限循环优先选用for-，而不是while-1&quot;&gt;&lt;a href=&quot;#无限循环优先选用for-，而不是while-1&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言代码优化的一些经验及小技巧（三）</title>
+    <link href="https://zhengnianli.github.io/2019/08/29/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-san/"/>
+    <id>https://zhengnianli.github.io/2019/08/29/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-san/</id>
+    <published>2019-08-29T00:22:15.000Z</published>
+    <updated>2019-10-12T00:39:26.175Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;循环展开&quot;&gt;&lt;a href=&quot;#循环展开&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>程序的组成、存储与运行</title>
     <link href="https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/"/>
     <id>https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/</id>
@@ -333,11 +440,37 @@
   </entry>
   
   <entry>
-    <title>C语言代码优化的一些经验及小技巧</title>
+    <title>C语言代码优化的一些经验及小技巧（二）</title>
+    <link href="https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/"/>
+    <id>https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/</id>
+    <published>2019-08-28T00:22:15.000Z</published>
+    <updated>2019-10-12T00:39:36.557Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;函数相关&quot;&gt;&lt;a href=&quot;#函数相关&quot; class=&quot;headerlink&quot; title=&quot;函数相关&quot;&gt;&lt;/a&gt;函数相关&lt;/h2&gt;&lt;h3 id=&quot;1、参数的书写要完整&quot;&gt;&lt;a href=&quot;#1、参数的书写要完整&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言代码优化的一些经验及小技巧（一）</title>
     <link href="https://zhengnianli.github.io/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/"/>
     <id>https://zhengnianli.github.io/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/</id>
     <published>2019-08-27T00:22:15.000Z</published>
-    <updated>2019-08-28T14:39:34.941Z</updated>
+    <updated>2019-10-12T00:35:45.204Z</updated>
     
     <summary type="html">
     
@@ -438,148 +571,6 @@
       <category term="空闲中断" scheme="https://zhengnianli.github.io/tags/%E7%A9%BA%E9%97%B2%E4%B8%AD%E6%96%AD/"/>
     
       <category term="DMA" scheme="https://zhengnianli.github.io/tags/DMA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>替代串口打印，嵌入式中另一种打印调试的方法</title>
-    <link href="https://zhengnianli.github.io/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/"/>
-    <id>https://zhengnianli.github.io/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/</id>
-    <published>2019-08-16T00:22:15.000Z</published>
-    <updated>2019-08-25T03:26:44.848Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="SEGGER_RTT" scheme="https://zhengnianli.github.io/tags/SEGGER-RTT/"/>
-    
-      <category term="J-Link" scheme="https://zhengnianli.github.io/tags/J-Link/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【工具】这个神器可以提取你代码中的关键信息生成技术文档</title>
-    <link href="https://zhengnianli.github.io/2019/08/13/gong-ju-zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/"/>
-    <id>https://zhengnianli.github.io/2019/08/13/gong-ju-zhe-ge-shen-qi-ke-yi-ti-qu-ni-dai-ma-zhong-de-guan-jian-xin-xi-sheng-cheng-ji-zhu-wen-dang/</id>
-    <published>2019-08-13T00:22:15.000Z</published>
-    <updated>2019-08-14T14:57:35.042Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="https://zhengnianli.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="工具" scheme="https://zhengnianli.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Doxygen" scheme="https://zhengnianli.github.io/tags/Doxygen/"/>
-    
-      <category term="chm" scheme="https://zhengnianli.github.io/tags/chm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】assert怎么用？</title>
-    <link href="https://zhengnianli.github.io/2019/08/12/c-yu-yan-bi-ji-assert-zen-me-yong/"/>
-    <id>https://zhengnianli.github.io/2019/08/12/c-yu-yan-bi-ji-assert-zen-me-yong/</id>
-    <published>2019-08-12T00:22:15.000Z</published>
-    <updated>2019-08-14T14:25:06.718Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、什么是assert-？&quot;&gt;&lt;a href=&quot;#一、什么是assert-？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】联合体</title>
-    <link href="https://zhengnianli.github.io/2019/08/01/c-yu-yan-bi-ji-lian-he-ti/"/>
-    <id>https://zhengnianli.github.io/2019/08/01/c-yu-yan-bi-ji-lian-he-ti/</id>
-    <published>2019-08-01T00:22:15.000Z</published>
-    <updated>2019-08-14T14:59:14.854Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、什么是联合体？&quot;&gt;&lt;a href=&quot;#一、什么是联合体？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="联合体" scheme="https://zhengnianli.github.io/tags/%E8%81%94%E5%90%88%E4%BD%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法</title>
-    <link href="https://zhengnianli.github.io/2019/07/30/dsp-bi-ji-ti-guan-fang-li-cheng-zhong-qie-huan-ram-flash-gong-cheng-ban-ben-de-fang-fa/"/>
-    <id>https://zhengnianli.github.io/2019/07/30/dsp-bi-ji-ti-guan-fang-li-cheng-zhong-qie-huan-ram-flash-gong-cheng-ban-ben-de-fang-fa/</id>
-    <published>2019-07-30T00:22:15.000Z</published>
-    <updated>2019-08-15T00:20:16.904Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/07/30/e8OBqO.png&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="DSP" scheme="https://zhengnianli.github.io/tags/DSP/"/>
-    
-      <category term="存储器" scheme="https://zhengnianli.github.io/tags/%E5%AD%98%E5%82%A8%E5%99%A8/"/>
     
   </entry>
   
