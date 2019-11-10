@@ -4,9 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="使用STM32内部Flash额外的空间来存储数据, 正念的博客">
-    <meta name="description" content="大家周末愉快！本次分享关于STM32内部FLASH的笔记。
-STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果内部FLASH存储完我们的代码还有剩余的空间，那么这些剩余的空间我们就可以利用起来，存储一些需要掉电保存的数据">
+    <meta name="keywords" content="sizeof你真的弄明白了吗？来看看这个例子, 正念的博客">
+    <meta name="description" content="sizeof基础在C语言中，sizeof是一个操作符（operator），而不是函数！其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：
+
+（1）sizeof(类型说明符)
+（2）sizeof 表达式
+
+我们通常使用第">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +18,7 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>使用STM32内部Flash额外的空间来存储数据 | 正念的博客</title>
+    <title>sizeof你真的弄明白了吗？来看看这个例子 | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,13 +262,13 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        使用STM32内部Flash额外的空间来存储数据
+                        sizeof你真的弄明白了吗？来看看这个例子
                     </div>
                 </div>
             </div>
@@ -375,12 +379,8 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/STM32/" target="_blank">
-                                <span class="chip bg-color">STM32</span>
-                            </a>
-                        
-                            <a href="/tags/内部FLASH/" target="_blank">
-                                <span class="chip bg-color">内部FLASH</span>
+                            <a href="/tags/C语言/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
                             </a>
                         
                     </div>
@@ -391,8 +391,8 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                嵌入式
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                C语言笔记
                             </a>
                         
                     </div>
@@ -403,21 +403,21 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-13
+                    2019-10-09
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        679
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        2 分
                     </div>
                     
                 
@@ -433,185 +433,64 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>大家周末愉快！本次分享关于STM32内部FLASH的笔记。</p>
-<p>STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果内部FLASH存储完我们的代码还有剩余的空间，那么这些剩余的空间我们就可以利用起来，存储一些需要掉电保存的数据。</p>
-<p>本文以STM32103ZET6为例。STM32103ZET6属于大容量产品，其闪存模块组织如下：</p>
-<p><img src="https://s2.ax1x.com/2019/10/13/uv3gSI.png" alt></p>
-<p>其主存储器大小为512KB，分为256页，每页大小都为2KB。我们的程序一般默认烧写到第0页的起始地址（0x08000000）处。当BOOT0引脚和BOOT1引脚都接GND时，就是从这个地址开始运行代码的。这个地址在keil中可以看到：</p>
-<p><img src="https://s2.ax1x.com/2019/10/13/uv3yYd.png" alt></p>
-<p>假如我们要下载的程序大小为4.05KB，则第0、1、2页用于保存我们的程序，我们需要掉电保存的数据只能保存在第3页至第255页这一部分空间内。我们最终要下载的程序大小可在工程对应的<code>.map</code>文件中看到。<code>.map</code>文件可以双击工程的Target的名字快速打开，如：</p>
-<p><img src="https://s2.ax1x.com/2019/10/13/uv32lt.png" alt></p>
-<p>下面对STM32的内部FLASH进行简单的读写测试：</p>
-<h3 id="STM32的内部FLASH读写测试"><a href="#STM32的内部FLASH读写测试" class="headerlink" title="STM32的内部FLASH读写测试"></a>STM32的内部FLASH读写测试</h3><p><strong>过程图如下（省略异常情况，只考虑成功的情况）：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/10/13/uv3sFH.png" alt></p>
-<p><strong>示例代码：</strong></p>
-<p>本例的关键代码如下：</p>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************                                
-*------------------------------------------STM32 Demo---------------------------------------------------
-*
-*       工程说明：STM32内部FLASH实验
-*    作    者：ZhengNian
-*     博    客：zhengnianli.github.io
-*    公 众 号：嵌入式大杂烩
-*
-********************************************************************************************************/</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> MAIN_CONFIG</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"config.h"</span></span>
+                <h3 id="sizeof基础"><a href="#sizeof基础" class="headerlink" title="sizeof基础"></a>sizeof基础</h3><p>在C语言中，<strong>sizeof是一个操作符（operator），而不是函数！</strong>其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：</p>
+<blockquote>
+<p>（1）sizeof(类型说明符)</p>
+<p>（2）sizeof 表达式</p>
+</blockquote>
+<p>我们通常使用第（1）种形式。</p>
+<p>其返回值类型为size_t，在头文件stddef.h中定义。这是一个依赖于编译系统的值，一般定义为：</p>
+<blockquote>
+<p>typedef unsigned int size_t;</p>
+</blockquote>
+<p>首先确定我们当前编译环境中C语言各个基本数据类型在内存中所占字节数，我这里是32bit编译环境：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-<span class="token comment" spellcheck="true">/* STM32F103ZET6有256页，每一页的大小都为2KB */</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> ADDR_FLASH_PAGE_255     ((uint32_t)0x0807F800) </span><span class="token comment" spellcheck="true">/* Page255 2KB */</span>
-
-<span class="token comment" spellcheck="true">/* FLASH读写测试结果 */</span>
-<span class="token macro property">#<span class="token directive keyword">define</span>  TEST_ERROR       -1    </span><span class="token comment" spellcheck="true">/* 错误（擦除、写入错误） */</span>
-<span class="token macro property">#<span class="token directive keyword">define</span>  TEST_SUCCESS  0    </span><span class="token comment" spellcheck="true">/* 成功 */</span>
-<span class="token macro property">#<span class="token directive keyword">define</span>  TEST_FAILED   1    </span><span class="token comment" spellcheck="true">/* 失败 */</span>
-
-<span class="token comment" spellcheck="true">/* Flash读写测试buf */</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> BufferSize 6</span>
-uint16_t usFlashWriteBuf<span class="token punctuation">[</span>BufferSize<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0x0101</span><span class="token punctuation">,</span><span class="token number">0x0202</span><span class="token punctuation">,</span><span class="token number">0x0303</span><span class="token punctuation">,</span><span class="token number">0x0404</span><span class="token punctuation">,</span><span class="token number">0x0505</span><span class="token punctuation">,</span><span class="token number">0x0606</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-uint16_t usFlashReadBuf<span class="token punctuation">[</span>BufferSize<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* 供本文件调用的函数声明 */</span>
-<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">FlashReadWriteTest</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       
-
-<span class="token comment" spellcheck="true">/*******************************************************************************************************
-** 函数: main
-**------------------------------------------------------------------------------------------------------
-** 参数: void
-** 返回: 无
-** 说明: 主函数
-********************************************************************************************************/</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>    
-    <span class="token comment" spellcheck="true">/* 上电初始化 */</span>
-    <span class="token function">SysInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/* 内部Flash读写测试 */</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>TEST_SUCCESS <span class="token operator">==</span> <span class="token function">FlashReadWriteTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Flash test success!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Flash test failed!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/*******************************************************************************************************
-** 函数: FlashReadWriteTest, 内部Flash读写测试函数
-**------------------------------------------------------------------------------------------------------
-** 参数: void
-** 返回: TEST_ERROR：错误（擦除、写入错误）  TEST_SUCCESS：成功   TEST_FAILED：失败
-** 说明: 无
-********************************************************************************************************/</span>
-<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">FlashReadWriteTest</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    uint32_t ucStartAddr<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(char)  = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(short) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(int)   = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(long)  = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(float) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(double)= %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">/* 解锁 */</span>
-    <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>我们这里的输出结果为：</p>
+<p><img src="https://s2.ax1x.com/2019/10/12/uLGwb4.png" alt></p>
+<h3 id="sizeof典型问题"><a href="#sizeof典型问题" class="headerlink" title="sizeof典型问题"></a>sizeof典型问题</h3><p>sizeof看起来似乎很简单，那来看看下面这段代码，你能做对几个：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-    <span class="token comment" spellcheck="true">/* 擦除操作 */</span>
-    ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>FLASH_COMPLETE <span class="token operator">!=</span> <span class="token function">FLASH_ErasePage</span><span class="token punctuation">(</span>ucStartAddr<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Erase Error!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> TEST_ERROR<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">{</span>
-        ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"擦除成功，此时FLASH中值为：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>ucStartAddr<span class="token punctuation">;</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ucFlashReadBuf[%d] = 0x%.4x\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            ucStartAddr <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">/* 写入操作 */</span>
-    ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n往FLASH中写入的数据为：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>FLASH_COMPLETE <span class="token operator">!=</span> <span class="token function">FLASH_ProgramHalfWord</span><span class="token punctuation">(</span>ucStartAddr<span class="token punctuation">,</span> usFlashWriteBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Write Error!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> TEST_ERROR<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ucFlashWriteBuf[%d] = 0x%.4x\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> usFlashWriteBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ucStartAddr <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(char) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(char*)= %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof('a')  = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(*s+0) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token operator">*</span>s<span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(*s)   = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token operator">*</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(s)    = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-    <span class="token comment" spellcheck="true">/* 上锁 */</span>
-    <span class="token function">FLASH_Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/* 读取操作 */</span>
-    ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n从FLASH中读出的数据为：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>__IO uint16_t<span class="token operator">*</span><span class="token punctuation">)</span>ucStartAddr<span class="token punctuation">;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ucFlashReadBuf[%d] = 0x%.4x\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ucStartAddr <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">/* 读出的数据与写入的数据做比较 */</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> usFlashWriteBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> TEST_FAILED<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> TEST_SUCCESS<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-
-<span class="token comment" spellcheck="true">/*********************************************************************************************************
-**                            End Of File
-********************************************************************************************************/</span>
-</code></pre>
-<p><strong>（1）进行解锁操作</strong></p>
-<p>STM32 的闪存编程是由内嵌的闪存编程/擦除控制器(FPEC)管理 ，这个模块包含的寄存器如下：</p>
-<p><img src="https://s2.ax1x.com/2019/10/13/uv36fA.png" alt></p>
-<p>STM32 复位后， FPEC 模块是被保护的， 不能写入 FLASH_CR 寄存器； 通过写入特定的序列到 FLASH_KEYR 寄存器可以打开 FPEC 模块（即写入 KEY1 和KEY2） ， 只有在写保护被解除后， 我们才能操作相关寄存器。 固件库中的函数为：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong>（2）擦除将要写的页</strong></p>
-<p>STM32 的 FLASH 在编程的时候，也必须要求其写入地址的 FLASH 是被擦除了的（也就是其值必须是 0XFFFF），否则无法写入，在 FLASH_SR 寄存器的 PGERR 位将得到一个警告。 STM32 的闪存擦除分为两种：页擦除和整片擦除。 也就是其最小擦除单位为1页，尽管你只需往某页里写10个字节数据或者更少的数据，你也必须先擦除该页（2*1024个字节）。我们这里使用按页擦除，固件库中按页擦除的函数为：</p>
-<pre class=" language-c"><code class="language-c">FLASH_Status <span class="token function">FLASH_ErasePage</span><span class="token punctuation">(</span>uint32_t Page_Address<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>其返回值为枚举：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">enum</span>
-<span class="token punctuation">{</span> 
-  FLASH_BUSY <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">/* 忙 */</span>
-  FLASH_ERROR_PG<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">/* 编程错误 */</span>
-  FLASH_ERROR_WRP<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">/* 写保护错误 */</span>
-  FLASH_COMPLETE<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">/* 操作完成 */</span>
-  FLASH_TIMEOUT     <span class="token comment" spellcheck="true">/* 操作超时 */</span>
-<span class="token punctuation">}</span>FLASH_Status<span class="token punctuation">;</span></code></pre>
-<p><strong>（3）往上一步擦写成功的页写入数据</strong></p>
-<p><code>STM32 闪存的编程每次必须写入16 位。</code>虽然固件库中有如下三个写操作的函数：</p>
-<pre class=" language-c"><code class="language-c">FLASH_Status <span class="token function">FLASH_ProgramWord</span><span class="token punctuation">(</span>uint32_t Address<span class="token punctuation">,</span> uint32_t Data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-FLASH_Status <span class="token function">FLASH_ProgramHalfWord</span><span class="token punctuation">(</span>uint32_t Address<span class="token punctuation">,</span> uint16_t Data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-FLASH_Status <span class="token function">FLASH_ProgramOptionByteData</span><span class="token punctuation">(</span>uint32_t Address<span class="token punctuation">,</span> uint8_t Data<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>分别为按字（32bit）写入、按半字（16bit）写入、按字节（8bit）写入函数。32 位字节写入实际上是写入的两次 16 位数据，写完第一次后地址+2，这与我们前面讲解的 STM32 闪存的编程每次必须写入 16 位并不矛盾。 写入 8<br>位实际也是占用的两个地址了，跟写入 16 位基本上没啥区别。 </p>
-<p><strong>（4）写入操作完成后进行上锁操作</strong></p>
-<p>对FLASH进行写操作完成后要进行上锁操作，对应的固件库中函数为：</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">FLASH_Lock</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong>（5）读出数据</strong></p>
-<p>固件库中并没有与读操作的函数。读操作其实就是读取FLASH某个地址的数据。</p>
-<p><strong>（6）对比写入的数据与读出的数据是否相等</strong></p>
-<p>最后对比我们写入的数据与读出的数据是否完全一致，若一致则表明读写测试成功，否则失败。</p>
-<p><strong>程序执行结果：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/10/13/uv3R6P.png" alt></p>
-<p>可见，读出的数据与写入的数据一致，表明读写测试成功。</p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>STM32的内部FLASH读写步骤大致如上，有时候我们还需要封装一些读写函数，但步骤大都如上。写入数据之前需要先进行擦除操作。以上就是本次的笔记分享，如有错误，欢迎指出！</p>
-<p>最后，在本公众号聊天回复关键字：<code>内部FLASH</code>，即可获得本笔记代码工程及其它相关文档及例程。</p>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>实际输出结果为：</p>
+<p><img src="https://s2.ax1x.com/2019/10/12/uLGBVJ.png" alt></p>
+<p><strong>简要分析：</strong></p>
+<p><strong>简要分析：</strong></p>
+<p>（1）<code>sizeof(char)</code> 的值为1。因为char类型数据在内存中占1字节。</p>
+<p>（2）<code>sizeof(char*)</code>的值为4。因为char*代表一个指针，在32bit环境中为4字节，也即unsigned int的字节长度。</p>
+<p>（3）<code>sizeof(&#39;a&#39;)</code>的值为4。因为此处‘a’是独立存在的一个字符（没有赋值给其它变量），实际上就是一个整型数，占4个字节，即此处‘a’对应的ascii码的十进制为整数97。但是需要注意的是，若有如下定义：</p>
+<blockquote>
+<p>char ch = ‘a’;</p>
+</blockquote>
+<p>则此处ch的字节数sizeof(ch)的值为1，而不是4。</p>
+<p>（4）<code>sizeof(*s+0)</code>的值为4，因为’h’+0 转化为int，占4字节。此处涉及到类型转换的问题。即不同类型的数据进行运算时，会首先转换成相同数据类型。转换规则为（图片来源于网络）：</p>
+<p><img src="https://s2.ax1x.com/2019/10/12/uLGDa9.jpg" alt></p>
+<p>（5）<code>sizeof(*s)</code>的值为1，因为此处*s为字符串s的第1个字符‘h’（注意与第三点区分开来，这里是有用char来修饰的），所以所占字节长度为1。</p>
+<p>（6）<code>sizeof(s)</code>的值为4，同（2），此处s是一个指针，在32bit环境中为4字节，也即unsigned int的字节长度。</p>
+<p>End：以上就是本次的分享，如有错误，欢迎指出！欢迎转发</p>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
@@ -781,7 +660,7 @@ FLASH_Status <span class="token function">FLASH_ProgramOptionByteData</span><spa
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-10-13T08-22-15',
+        id: '2019-10-09T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -804,16 +683,15 @@ FLASH_Status <span class="token function">FLASH_ProgramOptionByteData</span><spa
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/">
+                <a href="/2019/10/13/stm32-bi-ji-shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用STM32内部Flash额外的空间来存储数据">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="【STM32笔记】使用STM32内部Flash额外的空间来存储数据">
                         
-                        <span class="card-title">使用STM32内部Flash额外的空间来存储数据</span>
+                        <span class="card-title">【STM32笔记】使用STM32内部Flash额外的空间来存储数据</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -824,9 +702,9 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -839,7 +717,6 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -862,36 +739,32 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/09/sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/">
+                <a href="/2019/10/08/stm32-bi-ji-liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="sizeof你真的弄明白了吗？来看看这个例子">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="【STM32笔记】两块STM32之间的SPI主从通信实例（附代码工程）">
                         
-                        <span class="card-title">sizeof你真的弄明白了吗？来看看这个例子</span>
+                        <span class="card-title">【STM32笔记】两块STM32之间的SPI主从通信实例（附代码工程）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            sizeof基础在C语言中，sizeof是一个操作符（operator），而不是函数！其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：
-
-（1）sizeof(类型说明符)
-（2）sizeof 表达式
-
-我们通常使用第
+                            之前分享过的SPI通讯实例：STM32硬件SPI主从通信，是基于一块STM32的两个SPI通讯。如果要进行两块STM32之间的SPI通讯，需要注意一些什么呢？
+最近因为工作需要，要实现控制板之间的SPI通讯。两块STM32之间的SPI通讯平
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
                                 </a>
                             
                             
@@ -901,8 +774,12 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/STM32/" target="_blank">
+                        <span class="chip bg-color">STM32</span>
+                    </a>
+                    
+                    <a href="/tags/SPI通讯/" target="_blank">
+                        <span class="chip bg-color">SPI通讯</span>
                     </a>
                     
                 </div>
@@ -1023,7 +900,7 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             

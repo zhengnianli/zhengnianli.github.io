@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="STM32串口IAP分享, 正念的博客">
-    <meta name="description" content="什么是IAP？IAP是In Application Programming的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升">
+    <meta name="keywords" content="【STM32笔记】使用STM32内部Flash额外的空间来存储数据, 正念的博客">
+    <meta name="description" content="大家周末愉快！本次分享关于STM32内部FLASH的笔记。
+STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果内部FLASH存储完我们的代码还有剩余的空间，那么这些剩余的空间我们就可以利用起来，存储一些需要掉电保存的数据">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>STM32串口IAP分享 | 正念的博客</title>
+    <title>【STM32笔记】使用STM32内部Flash额外的空间来存储数据 | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -257,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        STM32串口IAP分享
+                        【STM32笔记】使用STM32内部Flash额外的空间来存储数据
                     </div>
                 </div>
             </div>
@@ -378,8 +379,8 @@
                                 <span class="chip bg-color">STM32</span>
                             </a>
                         
-                            <a href="/tags/IAP/" target="_blank">
-                                <span class="chip bg-color">IAP</span>
+                            <a href="/tags/内部FLASH/" target="_blank">
+                                <span class="chip bg-color">内部FLASH</span>
                             </a>
                         
                     </div>
@@ -402,21 +403,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-16
+                    2019-10-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.9k
+                        1.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        6 分
                     </div>
                     
                 
@@ -432,106 +433,185 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="什么是IAP？"><a href="#什么是IAP？" class="headerlink" title="什么是IAP？"></a>什么是IAP？</h3><p><code>IAP</code>是<code>In Application Programming</code>的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升级。</p>
-<p>在重新编程过程中可以使用任意类型的通信协议，如UART、I2S、SPI等。这篇笔记分享的是使用UART方式IAP。</p>
-<h3 id="串口IAP实验"><a href="#串口IAP实验" class="headerlink" title="串口IAP实验"></a>串口IAP实验</h3><p>先理一理流程（本实验是以<code>STM32F103ZET6</code>为例）：</p>
-<p><strong>1、实验说明</strong></p>
-<p>做这个实验需要准备两个<code>keil</code>工程，一个工程用于编写IAP程序，另一个工程用于编写我们的应用程序（要实现某些功能的程序），这里我们以一个点灯程序为例。最终，两份工程编译出来的可执行文件都需要烧写到芯片的<code>FLASH</code>中。只不过需要烧写到不同的地址，简单的示意图如下：</p>
-<p><img src="https://s2.ax1x.com/2019/09/21/nzFsAA.png" alt></p>
-<p>这里，使用的STM32的型号为STM32F103ZET6，其FLASH大小是512KB，0x08000000为其FLASH被映射的地址，程序被烧写到的就是这个地址。此处，我们的IAP程序烧写到这个地址，根据IAP程序的大小，我们在keil里可以设置合适的IAP结束地址。</p>
-<blockquote>
-<p>注意：在没有IAP程序的情况下，0x08000000这个地址就是应用程序烧写的地址。</p>
-</blockquote>
-<p><strong>2、工程说明</strong></p>
-<p>本实验用到的两个工程可按照文末的方式获取，其中IAP工程移植至ST官方例程。下面对两个工程进行简单的说明</p>
-<p><strong>IAP工程：</strong></p>
-<p>（1）需要在<code>target</code>选项卡里设置我们IAP程序的起始地址与大小，如：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7Eng.png" alt></p>
-<p>这里我们的IAP程序起始地址设为0x08000000，大小设为0x3000，即IAP所能用的FLASH空间为12KB。其中IAP所能占的占空间的大小可根据IAP的实际大小进行修改。</p>
-<p>（2）需要修改程序中我们需要跳转到的应用程序的地址（即IAP程序的结束地址）：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7i1f.png" alt></p>
-<p><strong>LED工程：</strong></p>
-<p>（1）需要在<code>target</code>选项卡里设置我们LED程序的起始地址与大小，如：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7Fc8.png" alt></p>
-<p>这里我们的LED程序起地址设为0x08003000，大小设为0x10000，即LED所能用的FLASH空间为64KB。其中结束地址可根据LED应用程序的实际大小进行修改。</p>
-<p>（2）生成对应的<code>.bin</code>文件。这需要在<code>User</code>选项卡里添加如下命令（即编译后执行的命令）：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7kjS.png" alt></p>
-<p>其中，<code>fromelf.exe</code>是我们keil安装目录下的一个可执行程序，可以把<code>.axf</code>文件转换成<code>.bin</code>文件。要在keil中直接调用fromelf命令，必须要把<code>fromelf.exe</code>所在目录添加到环境变量中。添加环境变量的方法如下（该方法来自于《【野火】零死角玩转STM32—F429挑战者V2.pdf》）：</p>
-<p>本文以 Win7 系统为例添加工具链的路径到 PATH 环境变量，其它系统是类似的。 </p>
-<p>(1) 右键电脑系统的<code>计算机图标</code>，在弹出的菜单中选择<code>属性</code> ，如图：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7uhq.png" alt></p>
-<p>(2) 在弹出的属性页面依次点击<code>高级系统设置 -&gt;环境变量</code>，在用户变量一栏中找到名为<code>PATH</code>的变量，若没有该变量，则新建一个。编辑<code>PATH</code>变量，在它的变量值中输入工具链的路径，如本机的是<code>;D:\work\keil5\ARM\ARMCC\bin</code>，注意要使用分号<code>;</code>让它与其它路径分隔开，输入完毕后依次点<code>确定</code>,如图：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7mAs.png" alt></p>
-<p>(3) 打开 Windows 的命令行，点击系统的<code>开始菜单</code>，在搜索框输入<code>cmd</code>，在搜索结果中点击<code>cmd.exe</code>即可打开命令行， 如图：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7nNn.png" alt></p>
-<p>(4) 在弹出的命令行窗口中输入<code>fromelf</code>回车，若窗口打印出 <code>formelf</code> 的帮助说明，那么路径正常，就可以开始后面的工作了；若提示<code>不是内部名外部命令，也不是可运行的程序…</code>信息，说明路径不对，请重新配置环境变量，并确认该工作目录下有编译工具链。 </p>
-<p>这个过程本质就是让命令行通过“PATH”路径找到<code>fromelf.exe</code>程序运行 。</p>
-<p><strong>3、IAP源码说明</strong></p>
-<p><strong>（1）主函数：</strong></p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>   
-    <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* FLASH解锁 */</span>
-    <span class="token function">KEY_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">/* 按键初始化 */</span>
-    <span class="token function">IAP_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">/* IAP初始化 */</span>
+                <p>大家周末愉快！本次分享关于STM32内部FLASH的笔记。</p>
+<p>STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果内部FLASH存储完我们的代码还有剩余的空间，那么这些剩余的空间我们就可以利用起来，存储一些需要掉电保存的数据。</p>
+<p>本文以STM32103ZET6为例。STM32103ZET6属于大容量产品，其闪存模块组织如下：</p>
+<p><img src="https://s2.ax1x.com/2019/10/13/uv3gSI.png" alt></p>
+<p>其主存储器大小为512KB，分为256页，每页大小都为2KB。我们的程序一般默认烧写到第0页的起始地址（0x08000000）处。当BOOT0引脚和BOOT1引脚都接GND时，就是从这个地址开始运行代码的。这个地址在keil中可以看到：</p>
+<p><img src="https://s2.ax1x.com/2019/10/13/uv3yYd.png" alt></p>
+<p>假如我们要下载的程序大小为4.05KB，则第0、1、2页用于保存我们的程序，我们需要掉电保存的数据只能保存在第3页至第255页这一部分空间内。我们最终要下载的程序大小可在工程对应的<code>.map</code>文件中看到。<code>.map</code>文件可以双击工程的Target的名字快速打开，如：</p>
+<p><img src="https://s2.ax1x.com/2019/10/13/uv32lt.png" alt></p>
+<p>下面对STM32的内部FLASH进行简单的读写测试：</p>
+<h3 id="STM32的内部FLASH读写测试"><a href="#STM32的内部FLASH读写测试" class="headerlink" title="STM32的内部FLASH读写测试"></a>STM32的内部FLASH读写测试</h3><p><strong>过程图如下（省略异常情况，只考虑成功的情况）：</strong></p>
+<p><img src="https://s2.ax1x.com/2019/10/13/uv3sFH.png" alt></p>
+<p><strong>示例代码：</strong></p>
+<p>本例的关键代码如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************                                
+*------------------------------------------STM32 Demo---------------------------------------------------
+*
+*       工程说明：STM32内部FLASH实验
+*    作    者：ZhengNian
+*     博    客：zhengnianli.github.io
+*    公 众 号：嵌入式大杂烩
+*
+********************************************************************************************************/</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> MAIN_CONFIG</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"config.h"</span></span>
 
-    <span class="token comment" spellcheck="true">/* 按键按下则进入主菜单开始更新程序（注意：需要按下复位键的同时按下该按键触发程序更新） */</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">GPIO_ReadInputDataBit</span><span class="token punctuation">(</span>GPIOE<span class="token punctuation">,</span>GPIO_Pin_2<span class="token punctuation">)</span>  <span class="token operator">==</span> <span class="token number">0x00</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">/* STM32F103ZET6有256页，每一页的大小都为2KB */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ADDR_FLASH_PAGE_255     ((uint32_t)0x0807F800) </span><span class="token comment" spellcheck="true">/* Page255 2KB */</span>
+
+<span class="token comment" spellcheck="true">/* FLASH读写测试结果 */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span>  TEST_ERROR       -1    </span><span class="token comment" spellcheck="true">/* 错误（擦除、写入错误） */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span>  TEST_SUCCESS  0    </span><span class="token comment" spellcheck="true">/* 成功 */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span>  TEST_FAILED   1    </span><span class="token comment" spellcheck="true">/* 失败 */</span>
+
+<span class="token comment" spellcheck="true">/* Flash读写测试buf */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> BufferSize 6</span>
+uint16_t usFlashWriteBuf<span class="token punctuation">[</span>BufferSize<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0x0101</span><span class="token punctuation">,</span><span class="token number">0x0202</span><span class="token punctuation">,</span><span class="token number">0x0303</span><span class="token punctuation">,</span><span class="token number">0x0404</span><span class="token punctuation">,</span><span class="token number">0x0505</span><span class="token punctuation">,</span><span class="token number">0x0606</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+uint16_t usFlashReadBuf<span class="token punctuation">[</span>BufferSize<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* 供本文件调用的函数声明 */</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">FlashReadWriteTest</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       
+
+<span class="token comment" spellcheck="true">/*******************************************************************************************************
+** 函数: main
+**------------------------------------------------------------------------------------------------------
+** 参数: void
+** 返回: 无
+** 说明: 主函数
+********************************************************************************************************/</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>    
+    <span class="token comment" spellcheck="true">/* 上电初始化 */</span>
+    <span class="token function">SysInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/* 内部Flash读写测试 */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>TEST_SUCCESS <span class="token operator">==</span> <span class="token function">FlashReadWriteTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n======================================================================"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=              (C) COPYRIGHT 2010 STMicroelectronics                 ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                                                    ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=     In-Application Programming Application  (Version 3.3.0)        ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                                                    ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                   By MCD Application Team          ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n======================================================================"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">Main_Menu</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Flash test success!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">/* 保持运行用户应用程序 */</span>
     <span class="token keyword">else</span>
     <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/* Test if user code is programmed starting from address "ApplicationAddress" */</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>ApplicationAddress<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x2FFE0000</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x20000000</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span> 
-          <span class="token comment" spellcheck="true">/* Jump to user application */</span>
-          JumpAddress <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>ApplicationAddress <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-          Jump_To_Application <span class="token operator">=</span> <span class="token punctuation">(</span>pFunction<span class="token punctuation">)</span> JumpAddress<span class="token punctuation">;</span>
-          <span class="token comment" spellcheck="true">/* Initialize user application's Stack Pointer */</span>
-          <span class="token function">__set_MSP</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span> ApplicationAddress<span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token function">Jump_To_Application</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Flash test failed!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*******************************************************************************************************
+** 函数: FlashReadWriteTest, 内部Flash读写测试函数
+**------------------------------------------------------------------------------------------------------
+** 参数: void
+** 返回: TEST_ERROR：错误（擦除、写入错误）  TEST_SUCCESS：成功   TEST_FAILED：失败
+** 说明: 无
+********************************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">FlashReadWriteTest</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    uint32_t ucStartAddr<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/* 解锁 */</span>
+    <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+
+    <span class="token comment" spellcheck="true">/* 擦除操作 */</span>
+    ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>FLASH_COMPLETE <span class="token operator">!=</span> <span class="token function">FLASH_ErasePage</span><span class="token punctuation">(</span>ucStartAddr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Erase Error!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> TEST_ERROR<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"擦除成功，此时FLASH中值为：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>ucStartAddr<span class="token punctuation">;</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ucFlashReadBuf[%d] = 0x%.4x\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ucStartAddr <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/* 写入操作 */</span>
+    ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n往FLASH中写入的数据为：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>FLASH_COMPLETE <span class="token operator">!=</span> <span class="token function">FLASH_ProgramHalfWord</span><span class="token punctuation">(</span>ucStartAddr<span class="token punctuation">,</span> usFlashWriteBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Write Error!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> TEST_ERROR<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ucFlashWriteBuf[%d] = 0x%.4x\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> usFlashWriteBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ucStartAddr <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>可见，我们按下复位的同时按下<code>PE2</code>对应的按键即可触发应用程序更新操作，否则跳转到应用程序的起始地址执行应用程序（断点重启也是默认执行应用程序），这里的<code>ApplicationAddress</code>就是我们上面设置的<code>0x08003000</code>。</p>
-<p><strong>（2）主菜单函数Main_Menu</strong></p>
-<p>这个函数里就是该IAP程序的功能，根据其中的打印信息：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7Z7j.png" alt></p>
-<p>可以知道，该IAP有三个功能（分别输入键盘上的数字1、2、3进行选择）：一是下载程序（电脑-&gt;STM32）；二是上传程序（STM32-&gt;电脑）；三是执行新程序（即刚下载完成的程序）。</p>
-<p><strong>（3）下载程序功能函数SerialDownload</strong></p>
-<p>首先，上位机使用Ymodem协议进行数据下发，STM32根据协议解析数据，拿到有用的数据，并把这些数据写入FLASH对应的地址中，即ApplicationAddress。关于Ymodem协议及SerialDownload函数这里不展开讨论。</p>
-<p><strong>4、下载验证</strong></p>
-<p><strong>（1）下载IAP程序</strong></p>
-<p>可以使用J-link等调试器进行下载，也可用<code>串口ISP</code>进行下载，我们选用的是<code>串口ISP</code>进行下载，借用的工具是<code>FlyMcu</code>：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7M90.png" alt></p>
-<p>这里下载的是<code>.hex</code>文件，如果下载<code>.bin</code>文件，则会提示如下错误：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7Q3V.png" alt></p>
-<blockquote>
-<p>程序文件不是0x8000000和0x20000000区域的</p>
-</blockquote>
-<p>使用ISP方式下载需要进行的硬件操作是：<code>BOOT0引脚拉高，BOOT1引脚接地</code>。即系统存储器被选为启动区域：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh7lcT.png" alt></p>
-<p>在点击<code>开始编程</code>按钮后，需要按下板子上的复位键，即可下载程序。</p>
-<p><strong>（2）通过IAP程序引导下载LED程序</strong></p>
-<p>上面提到下载程序使用的是Ymodem协议，所以得选用带有Ymodem协议传输方式的上位机软件来把应用程序下载到板子里。可以选用<code>SecureCRT</code>，也可以选用超级终端。这里选用的是超级终端：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh78uF.png" alt></p>
-<p>首先按下数字键1触发下载程序操作，此时会不断打印<code>CCCCC...</code>。然后点<code>传送-&gt;发送文件</code>,选择要下载的<code>.bin</code>文件及<code>Ymodem</code>协议。下载完成后按下数字3即可执行新下载得应用程序：</p>
-<p><img src="https://s2.ax1x.com/2019/09/17/nh71jU.png" alt></p>
-<p>终于，LED闪烁起来了，点灯项目成功~。断电重启之后默认执行的是这个点灯程序，要想下载新的程序，按下复位的同时按下<code>PE2</code>所对应的按键（需要一定的手速，哈哈）即可触发更新程序操作。</p>
-<p>以上就是本次笔记分享的内容，如有错误，欢迎指出！</p>
+    <span class="token comment" spellcheck="true">/* 上锁 */</span>
+    <span class="token function">FLASH_Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/* 读取操作 */</span>
+    ucStartAddr <span class="token operator">=</span> ADDR_FLASH_PAGE_255<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n从FLASH中读出的数据为：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>__IO uint16_t<span class="token operator">*</span><span class="token punctuation">)</span>ucStartAddr<span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ucFlashReadBuf[%d] = 0x%.4x\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ucStartAddr <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/* 读出的数据与写入的数据做比较 */</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> BufferSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>usFlashReadBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> usFlashWriteBuf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> TEST_FAILED<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> TEST_SUCCESS<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment" spellcheck="true">/*********************************************************************************************************
+**                            End Of File
+********************************************************************************************************/</span>
+</code></pre>
+<p><strong>（1）进行解锁操作</strong></p>
+<p>STM32 的闪存编程是由内嵌的闪存编程/擦除控制器(FPEC)管理 ，这个模块包含的寄存器如下：</p>
+<p><img src="https://s2.ax1x.com/2019/10/13/uv36fA.png" alt></p>
+<p>STM32 复位后， FPEC 模块是被保护的， 不能写入 FLASH_CR 寄存器； 通过写入特定的序列到 FLASH_KEYR 寄存器可以打开 FPEC 模块（即写入 KEY1 和KEY2） ， 只有在写保护被解除后， 我们才能操作相关寄存器。 固件库中的函数为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>（2）擦除将要写的页</strong></p>
+<p>STM32 的 FLASH 在编程的时候，也必须要求其写入地址的 FLASH 是被擦除了的（也就是其值必须是 0XFFFF），否则无法写入，在 FLASH_SR 寄存器的 PGERR 位将得到一个警告。 STM32 的闪存擦除分为两种：页擦除和整片擦除。 也就是其最小擦除单位为1页，尽管你只需往某页里写10个字节数据或者更少的数据，你也必须先擦除该页（2*1024个字节）。我们这里使用按页擦除，固件库中按页擦除的函数为：</p>
+<pre class=" language-c"><code class="language-c">FLASH_Status <span class="token function">FLASH_ErasePage</span><span class="token punctuation">(</span>uint32_t Page_Address<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>其返回值为枚举：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">enum</span>
+<span class="token punctuation">{</span> 
+  FLASH_BUSY <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">/* 忙 */</span>
+  FLASH_ERROR_PG<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">/* 编程错误 */</span>
+  FLASH_ERROR_WRP<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">/* 写保护错误 */</span>
+  FLASH_COMPLETE<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">/* 操作完成 */</span>
+  FLASH_TIMEOUT     <span class="token comment" spellcheck="true">/* 操作超时 */</span>
+<span class="token punctuation">}</span>FLASH_Status<span class="token punctuation">;</span></code></pre>
+<p><strong>（3）往上一步擦写成功的页写入数据</strong></p>
+<p><code>STM32 闪存的编程每次必须写入16 位。</code>虽然固件库中有如下三个写操作的函数：</p>
+<pre class=" language-c"><code class="language-c">FLASH_Status <span class="token function">FLASH_ProgramWord</span><span class="token punctuation">(</span>uint32_t Address<span class="token punctuation">,</span> uint32_t Data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+FLASH_Status <span class="token function">FLASH_ProgramHalfWord</span><span class="token punctuation">(</span>uint32_t Address<span class="token punctuation">,</span> uint16_t Data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+FLASH_Status <span class="token function">FLASH_ProgramOptionByteData</span><span class="token punctuation">(</span>uint32_t Address<span class="token punctuation">,</span> uint8_t Data<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>分别为按字（32bit）写入、按半字（16bit）写入、按字节（8bit）写入函数。32 位字节写入实际上是写入的两次 16 位数据，写完第一次后地址+2，这与我们前面讲解的 STM32 闪存的编程每次必须写入 16 位并不矛盾。 写入 8<br>位实际也是占用的两个地址了，跟写入 16 位基本上没啥区别。 </p>
+<p><strong>（4）写入操作完成后进行上锁操作</strong></p>
+<p>对FLASH进行写操作完成后要进行上锁操作，对应的固件库中函数为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">FLASH_Lock</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>（5）读出数据</strong></p>
+<p>固件库中并没有与读操作的函数。读操作其实就是读取FLASH某个地址的数据。</p>
+<p><strong>（6）对比写入的数据与读出的数据是否相等</strong></p>
+<p>最后对比我们写入的数据与读出的数据是否完全一致，若一致则表明读写测试成功，否则失败。</p>
+<p><strong>程序执行结果：</strong></p>
+<p><img src="https://s2.ax1x.com/2019/10/13/uv3R6P.png" alt></p>
+<p>可见，读出的数据与写入的数据一致，表明读写测试成功。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>STM32的内部FLASH读写步骤大致如上，有时候我们还需要封装一些读写函数，但步骤大都如上。写入数据之前需要先进行擦除操作。以上就是本次的笔记分享，如有错误，欢迎指出！</p>
+<p>最后，在本公众号聊天回复关键字：<code>内部FLASH</code>，即可获得本笔记代码工程及其它相关文档及例程。</p>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
@@ -701,7 +781,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-09-16T08-22-15',
+        id: '2019-10-13T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -726,26 +806,27 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/">
+                <a href="/2019/11/05/stm32f429-de-usb-shi-ge-keng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="STM32的ISP下载得原理是什么？">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="STM32F429的USB是个坑？">
                         
-                        <span class="card-title">STM32的ISP下载得原理是什么？</span>
+                        <span class="card-title">STM32F429的USB是个坑？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            上一篇笔记分享了STM32的串口IAP实例：STM32串口IAP分享。其中，下载IAP程序时用ISP的方式进行下载。这里的ISP又是什么呢？
-ISP方式下载程序原理ISP：In System Programing，在系统中编程
-在STM32
+                            最近某项目需要用到USB与CAN：
+
+拿到这样的需求，我们当然是先得保证通讯正常。于是我找了一个USB例程与一个CAN例程，分别调试验证。
+经过几番折腾已经保证了USB与上位机能正常通讯了，也能保证了CAN的正常收发（拿了两块开发板做验证）
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-17
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-05
                         </span>
                         <span class="publish-author">
                             
@@ -766,16 +847,8 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                         <span class="chip bg-color">STM32</span>
                     </a>
                     
-                    <a href="/tags/IAP/" target="_blank">
-                        <span class="chip bg-color">IAP</span>
-                    </a>
-                    
-                    <a href="/tags/ISP/" target="_blank">
-                        <span class="chip bg-color">ISP</span>
-                    </a>
-                    
-                    <a href="/tags/BootLoader/" target="_blank">
-                        <span class="chip bg-color">BootLoader</span>
+                    <a href="/tags/USB/" target="_blank">
+                        <span class="chip bg-color">USB</span>
                     </a>
                     
                 </div>
@@ -789,26 +862,29 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/">
+                <a href="/2019/10/09/c-yu-yan-bi-ji-sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="易错、经典问题：return不可返回指向栈内存的指针">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="sizeof你真的弄明白了吗？来看看这个例子">
                         
-                        <span class="card-title">易错、经典问题：return不可返回指向栈内存的指针</span>
+                        <span class="card-title">sizeof你真的弄明白了吗？来看看这个例子</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            预备知识：内存的分类C/C++程序占用的内存分为两大类：静态存储区与动态存储区。其示意图如下所示：
+                            sizeof基础在C语言中，sizeof是一个操作符（operator），而不是函数！其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：
 
-数据保存在静态存储区与动态存储区的区别就是：静态存储区在编译-链接阶段已经确定了，程序运行过程中不会变化，只有当程序退出的时候，静态存储区
+（1）sizeof(类型说明符)
+（2）sizeof 表达式
+
+我们通常使用第
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
                             </span>
                         <span class="publish-author">
                             
@@ -825,12 +901,8 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/return/" target="_blank">
-                        <span class="chip bg-color">return</span>
-                    </a>
-                    
-                    <a href="/tags/栈指针/" target="_blank">
-                        <span class="chip bg-color">栈指针</span>
+                    <a href="/tags/C语言/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -951,7 +1023,7 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             

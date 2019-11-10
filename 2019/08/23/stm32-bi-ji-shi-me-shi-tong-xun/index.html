@@ -4,9 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="两块STM32之间的SPI主从通讯实例, 正念的博客">
-    <meta name="description" content="之前分享过的SPI通讯实例：STM32硬件SPI主从通信，是基于一块STM32的两个SPI通讯。如果要进行两块STM32之间的SPI通讯，需要注意一些什么呢？
-最近因为工作需要，要实现控制板之间的SPI通讯。两块STM32之间的SPI通讯平">
+    <meta name="keywords" content="【STM32笔记】什么是通讯？, 正念的博客">
+    <meta name="description" content="一、什么是串行通讯与并行通讯？按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。
+而并行通讯一般是指使用 8、 16、">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>两块STM32之间的SPI主从通讯实例 | 正念的博客</title>
+    <title>【STM32笔记】什么是通讯？ | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        两块STM32之间的SPI主从通讯实例
+                        【STM32笔记】什么是通讯？
                     </div>
                 </div>
             </div>
@@ -375,12 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/STM32/" target="_blank">
-                                <span class="chip bg-color">STM32</span>
-                            </a>
-                        
-                            <a href="/tags/SPI通讯/" target="_blank">
-                                <span class="chip bg-color">SPI通讯</span>
+                            <a href="/tags/通讯/" target="_blank">
+                                <span class="chip bg-color">通讯</span>
                             </a>
                         
                     </div>
@@ -403,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-08
+                    2019-08-23
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        4 分
                     </div>
                     
                 
@@ -433,56 +429,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>之前分享过的SPI通讯实例：<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=100002045&idx=1&sn=ed1e0813ee4d34cb6e3fefa4b948d2eb&chksm=7e0d663a497aef2c181e313aa36fbc290e1986ed60e9e6bd240d4c5b209454d218d62b3e21cd#rd" target="_blank" rel="noopener">STM32硬件SPI主从通信</a>，是基于一块STM32的两个SPI通讯。如果要进行两块STM32之间的SPI通讯，需要注意一些什么呢？</p>
-<p>最近因为工作需要，要实现控制板之间的SPI通讯。两块STM32之间的SPI通讯平时用的比较少，之前我也没有用过，网上也查了很多资料，没有找到现成的，能直接用的例子（做软件的不就是copy吗=v=）。</p>
-<p>所以只能自己来实现了，本以为与在同一片STM32上做SPI主、从机通信一样，以为挺简单的，但是实际做起来还是遇到了不少问题，比如出现数据移位、多出了一些数据等问题。下面简单分享一下实现过程：</p>
-<h3 id="一、整体框图及说明"><a href="#一、整体框图及说明" class="headerlink" title="一、整体框图及说明"></a>一、整体框图及说明</h3><p><img src="https://s2.ax1x.com/2019/10/08/uhDQSO.png" alt></p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhD16e.jpg" alt></p>
-<p>这里使用STM32F429IGT6作为主机，STM32F103ZET6作为从机，都配置为全双工。本例要实现的功能就是主、从机之间的数据互传。</p>
-<p><strong>主机往从机发送的数据为：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDKfK.png" alt></p>
-<p><strong>从机往主机发送的数据为：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDuY6.png" alt></p>
-<h3 id="二、关键代码"><a href="#二、关键代码" class="headerlink" title="二、关键代码"></a>二、关键代码</h3><p><strong>主机关键代码：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDnFx.png" alt></p>
-<p><strong>从机关键代码：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDllD.png" alt></p>
-<p>可见，主机与从机的代码大多都一样。只是从机多了一步启动传输的操作，这一步很关键，少了这一步传输就不正常。这是为了制造<code>主机发送的同时也要接收到数据</code>的条件。这一点参考手册里也有相关说明：</p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDGmd.png" alt></p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhD3OH.png" alt></p>
-<p>此处，要营造这样的条件，<code>必须先启动从机，然后再启动主机</code>。只有保证<code>主机发送的同时有接收到数据</code>，才能保证其时序的正常，否则可能会产生数据错位，或者会产生多余数据等情况。</p>
-<h3 id="三、调试"><a href="#三、调试" class="headerlink" title="三、调试"></a>三、调试</h3><p>我们平时在做实际的开发时，一般很难做到把所有代码写完，跑一遍就能成功，都是需要进行各个子模块的调试，一步一步来，确保各个子模块都没有问题之后，整体跑起来自然就比较稳定。</p>
-<p>一些经验丰富的软件工程师常会教导一些年轻的软件工程师：在接到一个开发任务之前，先不要急着码代码，首先需要明确你这项任务的需求是什么，把任务分解成各个模块，然后在电脑上或纸上画出整体框图，确保框图的正确性之后，再根据框图来编写代码、调试。</p>
-<p>同样的，我的主管也是这么教导我们的。此处，我们要调试SPI主从通信，自然也是这样分模块进行调试的：</p>
-<ul>
-<li>确认主机是否能正确发送数据</li>
-<li>确认从机是否能正确发送数据（返回数据给从机）</li>
-<li>确认从机是否接收到主机发过来的数据</li>
-<li>确认主机是否接收到从机发过来的数据</li>
-</ul>
-<p>若这几个点明确了，都没问题之后。就可以明确我们的SPI主、从机的基本通讯没有问题了，之后就可以进行我们的协议方面处理了（本例中没有这一部分）。下面分别看一些这几个点：</p>
-<p><strong>1、确认主机是否能正确发送数据</strong></p>
-<p>方法：使用逻辑分析仪捕捉主机的MOSI、SCK这两条信号线，查看其波形。实际测得地结果如下：</p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDNkt.jpg" alt></p>
-<p>其中，白色为SCK信号线波形，橙色为MOSI信号线波形。显然，从MOSI波形可以看出其与我们主机发送的数据一致，自然就可以确认主机发送数据没问题了。</p>
-<p>此处，细心的朋友可能会发现时钟线波形的两个数据交互处的高电平总是宽一些，这里我们的SPI传输数据的位数设置为8bit，则每一个数据对应的第8位对应的时钟信号的高电平总会长一些；若我们的SPI传输数据的位数配置为16位，则第16位对应的时钟信号的高电平总会长一些。</p>
-<p>出现这个现象其实与我们的代码是有一定关系的。实际测试中发现是因为我们用while循环来做逻辑处理的问题，想办法把while等待替换为if判断，就可以改善这个问题。但是考虑到这并不会影响我们的数据，并且另一方面还有助于我们分析波形，所以使用while。</p>
-<p><strong>2、确认从机是否能正确发送数据（返回数据给从机）</strong></p>
-<p>使用逻辑分析仪来捕捉MISO的波形，其波形如下（此处只捕捉了数据波形）：</p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDYTI.jpg" alt></p>
-<p>显然，我们的从机发送数据也是没问题的。</p>
-<p><strong>3、确认从机是否接收到主机发过来的数据</strong></p>
-<p>这里使用在线调试的方法检测从机的接收buf，结果如下：</p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhDJ0A.png" alt></p>
-<p>显然，从机收到的数据与主机发送的数据一致，说明从机接收也是没有问题的。由于手头里只有一个仿真器，所以也就没有同时监测主机的接收buf，监视主机的接收buf与监视从机的方法是一样的。</p>
-<h3 id="四、调试过程需要注意的问题"><a href="#四、调试过程需要注意的问题" class="headerlink" title="四、调试过程需要注意的问题"></a>四、调试过程需要注意的问题</h3><p>1、两块板子一定要共地。</p>
-<p>2、两块板子的MOSI与MISO不需要交叉连接。</p>
-<h3 id="五、代码获取"><a href="#五、代码获取" class="headerlink" title="五、代码获取"></a>五、代码获取</h3><p>在本公众号聊天界面回复：<code>板间SPI通讯</code>，即可获取链接。</p>
-<p><strong>End：</strong>以上就是本次的分享，如有错误，欢迎指出！欢迎转发、下载、收藏、点赞</p>
+                <h3 id="一、什么是串行通讯与并行通讯？"><a href="#一、什么是串行通讯与并行通讯？" class="headerlink" title="一、什么是串行通讯与并行通讯？"></a>一、什么是串行通讯与并行通讯？</h3><p>按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。</p>
+<p>而并行通讯一般是指使用 8、 16、 32 及 64 根或更多的数据线进行传输的通讯方式。并行通讯就像多个车道的公路，可以同时传输多个数据位的数据，而串行通讯，而串行通讯就像单个车道的公路，同一时刻只能传输一个数据位的数据。 并行通讯与串行通讯的对比图如下：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQTRs.png" alt></p>
+<p>很明显，因为一次可传输多个数据位的数据 ，在数据传输速率相同的情况下，并行通讯传输的数据量要大得多，而串行通讯则可以节省数据线的硬件成本(特别是远距离时)以及 PCB 的布线面积，串行通讯与并行通讯的特性对比如下：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQ4Ig.png" alt></p>
+<p>不过由于并行传输对同步要求较高，且随着通讯速率的提高，信号干扰的问题会显著影响通讯性能，现在随着技术的发展，越来越多的应用场合采用高速率的串行差分传输。 </p>
+<h3 id="二、什么是全双工、半双工及单工通讯？"><a href="#二、什么是全双工、半双工及单工通讯？" class="headerlink" title="二、什么是全双工、半双工及单工通讯？"></a>二、什么是全双工、半双工及单工通讯？</h3><p>根据数据通讯的方向，通讯又分为全双工、半双工及单工通讯，它们主要以信道的方向来区分：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQoGj.png" alt></p>
+<p>仍以公路来类比，全双工的通讯就是一个双向车道，两个方向上的车流互不相干；半双工则像乡间小道那样，同一时刻只能让一辆小车通过，另一方向的来车只能等待道路空出来时才能经过；而单工则像单行道，另一方向的车辆完全禁止通行。 </p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQIiQ.png" alt></p>
+<h3 id="三、什么是同步通讯与异步通讯？"><a href="#三、什么是同步通讯与异步通讯？" class="headerlink" title="三、什么是同步通讯与异步通讯？"></a>三、什么是同步通讯与异步通讯？</h3><p>根据通讯的数据同步方式，又分为同步和异步两种，可以根据通讯过程中是否有<code>使用到时钟信号进行简单的区分</code>。</p>
+<p>在同步通讯中，收发设备双方会使用一根信号线表示时钟信号，在时钟信号的驱动下双方进行协调，同步数据。通讯中通常双方会统一规定在时钟信号的上升沿或下降沿对数据线进行采样。 同步通讯：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQhdS.png" alt></p>
+<p>在异步通讯中不使用时钟信号进行数据同步，它们直接在数据信号中穿插一些同步用的信号位，或者把主体数据进行打包，以数据帧的格式传输数据，某些通讯中还需要双方约定数据的传输速率，以便更好地同步。异步通讯：</p>
+<p><img src="https://s2.ax1x.com/2019/08/25/mgQ7zn.png" alt></p>
+<p>在同步通讯中，数据信号所传输的内容绝大部分就是有效数据，而异步通讯中会包含有帧的各种标识符，所以同步通讯的效率更高，但是同步通讯双方的时钟允许误差较小，而异步通讯双方的时钟允许误差较大。 </p>
+<h2 id="四、什么是通讯速率？"><a href="#四、什么是通讯速率？" class="headerlink" title="四、什么是通讯速率？"></a>四、什么是通讯速率？</h2><p>衡量通讯性能的一个非常重要的参数就是通讯速率，通常以<code>比特率(Bitrate)</code>来表示，即每秒钟传输的二进制位数，单位为比特每秒(bit/s)。容易与比特率混淆的概念是<code>波特率(Baudrate)</code>，它表示每秒钟传输了多少个<code>码元</code>。</p>
+<p>而码元是通讯信号调制的概念，通讯中常用时间间隔相同的符号来表示一个二进制数字，这样的信号称为码元。</p>
+<p>如常见的通讯传输中，用 0V 表示数字 0， 5V 表示数字 1，那么一个码元可以表示两种状态 0 和 1，所以一个码元等于一个二进制比特位，此时波特率的大小与比特率一致；如果在通讯传输中，有 0V、2V、 4V 以及 6V 分别表示二进制数 00、 01、 10、 11，那么每个码元可以表示四种状态，即两个二进制比特位，所以码元数是二进制比特位数的一半，这个时候的波特率为比特率的一半。</p>
+<p>因为很多常见的通讯中一个码元都是表示两种状态，人们常常直接以波特率来表示比特率。 </p>
+<p>摘抄自：</p>
+<blockquote>
+<p>《【野火】零死角玩转<strong>STM32</strong>—<strong>F429</strong>挑战者<strong>V2</strong>.pdf》</p>
+</blockquote>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
-<p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p>
 <p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
@@ -648,7 +621,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-10-08T08-22-15',
+        id: '2019-08-23T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -673,29 +646,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/09/sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/">
+                <a href="/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="sizeof你真的弄明白了吗？来看看这个例子">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="C语言代码优化的一些经验及小技巧（一）">
                         
-                        <span class="card-title">sizeof你真的弄明白了吗？来看看这个例子</span>
+                        <span class="card-title">C语言代码优化的一些经验及小技巧（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            sizeof基础在C语言中，sizeof是一个操作符（operator），而不是函数！其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：
-
-（1）sizeof(类型说明符)
-（2）sizeof 表达式
-
-我们通常使用第
+                            一、变量与值得比较1、布尔变量与零值的比较不可将布尔变量直接与 TRUE、 FALSE或者 1、 0进行比较 。据布尔类型的语义，零值为“ 假”（记为 FALSE），任何非零值都是“ 真”（记为TRUE）。 TRUE的值究竟是什么并没有统一
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-27
                         </span>
                         <span class="publish-author">
                             
@@ -712,8 +680,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/代码优化/" target="_blank">
+                        <span class="chip bg-color">代码优化</span>
                     </a>
                     
                 </div>
@@ -727,25 +695,25 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/07/chang-jian-de-ji-chong-ad-lu-bo-suan-fa/">
+                <a href="/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="常见的几种AD滤波算法">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】goto语句">
                         
-                        <span class="card-title">常见的几种AD滤波算法</span>
+                        <span class="card-title">【C语言笔记】goto语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在进行AD采样时，常常都会对采样数据进行滤波，以达到更好一点的效果。下面分享几种较简单而常用的滤波算法：
-限幅滤波法限幅滤波法又称程序判断滤波法 。该方法根据经验判断，确定两次采样允许的最大偏差值（设为 A）每次检测到新值时判断：如果本次值
+                            关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：
+一、goto的基本语法goto语句有两部分：go
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
                             </span>
                         <span class="publish-author">
                             
@@ -762,16 +730,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
-                    </a>
-                    
-                    <a href="/tags/滤波算法/" target="_blank">
-                        <span class="chip bg-color">滤波算法</span>
-                    </a>
-                    
-                    <a href="/tags/AD/" target="_blank">
-                        <span class="chip bg-color">AD</span>
+                    <a href="/tags/goto语句/" target="_blank">
+                        <span class="chip bg-color">goto语句</span>
                     </a>
                     
                 </div>
@@ -892,7 +852,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             

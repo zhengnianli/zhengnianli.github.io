@@ -4,9 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="什么是通讯？, 正念的博客">
-    <meta name="description" content="一、什么是串行通讯与并行通讯？按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。
-而并行通讯一般是指使用 8、 16、">
+    <meta name="keywords" content="【STM32笔记】串口IAP分享, 正念的博客">
+    <meta name="description" content="什么是IAP？IAP是In Application Programming的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>什么是通讯？ | 正念的博客</title>
+    <title>【STM32笔记】串口IAP分享 | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,13 +257,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        什么是通讯？
+                        【STM32笔记】串口IAP分享
                     </div>
                 </div>
             </div>
@@ -375,8 +374,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/通讯/" target="_blank">
-                                <span class="chip bg-color">通讯</span>
+                            <a href="/tags/STM32/" target="_blank">
+                                <span class="chip bg-color">STM32</span>
+                            </a>
+                        
+                            <a href="/tags/IAP/" target="_blank">
+                                <span class="chip bg-color">IAP</span>
                             </a>
                         
                     </div>
@@ -399,21 +402,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-23
+                    2019-09-16
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.2k
+                        1.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        7 分
                     </div>
                     
                 
@@ -429,33 +432,110 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、什么是串行通讯与并行通讯？"><a href="#一、什么是串行通讯与并行通讯？" class="headerlink" title="一、什么是串行通讯与并行通讯？"></a>一、什么是串行通讯与并行通讯？</h3><p>按数据传送的方式，通讯可分为串行通讯与并行通讯，串行通讯是指设备之间通过少量数据信号线(一般是 8 根以下)，地线以及控制信号线，按数据位形式一位一位地传输数据的通讯方式。</p>
-<p>而并行通讯一般是指使用 8、 16、 32 及 64 根或更多的数据线进行传输的通讯方式。并行通讯就像多个车道的公路，可以同时传输多个数据位的数据，而串行通讯，而串行通讯就像单个车道的公路，同一时刻只能传输一个数据位的数据。 并行通讯与串行通讯的对比图如下：</p>
-<p><img src="https://s2.ax1x.com/2019/08/25/mgQTRs.png" alt></p>
-<p>很明显，因为一次可传输多个数据位的数据 ，在数据传输速率相同的情况下，并行通讯传输的数据量要大得多，而串行通讯则可以节省数据线的硬件成本(特别是远距离时)以及 PCB 的布线面积，串行通讯与并行通讯的特性对比如下：</p>
-<p><img src="https://s2.ax1x.com/2019/08/25/mgQ4Ig.png" alt></p>
-<p>不过由于并行传输对同步要求较高，且随着通讯速率的提高，信号干扰的问题会显著影响通讯性能，现在随着技术的发展，越来越多的应用场合采用高速率的串行差分传输。 </p>
-<h3 id="二、什么是全双工、半双工及单工通讯？"><a href="#二、什么是全双工、半双工及单工通讯？" class="headerlink" title="二、什么是全双工、半双工及单工通讯？"></a>二、什么是全双工、半双工及单工通讯？</h3><p>根据数据通讯的方向，通讯又分为全双工、半双工及单工通讯，它们主要以信道的方向来区分：</p>
-<p><img src="https://s2.ax1x.com/2019/08/25/mgQoGj.png" alt></p>
-<p>仍以公路来类比，全双工的通讯就是一个双向车道，两个方向上的车流互不相干；半双工则像乡间小道那样，同一时刻只能让一辆小车通过，另一方向的来车只能等待道路空出来时才能经过；而单工则像单行道，另一方向的车辆完全禁止通行。 </p>
-<p><img src="https://s2.ax1x.com/2019/08/25/mgQIiQ.png" alt></p>
-<h3 id="三、什么是同步通讯与异步通讯？"><a href="#三、什么是同步通讯与异步通讯？" class="headerlink" title="三、什么是同步通讯与异步通讯？"></a>三、什么是同步通讯与异步通讯？</h3><p>根据通讯的数据同步方式，又分为同步和异步两种，可以根据通讯过程中是否有<code>使用到时钟信号进行简单的区分</code>。</p>
-<p>在同步通讯中，收发设备双方会使用一根信号线表示时钟信号，在时钟信号的驱动下双方进行协调，同步数据。通讯中通常双方会统一规定在时钟信号的上升沿或下降沿对数据线进行采样。 同步通讯：</p>
-<p><img src="https://s2.ax1x.com/2019/08/25/mgQhdS.png" alt></p>
-<p>在异步通讯中不使用时钟信号进行数据同步，它们直接在数据信号中穿插一些同步用的信号位，或者把主体数据进行打包，以数据帧的格式传输数据，某些通讯中还需要双方约定数据的传输速率，以便更好地同步。异步通讯：</p>
-<p><img src="https://s2.ax1x.com/2019/08/25/mgQ7zn.png" alt></p>
-<p>在同步通讯中，数据信号所传输的内容绝大部分就是有效数据，而异步通讯中会包含有帧的各种标识符，所以同步通讯的效率更高，但是同步通讯双方的时钟允许误差较小，而异步通讯双方的时钟允许误差较大。 </p>
-<h2 id="四、什么是通讯速率？"><a href="#四、什么是通讯速率？" class="headerlink" title="四、什么是通讯速率？"></a>四、什么是通讯速率？</h2><p>衡量通讯性能的一个非常重要的参数就是通讯速率，通常以<code>比特率(Bitrate)</code>来表示，即每秒钟传输的二进制位数，单位为比特每秒(bit/s)。容易与比特率混淆的概念是<code>波特率(Baudrate)</code>，它表示每秒钟传输了多少个<code>码元</code>。</p>
-<p>而码元是通讯信号调制的概念，通讯中常用时间间隔相同的符号来表示一个二进制数字，这样的信号称为码元。</p>
-<p>如常见的通讯传输中，用 0V 表示数字 0， 5V 表示数字 1，那么一个码元可以表示两种状态 0 和 1，所以一个码元等于一个二进制比特位，此时波特率的大小与比特率一致；如果在通讯传输中，有 0V、2V、 4V 以及 6V 分别表示二进制数 00、 01、 10、 11，那么每个码元可以表示四种状态，即两个二进制比特位，所以码元数是二进制比特位数的一半，这个时候的波特率为比特率的一半。</p>
-<p>因为很多常见的通讯中一个码元都是表示两种状态，人们常常直接以波特率来表示比特率。 </p>
-<p>摘抄自：</p>
+                <h3 id="什么是IAP？"><a href="#什么是IAP？" class="headerlink" title="什么是IAP？"></a>什么是IAP？</h3><p><code>IAP</code>是<code>In Application Programming</code>的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升级。</p>
+<p>在重新编程过程中可以使用任意类型的通信协议，如UART、I2S、SPI等。这篇笔记分享的是使用UART方式IAP。</p>
+<h3 id="串口IAP实验"><a href="#串口IAP实验" class="headerlink" title="串口IAP实验"></a>串口IAP实验</h3><p>先理一理流程（本实验是以<code>STM32F103ZET6</code>为例）：</p>
+<p><strong>1、实验说明</strong></p>
+<p>做这个实验需要准备两个<code>keil</code>工程，一个工程用于编写IAP程序，另一个工程用于编写我们的应用程序（要实现某些功能的程序），这里我们以一个点灯程序为例。最终，两份工程编译出来的可执行文件都需要烧写到芯片的<code>FLASH</code>中。只不过需要烧写到不同的地址，简单的示意图如下：</p>
+<p><img src="https://s2.ax1x.com/2019/09/21/nzFsAA.png" alt></p>
+<p>这里，使用的STM32的型号为STM32F103ZET6，其FLASH大小是512KB，0x08000000为其FLASH被映射的地址，程序被烧写到的就是这个地址。此处，我们的IAP程序烧写到这个地址，根据IAP程序的大小，我们在keil里可以设置合适的IAP结束地址。</p>
 <blockquote>
-<p>《【野火】零死角玩转<strong>STM32</strong>—<strong>F429</strong>挑战者<strong>V2</strong>.pdf》</p>
+<p>注意：在没有IAP程序的情况下，0x08000000这个地址就是应用程序烧写的地址。</p>
 </blockquote>
+<p><strong>2、工程说明</strong></p>
+<p>本实验用到的两个工程可按照文末的方式获取，其中IAP工程移植至ST官方例程。下面对两个工程进行简单的说明</p>
+<p><strong>IAP工程：</strong></p>
+<p>（1）需要在<code>target</code>选项卡里设置我们IAP程序的起始地址与大小，如：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Eng.png" alt></p>
+<p>这里我们的IAP程序起始地址设为0x08000000，大小设为0x3000，即IAP所能用的FLASH空间为12KB。其中IAP所能占的占空间的大小可根据IAP的实际大小进行修改。</p>
+<p>（2）需要修改程序中我们需要跳转到的应用程序的地址（即IAP程序的结束地址）：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7i1f.png" alt></p>
+<p><strong>LED工程：</strong></p>
+<p>（1）需要在<code>target</code>选项卡里设置我们LED程序的起始地址与大小，如：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Fc8.png" alt></p>
+<p>这里我们的LED程序起地址设为0x08003000，大小设为0x10000，即LED所能用的FLASH空间为64KB。其中结束地址可根据LED应用程序的实际大小进行修改。</p>
+<p>（2）生成对应的<code>.bin</code>文件。这需要在<code>User</code>选项卡里添加如下命令（即编译后执行的命令）：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7kjS.png" alt></p>
+<p>其中，<code>fromelf.exe</code>是我们keil安装目录下的一个可执行程序，可以把<code>.axf</code>文件转换成<code>.bin</code>文件。要在keil中直接调用fromelf命令，必须要把<code>fromelf.exe</code>所在目录添加到环境变量中。添加环境变量的方法如下（该方法来自于《【野火】零死角玩转STM32—F429挑战者V2.pdf》）：</p>
+<p>本文以 Win7 系统为例添加工具链的路径到 PATH 环境变量，其它系统是类似的。 </p>
+<p>(1) 右键电脑系统的<code>计算机图标</code>，在弹出的菜单中选择<code>属性</code> ，如图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7uhq.png" alt></p>
+<p>(2) 在弹出的属性页面依次点击<code>高级系统设置 -&gt;环境变量</code>，在用户变量一栏中找到名为<code>PATH</code>的变量，若没有该变量，则新建一个。编辑<code>PATH</code>变量，在它的变量值中输入工具链的路径，如本机的是<code>;D:\work\keil5\ARM\ARMCC\bin</code>，注意要使用分号<code>;</code>让它与其它路径分隔开，输入完毕后依次点<code>确定</code>,如图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7mAs.png" alt></p>
+<p>(3) 打开 Windows 的命令行，点击系统的<code>开始菜单</code>，在搜索框输入<code>cmd</code>，在搜索结果中点击<code>cmd.exe</code>即可打开命令行， 如图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7nNn.png" alt></p>
+<p>(4) 在弹出的命令行窗口中输入<code>fromelf</code>回车，若窗口打印出 <code>formelf</code> 的帮助说明，那么路径正常，就可以开始后面的工作了；若提示<code>不是内部名外部命令，也不是可运行的程序…</code>信息，说明路径不对，请重新配置环境变量，并确认该工作目录下有编译工具链。 </p>
+<p>这个过程本质就是让命令行通过“PATH”路径找到<code>fromelf.exe</code>程序运行 。</p>
+<p><strong>3、IAP源码说明</strong></p>
+<p><strong>（1）主函数：</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>   
+    <span class="token function">FLASH_Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/* FLASH解锁 */</span>
+    <span class="token function">KEY_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">/* 按键初始化 */</span>
+    <span class="token function">IAP_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">/* IAP初始化 */</span>
+
+    <span class="token comment" spellcheck="true">/* 按键按下则进入主菜单开始更新程序（注意：需要按下复位键的同时按下该按键触发程序更新） */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">GPIO_ReadInputDataBit</span><span class="token punctuation">(</span>GPIOE<span class="token punctuation">,</span>GPIO_Pin_2<span class="token punctuation">)</span>  <span class="token operator">==</span> <span class="token number">0x00</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n======================================================================"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=              (C) COPYRIGHT 2010 STMicroelectronics                 ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                                                    ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=     In-Application Programming Application  (Version 3.3.0)        ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                                                    ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n=                                   By MCD Application Team          ="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n======================================================================"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SerialPutString</span><span class="token punctuation">(</span><span class="token string">"\r\n\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">Main_Menu</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/* 保持运行用户应用程序 */</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* Test if user code is programmed starting from address "ApplicationAddress" */</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>ApplicationAddress<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0x2FFE0000</span> <span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x20000000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span> 
+          <span class="token comment" spellcheck="true">/* Jump to user application */</span>
+          JumpAddress <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>ApplicationAddress <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          Jump_To_Application <span class="token operator">=</span> <span class="token punctuation">(</span>pFunction<span class="token punctuation">)</span> JumpAddress<span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">/* Initialize user application's Stack Pointer */</span>
+          <span class="token function">__set_MSP</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>__IO uint32_t<span class="token operator">*</span><span class="token punctuation">)</span> ApplicationAddress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">Jump_To_Application</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>可见，我们按下复位的同时按下<code>PE2</code>对应的按键即可触发应用程序更新操作，否则跳转到应用程序的起始地址执行应用程序（断点重启也是默认执行应用程序），这里的<code>ApplicationAddress</code>就是我们上面设置的<code>0x08003000</code>。</p>
+<p><strong>（2）主菜单函数Main_Menu</strong></p>
+<p>这个函数里就是该IAP程序的功能，根据其中的打印信息：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Z7j.png" alt></p>
+<p>可以知道，该IAP有三个功能（分别输入键盘上的数字1、2、3进行选择）：一是下载程序（电脑-&gt;STM32）；二是上传程序（STM32-&gt;电脑）；三是执行新程序（即刚下载完成的程序）。</p>
+<p><strong>（3）下载程序功能函数SerialDownload</strong></p>
+<p>首先，上位机使用Ymodem协议进行数据下发，STM32根据协议解析数据，拿到有用的数据，并把这些数据写入FLASH对应的地址中，即ApplicationAddress。关于Ymodem协议及SerialDownload函数这里不展开讨论。</p>
+<p><strong>4、下载验证</strong></p>
+<p><strong>（1）下载IAP程序</strong></p>
+<p>可以使用J-link等调试器进行下载，也可用<code>串口ISP</code>进行下载，我们选用的是<code>串口ISP</code>进行下载，借用的工具是<code>FlyMcu</code>：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7M90.png" alt></p>
+<p>这里下载的是<code>.hex</code>文件，如果下载<code>.bin</code>文件，则会提示如下错误：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7Q3V.png" alt></p>
+<blockquote>
+<p>程序文件不是0x8000000和0x20000000区域的</p>
+</blockquote>
+<p>使用ISP方式下载需要进行的硬件操作是：<code>BOOT0引脚拉高，BOOT1引脚接地</code>。即系统存储器被选为启动区域：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh7lcT.png" alt></p>
+<p>在点击<code>开始编程</code>按钮后，需要按下板子上的复位键，即可下载程序。</p>
+<p><strong>（2）通过IAP程序引导下载LED程序</strong></p>
+<p>上面提到下载程序使用的是Ymodem协议，所以得选用带有Ymodem协议传输方式的上位机软件来把应用程序下载到板子里。可以选用<code>SecureCRT</code>，也可以选用超级终端。这里选用的是超级终端：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh78uF.png" alt></p>
+<p>首先按下数字键1触发下载程序操作，此时会不断打印<code>CCCCC...</code>。然后点<code>传送-&gt;发送文件</code>,选择要下载的<code>.bin</code>文件及<code>Ymodem</code>协议。下载完成后按下数字3即可执行新下载得应用程序：</p>
+<p><img src="https://s2.ax1x.com/2019/09/17/nh71jU.png" alt></p>
+<p>终于，LED闪烁起来了，点灯项目成功~。断电重启之后默认执行的是这个点灯程序，要想下载新的程序，按下复位的同时按下<code>PE2</code>所对应的按键（需要一定的手速，哈哈）即可触发更新程序操作。</p>
+<p>以上就是本次笔记分享的内容，如有错误，欢迎指出！</p>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
+<p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p>
 <p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
@@ -621,7 +701,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-08-23T08-22-15',
+        id: '2019-09-16T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -646,31 +726,33 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/">
+                <a href="/2019/09/17/stm32-bi-ji-isp-xia-zai-de-yuan-li-shi-shi-me/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="C语言代码优化的一些经验及小技巧（一）">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【STM32笔记】ISP下载的原理是什么？">
                         
-                        <span class="card-title">C语言代码优化的一些经验及小技巧（一）</span>
+                        <span class="card-title">【STM32笔记】ISP下载的原理是什么？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、变量与值得比较1、布尔变量与零值的比较不可将布尔变量直接与 TRUE、 FALSE或者 1、 0进行比较 。据布尔类型的语义，零值为“ 假”（记为 FALSE），任何非零值都是“ 真”（记为TRUE）。 TRUE的值究竟是什么并没有统一
+                            上一篇笔记分享了STM32的串口IAP实例：STM32串口IAP分享。其中，下载IAP程序时用ISP的方式进行下载。这里的ISP又是什么呢？
+ISP方式下载程序原理ISP：In System Programing，在系统中编程
+在STM32
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-27
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-17
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
                                 </a>
                             
                             
@@ -680,8 +762,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/代码优化/" target="_blank">
-                        <span class="chip bg-color">代码优化</span>
+                    <a href="/tags/STM32/" target="_blank">
+                        <span class="chip bg-color">STM32</span>
+                    </a>
+                    
+                    <a href="/tags/IAP/" target="_blank">
+                        <span class="chip bg-color">IAP</span>
+                    </a>
+                    
+                    <a href="/tags/ISP/" target="_blank">
+                        <span class="chip bg-color">ISP</span>
+                    </a>
+                    
+                    <a href="/tags/BootLoader/" target="_blank">
+                        <span class="chip bg-color">BootLoader</span>
                     </a>
                     
                 </div>
@@ -695,25 +789,26 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/">
+                <a href="/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】goto语句">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="易错、经典问题：return不可返回指向栈内存的指针">
                         
-                        <span class="card-title">【C语言笔记】goto语句</span>
+                        <span class="card-title">易错、经典问题：return不可返回指向栈内存的指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：
-一、goto的基本语法goto语句有两部分：go
+                            预备知识：内存的分类C/C++程序占用的内存分为两大类：静态存储区与动态存储区。其示意图如下所示：
+
+数据保存在静态存储区与动态存储区的区别就是：静态存储区在编译-链接阶段已经确定了，程序运行过程中不会变化，只有当程序退出的时候，静态存储区
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
                             </span>
                         <span class="publish-author">
                             
@@ -730,8 +825,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/goto语句/" target="_blank">
-                        <span class="chip bg-color">goto语句</span>
+                    <a href="/tags/return/" target="_blank">
+                        <span class="chip bg-color">return</span>
+                    </a>
+                    
+                    <a href="/tags/栈指针/" target="_blank">
+                        <span class="chip bg-color">栈指针</span>
                     </a>
                     
                 </div>
@@ -852,7 +951,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             

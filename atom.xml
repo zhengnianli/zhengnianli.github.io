@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-10-13T06:37:35.554Z</updated>
+  <updated>2019-11-04T00:26:35.577Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -17,11 +17,90 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用STM32内部Flash额外的空间来存储数据</title>
-    <link href="https://zhengnianli.github.io/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/"/>
-    <id>https://zhengnianli.github.io/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/</id>
+    <title></title>
+    <link href="https://zhengnianli.github.io/2019/11/10/tui-jian-ji-kuan-hao-yong-de-wen-ben-bian-ji-qi/"/>
+    <id>https://zhengnianli.github.io/2019/11/10/tui-jian-ji-kuan-hao-yong-de-wen-ben-bian-ji-qi/</id>
+    <published>2019-11-10T15:27:46.550Z</published>
+    <updated>2019-11-04T00:26:35.577Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Source-Insight&quot;&gt;&lt;a href=&quot;#Source-Insight&quot; class=&quot;headerlink&quot; title=&quot;Source Insight&quot;&gt;&lt;/a&gt;Source Insight&lt;/h3&gt;&lt;p&gt;Source
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【RT-Thread笔记】IO设备模型及GPIO设备</title>
+    <link href="https://zhengnianli.github.io/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-gpio-she-bei/"/>
+    <id>https://zhengnianli.github.io/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-gpio-she-bei/</id>
+    <published>2019-11-10T00:22:15.000Z</published>
+    <updated>2019-11-10T15:27:17.823Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;RTT内核对象——设备&quot;&gt;&lt;a href=&quot;#RTT内核对象——设备&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="RT-Thread" scheme="https://zhengnianli.github.io/tags/RT-Thread/"/>
+    
+      <category term="IO设备模型" scheme="https://zhengnianli.github.io/tags/IO%E8%AE%BE%E5%A4%87%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STM32F429的USB是个坑？</title>
+    <link href="https://zhengnianli.github.io/2019/11/05/stm32f429-de-usb-shi-ge-keng/"/>
+    <id>https://zhengnianli.github.io/2019/11/05/stm32f429-de-usb-shi-ge-keng/</id>
+    <published>2019-11-05T00:22:15.000Z</published>
+    <updated>2019-11-10T15:32:54.634Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近某项目需要用到USB与CAN：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/11/10/MKLxa9.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
+    
+      <category term="USB" scheme="https://zhengnianli.github.io/tags/USB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【STM32笔记】使用STM32内部Flash额外的空间来存储数据</title>
+    <link href="https://zhengnianli.github.io/2019/10/13/stm32-bi-ji-shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/"/>
+    <id>https://zhengnianli.github.io/2019/10/13/stm32-bi-ji-shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/</id>
     <published>2019-10-13T00:22:15.000Z</published>
-    <updated>2019-10-13T06:37:35.554Z</updated>
+    <updated>2019-10-13T06:47:24.334Z</updated>
     
     <summary type="html">
     
@@ -47,8 +126,8 @@
   
   <entry>
     <title>sizeof你真的弄明白了吗？来看看这个例子</title>
-    <link href="https://zhengnianli.github.io/2019/10/09/sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/"/>
-    <id>https://zhengnianli.github.io/2019/10/09/sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/</id>
+    <link href="https://zhengnianli.github.io/2019/10/09/c-yu-yan-bi-ji-sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/"/>
+    <id>https://zhengnianli.github.io/2019/10/09/c-yu-yan-bi-ji-sizeof-ni-zhen-de-nong-ming-bai-liao-ma-lai-kan-kan-zhe-ge-li-zi/</id>
     <published>2019-10-09T00:22:15.000Z</published>
     <updated>2019-10-12T00:33:12.418Z</updated>
     
@@ -72,11 +151,11 @@
   </entry>
   
   <entry>
-    <title>两块STM32之间的SPI主从通讯实例</title>
-    <link href="https://zhengnianli.github.io/2019/10/08/liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/"/>
-    <id>https://zhengnianli.github.io/2019/10/08/liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/</id>
+    <title>【STM32笔记】两块STM32之间的SPI主从通信实例（附代码工程）</title>
+    <link href="https://zhengnianli.github.io/2019/10/08/stm32-bi-ji-liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/"/>
+    <id>https://zhengnianli.github.io/2019/10/08/stm32-bi-ji-liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/</id>
     <published>2019-10-08T00:22:15.000Z</published>
-    <updated>2019-10-08T14:10:55.410Z</updated>
+    <updated>2019-10-13T06:45:45.313Z</updated>
     
     <summary type="html">
     
@@ -158,11 +237,11 @@
   </entry>
   
   <entry>
-    <title>STM32的复用时钟何时开启呢？</title>
-    <link href="https://zhengnianli.github.io/2019/09/26/stm32-de-fu-yong-shi-zhong-he-shi-kai-qi-ni/"/>
-    <id>https://zhengnianli.github.io/2019/09/26/stm32-de-fu-yong-shi-zhong-he-shi-kai-qi-ni/</id>
+    <title>【STM32笔记】复用时钟何时开启呢？</title>
+    <link href="https://zhengnianli.github.io/2019/09/26/stm32-bi-ji-fu-yong-shi-zhong-he-shi-kai-qi-ni/"/>
+    <id>https://zhengnianli.github.io/2019/09/26/stm32-bi-ji-fu-yong-shi-zhong-he-shi-kai-qi-ni/</id>
     <published>2019-09-26T00:22:15.000Z</published>
-    <updated>2019-09-27T00:33:36.473Z</updated>
+    <updated>2019-10-13T06:45:12.979Z</updated>
     
     <summary type="html">
     
@@ -215,11 +294,11 @@
   </entry>
   
   <entry>
-    <title>STM32的ISP下载得原理是什么？</title>
-    <link href="https://zhengnianli.github.io/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/"/>
-    <id>https://zhengnianli.github.io/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/</id>
+    <title>【STM32笔记】ISP下载的原理是什么？</title>
+    <link href="https://zhengnianli.github.io/2019/09/17/stm32-bi-ji-isp-xia-zai-de-yuan-li-shi-shi-me/"/>
+    <id>https://zhengnianli.github.io/2019/09/17/stm32-bi-ji-isp-xia-zai-de-yuan-li-shi-shi-me/</id>
     <published>2019-09-17T00:22:15.000Z</published>
-    <updated>2019-09-18T00:30:52.634Z</updated>
+    <updated>2019-10-13T06:44:42.922Z</updated>
     
     <summary type="html">
     
@@ -247,11 +326,11 @@
   </entry>
   
   <entry>
-    <title>STM32串口IAP分享</title>
-    <link href="https://zhengnianli.github.io/2019/09/16/stm32-chuan-kou-iap-fen-xiang/"/>
-    <id>https://zhengnianli.github.io/2019/09/16/stm32-chuan-kou-iap-fen-xiang/</id>
+    <title>【STM32笔记】串口IAP分享</title>
+    <link href="https://zhengnianli.github.io/2019/09/16/stm32-bi-ji-chuan-kou-iap-fen-xiang/"/>
+    <id>https://zhengnianli.github.io/2019/09/16/stm32-bi-ji-chuan-kou-iap-fen-xiang/</id>
     <published>2019-09-16T00:22:15.000Z</published>
-    <updated>2019-09-21T09:42:56.850Z</updated>
+    <updated>2019-10-13T06:43:00.703Z</updated>
     
     <summary type="html">
     
@@ -331,6 +410,32 @@
   </entry>
   
   <entry>
+    <title>C语言代码优化的一些经验及小技巧（四）</title>
+    <link href="https://zhengnianli.github.io/2019/08/30/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-si/"/>
+    <id>https://zhengnianli.github.io/2019/08/30/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-si/</id>
+    <published>2019-08-30T00:22:15.000Z</published>
+    <updated>2019-10-12T00:41:55.724Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;无限循环优先选用for-，而不是while-1&quot;&gt;&lt;a href=&quot;#无限循环优先选用for-，而不是while-1&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【RT-Thread笔记】内核基础</title>
     <link href="https://zhengnianli.github.io/2019/08/30/rt-thread-bi-ji-nei-he-ji-chu/"/>
     <id>https://zhengnianli.github.io/2019/08/30/rt-thread-bi-ji-nei-he-ji-chu/</id>
@@ -359,32 +464,6 @@
   </entry>
   
   <entry>
-    <title>C语言代码优化的一些经验及小技巧（四）</title>
-    <link href="https://zhengnianli.github.io/2019/08/30/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-si/"/>
-    <id>https://zhengnianli.github.io/2019/08/30/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-si/</id>
-    <published>2019-08-30T00:22:15.000Z</published>
-    <updated>2019-10-12T00:41:55.724Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;无限循环优先选用for-，而不是while-1&quot;&gt;&lt;a href=&quot;#无限循环优先选用for-，而不是while-1&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C语言代码优化的一些经验及小技巧（三）</title>
     <link href="https://zhengnianli.github.io/2019/08/29/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-san/"/>
     <id>https://zhengnianli.github.io/2019/08/29/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-san/</id>
@@ -398,6 +477,32 @@
         
         
           &lt;h3 id=&quot;循环展开&quot;&gt;&lt;a href=&quot;#循环展开&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言代码优化的一些经验及小技巧（二）</title>
+    <link href="https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/"/>
+    <id>https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/</id>
+    <published>2019-08-28T00:22:15.000Z</published>
+    <updated>2019-10-12T00:39:36.557Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;函数相关&quot;&gt;&lt;a href=&quot;#函数相关&quot; class=&quot;headerlink&quot; title=&quot;函数相关&quot;&gt;&lt;/a&gt;函数相关&lt;/h2&gt;&lt;h3 id=&quot;1、参数的书写要完整&quot;&gt;&lt;a href=&quot;#1、参数的书写要完整&quot; class=&quot;headerlink&quot;
         
       
     
@@ -433,35 +538,9 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
       <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
     
-  </entry>
-  
-  <entry>
-    <title>C语言代码优化的一些经验及小技巧（二）</title>
-    <link href="https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/"/>
-    <id>https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/</id>
-    <published>2019-08-28T00:22:15.000Z</published>
-    <updated>2019-10-12T00:39:36.557Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;函数相关&quot;&gt;&lt;a href=&quot;#函数相关&quot; class=&quot;headerlink&quot; title=&quot;函数相关&quot;&gt;&lt;/a&gt;函数相关&lt;/h2&gt;&lt;h3 id=&quot;1、参数的书写要完整&quot;&gt;&lt;a href=&quot;#1、参数的书写要完整&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
   </entry>
   
@@ -488,89 +567,6 @@
     
     
       <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是通讯？</title>
-    <link href="https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/"/>
-    <id>https://zhengnianli.github.io/2019/08/23/shi-me-shi-tong-xun/</id>
-    <published>2019-08-23T00:22:15.000Z</published>
-    <updated>2019-08-28T14:42:40.692Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;一、什么是串行通讯与并行通讯？&quot;&gt;&lt;a href=&quot;#一、什么是串行通讯与并行通讯？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="通讯" scheme="https://zhengnianli.github.io/tags/%E9%80%9A%E8%AE%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C语言笔记】goto语句</title>
-    <link href="https://zhengnianli.github.io/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/"/>
-    <id>https://zhengnianli.github.io/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/</id>
-    <published>2019-08-22T00:22:15.000Z</published>
-    <updated>2019-08-25T03:18:07.556Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：&lt;/p&gt;
-&lt;h2 id=&quot;一、goto的基本语法&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="goto语句" scheme="https://zhengnianli.github.io/tags/goto%E8%AF%AD%E5%8F%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>STM32串口空闲中断接收不定长数据（DMA方式）</title>
-    <link href="https://zhengnianli.github.io/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/"/>
-    <id>https://zhengnianli.github.io/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/</id>
-    <published>2019-08-18T00:22:15.000Z</published>
-    <updated>2019-08-25T03:32:35.112Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是&lt;code&gt;RXNE&lt;/code&gt;。这里分享另一种接收数据的方式——&lt;code&gt;IDLE&lt;/code&gt;中断（PS：本文的例子运行在&lt;code&gt;STM32F103ZET6&lt;/code&gt;上）。
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
-      <category term="空闲中断" scheme="https://zhengnianli.github.io/tags/%E7%A9%BA%E9%97%B2%E4%B8%AD%E6%96%AD/"/>
-    
-      <category term="DMA" scheme="https://zhengnianli.github.io/tags/DMA/"/>
     
   </entry>
   

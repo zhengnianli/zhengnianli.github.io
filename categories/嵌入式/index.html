@@ -301,18 +301,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/categories/C语言笔记/" title="C语言笔记: 55">
+                <a href="/categories/嵌入式/" title="嵌入式: 23">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">C语言笔记
-                        <span class="tag-length">55</span>
+                             chip-active " style="background-color: #F5EEF8;">嵌入式
+                        <span class="tag-length">23</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/嵌入式/" title="嵌入式: 21">
+                <a href="/categories/C语言笔记/" title="C语言笔记: 55">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #D5F5E3;">嵌入式
-                        <span class="tag-length">21</span>
+                             chip-default " style="background-color: #D5F5E3;">C语言笔记
+                        <span class="tag-length">55</span>
                     </span>
                 </a>
                 
@@ -353,13 +353,126 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/">
+                    <a href="/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-gpio-she-bei/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用STM32内部Flash额外的空间来存储数据">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【RT-Thread笔记】IO设备模型及GPIO设备">
                             
-                            <span class="card-title">使用STM32内部Flash额外的空间来存储数据</span>
+                            <span class="card-title">【RT-Thread笔记】IO设备模型及GPIO设备</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                RTT内核对象——设备RT-Thread有多种内核对象，其中设备device就是其中一种。
+内核继承关系图如下：
+
+设备继承关系图如下：
+
+device对象对应的结构体如下：
+
+其中，设备类型type有如下几类：
+
+设备的操作方法结构体：
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/RT-Thread/" target="_blank">
+                            <span class="chip bg-color">RT-Thread</span>
+                        </a>
+                        
+                        <a href="/tags/IO设备模型/" target="_blank">
+                            <span class="chip bg-color">IO设备模型</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/05/stm32f429-de-usb-shi-ge-keng/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="STM32F429的USB是个坑？">
+                            
+                            <span class="card-title">STM32F429的USB是个坑？</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                最近某项目需要用到USB与CAN：
+
+拿到这样的需求，我们当然是先得保证通讯正常。于是我找了一个USB例程与一个CAN例程，分别调试验证。
+经过几番折腾已经保证了USB与上位机能正常通讯了，也能保证了CAN的正常收发（拿了两块开发板做验证）
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/STM32/" target="_blank">
+                            <span class="chip bg-color">STM32</span>
+                        </a>
+                        
+                        <a href="/tags/USB/" target="_blank">
+                            <span class="chip bg-color">USB</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/10/13/stm32-bi-ji-shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="【STM32笔记】使用STM32内部Flash额外的空间来存储数据">
+                            
+                            <span class="card-title">【STM32笔记】使用STM32内部Flash额外的空间来存储数据</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -404,13 +517,13 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/10/08/liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/">
+                    <a href="/2019/10/08/stm32-bi-ji-liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="两块STM32之间的SPI主从通讯实例">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="【STM32笔记】两块STM32之间的SPI主从通信实例（附代码工程）">
                             
-                            <span class="card-title">两块STM32之间的SPI主从通讯实例</span>
+                            <span class="card-title">【STM32笔记】两块STM32之间的SPI主从通信实例（附代码工程）</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -455,13 +568,13 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/09/26/stm32-de-fu-yong-shi-zhong-he-shi-kai-qi-ni/">
+                    <a href="/2019/09/26/stm32-bi-ji-fu-yong-shi-zhong-he-shi-kai-qi-ni/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="STM32的复用时钟何时开启呢？">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="【STM32笔记】复用时钟何时开启呢？">
                             
-                            <span class="card-title">STM32的复用时钟何时开启呢？</span>
+                            <span class="card-title">【STM32笔记】复用时钟何时开启呢？</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -506,13 +619,13 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/09/17/stm32-de-isp-xia-zai-de-yuan-li-shi-shi-me/">
+                    <a href="/2019/09/17/stm32-bi-ji-isp-xia-zai-de-yuan-li-shi-shi-me/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="STM32的ISP下载得原理是什么？">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【STM32笔记】ISP下载的原理是什么？">
                             
-                            <span class="card-title">STM32的ISP下载得原理是什么？</span>
+                            <span class="card-title">【STM32笔记】ISP下载的原理是什么？</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -566,13 +679,13 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/09/16/stm32-chuan-kou-iap-fen-xiang/">
+                    <a href="/2019/09/16/stm32-bi-ji-chuan-kou-iap-fen-xiang/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="STM32串口IAP分享">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【STM32笔记】串口IAP分享">
                             
-                            <span class="card-title">STM32串口IAP分享</span>
+                            <span class="card-title">【STM32笔记】串口IAP分享</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -756,12 +869,12 @@ RT-T
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/嵌入式/" target="_blank">
-                            <span class="chip bg-color">嵌入式</span>
-                        </a>
-                        
                         <a href="/tags/STM32/" target="_blank">
                             <span class="chip bg-color">STM32</span>
+                        </a>
+                        
+                        <a href="/tags/嵌入式/" target="_blank">
+                            <span class="chip bg-color">嵌入式</span>
                         </a>
                         
                     </div>
@@ -771,13 +884,13 @@ RT-T
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/08/23/shi-me-shi-tong-xun/">
+                    <a href="/2019/08/23/stm32-bi-ji-shi-me-shi-tong-xun/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="什么是通讯？">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="【STM32笔记】什么是通讯？">
                             
-                            <span class="card-title">什么是通讯？</span>
+                            <span class="card-title">【STM32笔记】什么是通讯？</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -818,13 +931,13 @@ RT-T
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/08/18/stm32-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/">
+                    <a href="/2019/08/18/stm32-bi-ji-chuan-kou-kong-xian-zhong-duan-jie-shou-bu-ding-chang-shu-ju-dma-fang-shi/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="STM32串口空闲中断接收不定长数据（DMA方式）">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="【STM32笔记】串口空闲中断接收不定长数据（DMA方式）">
                             
-                            <span class="card-title">STM32串口空闲中断接收不定长数据（DMA方式）</span>
+                            <span class="card-title">【STM32笔记】串口空闲中断接收不定长数据（DMA方式）</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
@@ -871,113 +984,6 @@ RT-T
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="替代串口打印，嵌入式中另一种打印调试的方法">
-                            
-                            <span class="card-title">替代串口打印，嵌入式中另一种打印调试的方法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、前言在我们的嵌入式开发中，常常把printf重定向到MCU的串口外设，再配合上位机界面软件，通过打印调试信息的方式来调试我们的嵌入式软件。
-此处，我们介绍另一种打印调试的方法——SEGGER 的RTT 。RTT全称是Real Time 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/SEGGER-RTT/" target="_blank">
-                            <span class="chip bg-color">SEGGER_RTT</span>
-                        </a>
-                        
-                        <a href="/tags/J-Link/" target="_blank">
-                            <span class="chip bg-color">J-Link</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/07/30/dsp-bi-ji-ti-guan-fang-li-cheng-zhong-qie-huan-ram-flash-gong-cheng-ban-ben-de-fang-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法">
-                            
-                            <span class="card-title">【DSP笔记】TI官方例程中切换RAM、FLASH工程版本的方法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、前言
-我们用Visual Studio来开发程序时，可以选择编译Debug版本，也可以选择编译Release版本。Debug版本为调试版本，Release版本为对外发布版本。
-同样，在我们嵌入式软件中，也有类似这样子的做法。在嵌入式中，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-30
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/嵌入式/" target="_blank">
-                            <span class="chip bg-color">嵌入式</span>
-                        </a>
-                        
-                        <a href="/tags/DSP/" target="_blank">
-                            <span class="chip bg-color">DSP</span>
-                        </a>
-                        
-                        <a href="/tags/存储器/" target="_blank">
-                            <span class="chip bg-color">存储器</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
@@ -1015,7 +1021,7 @@ RT-T
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             

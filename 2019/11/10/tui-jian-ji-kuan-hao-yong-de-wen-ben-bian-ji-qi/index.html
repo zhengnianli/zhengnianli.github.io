@@ -4,13 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="sizeof你真的弄明白了吗？来看看这个例子, 正念的博客">
-    <meta name="description" content="sizeof基础在C语言中，sizeof是一个操作符（operator），而不是函数！其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：
-
-（1）sizeof(类型说明符)
-（2）sizeof 表达式
-
-我们通常使用第">
+    <meta name="keywords" content="正念的博客">
+    <meta name="description" content="Source InsightSource Insight是一个面向项目开发的程序编辑器和代码浏览器，它拥有内置的对C/C++, C#和Java等程序的分析。能分析源代码并在工作的同时动态维护它自己的符号数据库，并自动显示有用的上下文信息。
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>sizeof你真的弄明白了吗？来看看这个例子 | 正念的博客</title>
+    <title>正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +258,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        sizeof你真的弄明白了吗？来看看这个例子
+                        
                     </div>
                 </div>
             </div>
@@ -377,25 +373,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/C语言/" target="_blank">
-                                <span class="chip bg-color">C语言</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                C语言笔记
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -403,14 +386,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-10-09
+                    2019-11-10
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        679
+                        562
                     </div>
                     
 
@@ -433,69 +416,21 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="sizeof基础"><a href="#sizeof基础" class="headerlink" title="sizeof基础"></a>sizeof基础</h3><p>在C语言中，<strong>sizeof是一个操作符（operator），而不是函数！</strong>其用于判断数据类型或者表达式长度（所占的内存字节数）。其有两种表达形式：</p>
-<blockquote>
-<p>（1）sizeof(类型说明符)</p>
-<p>（2）sizeof 表达式</p>
-</blockquote>
-<p>我们通常使用第（1）种形式。</p>
-<p>其返回值类型为size_t，在头文件stddef.h中定义。这是一个依赖于编译系统的值，一般定义为：</p>
-<blockquote>
-<p>typedef unsigned int size_t;</p>
-</blockquote>
-<p>首先确定我们当前编译环境中C语言各个基本数据类型在内存中所占字节数，我这里是32bit编译环境：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(char)  = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(short) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(int)   = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(long)  = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(float) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(double)= %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>我们这里的输出结果为：</p>
-<p><img src="https://s2.ax1x.com/2019/10/12/uLGwb4.png" alt></p>
-<h3 id="sizeof典型问题"><a href="#sizeof典型问题" class="headerlink" title="sizeof典型问题"></a>sizeof典型问题</h3><p>sizeof看起来似乎很简单，那来看看下面这段代码，你能做对几个：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
-
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(char) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(char*)= %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof('a')  = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(*s+0) = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token operator">*</span>s<span class="token operator">+</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(*s)   = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token operator">*</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"sizeof(s)    = %u\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>实际输出结果为：</p>
-<p><img src="https://s2.ax1x.com/2019/10/12/uLGBVJ.png" alt></p>
-<p><strong>简要分析：</strong></p>
-<p><strong>简要分析：</strong></p>
-<p>（1）<code>sizeof(char)</code> 的值为1。因为char类型数据在内存中占1字节。</p>
-<p>（2）<code>sizeof(char*)</code>的值为4。因为char*代表一个指针，在32bit环境中为4字节，也即unsigned int的字节长度。</p>
-<p>（3）<code>sizeof(&#39;a&#39;)</code>的值为4。因为此处‘a’是独立存在的一个字符（没有赋值给其它变量），实际上就是一个整型数，占4个字节，即此处‘a’对应的ascii码的十进制为整数97。但是需要注意的是，若有如下定义：</p>
-<blockquote>
-<p>char ch = ‘a’;</p>
-</blockquote>
-<p>则此处ch的字节数sizeof(ch)的值为1，而不是4。</p>
-<p>（4）<code>sizeof(*s+0)</code>的值为4，因为’h’+0 转化为int，占4字节。此处涉及到类型转换的问题。即不同类型的数据进行运算时，会首先转换成相同数据类型。转换规则为（图片来源于网络）：</p>
-<p><img src="https://s2.ax1x.com/2019/10/12/uLGDa9.jpg" alt></p>
-<p>（5）<code>sizeof(*s)</code>的值为1，因为此处*s为字符串s的第1个字符‘h’（注意与第三点区分开来，这里是有用char来修饰的），所以所占字节长度为1。</p>
-<p>（6）<code>sizeof(s)</code>的值为4，同（2），此处s是一个指针，在32bit环境中为4字节，也即unsigned int的字节长度。</p>
-<p>End：以上就是本次的分享，如有错误，欢迎指出！欢迎转发</p>
-<hr>
-<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
-<p>我的微信公众号：嵌入式大杂烩</p>
-<p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p>
-<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
+                <h3 id="Source-Insight"><a href="#Source-Insight" class="headerlink" title="Source Insight"></a>Source Insight</h3><p>Source Insight是一个面向项目开发的程序编辑器和代码浏览器，它拥有内置的对C/C++, C#和Java等程序的分析。能分析源代码并在工作的同时动态维护它自己的符号数据库，并自动显示有用的上下文信息。</p>
+<p>下载链接：</p>
+<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>sourceinsight<span class="token punctuation">.</span>com<span class="token operator">/</span></code></pre>
+<h3 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h3><p>VSCode是运行于 Mac OS X、Windows和 Linux 之上的跨平台源代码编辑器，支持几乎所有主流的开发语言的语法高亮、智能代码补全、自定义热键、括号匹配、代码片段、代码对比 Diff、GIT 等特性，支持插件扩展，并针对网页开发和云端应用开发做了优化。</p>
+<p>下载链接：</p>
+<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>code<span class="token punctuation">.</span>visualstudio<span class="token punctuation">.</span>com<span class="token operator">/</span></code></pre>
+<h3 id="EditPlus"><a href="#EditPlus" class="headerlink" title="EditPlus"></a>EditPlus</h3><p>EditPlus是一款小巧但是功能强大的编辑器，拥有无限制的撤消与重做、英文拼字检查、自动换行、列数标记、搜寻取代、同时编辑多文件、全屏幕浏览功能。而它还有一个好用的功能，就是它有监视剪贴板的功能，同步于剪贴板可自动粘贴进 EditPlus 的窗口中省去粘贴的步骤。</p>
+<p>下载链接：</p>
+<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>editplus<span class="token punctuation">.</span>com<span class="token operator">/</span></code></pre>
+<h3 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h3><p>Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），它最初被设计为一个具有丰富扩展功能的Vim。Sublime Text具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单和工具栏。Sublime Text 的主要功能包括：拼写检查，书签，完整的 Python API ， Goto 功能，即时项目切换，多选择，多窗口等等。Sublime Text 是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。</p>
+<p>下载链接：</p>
+<pre class=" language-C"><code class="language-C">http://www.sublimetext.com/3</code></pre>
+<h3 id="UltraEdit"><a href="#UltraEdit" class="headerlink" title="UltraEdit"></a>UltraEdit</h3><p>UltraEdit 是一套功能强大的文本编辑器，可以编辑文本、十六进制、ASCII 码，完全可以取代记事本（如果电脑配置足够强大），内建英文单字检查、C++ 及 VB 指令突显，可同时编辑多个文件，而且即使开启很大的文件速度也不会慢。</p>
+<p>下载链接：</p>
+<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>ultraedit<span class="token punctuation">.</span>com<span class="token operator">/</span></code></pre>
 
             </div>
             <hr>
@@ -660,7 +595,7 @@
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-10-09T08-22-15',
+        id: '2019-11-10T23-27-46',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -683,52 +618,38 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/13/shi-yong-stm32-nei-bu-flash-e-wai-de-kong-jian-lai-cun-chu-shu-ju/">
+                <a href="/2019/11/10/tui-jian-ji-kuan-hao-yong-de-wen-ben-bian-ji-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用STM32内部Flash额外的空间来存储数据">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt>
                         
-                        <span class="card-title">使用STM32内部Flash额外的空间来存储数据</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大家周末愉快！本次分享关于STM32内部FLASH的笔记。
-STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果内部FLASH存储完我们的代码还有剩余的空间，那么这些剩余的空间我们就可以利用起来，存储一些需要掉电保存的数据
+                            Source InsightSource Insight是一个面向项目开发的程序编辑器和代码浏览器，它拥有内置的对C/C++, C#和Java等程序的分析。能分析源代码并在工作的同时动态维护它自己的符号数据库，并自动显示有用的上下文信息。
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-10
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
-                                    嵌入式
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            ZhengNian
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/STM32/" target="_blank">
-                        <span class="chip bg-color">STM32</span>
-                    </a>
-                    
-                    <a href="/tags/内部FLASH/" target="_blank">
-                        <span class="chip bg-color">内部FLASH</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -739,25 +660,34 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/08/liang-kuai-stm32-zhi-jian-de-spi-zhu-cong-tong-xin-shi-li-fu-dai-ma-gong-cheng/">
+                <a href="/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-gpio-she-bei/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="两块STM32之间的SPI主从通讯实例">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【RT-Thread笔记】IO设备模型及GPIO设备">
                         
-                        <span class="card-title">两块STM32之间的SPI主从通讯实例</span>
+                        <span class="card-title">【RT-Thread笔记】IO设备模型及GPIO设备</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            之前分享过的SPI通讯实例：STM32硬件SPI主从通信，是基于一块STM32的两个SPI通讯。如果要进行两块STM32之间的SPI通讯，需要注意一些什么呢？
-最近因为工作需要，要实现控制板之间的SPI通讯。两块STM32之间的SPI通讯平
+                            RTT内核对象——设备RT-Thread有多种内核对象，其中设备device就是其中一种。
+内核继承关系图如下：
+
+设备继承关系图如下：
+
+device对象对应的结构体如下：
+
+其中，设备类型type有如下几类：
+
+设备的操作方法结构体：
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-10
                             </span>
                         <span class="publish-author">
                             
@@ -774,12 +704,12 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/STM32/" target="_blank">
-                        <span class="chip bg-color">STM32</span>
+                    <a href="/tags/RT-Thread/" target="_blank">
+                        <span class="chip bg-color">RT-Thread</span>
                     </a>
                     
-                    <a href="/tags/SPI通讯/" target="_blank">
-                        <span class="chip bg-color">SPI通讯</span>
+                    <a href="/tags/IO设备模型/" target="_blank">
+                        <span class="chip bg-color">IO设备模型</span>
                     </a>
                     
                 </div>
@@ -900,7 +830,7 @@ STM32 芯片内部的 FLASH 存储器，主要用于存储我们代码。如果�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             

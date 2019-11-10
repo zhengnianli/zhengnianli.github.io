@@ -4,10 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="STM32的ISP下载得原理是什么？, 正念的博客">
-    <meta name="description" content="上一篇笔记分享了STM32的串口IAP实例：STM32串口IAP分享。其中，下载IAP程序时用ISP的方式进行下载。这里的ISP又是什么呢？
-ISP方式下载程序原理ISP：In System Programing，在系统中编程
-在STM32">
+    <meta name="keywords" content="【STM32笔记】串口空闲中断接收不定长数据（DMA方式）, 正念的博客">
+    <meta name="description" content="在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是RXNE。这里分享另一种接收数据的方式——IDLE中断（PS：本文的例子运行在STM32F103ZET6上）。
+一、IDLE中断什么时候发生？IDLE就是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>STM32的ISP下载得原理是什么？ | 正念的博客</title>
+    <title>【STM32笔记】串口空闲中断接收不定长数据（DMA方式） | 正念的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +258,13 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        STM32的ISP下载得原理是什么？
+                        【STM32笔记】串口空闲中断接收不定长数据（DMA方式）
                     </div>
                 </div>
             </div>
@@ -380,16 +379,12 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                                 <span class="chip bg-color">STM32</span>
                             </a>
                         
-                            <a href="/tags/IAP/" target="_blank">
-                                <span class="chip bg-color">IAP</span>
+                            <a href="/tags/空闲中断/" target="_blank">
+                                <span class="chip bg-color">空闲中断</span>
                             </a>
                         
-                            <a href="/tags/ISP/" target="_blank">
-                                <span class="chip bg-color">ISP</span>
-                            </a>
-                        
-                            <a href="/tags/BootLoader/" target="_blank">
-                                <span class="chip bg-color">BootLoader</span>
+                            <a href="/tags/DMA/" target="_blank">
+                                <span class="chip bg-color">DMA</span>
                             </a>
                         
                     </div>
@@ -412,21 +407,21 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-17
+                    2019-08-18
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        850
+                        485
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -442,37 +437,33 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>上一篇笔记分享了STM32的串口IAP实例：<a href="https://zhengnianli.github.io/2019/09/16/stm32-chuan-kou-iap-fen-xiang/">STM32串口IAP分享</a>。其中，下载IAP程序时用<code>ISP</code>的方式进行下载。这里的ISP又是什么呢？</p>
-<h3 id="ISP方式下载程序原理"><a href="#ISP方式下载程序原理" class="headerlink" title="ISP方式下载程序原理"></a>ISP方式下载程序原理</h3><p>ISP：In System Programing，在系统中编程</p>
-<p>在STM32F10xxx里有三种启动方式：</p>
-<p><img src="https://s2.ax1x.com/2019/09/18/noJRXD.png" alt></p>
-<p>以ISP方式下载程序时需要把STM32的<code>BOOT0</code>引脚置1、<code>BOOT1</code>引脚置0，即从系统存储区（System Memory）启动。为什么设置从System Memory启动就可以使用串口来下载我们的程序呢？那是因为在芯片出厂前ST官方已经把一段自举程序（BootLoader程序）固化到这一块存储区。对于STM32F103ZET6来说，System Memory的起始地址为0x1FFFF000，可在芯片手册的内存映射图里找到：</p>
-<p><img src="https://s2.ax1x.com/2019/09/18/noJfne.png" alt></p>
-<p>其通过串口来接收数据并烧写到<code>用户闪存存储器</code>的起始地址（0x08000000）。只能烧写到这个地址，若keil里设置的地址不是这个地址，则编译出来的文件将烧录不成功。</p>
-<blockquote>
-<p>用户闪存，即User Flash，同时也称为Main Flash。</p>
+                <p>在使用STM32的串口接收数据的时候，我们常常会使用接收中断的方式来接收数据，常用的是<code>RXNE</code>。这里分享另一种接收数据的方式——<code>IDLE</code>中断（PS：本文的例子运行在<code>STM32F103ZET6</code>上）。</p>
+<h2 id="一、IDLE中断什么时候发生？"><a href="#一、IDLE中断什么时候发生？" class="headerlink" title="一、IDLE中断什么时候发生？"></a>一、IDLE中断什么时候发生？</h2><p>IDLE就是串口收到一帧数据后，发生的中断。什么是一帧数据呢？比如说给单片机一次发来1个字节，或者一次发来8个字节，这些一次发来的数据，就称为一帧数据，也可以叫做一包数据。</p>
+<h2 id="二、RXNE中断和IDLE中断的区别？"><a href="#二、RXNE中断和IDLE中断的区别？" class="headerlink" title="二、RXNE中断和IDLE中断的区别？"></a>二、RXNE中断和IDLE中断的区别？</h2><p>当接收到1个字节，就会产生RXNE中断，当接收到一帧数据，就会产生IDLE中断。比如给单片机一次性发送了8个字节，就会产生8次RXNE中断，1次IDLE中断。</p>
+<h2 id="三、IDLE中断如何配置？"><a href="#三、IDLE中断如何配置？" class="headerlink" title="三、IDLE中断如何配置？"></a>三、IDLE中断如何配置？</h2><p>IDLE中断由<code>USART_CR1</code> 寄存器进行配置：</p>
+<p><img src="https://s2.ax1x.com/2019/08/19/mldcoF.png" alt></p>
+<p>对于<code>STM32F103ZET6</code>来说，配置<code>USART_CR1</code>寄存器bit5为1则打开RXNE中断，配置<code>USART_CR1</code>寄存器bit4为1则打开IDLE中断。</p>
+<p><img src="https://s2.ax1x.com/2019/08/19/mldrLV.png" alt></p>
+<p>这是状态寄存器，当串口接收到数据时，bit5就会自动变成1，当接收完一帧数据后，bit4就会变成1.</p>
+<p>需要注意的是，在中断函数里面，需要把对应的位清0，否则会影响下一次数据的接收。</p>
+<p><img src="https://s2.ax1x.com/2019/08/19/mldyZT.png" alt></p>
+<p>对于RXNE中断，对USART_DR的读操作可以将该位清零。</p>
+<p><img src="https://s2.ax1x.com/2019/08/19/mldRJJ.png" alt></p>
+<p>对于IDLE中断，由软件序列清除该位(先读USART_SR，然后读USART_DR)。</p>
+<h2 id="四、USART-DMA-IDLE接收不定长数据例程"><a href="#四、USART-DMA-IDLE接收不定长数据例程" class="headerlink" title="四、USART+DMA+IDLE接收不定长数据例程"></a>四、USART+DMA+IDLE接收不定长数据例程</h2><h3 id="1、USART初始化"><a href="#1、USART初始化" class="headerlink" title="1、USART初始化"></a>1、USART初始化</h3><p><img src="https://s2.ax1x.com/2019/08/19/mldDs0.png" alt></p>
+<h3 id="2、中断服务函数"><a href="#2、中断服务函数" class="headerlink" title="2、中断服务函数"></a>2、中断服务函数</h3><p><img src="https://s2.ax1x.com/2019/08/19/mld6dU.png" alt="mld6dU.png"></p>
+<h3 id="3、主函数"><a href="#3、主函数" class="headerlink" title="3、主函数"></a>3、主函数</h3><p><img src="https://s2.ax1x.com/2019/08/19/mld2i4.png" alt="mld2i4.png"></p>
+<h3 id="4、运行结果"><a href="#4、运行结果" class="headerlink" title="4、运行结果"></a>4、运行结果</h3><p><img src="https://s2.ax1x.com/2019/08/19/mldWW9.png" alt="mldWW9.png"></p>
+<h2 id="五、最后"><a href="#五、最后" class="headerlink" title="五、最后"></a>五、最后</h2><h3 id="1、参考资料："><a href="#1、参考资料：" class="headerlink" title="1、参考资料："></a>1、参考资料：</h3><blockquote>
+<p>(1)<a href="http://www.armbbs.cn/forum.php?mod=viewthread&amp;tid=94751&amp;extra=page%3D1" target="_blank" rel="noopener">http://www.armbbs.cn/forum.php?mod=viewthread&amp;tid=94751&amp;extra=page%3D1</a></p>
+<p>(2)<a href="http://www.51hei.com/bbs/dpj-39885-1.html" target="_blank" rel="noopener">http://www.51hei.com/bbs/dpj-39885-1.html</a></p>
 </blockquote>
-<p>这一段<code>BootLoader</code>程序源码是没有开源出来的，用户是不可修改的。我们在上一篇笔记的IAP实验中，IAP程序通过<code>FlyMCU</code>软件进行烧录，烧录的地址就是<code>0x08000000</code>。</p>
-<p>注意：不同系列不同型号的STM32固化的<code>BootLoader</code>是不同的，即使用的通讯接口是不同的。如STM32F1xxx系列只支持USART1：</p>
-<p><img src="https://s2.ax1x.com/2019/09/18/noJ47d.png" alt></p>
-<p>STM32F4xxx系列只支持USART1、USART3、CAN2等接口：</p>
-<p><img src="https://s2.ax1x.com/2019/09/18/noJIAA.png" alt></p>
-<p>其他型号的BootLoader支持的接口可查看<code>AN2606</code>文档，链接：</p>
-<pre class=" language-c"><code class="language-c">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>st<span class="token punctuation">.</span>com<span class="token operator">/</span>content<span class="token operator">/</span>ccc<span class="token operator">/</span>resource<span class="token operator">/</span>technical<span class="token operator">/</span>document<span class="token operator">/</span>application_note<span class="token operator">/</span>b9<span class="token operator">/</span>9b<span class="token operator">/</span><span class="token number">16</span><span class="token operator">/</span>3a<span class="token operator">/</span><span class="token number">12</span><span class="token operator">/</span>1e<span class="token operator">/</span><span class="token number">40</span><span class="token operator">/</span>0c<span class="token operator">/</span>CD00167594<span class="token punctuation">.</span>pdf<span class="token operator">/</span>files<span class="token operator">/</span>CD00167594<span class="token punctuation">.</span>pdf<span class="token operator">/</span>jcr<span class="token punctuation">:</span>content<span class="token operator">/</span>translations<span class="token operator">/</span>en<span class="token punctuation">.</span>CD00167594<span class="token punctuation">.</span>pdf</code></pre>
-<p>这里，关于数据协议的内容不展开讨论，有兴趣的朋友可自行研究。</p>
-<h3 id="IAP程序与ISP程序有什么不同？"><a href="#IAP程序与ISP程序有什么不同？" class="headerlink" title="IAP程序与ISP程序有什么不同？"></a>IAP程序与ISP程序有什么不同？</h3><p>从基本功能来看，IAP程序与ISP程序所做的事情好像是一样的，都是引导加载程序，所以网上有很多文章把IAP程序与ISP程序都称为BootLoader程序，要注意区分。但是，ISP与IAP还是有点区别的。</p>
-<p>STM32内部Flash分为两部分，<code>System Flash</code>和<code>User Flash</code>。上电之后执行哪个Flash里的程序有boot脚来控制。</p>
-<p><code>System Flash</code>内存放的是ST官方编写的自举程序（ISP程序），我们是没有办法改变的。</p>
-<p><code>User Flash</code>是我们可以使用的Flash空间，我们编写的代码就是要烧录到<code>User Flash</code>中。我们可以把<code>User Flash</code>分为两部分，前面一部分空间用于烧写我们编写的IAP程序，后面一部分用于烧写我们编写的应用程序。其中，IAP程序用于更新我们的应用程序。</p>
-<p>ISP程序用于把我们编写的程序更新到0x08000000地址上，如果我们的产品中的程序有<code>IAP程序+应用程序</code>，则此时0x08000000地址存放的程序就是IAP程序。ISP程序、IAP程序、应用程序的关系示意图如下：</p>
-<p><img src="https://s2.ax1x.com/2019/09/18/noJ26O.png" alt></p>
-<p>如果我们的产品中的程序只有<code>应用程序</code>，则此时0x08000000地址存放的程序就是应用程序。ISP程序、应用程序的关系示意图如下：</p>
-<p><img src="https://s2.ax1x.com/2019/09/18/noJotI.png" alt></p>
-<p>以上就是今天的分享，如有错误，欢迎指出！</p>
+<h3 id="2、源码获取"><a href="#2、源码获取" class="headerlink" title="2、源码获取"></a>2、源码获取</h3><blockquote>
+<p>链接：<a href="https://pan.baidu.com/s/1Wr4OXm3jigtzPuIVI8N03w" target="_blank" rel="noopener">https://pan.baidu.com/s/1Wr4OXm3jigtzPuIVI8N03w</a><br>提取码：0vpj </p>
+</blockquote>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
 <p>我的微信公众号：嵌入式大杂烩</p>
-<p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p>
 <p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
 
             </div>
@@ -638,7 +629,7 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
         repo: 'zhengnianli.github.io',
         owner: 'zhengnianli',
         admin: ["zhengnianli"],
-        id: '2019-09-17T08-22-15',
+        id: '2019-08-18T08-22-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -663,31 +654,32 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/20/ba-notepad-pei-zhi-cheng-yi-ge-neng-bian-yi-c-dai-ma-de-ji-shi-ben/">
+                <a href="/2019/08/22/c-yu-yan-bi-ji-goto-yu-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="把notepad++配置成一个能编译C代码的记事本">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】goto语句">
                         
-                        <span class="card-title">把notepad++配置成一个能编译C代码的记事本</span>
+                        <span class="card-title">【C语言笔记】goto语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言本博客已经不只一次提过MinGW了，往期关于C语言方面的推文中，示例代码都是用Notepad++来编写，然后用MinGW中的gcc工具来编译。MinGW的配置及使用方法：【C语言笔记】使用notepad++、MinGW来开发C程序。Mi
+                            关于C语言的goto语句存在很多争议，很多书籍都建议“谨慎使用，或者根本不用”。这里先不做过多的讨论，存在即合理，既然是C语言中的一个知识点，我们还是有必要学会使用。先看一些goto如何用：
+一、goto的基本语法goto语句有两部分：go
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-20
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
+                            <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
                                 </a>
                             
                             
@@ -697,12 +689,8 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/gcc/" target="_blank">
-                        <span class="chip bg-color">gcc</span>
-                    </a>
-                    
-                    <a href="/tags/MinGW/" target="_blank">
-                        <span class="chip bg-color">MinGW</span>
+                    <a href="/tags/goto语句/" target="_blank">
+                        <span class="chip bg-color">goto语句</span>
                     </a>
                     
                 </div>
@@ -716,24 +704,25 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/16/stm32-chuan-kou-iap-fen-xiang/">
+                <a href="/2019/08/16/ti-dai-chuan-kou-da-yin-qian-ru-shi-zhong-ling-yi-chong-da-yin-diao-shi-de-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="STM32串口IAP分享">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="替代串口打印，嵌入式中另一种打印调试的方法">
                         
-                        <span class="card-title">STM32串口IAP分享</span>
+                        <span class="card-title">替代串口打印，嵌入式中另一种打印调试的方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是IAP？IAP是In Application Programming的首字母缩写，IAP是用户自己的程序在运行过程中对User Flash的部分区域进行烧写，目的是为了在产品发布后可以方便地通过预留的通信口对产品中的固件程序进行更新升
+                            一、前言在我们的嵌入式开发中，常常把printf重定向到MCU的串口外设，再配合上位机界面软件，通过打印调试信息的方式来调试我们的嵌入式软件。
+此处，我们介绍另一种打印调试的方法——SEGGER 的RTT 。RTT全称是Real Time 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-16
                             </span>
                         <span class="publish-author">
                             
@@ -750,12 +739,12 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/STM32/" target="_blank">
-                        <span class="chip bg-color">STM32</span>
+                    <a href="/tags/SEGGER-RTT/" target="_blank">
+                        <span class="chip bg-color">SEGGER_RTT</span>
                     </a>
                     
-                    <a href="/tags/IAP/" target="_blank">
-                        <span class="chip bg-color">IAP</span>
+                    <a href="/tags/J-Link/" target="_blank">
+                        <span class="chip bg-color">J-Link</span>
                     </a>
                     
                 </div>
@@ -876,7 +865,7 @@ ISP方式下载程序原理ISP：In System Programing，在系统中编程
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">110.2k</span>
+                <span class="white-color">112.8k</span>
             
 
             
