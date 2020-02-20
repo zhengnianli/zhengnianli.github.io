@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2020-02-20T06:38:28.861Z</updated>
+  <updated>2020-02-20T06:47:09.090Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C语言、嵌入式位操作精华技巧大汇总</title>
+    <link href="https://zhengnianli.github.io/2019/11/27/c-yu-yan-qian-ru-shi-wei-cao-zuo-jing-hua-ji-qiao-da-hui-zong/"/>
+    <id>https://zhengnianli.github.io/2019/11/27/c-yu-yan-qian-ru-shi-wei-cao-zuo-jing-hua-ji-qiao-da-hui-zong/</id>
+    <published>2019-11-27T00:22:15.000Z</published>
+    <updated>2020-02-20T06:47:09.090Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;对于ST的芯片的使用，大家平时在学习、工作中大多使用库函数的方式来开发吧？我之前也是用库函数来进行配置，最近发现直接配置寄存器有时候好像更容易些，而且可读性也不会很差。下面分享关于寄存器配置的一些笔记：&lt;/p&gt;
+&lt;h2 id=&quot;一、位操作简单介绍&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+      <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="位操作" scheme="https://zhengnianli.github.io/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>ARM Cortex-M 系列 MCU错误代码自动追踪库的使用</title>
@@ -545,35 +576,6 @@
     
     
       <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>程序的组成、存储与运行</title>
-    <link href="https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/"/>
-    <id>https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/</id>
-    <published>2019-08-28T00:22:15.000Z</published>
-    <updated>2019-08-28T14:30:33.343Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一般 MCU 包含的存储空间有：片内 Flash 与片内 RAM， RAM 相当于内存， Flash 相当于硬盘。编译器会将一个程序分类为好几个部分，分别存储在 MCU 不同的存储区。&lt;/p&gt;
-&lt;h2 id=&quot;一、编译过程&quot;&gt;&lt;a href=&quot;#一、编译过程&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
     
   </entry>
   
