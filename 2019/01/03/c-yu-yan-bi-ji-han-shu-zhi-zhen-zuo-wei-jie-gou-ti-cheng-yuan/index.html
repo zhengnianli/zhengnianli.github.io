@@ -432,7 +432,8 @@
                 <h2 id="1、函数指针在C语言中的意义"><a href="#1、函数指针在C语言中的意义" class="headerlink" title="1、函数指针在C语言中的意义"></a>1、函数指针在C语言中的意义</h2><p>在C语言程序中，数据结构和算法是两个基本的元素。C语言的基本数据类型、结构体、数组和联合体是数据结构的代表；C语言中的函数则是算法的代表。只有将数据结构和算法有机结合才能构成具有一定功能的程序。</p>
 <h2 id="2、函数指针的应用"><a href="#2、函数指针的应用" class="headerlink" title="2、函数指针的应用"></a>2、函数指针的应用</h2><p>函数指针在嵌入式中的应用非常广泛，常常把函数指针作为结构体的成员、作为函数的参数等。如在物联网操作系统RT-Thread内核源码中，有如下代码：</p>
 <h3 id="（1）函数指针作为结构体成员"><a href="#（1）函数指针作为结构体成员" class="headerlink" title="（1）函数指针作为结构体成员"></a>（1）函数指针作为结构体成员</h3><p><a href="https://imgchr.com/i/VHlag1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHlag1.md.png" alt></a></p>
-<h3 id="（2）函数指针作为函数的参数"><a href="#（2）函数指针作为函数的参数" class="headerlink" title="（2）函数指针作为函数的参数"></a>（2）函数指针作为函数的参数</h3><h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p>建立一个结构体，用于四则运算（根据函数指针的指向可以选择加法运算、减法运算、乘法运算、除法运算），如</p>
+<h3 id="（2）函数指针作为函数的参数"><a href="#（2）函数指针作为函数的参数" class="headerlink" title="（2）函数指针作为函数的参数"></a>（2）函数指针作为函数的参数</h3><p><img src="https://s2.ax1x.com/2020/02/19/3Vrdij.png" alt></p>
+<h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p>建立一个结构体，用于四则运算（根据函数指针的指向可以选择加法运算、减法运算、乘法运算、除法运算），如</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>fun_t<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
 
 <span class="token comment" spellcheck="true">// 包含了数据和算法的结构体</span>
@@ -874,7 +875,7 @@ result <span class="token operator">=</span> data<span class="token punctuation"
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">112.8k</span>
+                <span class="white-color">114.9k</span>
             
 
             

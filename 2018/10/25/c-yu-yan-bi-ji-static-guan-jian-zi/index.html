@@ -434,10 +434,8 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
 <p>伴随着不同源文件变量和函数之间的相互引用以及相互独立的关系，产生了extern和static关键字。</p>
 <p>下面，详细分析一下static关键字在编写程序时有的三大类用法：</p>
 <h2 id="1、static定义全局变量"><a href="#1、static定义全局变量" class="headerlink" title="1、static定义全局变量"></a>1、static定义全局变量</h2><p>一个进程在内存中的布局如图1所示：</p>
-<img src="https://s2.ax1x.com/2019/06/14/V5F0nf.md.png" alt border="0" width="150">
-
-
-<p>其中<code>.text段</code>保存进程所执行的程序二进制文件，<code>.data段</code>保存进程所有的已初始化的全局变量，<code>.bss段</code>保存进程未初始化的全局变量（其他段中还有很多乱七八糟的段，暂且不表）。在进程的整个生命周期中，.data段和.bss段内的数据时跟整个进程同生共死的，也就是在进程结束之后这些数据才会寿终就寝。</p>
+<p><img src="https://s2.ax1x.com/2020/02/19/3E5eud.png" alt></p>
+<p>其中<code>.text段</code>保存进程所执行的程序二进制文件，<code>.data段</code>保存进程所有的已初始化的全局变量，<code>.bss段</code>保存进程未初始化的全局变量（其他段中还有很多乱七八糟的段，暂且不表）。在进程的整个生命周期中，.data和.bss段内的数据时跟整个进程同生共死的，也就是在进程结束之后这些数据才会寿终就寝。</p>
 <p>当一个进程的全局变量被声明为static之后，它的中文名叫<code>静态全局变量</code>。静态全局变量和其他的全局变量的存储地点并没有区别，都是在.data段（已初始化）或者.bss段（未初始化）内，但是它只在定义它的源文件内有效，其他源文件无法访问它。所以，普通全局变量穿上static外衣后，它就变成了新娘，已心有所属，只能被定义它的源文件（新郎）中的变量或函数访问。</p>
 <p>以下是示例程序：</p>
 <p>file1.h如下：</p>
@@ -702,30 +700,33 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/30/c-yu-yan-bi-ji-guan-yu-you-fu-hao-shu-yu-wu-fu-hao-shu-de-yi-xie-zong-jie/">
+                <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【C语言笔记】关于有符号数与无符号数的一些总结">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
                         
-                        <span class="card-title">【C语言笔记】关于有符号数与无符号数的一些总结</span>
+                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、有、无符号数之间的运算有符号数与无符号数之间的运算，编译器会进行隐式类型转换。
-请看如下代码：
-#include &lt;stdio.h>
-int main(void)
-{
-    unsigned int a = 6;
-    int
+                            前言数组与指针是不等价的，如：
+
+数组名不可以改变，而指向数组的指针是可以改变的。
+
+字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+
+求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+
+
+
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
                         </span>
                         <span class="publish-author">
                             
@@ -757,33 +758,36 @@ int main(void)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/25/c-yu-yan-bi-ji-shu-zu-yu-zhi-zhen-bu-deng-jie/">
+                <a href="/2018/10/23/c-yu-yan-bi-ji-guan-yu-shu-zu-yu-zhi-zhen-de-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="【C语言笔记】数组与指针不等价">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【C语言笔记】关于数组与指针的总结">
                         
-                        <span class="card-title">【C语言笔记】数组与指针不等价</span>
+                        <span class="card-title">【C语言笔记】关于数组与指针的总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言数组与指针是不等价的，如：
+                            
+参考：C语言中文网
 
-数组名不可以改变，而指向数组的指针是可以改变的。
+前言数组与指针有很密切的联系，常见的结合情况有以下三种：
 
-字符串指针指向的字符串中的字符是不能改变的，而字符数组中的字符是可以改变的。
+数组指针
+指针数组
+二维数组指针
 
-求数组长度时，借用数组名可求得数组长度，而借用指针却得不到数组长度。
+数组指针数组指针：指向数组的指针。如：
+int arr[] = {0,1,2,3,4};
 
-
-
+int *p = arr; 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-23
                             </span>
                         <span class="publish-author">
                             
@@ -922,7 +926,7 @@ int main(void)
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">112.8k</span>
+                <span class="white-color">114.9k</span>
             
 
             

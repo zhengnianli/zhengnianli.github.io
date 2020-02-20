@@ -293,6 +293,115 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2018/11/13/c-yu-yan-bi-ji-shu-zu-a-yu-a-you-shi-me-bu-tong/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="【C语言笔记】数组a与&a有什么不同？">
+                            
+                            <span class="card-title">【C语言笔记】数组a与&a有什么不同？</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                首先，看一段代码：
+#include &lt;stdio.h>
+
+int main(void)
+{
+ int a[5] = {0,1,2,3,4};
+
+ printf("a = %d , &amp;a = %d \n", a, &amp;a
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
+                                    C语言笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/12/gong-ju-zhe-me-hao-yong-de-dai-ma-yue-du-qi-ni-zhuang-liao-ma/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【工具】这么好用的代码阅读器你装了吗？">
+                            
+                            <span class="card-title">【工具】这么好用的代码阅读器你装了吗？</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、前言作为一名程序员，我们不仅要多动手编代码，而且还应多阅读一些优秀的代码，如C语言的一些第三方库文件、嵌入式中Linux内核源码以及一些项目的代码等。这些源码往往都比较庞大，源文件少则几十个，多则成千上万个源文件，很难把握每个源文件之间
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/工具/" class="post-category" target="_blank">
+                                    工具
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/嵌入式/" target="_blank">
+                            <span class="chip bg-color">嵌入式</span>
+                        </a>
+                        
+                        <a href="/tags/工具/" target="_blank">
+                            <span class="chip bg-color">工具</span>
+                        </a>
+                        
+                        <a href="/tags/代码阅读器/" target="_blank">
+                            <span class="chip bg-color">代码阅读器</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2018/11/08/c-yu-yan-bi-ji-zhi-zhen-han-shu-yu-han-shu-zhi-zhen/">
                         <div class="card-image">
                             
@@ -396,21 +505,25 @@ int main(void)
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
                             
-                            <span class="card-title">【C语言笔记】static关键字</span>
+                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
-C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
+                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
+void func1(int **array, int m, int n)
+{
+ int i = 0, j = 0;
+
+ for ( i = 0; i &lt; m; 
                             
                         </div>
                         <div class="publish-info">
@@ -500,25 +613,21 @@ C语言代码是以文件为单位来组织的，在一个源程序的所有源�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/25/c-yu-yan-bi-ji-guan-yu-er-wei-shu-zu-zuo-wei-han-shu-can-shu-de-wen-ti/">
+                    <a href="/2018/10/25/c-yu-yan-bi-ji-static-guan-jian-zi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【C语言笔记】关于二维数组作为函数参数的问题">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【C语言笔记】static关键字">
                             
-                            <span class="card-title">【C语言笔记】关于二维数组作为函数参数的问题</span>
+                            <span class="card-title">【C语言笔记】static关键字</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                在构建过二维数组作为函数的参数时遇到了一个问题。首先，我们看一个函数：
-void func1(int **array, int m, int n)
-{
- int i = 0, j = 0;
-
- for ( i = 0; i &lt; m; 
+                                参考：https://blog.csdn.net/keyeagle/article/details/6708077?utm_source=copy 
+C语言代码是以文件为单位来组织的，在一个源程序的所有源文件中，一个外部变量（注意不是局部变
                             
                         </div>
                         <div class="publish-info">
@@ -814,106 +923,6 @@ int main(void)
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/17/c-yu-yan-bi-ji-volatile-guan-jian-zi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【C语言笔记】volatile关键字">
-                            
-                            <span class="card-title">【C语言笔记】volatile关键字</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、volatile的作用volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值。
-简单地说就是防止编译器对代码进行优化。比如如下程序：
-XBYTE[2]=0x55;
-XBYTE[2]=0x56;
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/10/14/c-yu-yan-bi-ji-c-yu-yan-bian-yi-de-guo-cheng/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【C语言笔记】C语言编译的过程">
-                            
-                            <span class="card-title">【C语言笔记】C语言编译的过程</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1、前言如果你使用的是集成开发环境，那么你点击编译按钮就可生成可执行文件，然后点击运行即可运行。那么，你知道从源代码到可执行文件经历了哪些过程吗。仅仅是编译？
-下面以windows环境下的test.c为例，test.c里的代码为：
-#inc
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C语言笔记/" class="post-category" target="_blank">
-                                    C语言笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C语言/" target="_blank">
-                            <span class="chip bg-color">C语言</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -953,7 +962,7 @@ XBYTE[2]=0x56;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">112.8k</span>
+                <span class="white-color">114.9k</span>
             
 
             

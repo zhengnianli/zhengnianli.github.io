@@ -5,14 +5,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="【C语言笔记】#运算符与##运算符, 正念的博客">
-    <meta name="description" content="1、#运算符我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：
-
-输出结果为：
-
-然而，我们期望输出的结果是：
-5 + 20 = 25
-13 + 14 = 27
-这该怎么做呢？其实，C语言允许在字符串中包含宏参数。在类函数宏（带参">
+    <meta name="description" content="接上篇笔记我们分享的是RTT的PIN设备驱动：【RT-Thread笔记】IO设备模型及PIN设备，其中用到PIN驱动框架中的pin_mode函数来设置引脚的模式: 
+void rt_pin_mode(rt_base_t pin,rt_bas">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -412,14 +406,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        539
+                        812
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -435,7 +429,30 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、-运算符"><a href="#1、-运算符" class="headerlink" title="1、#运算符"></a>1、#运算符</h2><p>我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：</p>
+                <p>接上篇笔记我们分享的是RTT的PIN设备驱动：<a href="http://mp.weixin.qq.com/s?__biz=MzU5MzcyMjI4MA==&mid=2247485999&idx=1&sn=de5f3c2a4bd4ba01ac11a22ee315f0d5&chksm=fe0d64e8c97aedfe739949aaf3e52aeb7f2c916001efbd9ee46a68a1f07493f669152dbaf8d6&scene=21#wechat_redirect" target="_blank" rel="noopener">【RT-Thread笔记】IO设备模型及PIN设备</a>，其中用到PIN驱动框架中的<code>pin_mode</code>函数来设置引脚的模式: </p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">rt_pin_mode</span><span class="token punctuation">(</span>rt_base_t pin<span class="token punctuation">,</span>rt_base_t mode<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这里的引脚编号pin需要和芯片的引脚号区分开来，它们并不是同一个概念，引脚编号由PIN设备驱动程序定义，和具体的芯片相关。其实，驱动代码<code>drv_gpio.c</code>文件一个结构体数组存放了每个PIN脚对应的编号信息，如： </p>
+<p><img src="https://s2.ax1x.com/2020/02/19/3ERdqx.png" alt></p>
+<p> 可以看到，<code>__STM32_PIN</code>是一个带参宏，其用到<code>##</code>符号是个什么东东？再看一下PIN结构体的定义如下： </p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* STM32 GPIO driver */</span>
+<span class="token keyword">struct</span> pin_index
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> index<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>rcc<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    GPIO_TypeDef <span class="token operator">*</span>gpio<span class="token punctuation">;</span>
+    uint32_t pin<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>其中， <code>__STM32_PIN</code>中的内容为：</p>
+<pre class=" language-c"><code class="language-c">index：代表引脚编号
+GPIO##gpio##_CLK_ENABLE：代表时钟使能
+GPIO##gpio：代表端口
+GPIO_PIN_##gpio_index：代表引脚号</code></pre>
+<p> 从这里可以推出<code>##符号</code>起连接作用。假设这样使用该宏： </p>
+<pre class=" language-c"><code class="language-c"> <span class="token function">__STM32_PIN</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> C<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span> </code></pre>
+<p> 该宏将展开为： </p>
+<pre class=" language-c"><code class="language-c"><span class="token punctuation">{</span><span class="token number">7</span><span class="token punctuation">,</span> GPIOC_CLK_ENABLE<span class="token punctuation">,</span> GPIOC<span class="token punctuation">,</span> GPIO_PIN_13<span class="token punctuation">}</span></code></pre>
+<p> 同时，常常与<code>##符号</code>一起用的还有<code>#符号</code>。下面看看这两个你可能没用过，但却很有用的符号（运算符）： </p>
+<h2 id="1、-运算符"><a href="#1、-运算符" class="headerlink" title="1、#运算符"></a>1、#运算符</h2><p>我们平时使用带参宏时，字符串中的宏参数是没有被替换的。例如：</p>
 <p><a href="https://imgchr.com/i/VbbRo9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbbRo9.md.png" alt></a></p>
 <p>输出结果为：</p>
 <p><a href="https://imgchr.com/i/VbbqdH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbbqdH.md.png" alt="VbbqdH.md.png"></a></p>
@@ -453,18 +470,15 @@
 <p><a href="https://imgchr.com/i/VbqEYn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqEYn.md.png" alt></a></p>
 <p>输出结果为：</p>
 <p><a href="https://imgchr.com/i/VbqdmD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/18/VbqdmD.md.png" alt></a></p>
+<blockquote>
 <p>注意：<code>PRINT_XN()</code>宏用<code>#运算符</code>组合字符串，<code>##运算符</code>把记号组合为一个新的标识符。</p>
-<p>其实，<code>##运算符</code>在这里看来并没有起到多大的便利，反而会让我们感觉到不习惯。但是，使用<code>##运算符</code>有时候是可以提高封装性及程序的可读性的。如跑实时操作系统的stm32程序中，关于gpio的硬件驱动中有如下代码：</p>
+</blockquote>
+<p>其实，<code>##运算符</code>在这里看来并没有起到多大的便利，反而会让我们感觉到不习惯。但是，使用<code>##运算符</code>有时候是可以提高封装性及程序的可读性的。比如上面的gpio驱动代码中：：</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> __STM32_PIN(index, gpio, gpio_index) \
 { \
 index, GPIO##gpio##_CLK_ENABLE, GPIO##gpio, GPIO_PIN_##gpio_index \
 }</span></code></pre>
-<p>假设这样使用该宏：</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">__STM32_PIN</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> C<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span></code></pre>
-<p>该宏将展开为：</p>
-<pre class=" language-c"><code class="language-c"><span class="token punctuation">{</span><span class="token number">7</span><span class="token punctuation">,</span> GPIOC_CLK_ENABLE<span class="token punctuation">,</span> GPIOC<span class="token punctuation">,</span> GPIO_PIN_13<span class="token punctuation">}</span></code></pre>
-<p>然后这就可以很方便的将要使用的硬件引脚这么一一列出来，然后再拿去进行配置：</p>
-<p><a href="https://imgchr.com/i/ZC60ij" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZC60ij.md.png" alt></a></p>
+<p>有些东西我们用得太少了，所以可能会误以为没有用，但实际上却是很有用的，我们应当要多积累各个知识点。 </p>
 <p>以上就是关于#运算符与##运算符的笔记，用#运算符组合字符串，##运算符把记号组合为一个新的标识符。如有错误欢迎指出。资料：『RT-Thread-IoT代码』、『C Primer Plus』。</p>
 <hr>
 <p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
@@ -868,7 +882,7 @@ index, GPIO##gpio##_CLK_ENABLE, GPIO##gpio, GPIO_PIN_##gpio_index \
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">112.8k</span>
+                <span class="white-color">114.9k</span>
             
 
             

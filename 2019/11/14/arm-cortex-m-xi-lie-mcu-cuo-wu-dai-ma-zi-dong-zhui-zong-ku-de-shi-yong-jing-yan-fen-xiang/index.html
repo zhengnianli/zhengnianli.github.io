@@ -1,0 +1,1056 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="ARM Cortex-M 系列 MCU错误代码自动追踪库的使用, 正念的博客">
+    <meta name="description" content="大家在用STM32的时候有没有遇到过HardFault的问题呢：
+
+下面针对这个问题做个小总结。
+现象还原：在debug模式下进行仿真调试，全速运行再停止运行，程序会跑到 HardFault_Handler函数中，产生 HardFault，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ARM Cortex-M 系列 MCU错误代码自动追踪库的使用 | 正念的博客</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">正念的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">正念的博客</div>
+        <div class="logo-desc">
+            
+            本博客内容会同步至我的微信公众号【嵌入式大杂烩】欢迎关注！关注并回复【1024】送你一份学习资料包！
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhengnianli/stm32_weather" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhengnianli/stm32_weather" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ARM Cortex-M 系列 MCU错误代码自动追踪库的使用
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ARM-Cortex-M/" target="_blank">
+                                <span class="chip bg-color">ARM Cortex-M</span>
+                            </a>
+                        
+                            <a href="/tags/错误代码自动追踪库/" target="_blank">
+                                <span class="chip bg-color">错误代码自动追踪库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                嵌入式
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-14
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        3 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>大家在用STM32的时候有没有遇到过HardFault的问题呢：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eF4W6.png" alt></p>
+<p>下面针对这个问题做个小总结。</p>
+<p>现象还原：在debug模式下进行仿真调试，全速运行再停止运行，程序会跑到 HardFault_Handler函数中，产生 HardFault，即硬错。其产生的原因大概有如下几类：</p>
+<p>​    (1)数组越界操作；</p>
+<p>​    (2)内存溢出，访问越界；</p>
+<p>​    (3)堆栈溢出，程序跑飞；</p>
+<p>​    (4)中断处理错误；</p>
+<p>针对HardFault问题的定位，网上有几种方法，大概都是围绕着：在debug模式下，查看一些地址，分析寄存器、函数调用栈等，这是很让人头疼的事情。这里分享一种简单的、直观的HardFault错误定位的方法，使用开源库：<a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">CmBacktrace</a> 。这个库之前已经有介绍过了，这篇笔记我们来实践一下。</p>
+<h3 id="CmBacktrace简介"><a href="#CmBacktrace简介" class="headerlink" title="CmBacktrace简介"></a>CmBacktrace简介</h3><p><a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">CmBacktrace</a> （Cortex Microcontroller Backtrace）是一款针对 ARM Cortex-M 系列 MCU 的错误代码自动追踪、定位，错误原因自动分析的开源库。主要特性如下：</p>
+<ul>
+<li>支持的错误包括：<ul>
+<li>断言（assert）</li>
+<li>故障（Hard Fault, Memory Management Fault, Bus Fault, Usage Fault, Debug Fault）</li>
+</ul>
+</li>
+<li>故障原因 <strong>自动诊断</strong> ：可在故障发生时，自动分析出故障的原因，定位发生故障的代码位置，而无需再手动分析繁杂的故障寄存器；</li>
+<li>适配 Cortex-M0/M3/M4/M7 MCU；</li>
+<li>支持 IAR、KEIL、GCC 编译器；</li>
+</ul>
+<h3 id="移植及使用（keil）"><a href="#移植及使用（keil）" class="headerlink" title="移植及使用（keil）"></a>移植及使用（keil）</h3><p><a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">CmBacktrace</a> 源码地址：</p>
+<blockquote>
+<p><a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">https://github.com/armink/CmBacktrace</a></p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eF7Oe.png" alt></p>
+<p>把cm_backtrace文件夹复制到我们的工程目录下，并添加至keil工程中，并添加头文件、勾选C99模式：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFoQO.png" alt></p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFTyD.png" alt></p>
+<p>此时，编译会产生几个错误：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFhJx.png" alt></p>
+<p>那是因为有些预处理宏没有找到，打开、修改<code>cmb_cfg.h</code>文件的内容。<code>cmb_cfg.h</code>文件默认内容为：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFLTA.png" alt></p>
+<p>我们修改后的<code>cmb_cfg.h</code>内容变为：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFXFI.png" alt></p>
+<p>这时候编译还会有一个错误，cmb_fault.c与stm32f10x_it.c中的HardFault_Handler函数重定义：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFjYt.png" alt></p>
+<p>需要把stm32f10x_it.c中的HardFault_Handler函数屏蔽掉：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFvfP.png" alt></p>
+<p>这时候就可以编译通过了。下面我们来看看这个库的效果。</p>
+<p>我们编写如下测试函数：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*******************************************************************************************************
+** 函数: 错误追踪库测试入口
+**------------------------------------------------------------------------------------------------------
+** 参数: void
+** 返回: 无
+** 说明：
+********************************************************************************************************/</span>
+<span class="token keyword">void</span> <span class="token function">fault_test_entry</span><span class="token punctuation">(</span>fault_test_case_E _test_case<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>_test_case<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> FAULT_TEST_BY_DIV0<span class="token punctuation">:</span> 
+            <span class="token function">fault_test_by_div0</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">case</span> FAULT_TEST_BY_UNALIGN<span class="token punctuation">:</span> 
+            <span class="token function">fault_test_by_unalign</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">default</span><span class="token punctuation">:</span> 
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"test case error!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*******************************************************************************************************
+** 函数: 除0测试
+**------------------------------------------------------------------------------------------------------
+** 参数: void
+** 返回: 无
+** 说明：
+********************************************************************************************************/</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">fault_test_by_div0</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">volatile</span> <span class="token keyword">int</span> <span class="token operator">*</span> SCB_CCR <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">volatile</span> <span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0xE000ED14</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// SCB->CCR</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">;</span>
+
+    <span class="token operator">*</span>SCB_CCR <span class="token operator">|</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* bit4: DIV_0_TRP. */</span>
+
+    x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    z <span class="token operator">=</span> x <span class="token operator">/</span> y<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"z:%d\n"</span><span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>然后在主函数中调用测试函数：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3eFzSf.png" alt></p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ekp6S.png" alt></p>
+<p>下载运行程序：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ek9Og.png" alt></p>
+<p>可以看到，列出的信息很详细，包括出错原因。按照它的提示，我们运行命令：</p>
+<pre class=" language-c"><code class="language-c">addr2line <span class="token operator">-</span>e stm32f10x_demo<span class="token punctuation">.</span>axf <span class="token operator">-</span>a <span class="token operator">-</span>f 0800162a 080016b7 <span class="token number">08001719</span></code></pre>
+<p>运行这个命令需要用到addr2line.exe工具，这个工具在<a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">CmBacktrace</a>源码目录下的tools文件夹中：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ekPmQ.png" alt></p>
+<p>有32bit和64bit两个版本，根据我们的环境选择，并拷贝到我们的keil工程目录下可执行文件.axf所在的文件夹中：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ekiwj.png" alt></p>
+<p>在这个文件中进入到cmd窗口，方法：按下Shift键的同时点击鼠标右键：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ekFTs.png" alt></p>
+<p>运行上面那条命令：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ekAkn.png" alt></p>
+<p>可以看到<code>addr2line.exe</code>工具给我们定位出了错误相关的代码行号，我们看看对应行的代码是什么：</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3ekEYq.png" alt></p>
+<p>对应的行号正是出错的地方。</p>
+<p>可以看到，使用这个<a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">CmBacktrace</a> 库能帮助我们有效、快速地定位到HardFault之类的错误。addr2line命令后面跟着几个地址就是错误相关的地址，这几个地址可以牵扯的内容很深，如果我们不使用<a href="https://github.com/armink/CmBacktrace" target="_blank" rel="noopener">CmBacktrace</a> 库，我们可能就得自己去分析这些偏底层的内容了，相关知识可阅读：《Cortex-M3/M4权威指南》。</p>
+<blockquote>
+<p>本篇笔记keil工程及CmBacktrace源码可在本公众号聊天界面回复关键词：追踪库，进行获取。关于CmBacktrace的详细介绍可阅读全文进行查看。</p>
+</blockquote>
+<p>以上就是本次的笔记分享，如有错误欢迎指出！谢谢</p>
+<hr>
+<p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p>
+<p>我的微信公众号：嵌入式大杂烩</p>
+<p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p>
+<p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">欢迎关注正念君的微信公众号</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <!--<ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微信公众号</a></li>
+                    </ul>-->
+					<!--
+                    <div id="alipay">
+                        <img src="" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+					-->
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信公众号二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '9a79b0786fdd604107df',
+        clientSecret: 'edab3b58af0f0203fcca1b5002349a46c2cccd8e',
+        repo: 'zhengnianli.github.io',
+        owner: 'zhengnianli',
+        admin: ["zhengnianli"],
+        id: '2019-11-14T08-22-15',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/11/14/arm-cortex-m-xi-lie-mcu-cuo-wu-dai-ma-zi-dong-zhui-zong-ku-de-shi-yong-jing-yan-fen-xiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="ARM Cortex-M 系列 MCU错误代码自动追踪库的使用">
+                        
+                        <span class="card-title">ARM Cortex-M 系列 MCU错误代码自动追踪库的使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            大家在用STM32的时候有没有遇到过HardFault的问题呢：
+
+下面针对这个问题做个小总结。
+现象还原：在debug模式下进行仿真调试，全速运行再停止运行，程序会跑到 HardFault_Handler函数中，产生 HardFault，
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ARM-Cortex-M/" target="_blank">
+                        <span class="chip bg-color">ARM Cortex-M</span>
+                    </a>
+                    
+                    <a href="/tags/错误代码自动追踪库/" target="_blank">
+                        <span class="chip bg-color">错误代码自动追踪库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/13/rt-thread-bi-ji-pin-she-bei-zhong-duan-shi-yan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="【RT-Thread笔记】PIN设备中断实验">
+                        
+                        <span class="card-title">【RT-Thread笔记】PIN设备中断实验</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            通用I/O的特性通用I/O口主要特性如下：
+1、输入输出模式可控制。
+（1）输出模式一般包括：推挽、开漏、上拉、下拉。引脚为输出模式时，可以通过配置引脚输出的电平状态为高电平或低电平来控制连接的外围设备。
+（2）输入模式一般包括：浮空、上拉
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/嵌入式/" class="post-category" target="_blank">
+                                    嵌入式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/RT-Thread/" target="_blank">
+                        <span class="chip bg-color">RT-Thread</span>
+                    </a>
+                    
+                    <a href="/tags/PIN设备/" target="_blank">
+                        <span class="chip bg-color">PIN设备</span>
+                    </a>
+                    
+                    <a href="/tags/中断/" target="_blank">
+                        <span class="chip bg-color">中断</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://zhengnianli.github.io/" target="_blank">ZhengNian</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">114.9k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhengnianli" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2238184039@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2238184039" class="tooltipped" data-tooltip="QQ联系我: 2238184039" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

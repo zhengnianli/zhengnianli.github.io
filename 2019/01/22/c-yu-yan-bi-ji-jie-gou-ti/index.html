@@ -490,29 +490,29 @@ student stu1<span class="token punctuation">,</span> stu2<span class="token punc
 <p>结构体变量是否也可以这样初始化？是的，可以。与初始化数组的语法类似：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">struct</span> student stu1 <span class="token operator">=</span> 
 <span class="token punctuation">{</span>
-  <span class="token string">"ZhengNianJun"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 名字：正念君</span>
-  <span class="token number">520</span><span class="token punctuation">,</span>            <span class="token comment" spellcheck="true">// 学号：520</span>
-  <span class="token number">23</span>              <span class="token comment" spellcheck="true">// 年龄：23</span>
+  <span class="token string">"ZhengN"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 名字：ZhengN</span>
+  <span class="token number">520</span><span class="token punctuation">,</span>      <span class="token comment" spellcheck="true">// 学号：520</span>
+  <span class="token number">99</span>        <span class="token comment" spellcheck="true">// 年龄：99</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>简而言之，我们使用在一对花括号中括起来的初始化列表进行初始化，各初始化项用逗号分隔。</p>
 <p>为了让初始化项与结构中各成员的关联更加明显，我们让每个成员的初始化项独占一行。这样做只是为了提高代码的可读性，对编译器而言，只需要用逗号分隔各成员的初始化项即可。</p>
 <p><code>C99</code>和<code>C11</code>为结构提供了<code>指定初始化器（designated initializer）</code>。其初始化器使用点运算符和成员名。例如，只初始化<code>student</code>结构中的<code>name</code>成员，可以这样做：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">struct</span> student stu1 <span class="token operator">=</span>
 <span class="token punctuation">{</span>
-   <span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengNianJun"</span>
+   <span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengN"</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>也可以按照任意顺序使用指定初始化器：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">struct</span> student stu1 <span class="token operator">=</span>
 <span class="token punctuation">{</span>
-   <span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">,</span>
+   <span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">,</span>
    <span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">520</span><span class="token punctuation">,</span>
-   <span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengNianJun"</span>
+   <span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengN"</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>另外，对特定成员的最后一次赋值才是它实际获得的值。例如，考虑如下代码：</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">struct</span> student stu1 <span class="token operator">=</span>
 <span class="token punctuation">{</span>
   <span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">520</span><span class="token punctuation">,</span>
-  <span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengNianJun"</span>，
+  <span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengN"</span>，
    <span class="token number">1314</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>此时，赋给<code>num</code>的值应该是<code>1314</code>，因为它在结构声明中紧跟在<code>name</code>成员之后。新值<code>1314</code>取代了之前的<code>520</code>。</p>
@@ -520,9 +520,9 @@ student stu1<span class="token punctuation">,</span> stu2<span class="token punc
 <p><a href="https://imgchr.com/i/VHPD76" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHPD76.md.png" alt></a></p>
 <h3 id="五、访问结构体成员"><a href="#五、访问结构体成员" class="headerlink" title="五、访问结构体成员"></a>五、访问结构体成员</h3><p>结构体成员的访问需要借助结构体成员运算符——点（.）。如：</p>
 <pre class=" language-c"><code class="language-c">student stu1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 定义一个结构体变量stu1</span>
-stu1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengNianJun"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 给stu1的成员name赋值</span>
-stu1<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">520</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">// 给stu1的成员num赋值</span>
-stu1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// 给stu1的成员age赋值</span></code></pre>
+stu1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengN"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 给stu1的成员name赋值</span>
+stu1<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">520</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 给stu1的成员num赋值</span>
+stu1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 给stu1的成员age赋值</span></code></pre>
 <h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span> student
@@ -537,21 +537,21 @@ stu1<span class="token punctuation">.</span>age <span class="token operator">=</
  student stu1<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 定义一个结构体变量stu1</span>
 
  <span class="token comment" spellcheck="true">/* 给结构体变量stu1的成员进行赋值 */</span>
- stu1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengNianJun"</span><span class="token punctuation">;</span>
+ stu1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"ZhengN"</span><span class="token punctuation">;</span>
  stu1<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">520</span><span class="token punctuation">;</span>
- stu1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>
+ stu1<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>
 
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n============================================\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My name is %s\n"</span><span class="token punctuation">,</span> stu1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My num is %d\n"</span><span class="token punctuation">,</span> stu1<span class="token punctuation">.</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My age is %d\n"</span><span class="token punctuation">,</span> stu1<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"欢迎关注正念君编程学习笔记！\n"</span><span class="token punctuation">,</span> stu1<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"欢迎关注公号：嵌入式大杂烩！\n"</span><span class="token punctuation">,</span> stu1<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"============================================\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p>程序运行结果为：</p>
-<p><a href="https://imgchr.com/i/VHPq3Q" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/17/VHPq3Q.md.png" alt></a></p>
+<p><img src="https://s2.ax1x.com/2020/02/19/3V6WFg.png" alt></p>
 <p>结构体是一块很重要的内容，用得很多。关于结构体的内存对齐可查看往期笔记：<a href="https://zhengnianli.github.io/2018/10/20/c-yu-yan-bi-ji-jie-gou-ti-nei-cun-dui-qi/">【C语言笔记】C语言结构体内存对齐问题</a></p>
 <p>以上就是关于结构体的一些笔记，如有错误欢迎指出。谢谢！</p>
 <hr>
@@ -968,7 +968,7 @@ stu1<span class="token punctuation">.</span>age <span class="token operator">=</
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">112.8k</span>
+                <span class="white-color">114.9k</span>
             
 
             

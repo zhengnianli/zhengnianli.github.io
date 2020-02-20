@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2019-11-04T00:26:35.577Z</updated>
+  <updated>2020-02-20T06:38:28.861Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ARM Cortex-M 系列 MCU错误代码自动追踪库的使用</title>
+    <link href="https://zhengnianli.github.io/2019/11/14/arm-cortex-m-xi-lie-mcu-cuo-wu-dai-ma-zi-dong-zhui-zong-ku-de-shi-yong-jing-yan-fen-xiang/"/>
+    <id>https://zhengnianli.github.io/2019/11/14/arm-cortex-m-xi-lie-mcu-cuo-wu-dai-ma-zi-dong-zhui-zong-ku-de-shi-yong-jing-yan-fen-xiang/</id>
+    <published>2019-11-14T00:22:15.000Z</published>
+    <updated>2020-02-20T06:38:28.861Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;大家在用STM32的时候有没有遇到过HardFault的问题呢：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/02/20/3eF4W6.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="ARM Cortex-M" scheme="https://zhengnianli.github.io/tags/ARM-Cortex-M/"/>
+    
+      <category term="错误代码自动追踪库" scheme="https://zhengnianli.github.io/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E8%BF%BD%E8%B8%AA%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【RT-Thread笔记】PIN设备中断实验</title>
+    <link href="https://zhengnianli.github.io/2019/11/13/rt-thread-bi-ji-pin-she-bei-zhong-duan-shi-yan/"/>
+    <id>https://zhengnianli.github.io/2019/11/13/rt-thread-bi-ji-pin-she-bei-zhong-duan-shi-yan/</id>
+    <published>2019-11-13T00:22:15.000Z</published>
+    <updated>2020-02-20T06:28:39.902Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;通用I-O的特性&quot;&gt;&lt;a href=&quot;#通用I-O的特性&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="RT-Thread" scheme="https://zhengnianli.github.io/tags/RT-Thread/"/>
+    
+      <category term="PIN设备" scheme="https://zhengnianli.github.io/tags/PIN%E8%AE%BE%E5%A4%87/"/>
+    
+      <category term="中断" scheme="https://zhengnianli.github.io/tags/%E4%B8%AD%E6%96%AD/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -39,11 +98,11 @@
   </entry>
   
   <entry>
-    <title>【RT-Thread笔记】IO设备模型及GPIO设备</title>
-    <link href="https://zhengnianli.github.io/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-gpio-she-bei/"/>
-    <id>https://zhengnianli.github.io/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-gpio-she-bei/</id>
+    <title>【RT-Thread笔记】IO设备模型及PIN设备</title>
+    <link href="https://zhengnianli.github.io/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-pin-she-bei/"/>
+    <id>https://zhengnianli.github.io/2019/11/10/rt-thread-bi-ji-io-she-bei-mo-xing-ji-pin-she-bei/</id>
     <published>2019-11-10T00:22:15.000Z</published>
-    <updated>2019-11-10T15:27:17.823Z</updated>
+    <updated>2020-02-20T06:23:45.752Z</updated>
     
     <summary type="html">
     
@@ -490,32 +549,6 @@
   </entry>
   
   <entry>
-    <title>C语言代码优化的一些经验及小技巧（二）</title>
-    <link href="https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/"/>
-    <id>https://zhengnianli.github.io/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/</id>
-    <published>2019-08-28T00:22:15.000Z</published>
-    <updated>2019-10-12T00:39:36.557Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;函数相关&quot;&gt;&lt;a href=&quot;#函数相关&quot; class=&quot;headerlink&quot; title=&quot;函数相关&quot;&gt;&lt;/a&gt;函数相关&lt;/h2&gt;&lt;h3 id=&quot;1、参数的书写要完整&quot;&gt;&lt;a href=&quot;#1、参数的书写要完整&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>程序的组成、存储与运行</title>
     <link href="https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/"/>
     <id>https://zhengnianli.github.io/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/</id>
@@ -538,35 +571,9 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
       <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
-  </entry>
-  
-  <entry>
-    <title>C语言代码优化的一些经验及小技巧（一）</title>
-    <link href="https://zhengnianli.github.io/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/"/>
-    <id>https://zhengnianli.github.io/2019/08/27/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-yi/</id>
-    <published>2019-08-27T00:22:15.000Z</published>
-    <updated>2019-10-12T00:35:45.204Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、变量与值得比较&quot;&gt;&lt;a href=&quot;#一、变量与值得比较&quot; class=&quot;headerlink&quot; title=&quot;一、变量与值得比较&quot;&gt;&lt;/a&gt;一、变量与值得比较&lt;/h2&gt;&lt;h3 id=&quot;1、布尔变量与零值的比较&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="代码优化" scheme="https://zhengnianli.github.io/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
     
   </entry>
   
