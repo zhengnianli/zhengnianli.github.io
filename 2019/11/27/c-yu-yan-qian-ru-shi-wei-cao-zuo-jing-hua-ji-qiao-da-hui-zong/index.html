@@ -421,7 +421,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        7 分
                     </div>
                     
                 
@@ -439,9 +439,9 @@
             <div id="articleContent">
                 <p>对于ST的芯片的使用，大家平时在学习、工作中大多使用库函数的方式来开发吧？我之前也是用库函数来进行配置，最近发现直接配置寄存器有时候好像更容易些，而且可读性也不会很差。下面分享关于寄存器配置的一些笔记：</p>
 <h2 id="一、位操作简单介绍"><a href="#一、位操作简单介绍" class="headerlink" title="一、位操作简单介绍"></a>一、位操作简单介绍</h2><p>首先，以下是按位运算符：</p>
-<p>======021</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nstBt.png" alt></p>
 <p>在<code>嵌入式编程</code>中，常常需要对一些寄存器进行配置，有的情况下需要改变一个字节中的某一位或者几位，但是又不想改变其它位原有的值，这时就可以使用按位运算符进行操作。下面进行举例说明，假如有一个8位的TEST寄存器：</p>
-<p>======022</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsNHP.png" alt></p>
 <p>当我们要设置第0位bit0的值为1时，可能会这样进行设置：</p>
 <pre class=" language-cpp"><code class="language-cpp">TEST <span class="token operator">=</span> <span class="token number">0x01</span><span class="token punctuation">;</span></code></pre>
 <p>但是，这样设置是不够准确的，因为这时候已经同时操作到了高7位：<code>bit1~bit7</code>，如果这高7位没有用到的话，这么设置没有什么影响；但是，如果这7位正在被使用，结果就不是我们想要的了。</p>
@@ -461,57 +461,51 @@
 <span class="token macro property">#<span class="token directive keyword">define</span>    GET_LOW_BYTE2(x)    ((x >> 16) &amp; 0x000000ff)    </span><span class="token comment" spellcheck="true">/* 获取第2个字节 */</span>
 <span class="token macro property">#<span class="token directive keyword">define</span>    GET_LOW_BYTE3(x)    ((x >> 24) &amp; 0x000000ff)    </span><span class="token comment" spellcheck="true">/* 获取第3个字节 */</span></code></pre>
 <p>示例：</p>
-<p>======001</p>
-<p>======002</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsS00.png" alt></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nrvXn.png" alt></p>
 <p><strong>（2）获取某一位：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span>    GET_BIT(x, bit)    ((x &amp; (1 &lt;&lt; bit)) >> bit)    </span><span class="token comment" spellcheck="true">/* 获取第bit位 */</span></code></pre>
 <p>示例：</p>
-<p>======003</p>
-<p>======004</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nrzmq.png" alt></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nrj6s.png" alt></p>
 <h3 id="2、一个32bit数据的位、字节清零操作"><a href="#2、一个32bit数据的位、字节清零操作" class="headerlink" title="2、一个32bit数据的位、字节清零操作"></a>2、一个32bit数据的位、字节清零操作</h3><p><strong>（1）清零某个字节：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span>    CLEAR_LOW_BYTE0(x)    (x &amp;= 0xffffff00)    </span><span class="token comment" spellcheck="true">/* 清零第0个字节 */</span>
 <span class="token macro property">#<span class="token directive keyword">define</span>    CLEAR_LOW_BYTE1(x)    (x &amp;= 0xffff00ff)    </span><span class="token comment" spellcheck="true">/* 清零第1个字节 */</span>
 <span class="token macro property">#<span class="token directive keyword">define</span>    CLEAR_LOW_BYTE2(x)    (x &amp;= 0xff00ffff)    </span><span class="token comment" spellcheck="true">/* 清零第2个字节 */</span>
 <span class="token macro property">#<span class="token directive keyword">define</span>    CLEAR_LOW_BYTE3(x)    (x &amp;= 0x00ffffff)    </span><span class="token comment" spellcheck="true">/* 清零第3个字节 */</span></code></pre>
 <p>示例：</p>
-<p>======005</p>
-<p>======006</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsp7V.png" alt></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsCkT.png" alt></p>
 <p><strong>（2）清零某一位：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span>    CLEAR_BIT(x, bit)    (x &amp;= ~(1 &lt;&lt; bit))    </span><span class="token comment" spellcheck="true">/* 清零第bit位 */</span></code></pre>
 <p>示例：</p>
-<p>=======007</p>
-<p>=======008</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsPtU.png" alt><br><img src="https://s2.ax1x.com/2020/02/21/3nsihF.png" alt></p>
 <h3 id="3、一个32bit数据的位、字节置1操作"><a href="#3、一个32bit数据的位、字节置1操作" class="headerlink" title="3、一个32bit数据的位、字节置1操作"></a>3、一个32bit数据的位、字节置1操作</h3><p><strong>（1）置某个字节为1：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span>    SET_LOW_BYTE0(x)    (x |= 0x000000ff)    </span><span class="token comment" spellcheck="true">/* 第0个字节置1 */</span>    
 <span class="token macro property">#<span class="token directive keyword">define</span>    SET_LOW_BYTE1(x)    (x |= 0x0000ff00)    </span><span class="token comment" spellcheck="true">/* 第1个字节置1 */</span>    
 <span class="token macro property">#<span class="token directive keyword">define</span>    SET_LOW_BYTE2(x)    (x |= 0x00ff0000)    </span><span class="token comment" spellcheck="true">/* 第2个字节置1 */</span>    
 <span class="token macro property">#<span class="token directive keyword">define</span>    SET_LOW_BYTE3(x)    (x |= 0xff000000)    </span><span class="token comment" spellcheck="true">/* 第3个字节置1 */</span></code></pre>
 <p>示例：</p>
-<p>======009</p>
-<p>======010</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nskp4.png" alt><br><img src="https://s2.ax1x.com/2020/02/21/3nsA1J.png" alt></p>
 <p><strong>（2）置位某一位：</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span>    SET_BIT(x, bit)    (x |= (1 &lt;&lt; bit))    </span><span class="token comment" spellcheck="true">/* 置位第bit位 */</span></code></pre>
-<p>======011</p>
-<p>======012</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsEc9.png" alt><br><img src="https://s2.ax1x.com/2020/02/21/3nsVXR.png" alt></p>
 <h3 id="4、判断某一位或某几位连续位的值"><a href="#4、判断某一位或某几位连续位的值" class="headerlink" title="4、判断某一位或某几位连续位的值"></a>4、判断某一位或某几位连续位的值</h3><p><strong>（1）判断某一位的值</strong></p>
 <p>举例说明：判断0x68第3位的值。</p>
-<p>======013</p>
-<p>======014</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsen1.png" alt><br><img src="https://s2.ax1x.com/2020/02/21/3nsm0x.png" alt></p>
 <p>也就是说，要判断第几位的值，if里就左移几位（当然别过头了）。在嵌入式编程中，可通过这样的方式来判断寄存器的状态位是否被置位。</p>
 <p><strong>（2）判断某几位连续位的值</strong></p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 获取第[n:m]位的值 */</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> BIT_M_TO_N(x, m, n)  ((unsigned int)(x &lt;&lt; (31-(n))) >> ((31 - (n)) + (m)))</span></code></pre>
 <p>示例：</p>
-<p>======015</p>
-<p>======016</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsn76.png" alt><br><img src="https://s2.ax1x.com/2020/02/21/3nsKAK.png" alt></p>
 <p>这是一个查询连续状态位的例子，因为有些情况不止有0、1两种状态，可能会有多种状态，这种情况下就可以用这种方法来取出状态位，再去执行相应操作。</p>
 <p>以上是对32bit数据的一些操作进行总结，其它位数的数据类似，可根据需要进行修改。</p>
 <h2 id="三、STM32寄存器配置"><a href="#三、STM32寄存器配置" class="headerlink" title="三、STM32寄存器配置"></a>三、STM32寄存器配置</h2><p>STM32有几套固件库，这些固件库函数以函数的形式进行1层或者多层封装（软件开发中很重要的思想之一：分层思想），但是到了最里面的一层就是对寄存器的配置。我们平时都比较喜欢固件库来开发，大概是因为固件库用起来比较简单，用固件库写出来的代码比较容易阅读。最近一段时间一直在配置寄存器，越发地发现使用寄存器来进行一些外设的配置也是很容易懂的。使用寄存器的方式编程无非就是往寄存器的某些位置1、清零以及对寄存器一些状态位进行判断、读取寄存器的内容等。</p>
 <p>这些基本操作在上面的例子中已经有介绍，我们依旧以实例来巩固上面的知识点（以STM32F1xx为例）：</p>
 <p><strong>（1）寄存器配置</strong></p>
 <p>看一下GPIO功能的端口输出数据寄存器  (GPIOx_ODR) (x=A..E)  ：</p>
-<p>======017</p>
-<p>假设我们要让<code>PA10</code>引脚输出高、输出低，可以这么做：</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsMtO.png" alt>假设我们要让<code>PA10</code>引脚输出高、输出低，可以这么做：</p>
 <p><strong>方法一：</strong></p>
 <pre class=" language-c"><code class="language-c">GPIOA<span class="token operator">-></span>ODR <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* PA10输出高（置1操作） */</span>
 GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span>（<span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">10</span>）<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">/* PA10输出低（清0操作） */</span></code></pre>
@@ -523,20 +517,20 @@ GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp
 GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token punctuation">(</span>uint16_t<span class="token punctuation">)</span><span class="token number">0x0400</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">/* PA10输出低（清0操作） */</span></code></pre>
 <p>貌似第二种方法更麻烦？还得去细心地去构造一个数据。</p>
 <p>但是，其实第二种方法其实是ST推荐我们用的方法，为什么这么说呢？因为ST官方已经把这些我们要用到的值给我们配好了，在<code>stm32f10x.h</code>中：</p>
-<p>======018</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsQhD.png" alt></p>
 <p>这个头文件中存放的就是外设寄存器的一些位配置。</p>
 <p>所以我们的方法二等价于：</p>
 <pre class=" language-c"><code class="language-c">GPIOA<span class="token operator">-></span>ODR <span class="token operator">|</span><span class="token operator">=</span> GPIO_ODR_ODR10<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">/* PA10输出高（置1操作） */</span>
 GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span>GPIO_ODR_ODR10<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">/* PA10输出低（清0操作） */</span></code></pre>
 <p>两种方法都是很好的方法，但方法一似乎更好理解。</p>
 <p>配置连续几位的方法也是一样的，就不介绍了。简单介绍配置不连续位的方法，以TIM1的CR1寄存器为例：</p>
-<p>======019</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3ns19e.png" alt></p>
 <p>设置CEN位为1、设置CMS[1:0]位为01、设置CKD[1:0]位为10：</p>
 <pre class=" language-c"><code class="language-c">TIM1<span class="token operator">-></span>CR1 <span class="token operator">|</span><span class="token operator">=</span> （<span class="token number">0x1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">|</span> <span class="token punctuation">(</span><span class="token number">0x1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token punctuation">(</span><span class="token number">0x2</span> <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>这是组合的写法。当然，像上面一样拆开来写也是可以的。</p>
 <p><strong>（2）判断标志位</strong></p>
 <p>以状态寄存器(USART_SR) 为例：</p>
-<p>======020</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3nsGjA.png" alt></p>
 <p>判断RXNE是否被置位：</p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 数据寄存器非空，RXNE标志置位 */</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>USART1<span class="token operator">-></span>SR <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -749,29 +743,27 @@ GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/27/c-yu-yan-qian-ru-shi-wei-cao-zuo-jing-hua-ji-qiao-da-hui-zong/">
+                <a href="/2019/12/09/rt-thread-bi-ji-lin-jie-qu-wen-ti-ji-ipc-ji-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C语言、嵌入式位操作精华技巧大汇总">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="【RT-Thread笔记】临界区问题及IPC机制">
                         
-                        <span class="card-title">C语言、嵌入式位操作精华技巧大汇总</span>
+                        <span class="card-title">【RT-Thread笔记】临界区问题及IPC机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对于ST的芯片的使用，大家平时在学习、工作中大多使用库函数的方式来开发吧？我之前也是用库函数来进行配置，最近发现直接配置寄存器有时候好像更容易些，而且可读性也不会很差。下面分享关于寄存器配置的一些笔记：
-一、位操作简单介绍首先，以下是按位运
+                            什么是临界区？在多线程实时系统中，多个线程操作/访问同一块区域（代码），这块代码就称为临界区。  例如一项工作中的两个线程：一个线程从传感器中接收数据并且将数据写到共享内存中，同时另一个线程周期性的从共享内存中读取数据并发送去显示，下图描述
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -784,20 +776,19 @@ GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/嵌入式/" target="_blank">
-                        <span class="chip bg-color">嵌入式</span>
+                    <a href="/tags/RT-Thread/" target="_blank">
+                        <span class="chip bg-color">RT-Thread</span>
                     </a>
                     
-                    <a href="/tags/C语言/" target="_blank">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/IPC机制/" target="_blank">
+                        <span class="chip bg-color">IPC机制</span>
                     </a>
                     
-                    <a href="/tags/位操作/" target="_blank">
-                        <span class="chip bg-color">位操作</span>
+                    <a href="/tags/临界区问题/" target="_blank">
+                        <span class="chip bg-color">临界区问题</span>
                     </a>
                     
                 </div>
@@ -974,7 +965,7 @@ GPIOA<span class="token operator">-></span>ODR <span class="token operator">&amp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">117k</span>
+                <span class="white-color">120.1k</span>
             
 
             
