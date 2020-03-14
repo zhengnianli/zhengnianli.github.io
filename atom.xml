@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2020-03-06T13:27:35.457Z</updated>
+  <updated>2020-03-13T15:59:24.870Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从单片机工程师的角度看嵌入式</title>
+    <link href="https://zhengnianli.github.io/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/"/>
+    <id>https://zhengnianli.github.io/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/</id>
+    <published>2020-03-12T00:22:15.000Z</published>
+    <updated>2020-03-13T15:59:24.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+      <category term="单片机" scheme="https://zhengnianli.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Linux笔记】LED驱动</title>
+    <link href="https://zhengnianli.github.io/2020/03/12/linux-bi-ji-led-qu-dong/"/>
+    <id>https://zhengnianli.github.io/2020/03/12/linux-bi-ji-led-qu-dong/</id>
+    <published>2020-03-12T00:22:15.000Z</published>
+    <updated>2020-03-13T15:50:30.238Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上一篇我们分享了字符设备驱动框架：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+      <category term="驱动" scheme="https://zhengnianli.github.io/tags/%E9%A9%B1%E5%8A%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>【Linux笔记】挂载网络文件系统</title>
@@ -527,62 +583,6 @@
       <category term="ISP" scheme="https://zhengnianli.github.io/tags/ISP/"/>
     
       <category term="BootLoader" scheme="https://zhengnianli.github.io/tags/BootLoader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【STM32笔记】串口IAP分享</title>
-    <link href="https://zhengnianli.github.io/2019/09/16/stm32-bi-ji-chuan-kou-iap-fen-xiang/"/>
-    <id>https://zhengnianli.github.io/2019/09/16/stm32-bi-ji-chuan-kou-iap-fen-xiang/</id>
-    <published>2019-09-16T00:22:15.000Z</published>
-    <updated>2019-10-13T06:43:00.703Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;什么是IAP？&quot;&gt;&lt;a href=&quot;#什么是IAP？&quot; class=&quot;headerlink&quot; title=&quot;什么是IAP？&quot;&gt;&lt;/a&gt;什么是IAP？&lt;/h3&gt;&lt;p&gt;&lt;code&gt;IAP&lt;/code&gt;是&lt;code&gt;In Application
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="STM32" scheme="https://zhengnianli.github.io/tags/STM32/"/>
-    
-      <category term="IAP" scheme="https://zhengnianli.github.io/tags/IAP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>易错、经典问题：return不可返回指向栈内存的指针</title>
-    <link href="https://zhengnianli.github.io/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/"/>
-    <id>https://zhengnianli.github.io/2019/09/06/yi-cuo-jing-dian-wen-ti-return-bu-ke-fan-hui-zhi-xiang-zhan-nei-cun-de-zhi-zhen/</id>
-    <published>2019-09-06T00:22:15.000Z</published>
-    <updated>2019-09-08T10:45:03.094Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;预备知识：内存的分类&quot;&gt;&lt;a href=&quot;#预备知识：内存的分类&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="C语言笔记" scheme="https://zhengnianli.github.io/categories/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="return" scheme="https://zhengnianli.github.io/tags/return/"/>
-    
-      <category term="栈指针" scheme="https://zhengnianli.github.io/tags/%E6%A0%88%E6%8C%87%E9%92%88/"/>
     
   </entry>
   
