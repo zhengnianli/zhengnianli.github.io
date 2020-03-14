@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengnianli.github.io/"/>
-  <updated>2020-03-13T15:59:24.870Z</updated>
+  <updated>2020-03-13T15:50:30.238Z</updated>
   <id>https://zhengnianli.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>从单片机工程师的角度看嵌入式</title>
-    <link href="https://zhengnianli.github.io/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/"/>
-    <id>https://zhengnianli.github.io/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/</id>
-    <published>2020-03-12T00:22:15.000Z</published>
-    <updated>2020-03-13T15:59:24.870Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
-    
-      <category term="单片机" scheme="https://zhengnianli.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
   
   <entry>
     <title>【Linux笔记】LED驱动</title>
@@ -69,6 +41,34 @@
       <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
     
       <category term="驱动" scheme="https://zhengnianli.github.io/tags/%E9%A9%B1%E5%8A%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从单片机工程师的角度看嵌入式</title>
+    <link href="https://zhengnianli.github.io/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/"/>
+    <id>https://zhengnianli.github.io/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/</id>
+    <published>2020-03-12T00:22:15.000Z</published>
+    <updated>2020-03-13T15:59:24.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+      <category term="Linux" scheme="https://zhengnianli.github.io/tags/Linux/"/>
+    
+      <category term="单片机" scheme="https://zhengnianli.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
@@ -210,9 +210,9 @@
       <category term="嵌入式" scheme="https://zhengnianli.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
       <category term="C语言" scheme="https://zhengnianli.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="嵌入式" scheme="https://zhengnianli.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
       <category term="位操作" scheme="https://zhengnianli.github.io/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
     

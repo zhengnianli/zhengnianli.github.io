@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>从单片机工程师的角度看嵌入式</title>
-      <link href="/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/"/>
-      <url>/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章简单我们来一起梳理嵌入式Linux的一些知识，方便于一些想跟我一样想要由单片机进阶到嵌入式Linux的朋友做一些参考学习。</p><h2 id="嵌入式Linux学哪些东西"><a href="#嵌入式Linux学哪些东西" class="headerlink" title="嵌入式Linux学哪些东西"></a>嵌入式Linux学哪些东西</h2><h3 id="1、认识Linux"><a href="#1、认识Linux" class="headerlink" title="1、认识Linux"></a>1、认识Linux</h3><p><img src="https://s1.ax1x.com/2020/03/13/8MEl0e.png" alt></p><p>学单片机的朋友有些有一些Linux基础了，但也不乏有些朋友没用过Linux，甚至有些初学的读者朋友没听说过Linux，为了照顾这些朋友，这里简单地认识一下Linux：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEKOO.png" alt></p><h3 id="2、认识嵌入式Linux"><a href="#2、认识嵌入式Linux" class="headerlink" title="2、认识嵌入式Linux"></a>2、认识嵌入式Linux</h3><p>学习嵌入式Linux我们需要关注以下几大块内容：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEnl6.png" alt></p><p>嵌入式Linux软件部分最重要的三部分当属<code>Bootloader、Linux内核、根文件系统</code>。有了这三部分，这才是一个最小的、完整的、可运行程序的嵌入式系统。</p><h4 id="（1）BootLoader"><a href="#（1）BootLoader" class="headerlink" title="（1）BootLoader"></a>（1）BootLoader</h4><p><code>BootLoader</code> 是在操作系统运行之前运行的一段代码， 用于<code>引导操作系统</code>。开源的<code>BootLoader</code> 有很多种，比如RedBoot、U-Boot 等 ，其中<code>U-Boot</code>用得最多。U-Boot的源码非常庞大：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEu6K.png" alt></p><p>我们的学习重心在于学会怎么把芯片原厂移植好的U-Boot拿来修改然后适配我们的板子：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEmSx.png" alt></p><p>平时说的<code>U-Boot移植</code>通常都是指把芯片原厂移植好的U-Boot拿来修改适配我们板子的过程。</p><h4 id="（2）Linux内核"><a href="#（2）Linux内核" class="headerlink" title="（2）Linux内核"></a>（2）Linux内核</h4><p>Linux 内核（英语： Linux kernel）是一种开源的类 Unix 操作系统<code>宏内核</code>。 我们要学习移植的Linux内核也是把芯片原厂移植好的Linux内核包拿来作移植。内核源码目录如下：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEB7Q.png" alt></p><h4 id="（3）根文件系统"><a href="#（3）根文件系统" class="headerlink" title="（3）根文件系统"></a>（3）根文件系统</h4><p>根文件系统<code>（rootfs）</code>是内核启动时所 mount(挂载)的第一个文件系统，内核代码映像文件保存在根文件系中，而系统引导启动程序会在根文件系统挂载之后从中把一些基本的初始化脚本和服务等加载到内存中去运行。</p><p>这里的根文件系统的重要性犹如我们电脑的系统盘，有这个系统盘我们才能装我们的系统。根文件系统有根目录<code>/</code>，根目录下有很多子目录：</p><p><img src="https://s1.ax1x.com/2020/03/13/8ME1TH.png" alt></p><p><img src="https://s1.ax1x.com/2020/03/13/8MEGtA.png" alt></p><p>根文件系统需要专门的框架来制作，这样的框架有： BusyBox、Yocto、Buildroot 等。</p><h4 id="（4）Linux驱动"><a href="#（4）Linux驱动" class="headerlink" title="（4）Linux驱动"></a>（4）Linux驱动</h4><p>Linux驱动应该是我们学习嵌入式Linux的起始点与重心。上面那三大块内容已经为我们创建好了完整的嵌入式Linux环境。有了这样一个环境，我们的Linux驱动就可以装在上面。Linux驱动：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEtpt.png" alt></p><p>Linux中有三大类驱动：字符设备驱动、块设备驱动、网络设备驱动。</p><p>设备树(Device Tree)，将这个词分开就是“设备”和“树”，描述设备树的文件叫做 DTS(DeviceTree Source)，这个 DTS 文件采用树形结构描述板级设备，也就是开发板上的设备信息，比如CPU 数量、 内存基地址、 IIC 接口上接了哪些设备、 SPI 接口上接了哪些设备等等。</p><h4 id="（5）Linux应用"><a href="#（5）Linux应用" class="headerlink" title="（5）Linux应用"></a>（5）Linux应用</h4><p>Linux中：一切皆文件。在C编程中，我们都知道对文件的操作都是打开文件、读写文件、关闭文件等。在嵌入式Linux应用编程中，我们的关注点也是怎么操作（open、close、read、write等）这些文件（设备文件等）。</p><h3 id="3、学习嵌入式Linux的一些经验"><a href="#3、学习嵌入式Linux的一些经验" class="headerlink" title="3、学习嵌入式Linux的一些经验"></a>3、学习嵌入式Linux的一些经验</h3><p>嵌入式Linux的学习相对于单片机的学习来说要难很多，不仅要学的内容变多了，光是熟悉开发环境（Linux环境、交叉编译器、Makefile等）这一块就挺多内容，从深度上更是比单片机要深不少，比如以前学STM32是IDE编译，嵌入式Linux是直接用编译器编译或使用编译脚本编译。</p><p>从我入门到放弃的经验来看，从Linux驱动和应用开始学是比较好的，不要一上来就去撸上面那三个巨头，不然很容易从入门到放弃。。。</p><p>学习这个做好吃苦的准备，可能很多问题都会令你暴走。比如你按照教程来做，最后出来的结果可能不一样，可能会冒出很多问题，这都是很正常的。而且有时候看似只是一个问题，但这个问题会牵扯着其它问题，得有耐心的解决。</p><p>比如我前几天在编译Linux内核的时候，出现如下问题：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEN1P.png" alt></p><p>根据日志问题描述：缺少了一个叫<code>lzop</code>的东西，然后我按提示安装这个东西，然后又冒出问题：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEU6f.png" alt></p><p>然后只能到网上找解决方法，然后一个一个方法试，最后解决了：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEaX8.png" alt></p><p><img src="https://s1.ax1x.com/2020/03/13/8MEwnS.png" alt></p><p><img src="https://s1.ax1x.com/2020/03/13/8ME00g.png" alt></p><p>我的实验方法是和教程一样的，包括开发环境都是教程提供的，这样与教程完全一样的操作都能出现问题，何况有时候得自己搭环境，那出错的概率会更大。</p><p>无论如何，都不要那么容易放弃。</p><h4 id="4、最后"><a href="#4、最后" class="headerlink" title="4、最后"></a>4、最后</h4><p>嵌入式Linux的知识不仅限于上面提到的，但基本包含了我们的主要学习内容。上面提到的只是一些表层的概念性的知识，之后我们将一起来学习分享更多比较深入的、细节的知识。欢迎持续关注阅读更多笔记。</p><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p><p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 嵌入式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-            <tag> 单片机 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【Linux笔记】LED驱动</title>
       <link href="/2020/03/12/linux-bi-ji-led-qu-dong/"/>
       <url>/2020/03/12/linux-bi-ji-led-qu-dong/</url>
@@ -50,6 +23,33 @@
             <tag> Linux </tag>
             
             <tag> 驱动 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从单片机工程师的角度看嵌入式</title>
+      <link href="/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/"/>
+      <url>/2020/03/12/cong-dan-pian-ji-gong-cheng-shi-de-jiao-du-kan-qian-ru-shi-linux/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章简单我们来一起梳理嵌入式Linux的一些知识，方便于一些想跟我一样想要由单片机进阶到嵌入式Linux的朋友做一些参考学习。</p><h2 id="嵌入式Linux学哪些东西"><a href="#嵌入式Linux学哪些东西" class="headerlink" title="嵌入式Linux学哪些东西"></a>嵌入式Linux学哪些东西</h2><h3 id="1、认识Linux"><a href="#1、认识Linux" class="headerlink" title="1、认识Linux"></a>1、认识Linux</h3><p><img src="https://s1.ax1x.com/2020/03/13/8MEl0e.png" alt></p><p>学单片机的朋友有些有一些Linux基础了，但也不乏有些朋友没用过Linux，甚至有些初学的读者朋友没听说过Linux，为了照顾这些朋友，这里简单地认识一下Linux：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEKOO.png" alt></p><h3 id="2、认识嵌入式Linux"><a href="#2、认识嵌入式Linux" class="headerlink" title="2、认识嵌入式Linux"></a>2、认识嵌入式Linux</h3><p>学习嵌入式Linux我们需要关注以下几大块内容：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEnl6.png" alt></p><p>嵌入式Linux软件部分最重要的三部分当属<code>Bootloader、Linux内核、根文件系统</code>。有了这三部分，这才是一个最小的、完整的、可运行程序的嵌入式系统。</p><h4 id="（1）BootLoader"><a href="#（1）BootLoader" class="headerlink" title="（1）BootLoader"></a>（1）BootLoader</h4><p><code>BootLoader</code> 是在操作系统运行之前运行的一段代码， 用于<code>引导操作系统</code>。开源的<code>BootLoader</code> 有很多种，比如RedBoot、U-Boot 等 ，其中<code>U-Boot</code>用得最多。U-Boot的源码非常庞大：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEu6K.png" alt></p><p>我们的学习重心在于学会怎么把芯片原厂移植好的U-Boot拿来修改然后适配我们的板子：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEmSx.png" alt></p><p>平时说的<code>U-Boot移植</code>通常都是指把芯片原厂移植好的U-Boot拿来修改适配我们板子的过程。</p><h4 id="（2）Linux内核"><a href="#（2）Linux内核" class="headerlink" title="（2）Linux内核"></a>（2）Linux内核</h4><p>Linux 内核（英语： Linux kernel）是一种开源的类 Unix 操作系统<code>宏内核</code>。 我们要学习移植的Linux内核也是把芯片原厂移植好的Linux内核包拿来作移植。内核源码目录如下：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEB7Q.png" alt></p><h4 id="（3）根文件系统"><a href="#（3）根文件系统" class="headerlink" title="（3）根文件系统"></a>（3）根文件系统</h4><p>根文件系统<code>（rootfs）</code>是内核启动时所 mount(挂载)的第一个文件系统，内核代码映像文件保存在根文件系中，而系统引导启动程序会在根文件系统挂载之后从中把一些基本的初始化脚本和服务等加载到内存中去运行。</p><p>这里的根文件系统的重要性犹如我们电脑的系统盘，有这个系统盘我们才能装我们的系统。根文件系统有根目录<code>/</code>，根目录下有很多子目录：</p><p><img src="https://s1.ax1x.com/2020/03/13/8ME1TH.png" alt></p><p><img src="https://s1.ax1x.com/2020/03/13/8MEGtA.png" alt></p><p>根文件系统需要专门的框架来制作，这样的框架有： BusyBox、Yocto、Buildroot 等。</p><h4 id="（4）Linux驱动"><a href="#（4）Linux驱动" class="headerlink" title="（4）Linux驱动"></a>（4）Linux驱动</h4><p>Linux驱动应该是我们学习嵌入式Linux的起始点与重心。上面那三大块内容已经为我们创建好了完整的嵌入式Linux环境。有了这样一个环境，我们的Linux驱动就可以装在上面。Linux驱动：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEtpt.png" alt></p><p>Linux中有三大类驱动：字符设备驱动、块设备驱动、网络设备驱动。</p><p>设备树(Device Tree)，将这个词分开就是“设备”和“树”，描述设备树的文件叫做 DTS(DeviceTree Source)，这个 DTS 文件采用树形结构描述板级设备，也就是开发板上的设备信息，比如CPU 数量、 内存基地址、 IIC 接口上接了哪些设备、 SPI 接口上接了哪些设备等等。</p><h4 id="（5）Linux应用"><a href="#（5）Linux应用" class="headerlink" title="（5）Linux应用"></a>（5）Linux应用</h4><p>Linux中：一切皆文件。在C编程中，我们都知道对文件的操作都是打开文件、读写文件、关闭文件等。在嵌入式Linux应用编程中，我们的关注点也是怎么操作（open、close、read、write等）这些文件（设备文件等）。</p><h3 id="3、学习嵌入式Linux的一些经验"><a href="#3、学习嵌入式Linux的一些经验" class="headerlink" title="3、学习嵌入式Linux的一些经验"></a>3、学习嵌入式Linux的一些经验</h3><p>嵌入式Linux的学习相对于单片机的学习来说要难很多，不仅要学的内容变多了，光是熟悉开发环境（Linux环境、交叉编译器、Makefile等）这一块就挺多内容，从深度上更是比单片机要深不少，比如以前学STM32是IDE编译，嵌入式Linux是直接用编译器编译或使用编译脚本编译。</p><p>从我入门到放弃的经验来看，从Linux驱动和应用开始学是比较好的，不要一上来就去撸上面那三个巨头，不然很容易从入门到放弃。。。</p><p>学习这个做好吃苦的准备，可能很多问题都会令你暴走。比如你按照教程来做，最后出来的结果可能不一样，可能会冒出很多问题，这都是很正常的。而且有时候看似只是一个问题，但这个问题会牵扯着其它问题，得有耐心的解决。</p><p>比如我前几天在编译Linux内核的时候，出现如下问题：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEN1P.png" alt></p><p>根据日志问题描述：缺少了一个叫<code>lzop</code>的东西，然后我按提示安装这个东西，然后又冒出问题：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEU6f.png" alt></p><p>然后只能到网上找解决方法，然后一个一个方法试，最后解决了：</p><p><img src="https://s1.ax1x.com/2020/03/13/8MEaX8.png" alt></p><p><img src="https://s1.ax1x.com/2020/03/13/8MEwnS.png" alt></p><p><img src="https://s1.ax1x.com/2020/03/13/8ME00g.png" alt></p><p>我的实验方法是和教程一样的，包括开发环境都是教程提供的，这样与教程完全一样的操作都能出现问题，何况有时候得自己搭环境，那出错的概率会更大。</p><p>无论如何，都不要那么容易放弃。</p><h4 id="4、最后"><a href="#4、最后" class="headerlink" title="4、最后"></a>4、最后</h4><p>嵌入式Linux的知识不仅限于上面提到的，但基本包含了我们的主要学习内容。上面提到的只是一些表层的概念性的知识，之后我们将一起来学习分享更多比较深入的、细节的知识。欢迎持续关注阅读更多笔记。</p><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p>我的CSDN博客：<a href="https://blog.csdn.net/zhengnianli" target="_blank" rel="noopener">https://blog.csdn.net/zhengnianli</a></p><p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 嵌入式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 单片机 </tag>
             
         </tags>
       
@@ -184,9 +184,9 @@
       
         <tags>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 嵌入式 </tag>
             
             <tag> 位操作 </tag>
             
@@ -696,6 +696,33 @@
     
     
     <entry>
+      <title>程序的组成、存储与运行</title>
+      <link href="/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/"/>
+      <url>/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/</url>
+      
+        <content type="html"><![CDATA[<p>一般 MCU 包含的存储空间有：片内 Flash 与片内 RAM， RAM 相当于内存， Flash 相当于硬盘。编译器会将一个程序分类为好几个部分，分别存储在 MCU 不同的存储区。</p><h2 id="一、编译过程"><a href="#一、编译过程" class="headerlink" title="一、编译过程"></a>一、编译过程</h2><p>之前分享过C程序的编译过程的笔记：C程序的编译过程是怎样的？</p><p>这里先简单看一下MDK的编译过程（它与其它编译器的工作过程是类似的 ）：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNvBn.png" alt></p><p>(1) 编译， MDK 软件使用的编译器是 <code>armcc</code> 和 <code>armasm</code>，它们根据每个 c/c++和汇编源文件编译成对应的以“.o”为后缀名的对象文件(Object Code，也称<code>目标文件</code>)，其内容主要是从源文件编译得到的机器码，包含了代码、数据以及调试使用的信息；<br>(2) 链接，链接器 <code>armlink</code> 把各个.o 文件及库文件链接成一个映像文件<code>.axf</code>或<code>.elf</code>； </p><p>(3) 格式转换，一般来说 Windows 或 Linux 系统使用链接器直接生成可执行映像文件 elf后，内核根据该文件的信息加载后，就可以运行程序了，但在单片机平台上，需要把该文件的内容加载到芯片上，所以还需要对链接器生成的 elf 映像文件利用格式转换器<code>fromelf</code> 转换成<code>.bin</code>或<code>.hex</code>文件，交给下载器下载到芯片的 FLASH 或 ROM 中。</p><p>这些编译工具都存在于我们MDK的安装目录下，如：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNq1g.png" alt></p><h2 id="二、程序的组成、存储及运行"><a href="#二、程序的组成、存储及运行" class="headerlink" title="二、程序的组成、存储及运行"></a>二、程序的组成、存储及运行</h2><p>程序在我们的MDK编译后，<code>Build Output</code> 窗口显示信息如下：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNOXj.png" alt></p><p>Program Size 包含以下几个部分： </p><p>1） Code：代码段，存放程序的代码部分；<br>2） RO-data：只读数据段，存放程序中定义的常量；<br>3） RW-data：读写数据段，存放初始化为非 0 值的全局变量；<br>4） ZI-data： 0 数据段，存放未初始化的全局变量及初始化为 0 的变量； </p><p>编译完工程会生成一个<code>. map</code> 的文件，该文件说明了各个函数占用的尺寸和地址，在文件的最后几行也说明了上面几个字段的关系，如： </p><p><img src="https://s2.ax1x.com/2019/08/28/mHNLcQ.png" alt></p><p>1） RO Size 包含了 Code 及 RO-data，表示程序占用 Flash 空间的大小；<br>2） RW Size 包含了 RW-data 及 ZI-data，表示运行时占用的 RAM 的大小；<br>3） ROM Size 包含了 Code、 RO Data 以及 RW Data，表示烧写程序所占用的 Flash 空间的大小； </p><p>程序运行之前，需要有文件实体被<code>烧录到 STM32 的 Flash 中</code>，一般是 <code>bin</code> 或者 <code>hex</code> 文件，该被烧录文件称为<code>可执行映像文件</code>。STM32程序内存分布如：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNjns.png" alt></p><p>左图是可执行映像文件烧录到 STM32 后的内存分布，它包含 RO 段和 RW 段两个部分：其中 RO 段中保存了Code、 RO-data 的数据， RW 段保存了 RW-data 的数据，由于 ZI-data 都是 0，所以未包含在映像文件中。 </p><p>STM32 在上电启动之后默认从 Flash 启动，启动之后会将 RW 段中的 RW-data（初始化的全局变量）搬运到 RAM 中，但不会搬运 RO 段，即 CPU 的执行代码从 Flash 中读取，另外根据编译器给出的 ZI 地址和大小分配出 ZI 段，并将这块 RAM 区域清零。 </p><p>其中动态内存堆为未使用的 RAM 空间，应用程序申请和释放的内存块都来自该空间。如下面的例子：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNx7q.png" alt></p><p>代码中的 msg_ptr 指针指向的 128 字节内存空间位于动态内存堆空间中。 </p><p>而一些全局变量则是存放于 RW 段和 ZI 段中， RW 段存放的是具有初始值的全局变量（而常量形式的全局变量则放置在 RO 段中，是只读属性的）， ZI 段存放的系统未初始化的全局变量，如下面的例子： </p><p><img src="https://s2.ax1x.com/2019/08/28/mHUSA0.png" alt></p><p>sensor_value 存放在 ZI 段中，系统启动后会自动初始化成零（由用户程序或编译器提供的一些库函数初始化成零）。 sensor_inited 变量则存放在 RW 段中，而 sensor_enable 存放在 RO 段中。 </p><h2 id="三、MDK-工程的文件类型"><a href="#三、MDK-工程的文件类型" class="headerlink" title="三、MDK 工程的文件类型"></a>三、MDK 工程的文件类型</h2><p><img src="https://s2.ax1x.com/2019/08/28/mHUpNV.png" alt></p><p><img src="https://s2.ax1x.com/2019/08/28/mHU9hT.png" alt></p><p>摘抄整理自：</p><pre><code>1、RT-Thread编程手册《um4003-rtthread-programming-manual》2、野火《零死角玩转STM32—F429挑战者V2》</code></pre><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 嵌入式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STM32 </tag>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言代码优化的一些经验及小技巧（二）</title>
       <link href="/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/"/>
       <url>/2019/08/28/c-yu-yan-dai-ma-you-hua-de-yi-xie-ji-qiao-er/</url>
@@ -713,33 +740,6 @@
         <tags>
             
             <tag> 代码优化 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>程序的组成、存储与运行</title>
-      <link href="/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/"/>
-      <url>/2019/08/28/cheng-xu-de-zu-cheng-cun-chu-yu-yun-xing/</url>
-      
-        <content type="html"><![CDATA[<p>一般 MCU 包含的存储空间有：片内 Flash 与片内 RAM， RAM 相当于内存， Flash 相当于硬盘。编译器会将一个程序分类为好几个部分，分别存储在 MCU 不同的存储区。</p><h2 id="一、编译过程"><a href="#一、编译过程" class="headerlink" title="一、编译过程"></a>一、编译过程</h2><p>之前分享过C程序的编译过程的笔记：C程序的编译过程是怎样的？</p><p>这里先简单看一下MDK的编译过程（它与其它编译器的工作过程是类似的 ）：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNvBn.png" alt></p><p>(1) 编译， MDK 软件使用的编译器是 <code>armcc</code> 和 <code>armasm</code>，它们根据每个 c/c++和汇编源文件编译成对应的以“.o”为后缀名的对象文件(Object Code，也称<code>目标文件</code>)，其内容主要是从源文件编译得到的机器码，包含了代码、数据以及调试使用的信息；<br>(2) 链接，链接器 <code>armlink</code> 把各个.o 文件及库文件链接成一个映像文件<code>.axf</code>或<code>.elf</code>； </p><p>(3) 格式转换，一般来说 Windows 或 Linux 系统使用链接器直接生成可执行映像文件 elf后，内核根据该文件的信息加载后，就可以运行程序了，但在单片机平台上，需要把该文件的内容加载到芯片上，所以还需要对链接器生成的 elf 映像文件利用格式转换器<code>fromelf</code> 转换成<code>.bin</code>或<code>.hex</code>文件，交给下载器下载到芯片的 FLASH 或 ROM 中。</p><p>这些编译工具都存在于我们MDK的安装目录下，如：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNq1g.png" alt></p><h2 id="二、程序的组成、存储及运行"><a href="#二、程序的组成、存储及运行" class="headerlink" title="二、程序的组成、存储及运行"></a>二、程序的组成、存储及运行</h2><p>程序在我们的MDK编译后，<code>Build Output</code> 窗口显示信息如下：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNOXj.png" alt></p><p>Program Size 包含以下几个部分： </p><p>1） Code：代码段，存放程序的代码部分；<br>2） RO-data：只读数据段，存放程序中定义的常量；<br>3） RW-data：读写数据段，存放初始化为非 0 值的全局变量；<br>4） ZI-data： 0 数据段，存放未初始化的全局变量及初始化为 0 的变量； </p><p>编译完工程会生成一个<code>. map</code> 的文件，该文件说明了各个函数占用的尺寸和地址，在文件的最后几行也说明了上面几个字段的关系，如： </p><p><img src="https://s2.ax1x.com/2019/08/28/mHNLcQ.png" alt></p><p>1） RO Size 包含了 Code 及 RO-data，表示程序占用 Flash 空间的大小；<br>2） RW Size 包含了 RW-data 及 ZI-data，表示运行时占用的 RAM 的大小；<br>3） ROM Size 包含了 Code、 RO Data 以及 RW Data，表示烧写程序所占用的 Flash 空间的大小； </p><p>程序运行之前，需要有文件实体被<code>烧录到 STM32 的 Flash 中</code>，一般是 <code>bin</code> 或者 <code>hex</code> 文件，该被烧录文件称为<code>可执行映像文件</code>。STM32程序内存分布如：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNjns.png" alt></p><p>左图是可执行映像文件烧录到 STM32 后的内存分布，它包含 RO 段和 RW 段两个部分：其中 RO 段中保存了Code、 RO-data 的数据， RW 段保存了 RW-data 的数据，由于 ZI-data 都是 0，所以未包含在映像文件中。 </p><p>STM32 在上电启动之后默认从 Flash 启动，启动之后会将 RW 段中的 RW-data（初始化的全局变量）搬运到 RAM 中，但不会搬运 RO 段，即 CPU 的执行代码从 Flash 中读取，另外根据编译器给出的 ZI 地址和大小分配出 ZI 段，并将这块 RAM 区域清零。 </p><p>其中动态内存堆为未使用的 RAM 空间，应用程序申请和释放的内存块都来自该空间。如下面的例子：</p><p><img src="https://s2.ax1x.com/2019/08/28/mHNx7q.png" alt></p><p>代码中的 msg_ptr 指针指向的 128 字节内存空间位于动态内存堆空间中。 </p><p>而一些全局变量则是存放于 RW 段和 ZI 段中， RW 段存放的是具有初始值的全局变量（而常量形式的全局变量则放置在 RO 段中，是只读属性的）， ZI 段存放的系统未初始化的全局变量，如下面的例子： </p><p><img src="https://s2.ax1x.com/2019/08/28/mHUSA0.png" alt></p><p>sensor_value 存放在 ZI 段中，系统启动后会自动初始化成零（由用户程序或编译器提供的一些库函数初始化成零）。 sensor_inited 变量则存放在 RW 段中，而 sensor_enable 存放在 RO 段中。 </p><h2 id="三、MDK-工程的文件类型"><a href="#三、MDK-工程的文件类型" class="headerlink" title="三、MDK 工程的文件类型"></a>三、MDK 工程的文件类型</h2><p><img src="https://s2.ax1x.com/2019/08/28/mHUpNV.png" alt></p><p><img src="https://s2.ax1x.com/2019/08/28/mHU9hT.png" alt></p><p>摘抄整理自：</p><pre><code>1、RT-Thread编程手册《um4003-rtthread-programming-manual》2、野火《零死角玩转STM32—F429挑战者V2》</code></pre><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p><img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 嵌入式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-            <tag> STM32 </tag>
             
         </tags>
       
@@ -1032,9 +1032,9 @@
       
         <tags>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 嵌入式 </tag>
             
             <tag> socket </tag>
             
@@ -1098,9 +1098,9 @@
       
         <tags>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> STM32 </tag>
+            
+            <tag> 嵌入式 </tag>
             
             <tag> 作品 </tag>
             
@@ -1463,9 +1463,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> 合泰单片机 </tag>
-            
             <tag> 作品 </tag>
+            
+            <tag> 合泰单片机 </tag>
             
             <tag> 远程监控 </tag>
             
@@ -1492,9 +1492,9 @@
       
         <tags>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> STM32 </tag>
+            
+            <tag> 嵌入式 </tag>
             
             <tag> 作品 </tag>
             
@@ -1523,9 +1523,9 @@
       
         <tags>
             
-            <tag> 嵌入式 </tag>
-            
             <tag> STM32 </tag>
+            
+            <tag> 嵌入式 </tag>
             
             <tag> 作品 </tag>
             
@@ -1681,9 +1681,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> RTOS </tag>
-            
             <tag> RT-Thread </tag>
+            
+            <tag> RTOS </tag>
             
             <tag> 物联网 </tag>
             
@@ -1987,9 +1987,9 @@
             
             <tag> 嵌入式 </tag>
             
-            <tag> RTOS </tag>
-            
             <tag> RT-Thread </tag>
+            
+            <tag> RTOS </tag>
             
             <tag> 物联网 </tag>
             
@@ -2458,11 +2458,11 @@
     
     
     <entry>
-      <title>【C语言笔记】复合赋值语句</title>
-      <link href="/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/"/>
-      <url>/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/</url>
+      <title>【C语言笔记】char *str与char str[]的区别</title>
+      <link href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/"/>
+      <url>/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/</url>
       
-        <content type="html"><![CDATA[<p>增加一个变量的值有两种方式，如：<code>a = a + 5</code>和<code>a += 5</code>。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。</p><p>现在，a = a + 5和a += 5之间的差别不再那么显著，而且现代的编译器为这两种表达式产生优化代码并无多大问题。但是，要考虑如下两条语句：</p><p><a href="https://imgchr.com/i/V4q9hD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4q9hD.md.png" alt></a></p><p>此处a为数组。在第一种形式种，由于编译器无从知道f函数是否具有副作用，所以它必须两次计算数组a的下标表达式的值。而在第二种形式中，下标表达式只需计算一次，所以第二种形式效率更高。并且，从书写的角度看，第一种形式的下标表达式需要书写两次，而第二种形式只需书写一次。</p><p>基于这些理由，我们应该使用复合赋值语句。</p><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>]]></content>
+        <content type="html"><![CDATA[<p>C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：</p><pre class=" language-c"><code class="language-c"><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"happy"</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token keyword">char</span> <span class="token operator">*</span>str <span class="token operator">=</span> <span class="token string">"happy"</span><span class="token punctuation">;</span></code></pre><p>这种方式有什么不同呢？</p><p>示例一：字符数组</p><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'H'</span><span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>运行结果：</p><pre class=" language-c"><code class="language-c">Hello</code></pre><p>示例二：指向字符串的指针</p><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">char</span> <span class="token operator">*</span>str <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'H'</span><span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>运行结果：</p><pre class=" language-c"><code class="language-c">无打印信息输出</code></pre><p>可见，使用示例一方式定义的字符串其字符是可以修改的，使用示例二方式定义的字符串其字符是不可以修改的。示例二中可以成功编译和链接，但运行时可能会出现错误，我编译坏境是<code>32bit</code>的，运行结果是无打印信息输出，在其他不同的平台运行可能会出现<code>段错误（Segment Fault）</code>或者写入位置错误。</p><p>这两种表示字符串的方式的主要区别是：字符串指针指向的内容是不可修改的，字符数组是可以修改的，即示例二方式定义的字符串保存在常量区，是不可更改的，示例一方式定义的字符串保存在全局数据区或栈区，是可修改的。</p><p>内存的分配方式：</p><p>内存分配可分为三种：静态存储区、栈区、堆区。</p><p><code>1、静态存储区</code>：该内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在，它主要存放静态数据、全局数据和常量。</p><p><code>2、栈区</code>：它的用途是完成函数的调用。在执行函数时，函数内局部变量及函数参数的存储单元在栈上创建，函数调用结束时这些存储单元自动被释放。</p><p><code>3、堆区</code>：程序在运行时使用库函数为变量申请内存，在变量使用结束后再调用库函数释放内存。动态内存的生存期是由我们决定的，如果我们不释放内存，就会导致内存泄漏。</p><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>]]></content>
       
       
       <categories>
@@ -2483,11 +2483,11 @@
     
     
     <entry>
-      <title>【C语言笔记】char *str与char str[]的区别</title>
-      <link href="/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/"/>
-      <url>/2018/10/14/c-yu-yan-bi-ji-char-str-yu-char-str-de-qu-bie/</url>
+      <title>【C语言笔记】复合赋值语句</title>
+      <link href="/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/"/>
+      <url>/2018/10/14/c-yu-yan-bi-ji-fu-he-fu-zhi-yu-ju/</url>
       
-        <content type="html"><![CDATA[<p>C语言中没有特定的字符串类型，常用以下两种方式定义字符串：一种是字符数组，另一种是指向字符串的指针。如下：</p><pre class=" language-c"><code class="language-c"><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"happy"</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token keyword">char</span> <span class="token operator">*</span>str <span class="token operator">=</span> <span class="token string">"happy"</span><span class="token punctuation">;</span></code></pre><p>这种方式有什么不同呢？</p><p>示例一：字符数组</p><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'H'</span><span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>运行结果：</p><pre class=" language-c"><code class="language-c">Hello</code></pre><p>示例二：指向字符串的指针</p><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">char</span> <span class="token operator">*</span>str <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'H'</span><span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>运行结果：</p><pre class=" language-c"><code class="language-c">无打印信息输出</code></pre><p>可见，使用示例一方式定义的字符串其字符是可以修改的，使用示例二方式定义的字符串其字符是不可以修改的。示例二中可以成功编译和链接，但运行时可能会出现错误，我编译坏境是<code>32bit</code>的，运行结果是无打印信息输出，在其他不同的平台运行可能会出现<code>段错误（Segment Fault）</code>或者写入位置错误。</p><p>这两种表示字符串的方式的主要区别是：字符串指针指向的内容是不可修改的，字符数组是可以修改的，即示例二方式定义的字符串保存在常量区，是不可更改的，示例一方式定义的字符串保存在全局数据区或栈区，是可修改的。</p><p>内存的分配方式：</p><p>内存分配可分为三种：静态存储区、栈区、堆区。</p><p><code>1、静态存储区</code>：该内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在，它主要存放静态数据、全局数据和常量。</p><p><code>2、栈区</code>：它的用途是完成函数的调用。在执行函数时，函数内局部变量及函数参数的存储单元在栈上创建，函数调用结束时这些存储单元自动被释放。</p><p><code>3、堆区</code>：程序在运行时使用库函数为变量申请内存，在变量使用结束后再调用库函数释放内存。动态内存的生存期是由我们决定的，如果我们不释放内存，就会导致内存泄漏。</p><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>]]></content>
+        <content type="html"><![CDATA[<p>增加一个变量的值有两种方式，如：<code>a = a + 5</code>和<code>a += 5</code>。存在两种增加一个变量值的方法有何意义呢？K&amp;R C设计者认为复合赋值符可以让程序员把代码写得更清楚些。另外，编译器可以产生更为紧凑的代码。</p><p>现在，a = a + 5和a += 5之间的差别不再那么显著，而且现代的编译器为这两种表达式产生优化代码并无多大问题。但是，要考虑如下两条语句：</p><p><a href="https://imgchr.com/i/V4q9hD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/14/V4q9hD.md.png" alt></a></p><p>此处a为数组。在第一种形式种，由于编译器无从知道f函数是否具有副作用，所以它必须两次计算数组a的下标表达式的值。而在第二种形式中，下标表达式只需计算一次，所以第二种形式效率更高。并且，从书写的角度看，第一种形式的下标表达式需要书写两次，而第二种形式只需书写一次。</p><p>基于这些理由，我们应该使用复合赋值语句。</p><hr><p>我的个人博客：<a href="https://zhengnianli.github.io/">https://zhengnianli.github.io/</a></p><p>我的微信公众号：嵌入式大杂烩</p><p>[<img src="https://s2.ax1x.com/2019/06/11/VcSFJJ.md.png" alt>](</p>]]></content>
       
       
       <categories>
